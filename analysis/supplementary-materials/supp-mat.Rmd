@@ -1,0 +1,35 @@
+---
+title: Supplementary Materials
+---
+
+## Metadata
+
+**raw_counts**
+<!-- insert data type for each column -->
+Counts represent the absolute number of starches counted on a slide
+
+sample: Sample number.
+plate: Plate number that the sample came from.
+row: Which row on the plate the sample came from.
+s: Small starch count.
+m: Medium starch count.
+l: Large starch count.
+total: Sum of s, m, and l.
+treatment: Treatment solution to which the samples were exposed.
+starch: Type of starch that was counted
+weight: Weight of the biofilm sample
+vol: Total volume of EDTA in which the sample was dissolved.
+portion_slide: Proportion of the microscope slide that was counted.
+
+## Count corrections
+
+Sample counts were extrapolated using the following formula:
+
+$$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-1} \times \frac{V_{sample}}{V_{slide}} $$
+
+Solution counts were extrapolated to the quantity in a 1 ml solution with
+the following formula:
+
+$$ \text{corrected count} = \text{raw count} \times \frac{29}{3} \times 100 \mu l $$
+
+## Functions

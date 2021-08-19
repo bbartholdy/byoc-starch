@@ -1,0 +1,38 @@
+---
+title: "Tables and Figures"
+output:
+  bookdown::pdf_document2:
+    toc: no
+---
+
+```{r setup-figs-and-tbls, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(broom)
+library(here)
+library(patchwork)
+# load R scripts
+source(here("analysis/scripts/analysis.R"))
+source(here("analysis/scripts/tables.R"))
+source(here("analysis/scripts/figures.R"))
+#code to include R scripts in .Rmd: r knitr::spin_child("tables.R")
+```
+
+\listoftables
+\listoffigures
+
+<!-- ### Tables ### -->
+
+<!-- ### Figures ### -->
+
+```{r sep-plot, fig.cap="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}
+#plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
+pl_wheat1 + pl_potato1 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+```
+
+<!-- change colour of medium starches in D to match C -->
+```{r mix-plot, fig.cap="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}
+#plot_grid(pl_wheat2, pl_potato2, labels = c("C", "D"), label_y = 0.1)
+pl_wheat2 + pl_potato2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+```
+
