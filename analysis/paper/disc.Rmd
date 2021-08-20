@@ -6,7 +6,7 @@ starches into the mineral matrix of a dental calculus biofilm model. Our results
 that a very low proportion of the starches exposed to the biofilm during growth are
 retained in the mineral matrix, and that the size of the starch granules
 may affect the likeliness of incorporation. The proportions of starch granules 
-(of all sizes) present in the extracted samples  were similar across all treatments
+(of all sizes) present in the extracted samples were similar across all treatments
 (`r paste(min(perc$total), max(perc$total), sep = " to ")`), 
 despite large differences in absolute granule counts between wheat 
 (`r format(count_sol$total[4], big.mark = ",")`) 
@@ -166,7 +166,10 @@ smaller starch granules are more susceptible to enzymatic degradation, as are
 pre-processed starches (e.g. by cooking), while dehydrated starches will have a
 reduced susceptibility
 [@lingstromStarchyFood1994; @francoStarchDegradation1992; @haslamDecompositionStarch2004; 
-@bjorckStarchProcessing1984; @henryCookingStarch2009]. 
+@bjorckStarchProcessing1984; @henryCookingStarch2009]. Given the lack of $\alpha$-amylase 
+activity detected in our model, hydrolysis is unlikely to be the main cause of our
+reported low incorporation. More details on the absence of $\alpha$-amylase 
+activity is discussed elsewhere<!--Bartholdy et al. in prep-->.
 <!--
 Starches also have the ability to adhere to certain bacteria [@toppingResistantStarch2003],
 which would allow starches to attach to bacterial communities within the biofilm.
@@ -175,9 +178,9 @@ resist hydrolysis and
 mechanical removal will then be trapped in pockets within the mineral matrix, and
 will temporarily be protected from shearing action and salivary 
 clearance. -->
-This means, that the dietary picture we obtain from starch granules extracted from 
-dental calculus reflects a number of individual, dietary, and environmental (both
-pre- and post-mortem environments) factors, and that this will likely be a
+What we can say, is that the dietary picture we obtain from starch granules extracted 
+from dental calculus reflects a number of individual, dietary, and environmental 
+(both pre- and post-mortem environments) factors, and that this will likely be a
 somewhat random snapshot given the irregularity of plaque mineralisation within
 and between individuals [@jinSupragingivalCalculus2002; @jepsenCalculusRemoval2011]. 
 Although, certain factors may increase the likelihood of incorporation, such 

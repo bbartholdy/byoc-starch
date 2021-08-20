@@ -15,7 +15,7 @@ and species [@henryNeanderthalCalculus2014; @hardyNeanderthalMedics2012].
 <!-- more detailed background, comprehensible to scientists in related disciplines -->
 
 Until recently, few studies directly investigated the presence of plant microremains
-from the dental calculus of archaeological remains. The ability to extract phytoliths
+in the dental calculus of archaeological remains. The ability to extract phytoliths
 from the dental calculus of archaeological fauna to investigate diet was first 
 noted by Armitage [-@armitageExtractionIdentificationOpal1975], 
 and later by Middleton and Rovner [-@middletonExtractionOpalPhytoliths1994],

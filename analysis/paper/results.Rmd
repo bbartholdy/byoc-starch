@@ -13,14 +13,17 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 #code to include R scripts in .Rmd: r knitr::spin_child("tables.R")
 ```
 
+
 All samples yielded sufficient biofilm growth and starch incorporation to be 
 included in the analysis, resulting in a total of 48 biofilm samples (two plates of 24),
 45 of which were used for analysis (three samples were set aside for separate analysis).
 Most control samples contained no starch granules, while some contained negligible
 quantities (supp. mat).
 
-<!-- exclude problematic samples: st1C5 wheat and st2C6 potato, and  st2C5 
-Use more formal outlier detection -->
+## No amylase activity detected in the model
+
+<!-- insert amylase results -->
+
 
 ## Treatment type had no effect on biofilm growth
 

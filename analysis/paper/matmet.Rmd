@@ -70,6 +70,10 @@ All laboratory work was conducted in sterile conditions under a laminar flow hoo
 to prevent starch and bacterial contamination. Control samples were included to 
 detect starch contamination.
 
+## Amylase activity detection
+
+<!-- amylase protocol description -->
+
 ## Starch counts
 
 Starch granule counts were divided into three size categories: small (<10 $\mu$m),

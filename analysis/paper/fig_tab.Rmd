@@ -21,8 +21,10 @@ source(here("analysis/scripts/figures.R"))
 \listoftables
 \listoffigures
 
+## Tables
 <!-- ### Tables ### -->
 
+## Figures
 <!-- ### Figures ### -->
 
 ```{r sep-plot, fig.cap="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}

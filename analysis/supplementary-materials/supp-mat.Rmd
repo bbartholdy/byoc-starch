@@ -1,6 +1,17 @@
 ---
 title: Supplementary Materials
+output: 
+  html_document:
+    keep_md: true
+    df_print: paged
 ---
+
+```{r setup}
+library(here)
+library(tidyverse)
+raw_data <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
+```
+
 
 ## Metadata
 
@@ -20,6 +31,17 @@ starch: Type of starch that was counted
 weight: Weight of the biofilm sample
 vol: Total volume of EDTA in which the sample was dissolved.
 portion_slide: Proportion of the microscope slide that was counted.
+
+## Control samples
+
+```{r}
+raw_data %>%
+  filter(treatment == "control") %>%
+  select(!c(vol, portion_slide, s, m, l))
+```
+
+Only the total starch count was considered for control samples, as size was
+deemed irrelevant.
 
 ## Count corrections
 
