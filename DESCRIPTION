@@ -17,7 +17,11 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Imports: bookdown,
-    here
+Imports: 
+    bookdown,
+    dplyr,
+    ggplot2,
+    here,
+    magrittr
 Suggests: devtools,
     git2r

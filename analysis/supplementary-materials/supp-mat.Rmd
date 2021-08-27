@@ -32,6 +32,26 @@ weight: Weight of the biofilm sample
 vol: Total volume of EDTA in which the sample was dissolved.
 portion_slide: Proportion of the microscope slide that was counted.
 
+## Amylase activity
+
+Tables containing the amylase activity results for both plates and photometric
+readings.
+
+```{r amylase-activity-results}
+# table of results reported in units amylase per mL enzyme (but let's be honest,
+  # ...it doesn't really matter what the unit is. No activity is no activity)
+cols <- c("1", "2", "3")  
+rows <- c("S1", "S2", "S3", "B1", "B2", "B3", "B4", "B5", "BT1", "BT2", "BT3")
+(plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1))
+#  plt1_ph1_result[plt1_ph1_result < 0] <- 0
+(plt1_ph2_result <- rbind(sal1_ph2, bmm1_ph2))
+#  plt1_ph2_result[plt1_ph2_result < 0] <- 0
+(plt2_ph1_result <- rbind(sal2_ph1, bmm2_ph1))
+  #plt2_ph1_result[plt2_ph1_result < 0] <- 0
+(plt2_ph2_result <- rbind(sal2_ph2, bmm2_ph2))
+  #plt2_ph2_result[plt2_ph2_result < 0] <- 0
+```
+
 ## Control samples
 
 ```{r}

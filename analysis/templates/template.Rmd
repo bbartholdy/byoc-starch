@@ -6,6 +6,7 @@ author:
 date: '`r Sys.Date()`'
 output: word_document
 abstract: "My abstract \n"
+keywords: "keyword 1; keyword 2 \n"
 ---
 
 ```{r setup, include=FALSE}
