@@ -5,6 +5,8 @@ author:
   - Amanda G. Henry
 date: "`r Sys.Date()`"
 output:
+  bookdown::word_document2:
+    reference_docx: "../templates/template.docx"
   bookdown::pdf_document2:
     #template: "../templates/sn-article-template/sn-article.tex"
     df_print: kable
@@ -15,8 +17,6 @@ output:
   bookdown::html_document2:
     df_print: kable
     keep_md: true
-  bookdown::word_document2:
-    reference_docx: "../templates/template.docx"
 linestretch: 2.0 # double-spacing for review purposes
 bibliography: refs.bib
 csl: apa.csl
@@ -415,12 +415,12 @@ to higher quantities of starches mean more incorporated starches? -->
 The separate wheat and potato solutions were made with a 0.25% (w/v) starch
 concentration, while the mixed-starch solution was made with 0.25% (w/v) of each
 starch, with a total concentration of 0.50% (w/v).
-The mixed treatment had the highest absolute count of starch granules in solution (mean = `r subset(count_sol, treatment == "mix")$total`),
+The mixed treatment had the highest absolute count of starch granules in solution (mean = `r subset(count_sol, solution == "mix")$total`),
 while the biofilms exposed to the wheat solution preserved the greatest number of
 granules 
 (mean = `r subset(count_sample, treatment == "wheat")$total`). 
 The potato treatment had the lowest absolute counts in both the solution 
-(`r subset(count_sol, treatment == "potato")$total`)
+(`r subset(count_sol, solution == "potato")$total`)
 and in the biofilm samples 
 (`r subset(count_sample, treatment == "potato")$total`) 
 (Tables \@ref(tab:solution-count-tbl) and \@ref(tab:sample-count-tbl)).

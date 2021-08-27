@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.19)  27 AUG 2021 11:53
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.19)  27 AUG 2021 16:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -842,48 +842,52 @@ otocol.png>
 [3] [4]
 
 LaTeX Warning: Reference `fig:protocol-fig' on page 5 undefined on input line 2
-54.
+55.
 
 [5] [6] [7]
-Overfull \hbox (69.14508pt too wide) in paragraph at lines 442--457
+Overfull \hbox (69.14508pt too wide) in paragraph at lines 448--463
  [][] 
  []
 
-[8]
+[8] [9]
 File: ../figures/sep-plot-1.pdf Graphic file (type pdf)
 <use ../figures/sep-plot-1.pdf>
 File: ../figures/mix-plot-1.pdf Graphic file (type pdf)
 <use ../figures/mix-plot-1.pdf>
-[9] [10]
+[10]
 
-LaTeX Warning: Reference `fig:mix-plot' on page 11 undefined on input line 546.
+LaTeX Warning: Reference `fig:mix-plot' on page 11 undefined on input line 556.
 
 
 File: ../figures/cor-plot-1.pdf Graphic file (type pdf)
 <use ../figures/cor-plot-1.pdf>
 [11]
 
-LaTeX Warning: Reference `fig:cor-plot' on page 12 undefined on input line 560.
+LaTeX Warning: Reference `fig:cor-plot' on page 12 undefined on input line 570.
 
 
 File: ../figures/cor-plot2-1.pdf Graphic file (type pdf)
 <use ../figures/cor-plot2-1.pdf>
 [12] [13]
 
-LaTeX Warning: Reference `fig:mix-plot' on page 14 undefined on input line 630.
+LaTeX Warning: Reference `fig:mix-plot' on page 14 undefined on input line 640.
+
+
+
+LaTeX Warning: Reference `fig:cor-plot' on page 14 undefined on input line 664.
 
 
 [14]
 
-LaTeX Warning: Reference `fig:cor-plot' on page 15 undefined on input line 655.
-
-
-[15]
-
-LaTeX Warning: Reference `fig:cor-plot1' on page 16 undefined on input line 703
+LaTeX Warning: Reference `fig:cor-plot1' on page 15 undefined on input line 713
 .
 
-[16] [17] [18]
+[15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 774--798
+
+ []
+
+[18]
 Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=t
 ex-text;!
 Missing character: There is no β (U+03B2) in font [lmroman10-regular]:mapping=t
@@ -899,12 +903,12 @@ ex-text;!
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 3A8B077CE6CFF2363540759CBEC4D3B8;3579.
+(rerunfilecheck)             Checksum: A5DDD7D6040B470EE61DDD961C3B1A0E;3546.
  ) 
 Here is how much of TeX's memory you used:
  17887 strings out of 478475
- 319479 string characters out of 5859105
- 812133 words of memory out of 5000000
+ 319473 string characters out of 5859105
+ 816104 words of memory out of 5000000
  37933 multiletter control sequences out of 15000+600000
  409865 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
