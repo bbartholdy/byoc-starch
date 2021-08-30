@@ -5,8 +5,6 @@ author:
   - Amanda G. Henry
 date: "`r Sys.Date()`"
 output:
-  bookdown::word_document2:
-    reference_docx: "../templates/template.docx"
   bookdown::pdf_document2:
     #template: "../templates/sn-article-template/sn-article.tex"
     df_print: kable
@@ -14,6 +12,8 @@ output:
     latex_engine: xelatex
     fig_caption: yes
     number_sections: yes
+  bookdown::word_document2:
+    reference_docx: "../templates/template.docx"
   bookdown::html_document2:
     df_print: kable
     keep_md: true
@@ -112,7 +112,7 @@ they represent actual dietary intake. These studies are justifiably limited,
 despite meticulous documentation and observation, due to unknown variables and 
 uncertainty involved when studying living organisms. Dental calculus is a complex 
 oral biofilm with a multifactorial aetiology and variable formation rates both 
-within and between individuals [@jepsenCalculusRemoval2011], contributing to
+within and between individuals [@jepsenCalculusRemoval2011; @haffajeeBiofilmPosition2009], contributing to
 the stochasticity of starch representation being observed in numerous studies.
 Additionally, the rate of $\alpha$-amylase differs both between and within
 individuals [@froehlichEffectOral1987; @naterHumanAmylase2005],
@@ -335,7 +335,7 @@ A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 
 <!-- starch counts in the solutions -->
 
-<!-- INSERT PICTURES OF STARCHES -->
+<!-- INSERT MICROSCOPE PICTURES OF STARCHES -->
 
 ```{r solution-count-out}
 count_sol_out <- count_sol %>%
@@ -473,16 +473,16 @@ in the separated wheat treatment.
 <!-- size proportions -->
 <!-- pie charts -->
 
-```{r sep-plot, fig.cap="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}
+```{r sep-plot, fig.cap="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring)."}
 #plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
 pl_wheat1 + pl_potato1 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
 
-<!-- change colour of medium starches in D to match C -->
-```{r mix-plot, fig.cap="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}
+```{r mix-plot, fig.cap="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring)."}
 #plot_grid(pl_wheat2, pl_potato2, labels = c("C", "D"), label_y = 0.1)
 pl_wheat2 + pl_potato2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
+
 <!-- Combine to a single figure? -->
 
 <!-- overall size trends -->
@@ -549,6 +549,7 @@ strength_cor <- if(cor_r >= 0.8){
 ```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments."}
 pl_cor
 ```
+
 <!-- with Z-score standardisation -->
 
 Pearson's *r* suggests a 
@@ -814,7 +815,9 @@ dietary intake, processing of starches leading to differential survivability,
 and inter- and intra-individual variation in plaque accumulation and 
 mineralisation.
 The latter is especially difficult to control *in vivo* as it is influenced by 
-numerous factors including genetics, diet, and tooth morphology [@jepsenCalculusRemoval2011]<!-- more citations -->.
+numerous factors including genetics, diet, salivary flow, tooth position and morphology 
+[@jepsenCalculusRemoval2011; @simon-soroOralGeography2013; @proctorSpatialGradient2018; @fagernasMicrobialBiogeography2021; @haffajeeBiofilmPosition2009], 
+as well as evolutionary differences through time [@yatesOralMicrobiome2021].
 It can also facilitate training of students and researchers on methods of 
 dental calculus analysis, such as starch and phytolith extraction and 
 identification, where it can replace the use of finite archaeological resources.  

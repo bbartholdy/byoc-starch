@@ -24,6 +24,24 @@ source(here("analysis/scripts/figures.R"))
 ## Tables
 <!-- ### Tables ### -->
 
+```{r sample-perc}
+# convert proportions to percent labels
+perc_comb <- prop_comb %>% 
+  mutate(across(c(s, m, l, total), scales::percent, 0.001)) 
+
+perc <- prop %>%
+  mutate(across(c(s, m, l, total), scales::percent, 0.001)) %>% 
+  add_row(tibble_row(perc_comb), .before = 3)
+```
+
+
+```{r sample-prop-tbl}
+cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
+knitr::kable(perc, col.names = cnames, 
+             caption = "The mean percentage of starches from the solutions that 
+              were incorported into the samples.")
+```
+
 ## Figures
 <!-- ### Figures ### -->
 
@@ -32,9 +50,15 @@ source(here("analysis/scripts/figures.R"))
 pl_wheat1 + pl_potato1 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
 
-<!-- change colour of medium starches in D to match C -->
 ```{r mix-plot, fig.cap="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}
 #plot_grid(pl_wheat2, pl_potato2, labels = c("C", "D"), label_y = 0.1)
 pl_wheat2 + pl_potato2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
 
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments."}
+pl_cor
+```
+
+```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
+pl_cor2
+```

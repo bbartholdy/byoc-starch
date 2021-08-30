@@ -138,19 +138,26 @@ pl_wheat2 <- ratio_mix %>%
   coord_polar(theta = "y") +
   theme_void() +
   #geom_text(aes(x = 2, label = label_wheat)) +
-  scale_fill_viridis_d(begin = 0.7)
+  scale_fill_viridis_d(begin = 0.7,
+                       name = "Size",
+                       labels = c("Large", "Medium", "Small"))
+  #scale_fill_manual(values = viridisLite::viridis(3, begin = 0.7),
+  #                  name = "Size", labels = c("Large", "Medium", "Small"))
 
 pl_potato2 <- ratio_mix %>%
+  mutate(potato = if_else(is.na(potato), 0, potato)) %>% # fix colour issue
   select(!contains("wheat")) %>%
-  filter(size != "s") %>%
+  #filter(size != "s") %>% # this caused m to have a different colour that pl_wheat2
   ggplot(aes(x = type, y = potato, fill = size)) +
-  #geom_rect(xmin = 2, xmax = 3, ymin = ratio_sep$ymin, ymax = ratio_sep$ymax_wheat) +
   geom_bar(stat = "identity", width = 1, colour = "white") +
   coord_polar(theta = "y") +
   theme_void() +
   #geom_text(aes(x = 2, label = label_wheat)) +
-  scale_fill_viridis_d(begin = 0.7)
-
+  scale_fill_viridis_d(begin = 0.7,
+                       name = "Size",
+                       labels = c("Large", "Medium", "Small"))
+  #scale_fill_manual(values = viridisLite::viridis(3, begin = 0.7)[c(1,2)],
+  #                  name = "Size", labels = c("Large", "Medium", "Small"))
 
 # Scatter plot ------------------------------------------------------------
 
