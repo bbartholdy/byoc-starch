@@ -55,6 +55,8 @@ sample_calc <- function(samp_data, cols = NULL, std_curve, dilf, ml_enz){
   blank <- std_curve$blank
   n_rows <- nrow(samp_data)
   n_cols <- ncol(samp_data)
+  samp_data <- samp_data %>%
+    mutate(across(everything(), as.numeric))
   blank_mat <- blank %>%
      slice(rep(1:n(), each = n_rows))
   samp_data_corr <- samp_data - blank_mat
