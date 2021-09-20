@@ -3,7 +3,7 @@ title: "Untitled"
 author:
   - "Bjørn Peare Bartholdy"
   - Amanda G. Henry
-date: "2021-08-27"
+date: "2021-08-30"
 output:
   bookdown::html_document2:
     df_print: kable
@@ -92,7 +92,7 @@ they represent actual dietary intake. These studies are justifiably limited,
 despite meticulous documentation and observation, due to unknown variables and 
 uncertainty involved when studying living organisms. Dental calculus is a complex 
 oral biofilm with a multifactorial aetiology and variable formation rates both 
-within and between individuals [@jepsenCalculusRemoval2011], contributing to
+within and between individuals [@jepsenCalculusRemoval2011; @haffajeeBiofilmPosition2009], contributing to
 the stochasticity of starch representation being observed in numerous studies.
 Additionally, the rate of $\alpha$-amylase differs both between and within
 individuals [@froehlichEffectOral1987; @naterHumanAmylase2005],
@@ -324,7 +324,7 @@ A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 
 <!-- starch counts in the solutions -->
 
-<!-- INSERT PICTURES OF STARCHES -->
+<!-- INSERT MICROSCOPE PICTURES OF STARCHES -->
 
 
 
@@ -428,15 +428,15 @@ in the separated wheat treatment.
 <!-- pie charts -->
 
 <div class="figure">
-<img src="../figures/sep-plot-1.png" alt="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."  />
-<p class="caption">(\#fig:sep-plot)(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small.</p>
+<img src="../figures/sep-plot-1.png" alt="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring)."  />
+<p class="caption">(\#fig:sep-plot)(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring).</p>
 </div>
 
-<!-- change colour of medium starches in D to match C -->
 <div class="figure">
-<img src="../figures/mix-plot-1.png" alt="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."  />
-<p class="caption">(\#fig:mix-plot)Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small.</p>
+<img src="../figures/mix-plot-1.png" alt="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring)."  />
+<p class="caption">(\#fig:mix-plot)Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring).</p>
 </div>
+
 <!-- Combine to a single figure? -->
 
 <!-- overall size trends -->
@@ -474,6 +474,7 @@ increased in potato treatments
 <img src="../figures/cor-plot-1.png" alt="Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments."  />
 <p class="caption">(\#fig:cor-plot)Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments.</p>
 </div>
+
 <!-- with Z-score standardisation -->
 
 Pearson's *r* suggests a 
@@ -740,7 +741,9 @@ dietary intake, processing of starches leading to differential survivability,
 and inter- and intra-individual variation in plaque accumulation and 
 mineralisation.
 The latter is especially difficult to control *in vivo* as it is influenced by 
-numerous factors including genetics, diet, and tooth morphology [@jepsenCalculusRemoval2011]<!-- more citations -->.
+numerous factors including genetics, diet, salivary flow, tooth position and morphology 
+[@jepsenCalculusRemoval2011; @simon-soroOralGeography2013; @proctorSpatialGradient2018; @fagernasMicrobialBiogeography2021; @haffajeeBiofilmPosition2009], 
+as well as evolutionary differences through time [@yatesOralMicrobiome2021].
 It can also facilitate training of students and researchers on methods of 
 dental calculus analysis, such as starch and phytolith extraction and 
 identification, where it can replace the use of finite archaeological resources.  
