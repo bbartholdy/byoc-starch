@@ -1,16 +1,16 @@
 Package: byocstarch
-Title: What the Package Does (One Line, Title Case)
+Title: TITLE OF PAPER
 Version: 0.0.0.9000
 Authors@R:
-    c(person(given = "First",
-           family = "Last",
+    c(person(given = "Bjorn Peare",
+           family = "Bartholdy",
            role = c("aut", "cre"),
-           email = "first.last@example.com"),
-           person(given = "First",
-           family = "Last",
+           email = "bpbartholdy@gmail.com"),
+           person(given = "Amanda G.",
+           family = "Henry",
            role = c("aut"),
-           email = "first.last@example.com"))
-Description: What the package does (one paragraph).
+           email = "a.g.henry@arch.leidenuniv.nl"))
+Description: Compendium for TITLE.
 License: MIT + file LICENSE
 ByteCompile: true
 Encoding: UTF-8

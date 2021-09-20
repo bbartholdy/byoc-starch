@@ -54,8 +54,10 @@ The **analysis** directory contains:
 
 ## How to run in your browser or download and run locally
 
+This compendium can be accessed in a web browser using binder...
+
 This research compendium has been developed using the statistical programming
-language R. To work with the compendium, you will need
+language R. To work with the compendium locally, you will need
 installed on your computer the [R software](https://cloud.r-project.org/)
 itself and optionally [RStudio Desktop](https://rstudio.com/products/rstudio/download/).
 
