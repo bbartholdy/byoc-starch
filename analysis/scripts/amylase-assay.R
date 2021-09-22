@@ -4,18 +4,18 @@ library(tidyverse)
 
 # Upload data -------------------------------------------------------------
 
-plt1_ph1 <- readr::read_table(
-  here::here("analysis/Amylase/ExpM_plate1_photometric1.txt"),
+plt1_ph1 <- readr::read_tsv(
+  here::here("analysis/data/raw_data/ExpM_plate1_photometric1.csv"),
   col_names = F)
-plt1_ph2 <- readr::read_table(
-  here::here("analysis/Amylase/ExpM_plate1_photometric2.txt"),
+plt1_ph2 <- readr::read_tsv(
+  here::here("analysis/data/raw_data/ExpM_plate1_photometric2.csv"),
   col_names = F)
 
-plt2_ph1 <- readr::read_table(
-  here::here("analysis/Amylase/ExpM_plate2_photometric1.txt"),
+plt2_ph1 <- readr::read_tsv(
+  here::here("analysis/data/raw_data/ExpM_plate2_photometric1.csv"),
   col_names = F)
-plt2_ph2 <- readr::read_table(
-  here::here("analysis/Amylase/ExpM_plate2_photometric2.txt"),
+plt2_ph2 <- readr::read_tsv(
+  here::here("analysis/data/raw_data/ExpM_plate2_photometric2.csv"),
   col_names = F)
 
 
