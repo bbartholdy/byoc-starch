@@ -31,24 +31,24 @@ print(sessionInfo(), locale = FALSE)
 ## 
 ## other attached packages:
 ##  [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.6     purrr_0.3.4    
-##  [5] readr_1.4.0     tidyr_1.1.3     tibble_3.1.2    ggplot2_3.3.4  
+##  [5] readr_1.4.0     tidyr_1.1.3     tibble_3.1.4    ggplot2_3.3.4  
 ##  [9] tidyverse_1.3.1 here_1.0.1     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.1.1  xfun_0.24         bslib_0.2.5.1     haven_2.4.1      
-##  [5] colorspace_2.0-1  vctrs_0.3.8       generics_0.1.0    htmltools_0.5.1.1
-##  [9] yaml_2.2.1        utf8_1.2.1        rlang_0.4.11      jquerylib_0.1.4  
-## [13] pillar_1.6.1      glue_1.4.2        withr_2.4.2       DBI_1.1.1        
-## [17] dbplyr_2.1.1      modelr_0.1.8      readxl_1.3.1      lifecycle_1.0.0  
-## [21] munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0  rvest_1.0.0      
-## [25] evaluate_0.14     knitr_1.33        fansi_0.5.0       broom_0.7.7      
-## [29] Rcpp_1.0.7        backports_1.2.1   scales_1.1.1      jsonlite_1.7.2   
-## [33] fs_1.5.0          hms_1.1.0         digest_0.6.27     stringi_1.7.3    
-## [37] rprojroot_2.0.2   grid_4.1.1        cli_3.0.1         tools_4.1.1      
-## [41] magrittr_2.0.1    sass_0.4.0        crayon_1.4.1      pkgconfig_2.0.3  
-## [45] ellipsis_0.3.2    xml2_1.3.2        reprex_2.0.0      lubridate_1.7.10 
-## [49] rstudioapi_0.13   assertthat_0.2.1  rmarkdown_2.9     httr_1.4.2       
-## [53] R6_2.5.0          compiler_4.1.1
+##  [1] tidyselect_1.1.1 xfun_0.26        bslib_0.3.0      haven_2.4.1     
+##  [5] colorspace_2.0-1 vctrs_0.3.8      generics_0.1.0   htmltools_0.5.2 
+##  [9] yaml_2.2.1       utf8_1.2.2       rlang_0.4.11     jquerylib_0.1.4 
+## [13] pillar_1.6.3     withr_2.4.2      glue_1.4.2       DBI_1.1.1       
+## [17] dbplyr_2.1.1     modelr_0.1.8     readxl_1.3.1     lifecycle_1.0.1 
+## [21] munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0 rvest_1.0.0     
+## [25] evaluate_0.14    knitr_1.36       fastmap_1.1.0    fansi_0.5.0     
+## [29] broom_0.7.7      Rcpp_1.0.7       backports_1.2.1  scales_1.1.1    
+## [33] jsonlite_1.7.2   fs_1.5.0         hms_1.1.0        digest_0.6.28   
+## [37] stringi_1.7.4    rprojroot_2.0.2  grid_4.1.1       cli_3.0.1       
+## [41] tools_4.1.1      magrittr_2.0.1   sass_0.4.0       crayon_1.4.1    
+## [45] pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.2       reprex_2.0.0    
+## [49] lubridate_1.7.10 rstudioapi_0.13  assertthat_0.2.1 rmarkdown_2.9   
+## [53] httr_1.4.2       R6_2.5.1         compiler_4.1.1
 ```
 
 
