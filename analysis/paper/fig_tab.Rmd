@@ -45,14 +45,9 @@ knitr::kable(perc, col.names = cnames,
 ## Figures
 <!-- ### Figures ### -->
 
-```{r sep-plot, fig.cap="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}
+```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}
 #plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
-pl_wheat1 + pl_potato1 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
-```
-
-```{r mix-plot, fig.cap="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring). l = large, m = medium, s = small."}
-#plot_grid(pl_wheat2, pl_potato2, labels = c("C", "D"), label_y = 0.1)
-pl_wheat2 + pl_potato2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+(pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
 
 ```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments."}

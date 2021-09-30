@@ -4,52 +4,88 @@ output:
   html_document:
     keep_md: true
     df_print: paged
+    toc: true
+    toc_float: true
 ---
 
-```{r setup}
+```{r setup, include=FALSE}
 library(here)
 library(tidyverse)
 raw_data <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
 ```
 
+## R Session info
 
-## Metadata
+```{r}
+print(sessionInfo(), locale = FALSE)
+```
 
-**raw_counts**
-<!-- insert data type for each column -->
+
+## Metadata for raw data files
+
 Counts represent the absolute number of starches counted on a slide
 
-sample: Sample number.
-plate: Plate number that the sample came from.
-row: Which row on the plate the sample came from.
-s: Small starch count.
-m: Medium starch count.
-l: Large starch count.
-total: Sum of s, m, and l.
-treatment: Treatment solution to which the samples were exposed.
-starch: Type of starch that was counted
-weight: Weight of the biofilm sample
-vol: Total volume of EDTA in which the sample was dissolved.
-portion_slide: Proportion of the microscope slide that was counted.
+**starch_counts.csv**
+
+| variable | description |
+|----|----|
+| sample | Sample number. |
+| plate | Plate number that the sample came from. |
+| row | Which row on the plate the sample came from. |
+| s | Small starch count. |
+| m | Medium starch count. |
+| l | Large starch count. |
+| total | Sum of s, m, and l. |
+| treatment | Treatment solution to which the samples were exposed. |
+| starch | Type of starch that was counted. |
+| weight | Weight of the biofilm sample. |
+| vol | Total volume of EDTA in which the sample was dissolved. |
+| portion_slide | Proportion of the microscope slide that was counted. Total transects on slide divided by counted transects. |
+
+**solution_counts**
+
+| variable | description |
+|----|----|
+| solution | Type of starch in solution. |
+| concentration | Concentration (%w/v) of starch in solution. | 
+| vol_slide | Volume of solution added to slide. |
+| vol_total | Total volume of solution in aliquot. |
+| portion_slide | Proportion of slide that was counted. Total transects on slide divided by counted transects. |
+| slide | Slide number. |
+| starch | Starch type counted. |
+| s | Small starch count. |
+| m | Medium starch count. |
+| l | Large starch count. |
+| total | Sum of s, m, and l. |
 
 ## Amylase activity
+
+Amylase activity in U/mL enzyme, where a U is mg maltose released from starch in six minutes at 36 &deg;C.
 
 Tables containing the amylase activity results for both plates and photometric
 readings.
 
-```{r amylase-activity-results}
+```{r amylase-activity-results, message=FALSE}
 # table of results reported in units amylase per mL enzyme (but let's be honest,
   # ...it doesn't really matter what the unit is. No activity is no activity)
+source(here("analysis/scripts/amylase-assay.R"))
 cols <- c("1", "2", "3")  
 rows <- c("S1", "S2", "S3", "B1", "B2", "B3", "B4", "B5", "BT1", "BT2", "BT3")
-(plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1))
-#  plt1_ph1_result[plt1_ph1_result < 0] <- 0
-(plt1_ph2_result <- rbind(sal1_ph2, bmm1_ph2))
-#  plt1_ph2_result[plt1_ph2_result < 0] <- 0
-(plt2_ph1_result <- rbind(sal2_ph1, bmm2_ph1))
-  #plt2_ph1_result[plt2_ph1_result < 0] <- 0
-(plt2_ph2_result <- rbind(sal2_ph2, bmm2_ph2))
-  #plt2_ph2_result[plt2_ph2_result < 0] <- 0
+plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1)
+rownames(plt1_ph1_result) <- rows
+plt1_ph2_result <- rbind(sal1_ph2, bmm1_ph2)
+rownames(plt1_ph2_result) <- rows
+plt2_ph1_result <- rbind(sal2_ph1, bmm2_ph1)
+rownames(plt2_ph1_result) <- rows
+plt2_ph2_result <- rbind(sal2_ph2, bmm2_ph2)
+rownames(plt2_ph2_result) <- rows
+```
+
+```{r amylase-activity-tables}
+plt1_ph1_result
+plt1_ph2_result
+plt2_ph1_result
+plt2_ph2_result
 ```
 
 ## Control samples
@@ -65,13 +101,24 @@ deemed irrelevant.
 
 ## Count corrections
 
-Sample counts were extrapolated using the following formula:
-
-$$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-1} \times \frac{V_{sample}}{V_{slide}} $$
+Slide transects were calculated by counting the number of transects on the 
+cover slip under the microscope. This was done by starting in the bottom-left
+corner, and counting the total number of full fields-of-view across the cover 
+slip to the bottom-right corner. The total number of transects was 29 (verified
+multiple times).
 
 Solution counts were extrapolated to the quantity in a 1 ml solution with
 the following formula:
 
-$$ \text{corrected count} = \text{raw count} \times \frac{29}{3} \times 100 \mu l $$
+$$ \text{corrected count} = \text{raw count} \times \frac{\text{total} \space \text{transects}}{\text{counted} \space \text{transects}} \times 100 \mu l $$
 
-## Functions
+Sample counts were extrapolated using the following formula:
+
+$$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-1} \times \frac{V_{sample}}{V_{slide}} $$
+
+## Microscope images
+
+```{r img-1, echo=FALSE, fig.cap="Image of starch granules extracted from a calculus sample"}
+
+```
+

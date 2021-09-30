@@ -139,7 +139,7 @@ pl_wheat2 <- ratio_mix %>%
   theme_void() +
   #geom_text(aes(x = 2, label = label_wheat)) +
   scale_fill_viridis_d(begin = 0.7,
-                       name = "Size",
+                       name = "",
                        labels = c("Large", "Medium", "Small"))
   #scale_fill_manual(values = viridisLite::viridis(3, begin = 0.7),
   #                  name = "Size", labels = c("Large", "Medium", "Small"))
@@ -154,7 +154,7 @@ pl_potato2 <- ratio_mix %>%
   theme_void() +
   #geom_text(aes(x = 2, label = label_wheat)) +
   scale_fill_viridis_d(begin = 0.7,
-                       name = "Size",
+                       name = "",
                        labels = c("Large", "Medium", "Small"))
   #scale_fill_manual(values = viridisLite::viridis(3, begin = 0.7)[c(1,2)],
   #                  name = "Size", labels = c("Large", "Medium", "Small"))
