@@ -51,6 +51,21 @@ print(sessionInfo(), locale = FALSE)
 ## [53] httr_1.4.2       R6_2.5.1         compiler_4.1.1
 ```
 
+## Experimental setup
+
+
+```r
+knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
+```
+
+![The 24 deepwell plate and the lid with pegs (substrata)](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
+
+
+```r
+knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
+```
+
+![The 24 deepwell plate and the lid on (sort of...)](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
 
 ## Metadata for raw data files
 
@@ -191,5 +206,18 @@ $$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-
 
 ## Microscope images
 
+![Image of starch granules extracted from a potato treatment sample](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
 
 
+```r
+knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
+```
+
+![](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
+
+
+```r
+knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
+```
+
+![Microscope image of wheat starch from a wheat treatment sample.](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)

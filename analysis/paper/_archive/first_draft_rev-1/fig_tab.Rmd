@@ -1,0 +1,59 @@
+---
+title: "Tables and Figures"
+output:
+  bookdown::pdf_document2:
+    toc: no
+---
+
+```{r setup-figs-and-tbls, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(broom)
+library(here)
+library(patchwork)
+# load R scripts
+source(here("analysis/scripts/analysis.R"))
+source(here("analysis/scripts/tables.R"))
+source(here("analysis/scripts/figures.R"))
+#code to include R scripts in .Rmd: r knitr::spin_child("tables.R")
+```
+
+\listoftables
+\listoffigures
+
+## Tables
+<!-- ### Tables ### -->
+
+```{r sample-perc}
+# convert proportions to percent labels
+perc_comb <- prop_comb %>% 
+  mutate(across(c(s, m, l, total), scales::percent, 0.001)) 
+
+perc <- prop %>%
+  mutate(across(c(s, m, l, total), scales::percent, 0.001)) %>% 
+  add_row(tibble_row(perc_comb), .before = 3)
+```
+
+
+```{r sample-prop-tbl}
+cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
+knitr::kable(perc, col.names = cnames, 
+             caption = "The mean percentage of starches from the solutions that 
+              were incorported into the samples.")
+```
+
+## Figures
+<!-- ### Figures ### -->
+
+```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}
+#plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
+(pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+```
+
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments."}
+pl_cor
+```
+
+```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
+pl_cor2
+```

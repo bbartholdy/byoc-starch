@@ -170,6 +170,7 @@
 
 \usepackage{lineno}
 \linenumbers
+\usepackage{subfig}
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -196,44 +197,41 @@
 
 \title{Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model}
 \author{Bjørn Peare Bartholdy \and Amanda G. Henry}
-\date{2021-09-30}
+\date{2021-10-08}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-Dental calculus, mineralised plaque, has proven to contain a wealth of information
-on the dietary habits of past populations. The extraction and identification of
-starch granules contained within dental calculus has already provided valuable
-dietary insights from a wide range of regions and time periods, and seem to preserve
-well in the archaeological record.
-While the majority of studies have focused on microfossil extraction and
-identification from archaeological remains, few studies have
-addressed the biases of starch retention in dental calculus, and have been
-limited to \emph{in vivo} studies on modern humans and non-human primates.
+Dental calculus has proven to contain a wealth of information
+on the dietary habits of past populations. These insights have, to a large extent,
+been obtained by the extraction and identification of
+starch granules contained within the mineralised dental plaque from a wide range
+of regions and time periods. The scope of previous studies have been limited to
+microfossil extraction and identification to reconstruct dietary preferences from
+the archaeological record, and few studies have attempted to address the biases
+of starch retention in dental calculus. Those that have considered this problem
+have been limited to \emph{in vivo} studies on modern humans and non-human primates.
 Here, we present a multispecies oral biofilm model, which allows experimental
-research to be conducted on \emph{in vitro} dental calculus in a controlled laboratory
-setting. The biofilms were exposed treatment solutions with known quantities of
+research on starch incorporation and retention to be conducted on \emph{in vitro}
+dental calculus in a controlled laboratory setting. The biofilms were exposed
+to treatment solutions with known quantities of
 dietary starches (wheat and potato) during the 25-day growth period. After this,
-the starch granules were extracted from the mature biofilm (dissolution in EDTA),
-and counted. We
-show that the granule counts extracted from the model dental calculus represented
-a low proportion of the total counts (ranging from 0.064\% to 0.161\%) exposed to
-the biofilms throughout the experiment. Additionally, we found that the ratios
-of granule sizes from the extracted starch granules differed from the original
-treatment solutions, with large granules (\textgreater20 \(\mu\)m) consistently being
-under-represented.
-Additionally, the size ratios of granules within starch species shifted between
-the input starch solutions and the granules extracted from the model calculus,
-with large granules (\textgreater20 \(\mu\)m) consistently being underrepresented.
+the starch granules were extracted from the mature biofilm (by dissolution in EDTA),
+and counted. We show that the granule counts extracted from the model dental calculus
+represented a low proportion (ranging from 0.064\% to 0.161\%) of the total number
+of granules exposed to the biofilms throughout the experiment.
+Additionally, we found that the ratios of granule sizes from the extracted
+starch granules differed from the original treatment solutions, with large
+granules (\textgreater20 \(\mu\)m) consistently being under-represented.
 We also found a correlation
 between the absolute granule counts and dry-weight of the biofilm
 (\emph{r} = 0.66, 90\%CI{[}0.46,0.79{]}), as well
 as between the concentration (count per mg) of granules and dry-weight
-(\emph{r} = 0.3, 90\%CI{[}0.06,0.51{]}).\\
+(\emph{r} = 0.30, 90\%CI{[}0.06,0.51{]}).\\
 Our results reinforce previous \emph{in vivo} studies suggesting that dental calculus
 presents a very small, and partly biased picture of the original dietary intake
 of starches, with an over-representation of plants producing granules smaller than
-20 \(\mu\) in size. The experimental model presented here is well-suited to address
+20 \(\mu\)m in size. The experimental model presented here is well-suited to address
 the need for further validation of methods and biases associated with dietary
 research on dental calculus.
 \end{abstract}
@@ -286,18 +284,19 @@ research on dental calculus.
 % }
 
 \setstretch{2.0}
-Word count: 4634
+Word count: 4682
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Dental calculus, mineralised dental plaque, has proven to contain a wealth of
+Dental calculus has proven to contain a wealth of
 dietary information in the form of plant microfossils
 (Hardy et al., 2009; Henry \& Piperno, 2008),
 proteins (Hendy et al., 2018; Warinner, Hendy, et al., 2014),
 and other organic residues (Buckley et al., 2014).
-This dietary information can be preserved within calculus over many millenia,
-providing a unique window into the food-related behaviours of past populations
+This dietary information can be preserved within the mineralised dental plaque
+over many millennia, providing a unique window into the food-related behaviours of
+past populations
 (Henry \& Piperno, 2008; Jovanović et al., 2021; Tao et al., 2020)
 and extinct species (Hardy et al., 2012; Henry et al., 2014).
 
@@ -310,8 +309,8 @@ and later by Middleton and Rovner (1994),
 and Fox and colleagues (1996). Starches and phytoliths were
 extracted from human dental calculus by Cummings and Magennis (1997).\\
 In more recent years, the study of dental calculus has increased exponentially,
-and the wealth of information contained within the mineralised matrix has been,
-to a larger extent, acknowledged. The applications of dental calculus span a wide
+and the wealth of information contained within the mineralised matrix has largely
+been acknowledged. The use of dental calculus spans a wide
 variety of archaeological research areas, such as oral microbiome
 characterisation (including pathogens) through the analysis of DNA and proteins
 (Adler et al., 2013; Warinner, Rodrigues, et al., 2014),
@@ -352,7 +351,8 @@ within individuals (Froehlich et al., 1987; Nater et al., 2005),
 causing different rates of hydrolysis of the starch granules present in the oral
 cavity. Add to this the effects of the many different methods
 of starch processing, as well as post-depositional processes that are still being
-explored (García-Granero, 2020), and you have a highly unpredictable process.
+explored (García-Granero, 2020), and it becomes clear that using
+dental calculus to reconstruct diet is a highly unpredictable process.
 
 In this exploratory study, we use an oral biofilm model to investigate the
 retention of starch granules within dental calculus in a controlled laboratory
@@ -365,10 +365,9 @@ the obtained dietary information, and how does this affect the representation of
 diet from extracted microremains?\\
 We find that, despite the absence of \(\alpha\)-amylase in
 the model, a limited proportion of the starch input is actually
-retained in the calculus, as well as a shift in the size ratios of individual
-starch granules
-that are incorporated into the calculus. We also show that the number of starch
-granules that are incorporated increases as the size of the calculus deposit
+retained in the calculus. We also observed a shift in the size ratios of individual
+starch granules that are incorporated into the calculus, and that the number of
+incorporated starch granules increases as the size of the calculus deposit
 increases.
 
 \hypertarget{materials-and-methods}{%
@@ -379,7 +378,12 @@ increases.
 
 In this study we employ a multispecies oral biofilm model following a modified
 protocol from Sissons and colleagues (1991) and
-Shellis (1978). The setup comprises a polypropylene
+Shellis (1978). In brief, a biofilm inoculated
+with whole saliva was grown on a substrate suspended in artificial saliva, and
+fed with sugar (sucrose). After several days of growth, the biofilm was exposed
+to starch solutions. Mineralisation of the biofilm was aided by exposure to a
+calcium phosphate solution. After 25 days of growth, the mineralised biofilm was
+collected for further analysis. The setup comprises a polypropylene
 24 deepwell PCR plate (KingFisher 97003510) with a lid containing 24 pegs (substrata), which
 is autoclaved at 120°C, 1 bar overpressure, for 20 mins.
 
@@ -441,8 +445,7 @@ The substrata were submerged in 1 ml/well CPMU for six minutes, five times
 daily, in a two-hour cycle. During the mineralisation period, starch treatments
 were reduced to once per day after the five CPMU treatments. This process was repeated
 for 10 days until the end of the experiment on day 24
-(see \ref{fig:protocol-fig} for an overview of the protocol). More detailed protocols
-are available on protocols.io.
+(see \ref{fig:protocol-fig} for an overview of the protocol).
 
 All laboratory work was conducted in sterile conditions under a laminar flow hood
 to prevent starch and bacterial contamination. Control samples that only received
@@ -466,7 +469,6 @@ The protocol is a slightly modified version of an Enzymatic Assay of \(\alpha\)-
 (\url{https://www.sigmaaldrich.com/NL/en/technical-documents/protocol/protein-biology/enzyme-activity-assays/enzymatic-assay-of-a-amylase}) (Bernfeld, 1955), which measures the amount of
 maltose released from starch by \(\alpha\)-amylase activity. Results are reported
 in units (U) per mL enzyme, where 1 U releases 1 mg of maltose.
-For a more detailed protocol, see
 
 \hypertarget{treatment-solutions}{%
 \subsection{Treatment solutions}\label{treatment-solutions}}
@@ -516,15 +518,13 @@ concentration in the calculus (as per Wesolowski et al., 2010).
 
 All scripts and data used in the analysis are available on OSF
 (\url{https://osf.io/uc5qy/}) and Github (\url{https://github.com/bbartholdy/byoc-starch}).
-All protocols are available on protocols.io.
+More detailed protocols are available on protocols.io.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
 \begin{figure}
-\centering
-\includegraphics{/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg}
-\caption{\label{fig:microscope-fig}Microscope image of potato starches on a microscope slide, as well as a bacterial community. Scale bar = 20 \(\mu\)m.}
+\includegraphics[width=0.5\linewidth]{/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar} \caption{Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m.}\label{fig:microscope-fig}
 \end{figure}
 
 All samples yielded sufficient biofilm growth and starch incorporation to be
@@ -648,7 +648,7 @@ and in the biofilm samples
 \begin{table}
 
 \caption{\label{tab:sample-prop-tbl}The mean percentage of starches from the solutions that 
-              were incorported into the samples.}
+              were incorporated into the samples.}
 \centering
 \begin{tabular}[t]{l|l|l|l|l|l}
 \hline
@@ -674,7 +674,7 @@ with potato granules being more readily incorporated than wheat in both the
 separated- and mixed-treatment samples
 (Table \ref{tab:sample-prop-tbl}).
 There is an inverse relationship between the absolute starch count in the solutions
-and the proportional incorporation of starches in the biofilm samples, i.e.~potato
+and the proportional incorporation of starches in the biofilm samples, i.e., potato
 had the lowest absolute count in solutions, but the highest proportional
 incorporation, and vice versa for the mixed treatment.
 
@@ -719,7 +719,7 @@ increased in potato treatments
 \begin{figure}
 \centering
 \includegraphics{../figures/cor-plot-1.pdf}
-\caption{\label{fig:cor-plot}Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments.}
+\caption{\label{fig:cor-plot}Scatter plot of sample weight and standardised starch count by Z-score for separated treatments.}
 \end{figure}
 
 Pearson's \emph{r} suggests a
@@ -772,8 +772,8 @@ Despite the low proportion of granules recovered from the model calculus
 (0.064\% to 0.161\%),
 the absolute counts were still substantially greater than counts recovered from
 archaeological remains
-(Tromp et al., 2017; Tromp \& Dudgeon, 2015; Wesolowski et al., 2010). This could, in part, be due to the
-activity of oral amylase, which was absent in our model.
+(Tromp et al., 2017; Tromp \& Dudgeon, 2015; Wesolowski et al., 2010), which could in part be due to the
+lack of oral amylase activity in our model.
 
 We have also shown that the size of the starch granules influences the likelihood
 of incorporation into the calculus. Starch granules larger than 20 \(\mu\)m in

@@ -20,6 +20,15 @@ raw_data <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
 print(sessionInfo(), locale = FALSE)
 ```
 
+## Experimental setup
+
+```{r plate-lid-1, fig.cap="The 24 deepwell plate and the lid with pegs (substrata)"}
+knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
+```
+
+```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid on (sort of...)"}
+knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
+```
 
 ## Metadata for raw data files
 
@@ -118,7 +127,14 @@ $$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-
 
 ## Microscope images
 
-```{r img-1, echo=FALSE, fig.cap="Image of starch granules extracted from a calculus sample"}
-
+```{r img-1, echo=FALSE, fig.cap="Image of starch granules extracted from a potato treatment sample"}
+knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
 ```
 
+```{r img-2}
+knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
+```
+
+```{r img-3, fig.cap="Microscope image of wheat starch from a wheat treatment sample."}
+knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
+```
