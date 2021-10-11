@@ -50,10 +50,6 @@ stdBMM2.ph2 <- stdcurve(plt2_ph2, cols = 10:12)
 plates <- list("plate1_phot1" = plt1_ph1, "plate1_phot2" = plt1_ph2,
                "plate2_phot1" = plt2_ph1, "plate2_phot2" = plt2_ph2)
 phot_results <- lapply(plates, sep_samples)
-# plt1_ph1.res <- sep_samples(plt1_ph1)
-# plt1_ph2.res <- sep_samples(plt1_ph2)
-# plt2_ph1.res <- sep_samples(plt2_ph1)
-# plt2_ph2.res <- sep_samples(plt2_ph2)
 
 # saliva calculation
 split_results <- lapply(phot_results, split, f = ~ solution)
@@ -62,26 +58,6 @@ saliva_samples <- list("plate1_phot1_saliva" = split_results$plate1_phot1$saliva
                        "plate2_phot1_saliva" = split_results$plate2_phot1$saliva,
                        "plate2_phot2_saliva" = split_results$plate2_phot2$saliva) %>%
   lapply(select, !solution)
-#lapply(saliva_samples, select, !solution)
-#sample_calc(split_results$plate1_phot1$saliva, std_curve = stdH2O1.ph1, dilf = 2, ml_enz = 0.075)
-
-# saliva1_ph1 <- split_results$plt1_ph1$saliva
-# saliva1_ph2 <- split_results$plt1_ph2$saliva
-# saliva2_ph1 <- split_results$plt2_ph1$saliva
-# saliva2_ph2 <- split_results$plt2_ph2$saliva
-
-# saliva1_ph1 <- plt1_ph1.res$saliva
-# saliva1_ph2 <- plt1_ph2.res$saliva
-# saliva2_ph1 <- plt2_ph1.res$saliva
-# saliva2_ph2 <- plt2_ph2.res$saliva
-
-
-# saliva_results <- lapply(
-#   saliva_samples,
-#   sample_calc,
-#   stdcurve = c(stdH2O1.ph1, stdH2O1.ph2, stdH2O2.ph1, stdH2O2.ph2),
-#   dilf = 2,
-#   ml_enz = 0.075)
 
 sal1_ph1 <- sample_calc(saliva_samples$plate1_phot1_saliva,
                         std_curve = stdH2O1.ph1,
@@ -122,9 +98,3 @@ plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1)
 plt1_ph2_result <- rbind(sal1_ph2, bmm1_ph2)
 plt2_ph1_result <- rbind(sal2_ph1, bmm2_ph1)
 plt2_ph2_result <- rbind(sal2_ph2, bmm2_ph2)
-
-
-# colour tables
-
-# test <- plt1_ph1_result %>%
-#   mutate(background = spec_color(1:10, end = 0.9, option = "A", direction = -1))

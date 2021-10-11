@@ -20,7 +20,7 @@ print(sessionInfo(), locale = FALSE)
 ```
 ## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Pop!_OS 21.04
+## Running under: Ubuntu 20.04.3 LTS
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
@@ -30,25 +30,26 @@ print(sessionInfo(), locale = FALSE)
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.6     purrr_0.3.4    
-##  [5] readr_1.4.0     tidyr_1.1.3     tibble_3.1.4    ggplot2_3.3.4  
+##  [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
+##  [5] readr_2.0.0     tidyr_1.1.3     tibble_3.1.4    ggplot2_3.3.5  
 ##  [9] tidyverse_1.3.1 here_1.0.1     
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] tidyselect_1.1.1 xfun_0.26        bslib_0.3.0      haven_2.4.1     
-##  [5] colorspace_2.0-1 vctrs_0.3.8      generics_0.1.0   htmltools_0.5.2 
+##  [5] colorspace_2.0-2 vctrs_0.3.8      generics_0.1.0   htmltools_0.5.2 
 ##  [9] yaml_2.2.1       utf8_1.2.2       rlang_0.4.11     jquerylib_0.1.4 
 ## [13] pillar_1.6.3     withr_2.4.2      glue_1.4.2       DBI_1.1.1       
-## [17] dbplyr_2.1.1     modelr_0.1.8     readxl_1.3.1     lifecycle_1.0.1 
-## [21] munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0 rvest_1.0.0     
-## [25] evaluate_0.14    knitr_1.36       fastmap_1.1.0    fansi_0.5.0     
-## [29] broom_0.7.7      Rcpp_1.0.7       backports_1.2.1  scales_1.1.1    
-## [33] jsonlite_1.7.2   fs_1.5.0         hms_1.1.0        digest_0.6.28   
-## [37] stringi_1.7.4    rprojroot_2.0.2  grid_4.1.1       cli_3.0.1       
-## [41] tools_4.1.1      magrittr_2.0.1   sass_0.4.0       crayon_1.4.1    
-## [45] pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.2       reprex_2.0.0    
-## [49] lubridate_1.7.10 rstudioapi_0.13  assertthat_0.2.1 rmarkdown_2.9   
-## [53] httr_1.4.2       R6_2.5.1         compiler_4.1.1
+## [17] bit64_4.0.5      dbplyr_2.1.1     modelr_0.1.8     readxl_1.3.1    
+## [21] lifecycle_1.0.1  munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0
+## [25] rvest_1.0.1      evaluate_0.14    knitr_1.35       tzdb_0.1.2      
+## [29] fastmap_1.1.0    parallel_4.1.1   fansi_0.5.0      broom_0.7.9     
+## [33] Rcpp_1.0.7       backports_1.2.1  scales_1.1.1     vroom_1.5.3     
+## [37] jsonlite_1.7.2   bit_4.0.4        fs_1.5.0         hms_1.1.0       
+## [41] digest_0.6.28    stringi_1.7.4    rprojroot_2.0.2  grid_4.1.1      
+## [45] cli_3.0.1        tools_4.1.1      magrittr_2.0.1   sass_0.4.0      
+## [49] crayon_1.4.1     pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.2      
+## [53] reprex_2.0.1     lubridate_1.7.10 rstudioapi_0.13  assertthat_0.2.1
+## [57] rmarkdown_2.10   httr_1.4.2       R6_2.5.1         compiler_4.1.1
 ```
 
 ## Experimental setup
@@ -58,14 +59,14 @@ print(sessionInfo(), locale = FALSE)
 knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
 ```
 
-![The 24 deepwell plate and the lid with pegs (substrata)](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
+![The 24 deepwell plate and the lid with pegs (substrata)](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
 ```
 
-![The 24 deepwell plate and the lid on (sort of...)](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
+![The 24 deepwell plate with the lid on (sort of...)](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
 
 ## Metadata for raw data files
 
@@ -103,6 +104,45 @@ Counts represent the absolute number of starches counted on a slide
 | m | Medium starch count. |
 | l | Large starch count. |
 | total | Sum of s, m, and l. |
+
+## Raw data
+
+Raw counts from the treatment solutions before extrapolation.
+
+
+```r
+raw_data_solutions
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["solution"],"name":[1],"type":["chr"],"align":["left"]},{"label":["concentration"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["vol_slide"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["vol_total"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["portion_slide"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["slide"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["starch"],"name":[7],"type":["chr"],"align":["left"]},{"label":["s"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["m"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["l"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["total"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"wheat","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"wheat","8":"969","9":"387","10":"167","11":"1523"},{"1":"wheat","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"2","7":"wheat","8":"1118","9":"445","10":"199","11":"1762"},{"1":"potato","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"potato","8":"9","9":"95","10":"86","11":"190"},{"1":"potato","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"2","7":"potato","8":"7","9":"78","10":"115","11":"200"},{"1":"mix","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"wheat","8":"1218","9":"414","10":"116","11":"1748"},{"1":"mix","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"potato","8":"NA","9":"68","10":"60","11":"128"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+Raw counts from the calculus samples before extrapolation:
+
+
+```r
+raw_data_samples
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["sample"],"name":[1],"type":["chr"],"align":["left"]},{"label":["plate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["row"],"name":[3],"type":["chr"],"align":["left"]},{"label":["s"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["m"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["l"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["total"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["treatment"],"name":[8],"type":["chr"],"align":["left"]},{"label":["starch"],"name":[9],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["vol"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["portion_slide"],"name":[12],"type":["dbl"],"align":["right"]}],"data":[{"1":"st1A1","2":"1","3":"A","4":"39","5":"535","6":"119","7":"693","8":"potato","9":"potato","10":"5.80","11":"100","12":"1.0000000"},{"1":"st1A2","2":"1","3":"A","4":"6","5":"28","6":"5","7":"39","8":"potato","9":"potato","10":"5.81","11":"100","12":"1.0000000"},{"1":"st1A3","2":"1","3":"A","4":"26","5":"1392","6":"389","7":"1807","8":"potato","9":"potato","10":"8.22","11":"100","12":"1.0000000"},{"1":"st1A4","2":"1","3":"A","4":"14","5":"184","6":"40","7":"238","8":"potato","9":"potato","10":"4.65","11":"100","12":"1.0000000"},{"1":"st1A5","2":"1","3":"A","4":"20","5":"341","6":"98","7":"459","8":"potato","9":"potato","10":"7.68","11":"200","12":"1.0000000"},{"1":"st1A6","2":"1","3":"A","4":"32","5":"466","6":"159","7":"657","8":"potato","9":"potato","10":"7.79","11":"200","12":"1.0000000"},{"1":"st1B1","2":"1","3":"B","4":"62","5":"36","6":"4","7":"102","8":"wheat","9":"wheat","10":"5.15","11":"100","12":"0.1034483"},{"1":"st1B2","2":"1","3":"B","4":"508","5":"321","6":"18","7":"847","8":"wheat","9":"wheat","10":"4.56","11":"100","12":"0.2500000"},{"1":"st1B3","2":"1","3":"B","4":"606","5":"664","6":"73","7":"1343","8":"wheat","9":"wheat","10":"9.28","11":"100","12":"0.1034483"},{"1":"st1B4","2":"1","3":"B","4":"61","5":"51","6":"14","7":"126","8":"wheat","9":"wheat","10":"1.59","11":"100","12":"0.1034483"},{"1":"st1B5","2":"1","3":"B","4":"276","5":"227","6":"64","7":"567","8":"wheat","9":"wheat","10":"8.62","11":"200","12":"0.1034483"},{"1":"st1B6","2":"1","3":"B","4":"175","5":"96","6":"19","7":"290","8":"wheat","9":"wheat","10":"9.80","11":"200","12":"0.1034483"},{"1":"st1C1","2":"1","3":"C","4":"NA","5":"57","6":"19","7":"76","8":"mix","9":"potato","10":"4.09","11":"100","12":"0.1034483"},{"1":"st1C1","2":"1","3":"C","4":"97","5":"94","6":"50","7":"241","8":"mix","9":"wheat","10":"4.09","11":"100","12":"0.1034483"},{"1":"st1C2","2":"1","3":"C","4":"NA","5":"12","6":"13","7":"25","8":"mix","9":"potato","10":"1.50","11":"100","12":"0.1034483"},{"1":"st1C2","2":"1","3":"C","4":"31","5":"30","6":"9","7":"70","8":"mix","9":"wheat","10":"1.50","11":"100","12":"0.1034483"},{"1":"st1C3","2":"1","3":"C","4":"NA","5":"113","6":"20","7":"133","8":"mix","9":"potato","10":"8.44","11":"100","12":"0.1034483"},{"1":"st1C3","2":"1","3":"C","4":"351","5":"256","6":"39","7":"646","8":"mix","9":"wheat","10":"8.44","11":"100","12":"0.1034483"},{"1":"st1C4","2":"1","3":"C","4":"NA","5":"78","6":"25","7":"103","8":"mix","9":"potato","10":"5.42","11":"100","12":"0.1034483"},{"1":"st1C4","2":"1","3":"C","4":"392","5":"302","6":"68","7":"762","8":"mix","9":"wheat","10":"5.42","11":"100","12":"0.1034483"},{"1":"st1C5","2":"1","3":"C","4":"NA","5":"22","6":"10","7":"32","8":"mix","9":"potato","10":"6.12","11":"200","12":"1.0000000"},{"1":"st1C5","2":"1","3":"C","4":"5","5":"0","6":"0","7":"5","8":"mix","9":"wheat","10":"6.12","11":"200","12":"1.0000000"},{"1":"st1C6","2":"1","3":"C","4":"NA","5":"17","6":"0","7":"17","8":"mix","9":"potato","10":"1.91","11":"100","12":"1.0000000"},{"1":"st1C6","2":"1","3":"C","4":"97","5":"52","6":"12","7":"161","8":"mix","9":"wheat","10":"1.91","11":"100","12":"1.0000000"},{"1":"st1D1","2":"1","3":"D","4":"NA","5":"NA","6":"NA","7":"1","8":"control","9":"none","10":"6.51","11":"100","12":"1.0000000"},{"1":"st1D2","2":"1","3":"D","4":"NA","5":"NA","6":"NA","7":"0","8":"control","9":"none","10":"4.42","11":"100","12":"1.0000000"},{"1":"st1D3","2":"1","3":"D","4":"NA","5":"NA","6":"NA","7":"0","8":"control","9":"none","10":"5.01","11":"200","12":"1.0000000"},{"1":"st1D4","2":"1","3":"D","4":"NA","5":"NA","6":"NA","7":"0","8":"control","9":"none","10":"5.14","11":"100","12":"1.0000000"},{"1":"st1D5","2":"1","3":"D","4":"NA","5":"NA","6":"NA","7":"0","8":"control","9":"none","10":"4.51","11":"100","12":"1.0000000"},{"1":"st1D6","2":"1","3":"D","4":"NA","5":"NA","6":"NA","7":"0","8":"control","9":"none","10":"1.67","11":"NA","12":"NA"},{"1":"st2A1","2":"2","3":"A","4":"20","5":"150","6":"24","7":"194","8":"potato","9":"potato","10":"6.11","11":"200","12":"1.0000000"},{"1":"st2A2","2":"2","3":"A","4":"89","5":"479","6":"34","7":"602","8":"potato","9":"potato","10":"2.54","11":"100","12":"1.0000000"},{"1":"st2A3","2":"2","3":"A","4":"71","5":"370","6":"22","7":"463","8":"potato","9":"potato","10":"8.48","11":"200","12":"1.0000000"},{"1":"st2A4","2":"2","3":"A","4":"59","5":"773","6":"135","7":"967","8":"potato","9":"potato","10":"5.91","11":"200","12":"1.0000000"},{"1":"st2A5","2":"2","3":"A","4":"97","5":"512","6":"292","7":"901","8":"potato","9":"potato","10":"8.92","11":"200","12":"1.0000000"},{"1":"st2A6","2":"2","3":"A","4":"NA","5":"NA","6":"NA","7":"NA","8":"potato","9":"potato","10":"3.14","11":"NA","12":"NA"},{"1":"st2B1","2":"2","3":"B","4":"183","5":"130","6":"20","7":"333","8":"wheat","9":"wheat","10":"8.08","11":"200","12":"0.1034483"},{"1":"st2B2","2":"2","3":"B","4":"27","5":"19","6":"3","7":"49","8":"wheat","9":"wheat","10":"2.30","11":"100","12":"0.1034483"},{"1":"st2B3","2":"2","3":"B","4":"585","5":"409","6":"43","7":"660","8":"wheat","9":"wheat","10":"6.84","11":"100","12":"0.1034483"},{"1":"st2B4","2":"2","3":"B","4":"32","5":"21","6":"2","7":"55","8":"wheat","9":"wheat","10":"0.56","11":"100","12":"0.1034483"},{"1":"st2B5","2":"2","3":"B","4":"308","5":"263","6":"46","7":"617","8":"wheat","9":"wheat","10":"8.51","11":"200","12":"0.1034483"},{"1":"st2B6","2":"2","3":"B","4":"NA","5":"NA","6":"NA","7":"NA","8":"wheat","9":"wheat","10":"1.06","11":"NA","12":"NA"},{"1":"st2C1","2":"2","3":"C","4":"NA","5":"79","6":"17","7":"96","8":"mix","9":"potato","10":"5.04","11":"100","12":"0.1034483"},{"1":"st2C1","2":"2","3":"C","4":"521","5":"331","6":"58","7":"910","8":"mix","9":"wheat","10":"5.04","11":"100","12":"0.1034483"},{"1":"st2C2","2":"2","3":"C","4":"NA","5":"25","6":"1","7":"26","8":"mix","9":"potato","10":"3.64","11":"100","12":"0.1034483"},{"1":"st2C2","2":"2","3":"C","4":"182","5":"101","6":"25","7":"308","8":"mix","9":"wheat","10":"3.64","11":"100","12":"0.1034483"},{"1":"st2C3","2":"2","3":"C","4":"NA","5":"31","6":"4","7":"35","8":"mix","9":"potato","10":"4.11","11":"100","12":"0.1034483"},{"1":"st2C3","2":"2","3":"C","4":"252","5":"142","6":"19","7":"413","8":"mix","9":"wheat","10":"4.11","11":"100","12":"0.1034483"},{"1":"st2C4","2":"2","3":"C","4":"NA","5":"43","6":"13","7":"56","8":"mix","9":"potato","10":"3.61","11":"100","12":"0.1034480"},{"1":"st2C4","2":"2","3":"C","4":"327","5":"222","6":"45","7":"594","8":"mix","9":"wheat","10":"3.61","11":"100","12":"0.1034480"},{"1":"st2C5","2":"2","3":"C","4":"NA","5":"14","6":"0","7":"14","8":"mix","9":"potato","10":"3.17","11":"100","12":"1.0000000"},{"1":"st2C5","2":"2","3":"C","4":"14","5":"8","6":"0","7":"22","8":"mix","9":"wheat","10":"3.17","11":"100","12":"1.0000000"},{"1":"st2C6","2":"2","3":"C","4":"NA","5":"NA","6":"NA","7":"NA","8":"mix","9":"potato","10":"1.75","11":"NA","12":"NA"},{"1":"st2D1","2":"2","3":"D","4":"0","5":"0","6":"0","7":"0","8":"control","9":"none","10":"8.32","11":"100","12":"1.0000000"},{"1":"st2D2","2":"2","3":"D","4":"0","5":"0","6":"0","7":"0","8":"control","9":"none","10":"11.18","11":"200","12":"1.0000000"},{"1":"st2D3","2":"2","3":"D","4":"NA","5":"NA","6":"NA","7":"NA","8":"control","9":"none","10":"3.43","11":"NA","12":"NA"},{"1":"st2D4","2":"2","3":"D","4":"NA","5":"NA","6":"NA","7":"NA","8":"control","9":"none","10":"5.76","11":"NA","12":"NA"},{"1":"st2D5","2":"2","3":"D","4":"NA","5":"NA","6":"NA","7":"NA","8":"control","9":"none","10":"3.66","11":"NA","12":"NA"},{"1":"st2D6","2":"2","3":"D","4":"NA","5":"NA","6":"NA","7":"NA","8":"control","9":"none","10":"5.67","11":"NA","12":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+The raw data can be downloaded from GitHub:
+
+```sh
+# solution counts
+wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/solution_counts.csv
+
+# sample counts
+wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/starch_counts.csv
+```
+
 
 ## Amylase activity
 
@@ -173,7 +213,7 @@ plt2_ph2_result
 
 
 ```r
-raw_data %>%
+raw_data_samples %>%
   filter(treatment == "control") %>%
   select(!c(vol, portion_slide, s, m, l))
 ```
@@ -206,18 +246,18 @@ $$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-
 
 ## Microscope images
 
-![Image of starch granules extracted from a potato treatment sample](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
+![Image of starch granules extracted from a potato treatment sample](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
 ```
 
-![](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
+![](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
 ```
 
-![Microscope image of wheat starch from a wheat treatment sample.](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)
+![Microscope image of wheat starch from a wheat treatment sample.](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)

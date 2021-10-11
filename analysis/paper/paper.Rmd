@@ -1,28 +1,27 @@
 ---
 title: "Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model"
-author:
-  - Bjørn Peare Bartholdy
-  - Amanda G. Henry
-date: "`r Sys.Date()`"
+author: |
+ Bjørn Peare Bartholdy$^1$, Amanda G. Henry$^1$
+date: |
+ $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
 output:
+  bookdown::html_document2:
+    df_print: kable
+    keep_md: true
   bookdown::pdf_document2:
-    #template: "../templates/sn-article-template/sn-article.tex"
     includes:
       in_header: "../templates/latex/pre-print/preamble.tex"
-      before_body: "../templates/latex/pre-print/before_body.tex"
+      #before_body: "../templates/latex/pre-print/before_body.tex"
     df_print: kable
     toc: no
     latex_engine: xelatex
     fig_caption: yes
     number_sections: yes
     keep_tex: true
-    extra_dependencies: "subfig"
+    #extra_dependencies: "subfig"
   bookdown::word_document2:
     reference_docx: "../templates/template.docx"
-  bookdown::html_document2:
-    df_print: kable
-    keep_md: true
-linestretch: 2.0 # double-spacing for review purposes
+#linestretch: 2.0 # double-spacing for review purposes
 bibliography: refs.bib
 csl: apa.csl
 abstract: |
@@ -70,7 +69,8 @@ knitr::opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
   message = FALSE,
-  fig.path = "../figures/")
+  fig.path = "../figures/",
+  fig.align = "center")
 library(tidyverse)
 library(broom)
 library(here)
@@ -81,16 +81,14 @@ source(here("analysis/scripts/tables.R"))
 source(here("analysis/scripts/figures.R"))
 source(here("analysis/scripts/amylase-assay.R"))
 ## Compile refs.bib using rbbt package ##
-cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
+#cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
 #cite_keys <- unlist(cite_keys, use.names = FALSE)
-rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T)
+#rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T)
 ## end refs.bib ##
 
 ## Word count ##
 wd_count <- wordcountaddin::word_count()
 ```
-
-Word count: `r wd_count`
 
 # Introduction
 
@@ -324,10 +322,6 @@ calculus (also z-score standardised) to account for differences in starch
 concentration in the calculus [as per 
 @wesolowskiEvaluatingMicrofossilContent2010].
 
-All scripts and data used in the analysis are available on OSF 
-(https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch).
-More detailed protocols are available on protocols.io.
-
 # Results
 
 ```{r microscope-fig, fig.cap="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\\mu$m.", out.width="50%"}
@@ -357,15 +351,6 @@ amylase_results[amylase_results < 0] <- NA
 positive_amylase <- na.omit(amylase_results)
 ```
 
-<!--
-
-```{r amylase-activity-tbl}
-rownames(plt1_ph1_result) <- rows
-colnames(plt1_ph1_result) <- cols
-knitr::kable(signif(plt1_ph1_result, 3), row.names = TRUE, caption = "Amylase activity in U/mL enzyme, where a U is mg maltose released from starch in six minutes at 36 degrees Celsius. Plate 1, photometric reading 1. Negative values converted to 0.")
-```
--->
-
 No $\alpha$-amylase activity was detected in any of the artificial
 saliva samples from any of the days that were sampled. Only positive controls
 contained amylase activity that could be detected in the assay, ranging from
@@ -392,8 +377,6 @@ A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 ## Starch counts
 
 <!-- starch counts in the solutions -->
-
-<!-- INSERT MICROSCOPE PICTURES OF STARCHES -->
 
 ```{r solution-count-out}
 count_sol_out <- count_sol %>%
@@ -429,15 +412,6 @@ count_samp_per <- count_sample %>%
   mutate(across(c(s, m, l, total), 
                 function(x) 
                   paste0(round(x), " (", scales::percent(signif(x / total, 3)), ")")))
-
-# count_samp_comb_per <- count_sample_comb %>%
-#   mutate(across(c(s, m, l, total), 
-#                 function(x) 
-#                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
-
-# count_samp_comb_out <- tibble(count_samp_comb_per, count_sample_comb_sd, .name_repair = "unique") %>%
-#   select(1,2,3,7,4,8,5,9,6,10) #%>%
-  #add_row(tibble_row(count_sample_comb_out), .before = 3)
 
 count_samp_out <- tibble(count_samp_per, count_sample_sd, .name_repair = "unique") %>%
   select(1,2,3,7,4,8,5,9,6,10) #%>%
@@ -529,22 +503,10 @@ in the separated wheat treatment.
 <!-- size proportions -->
 <!-- pie charts -->
 
-```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}
+```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments.", out.width="80%"}
 #plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
 (pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
-
-<!--
-```{r sep-plot, fig.cap="(A) Proportion (%) of sizes of starch granules in the wheat solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and (B) in the potato solution (outer ring) and extracted from the potato-treatment samples (inner ring)."}
-#plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
-pl_wheat1 + pl_potato1 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
-```
-
-```{r mix-plot, fig.cap="Proportion of sizes of (A) wheat granules in the mixed solution (outer ring) and extracted from the wheat-treatment samples (inner ring), and sizes of (B) potato granules in the solution (outer ring) and extracted from the potato-treatment samples (inner ring)."}
-#plot_grid(pl_wheat2, pl_potato2, labels = c("C", "D"), label_y = 0.1)
-pl_wheat2 + pl_potato2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
-```
- -->
 
 <!-- overall size trends -->
 
@@ -578,7 +540,7 @@ increased in potato treatments
 cor_r <- signif(count_cor$estimate, 3)
 cor_ci <- signif(count_cor$conf.int, 3)
 cor_p <- if(count_cor$p.value > 0.001){
-  signif(count_cor$p.value, 3)
+  paste("=", signif(count_cor$p.value, 3))
 } else {
   paste("< 0.001")
 }
@@ -586,7 +548,7 @@ cor_p <- if(count_cor$p.value > 0.001){
 cor2_r <- signif(starch_cor$estimate, 3)
 cor2_ci <- signif(starch_cor$conf.int, 3)
 cor2_p <- if(starch_cor$p.value > 0.001){
-  signif(starch_cor$p.value, 3)
+  paste("=", signif(starch_cor$p.value, 3))
 } else {
   paste("< 0.001")
 }
@@ -605,8 +567,9 @@ strength_cor <- if(cor_r >= 0.8){
 }
 ```
 
-```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for separated treatments."}
-pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for separated treatments.", out.width="80%"}
+pl_cor
+#pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
 
 <!-- with Z-score standardisation -->
@@ -617,8 +580,12 @@ correlation between the total weight of the biofilms and the total starch count
 (standardised by z-score) extracted from the samples across treatments, 
 *r* = `r cor_r`, 
 90%CI[`r paste(cor_ci[1], cor_ci[2], sep = ", ")`],
-p = `r cor_p`
+p `r cor_p`
 (Figure \@ref(fig:cor-plot)). 
+
+```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.", out.width="80%"}
+pl_cor2
+```
 
 The same test was applied to total biofilm weight and starch count per mg 
 calculus (also standardised by z-score), resulting in a weak positive correlation, 
@@ -626,14 +593,6 @@ calculus (also standardised by z-score), resulting in a weak positive correlatio
 90%CI[`r paste(cor2_ci[1], cor2_ci[2], sep = ", ")`],
 p `r cor2_p`
 (Figure \@ref(fig:cor-plot2)).
-
-<!-- size ratios in the larger deposits vs the smaller deposits?
-  Are larger starches more proportionately represented in larger deposits?
-  -->
-  
-```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
-pl_cor2
-```
 
 # Discussion
 
@@ -697,13 +656,6 @@ While the larger deposits contain a higher absolute count, our findings also sug
 that they contain a slightly higher concentration of starches. 
 Further research is needed to determine why this differs from previous archaeological
 findings.
-<!--
-Given the low proportion of starch granule retention in our dental calculus model,
-and the limited difference between treatments, we can conjecture that starch 
-availability is not a main factor in starch incorporation. While there was a
-proportional incorporation, i.e. more granules in the solution led to more granules
-in the calculus, the difference between solutions [a number/percentage] was of a
-higher magnitude than the difference between samples <!-- a number/percentage-->
 
 <!-- Scientific findings as extension of previous work -->
 Previous research conducted on dental calculus from contemporary humans and non-human
@@ -722,21 +674,7 @@ The size bias is also consistent with the findings by Power and colleagues
 [-@powerChimpCalculus2015],
 who found that plants producing starches 10--20 $\mu$m in
 size were over-represented; however, the representation of granules larger than
-20 $\mu$m in their study is unclear.  
-
-<!-- add potential for morphological differences affecting incorporation 
- Medium potato starches had the highest rate of incorporation 
- All large starches had a consistently low rate of incorporation 
- Starch granule adhesion to bacteria and enzymes? Do they have a preference?
- Binding to select species in a biofilm could explain clustering
- Colonisation of bacteria onto starch @nagaraBacteriaNutrients2017 (although not
- clear if the bacteria in our model are even 'consuming' starch-->
-
-<!-- Combined, the effect of intra-oral starch incorporation -->
-<!-- and the bias against large granules, together with the increased effect of taphonomy -->
-<!-- on  small granules, would eliminate a large portion of the consumed starch granules, -->
-<!-- and could explain the large descrepency between our counts (unaffected by hydrolysis  -->
-<!-- and taphonomy) and the aforementioned studies.  -->
+20 $\mu$m in their study is unclear.
 
 <!-- How are starch granules trapped in dental calculus? Does anyone actually know? 
 -->
@@ -783,7 +721,7 @@ this incorporation pathway, as the smaller starch granules have an advantage ove
 larger granules, and can be stored in larger quantities.
 This was also suggested by Power and colleagues [-@powerSEMCalculus2014], who
 observed clusters of starches within dental calculus, rather than an even 
-distribution across the surface of the dental calculus.  
+distribution across the surface of the dental calculus.
 Granules trapped 
 in plaque/calculus may still be susceptible to hydrolysis, as $\alpha$-amylase has
 the ability to bind to both tooth enamel and bacteria within a biofilm and retain
@@ -791,7 +729,7 @@ a portion of its hydrolytic activity
 [@scannapiecoSalivaryAmylase1993; @nikitkovaStarchBiofilms2013; @tanBacterialViability2004; @tanCalculusUltrastructure2004].
 After the death of an individual, starches within dental calculus are susceptible 
 to further degradation by post-depositional processes, depending on burial environment 
-(pH, temperature, moisture content, microorganisms)  
+(pH, temperature, moisture content, microorganisms)
 [@henryCookingStarch2009; @graneroStarchTaphonomy2020; @haslamDecompositionStarch2004; @francoStarchDegradation1992].
 Future study should explore how burial affects the recovery of starch from the
 biofilm model. <!-- I may get to it eventually, but it would be great if someone else could look at this! -->
@@ -891,11 +829,21 @@ with dietary research conducted on archaeological dental calculus.
 
 <!-- If you're reading this, thank you for taking the time to read the source 
 documents. You're awesome! -->
+We would like to thank Dr. Stephanie Schnorr for help with the amylase activity protocol.
+We also thank everyone in the general vicinity
+of the lab for enduring the smell of bacterial accumulation.
+Since we did NOT make use of Sci-Hub to access articles stuck behind a paywall, 
+we will NOT acknowledge the use of Sci-Hub in this study.
+
 This research has received funding from the European Research Council under the 
 European Union’s Horizon 2020 research and innovation program, grant agreement 
-number STG–677576 (“HARVEST”). We also thank everyone in the general vicinity
-of the lab for enduring the smell of bacterial accumulation.
-We did NOT make use of Sci-Hub to access articles stuck behind a paywall, 
-and will, therefore, NOT acknowledge the use of Sci-Hub in this study.
+number STG–677576 (“HARVEST”). 
+
+# Data Availability Statement {-}
+
+All scripts and data used in the analysis are available on OSF 
+(https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
+following the format provided by the rrtools package [@R-rrtools].
+More detailed protocols are available on OSF and protocols.io.
 
 # References cited

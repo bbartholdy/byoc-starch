@@ -6,7 +6,6 @@
 ]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{setspace}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -38,7 +37,6 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model},
-  pdfauthor={Bjørn Peare Bartholdy; Amanda G. Henry},
   pdfkeywords={oral biofilm, starch, alpha-amylase, dental calculus},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -170,7 +168,6 @@
 
 \usepackage{lineno}
 \linenumbers
-\usepackage{subfig}
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -196,8 +193,8 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \title{Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model}
-\author{Bjørn Peare Bartholdy \and Amanda G. Henry}
-\date{2021-10-08}
+\author{Bjørn Peare Bartholdy\(^1\), Amanda G. Henry\(^1\)}
+\date{\(^1\) Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.}
 
 \begin{document}
 \maketitle
@@ -236,55 +233,9 @@ the need for further validation of methods and biases associated with dietary
 research on dental calculus.
 \end{abstract}
 
-% \providecommand{\@maketitle}{}
-% \renewcommand{\@maketitle}{%
-%   \vbox{%
-%     \hsize\textwidth
-%     \linewidth\hsize
-%     \vskip 0.1in
-%     \@toptitlebar
-%     \centering
-%     {\LARGE\sc \@title\par}
-%     \@bottomtitlebar
-%     \textsc{A Preprint}\\
-%     \vskip 0.1in
-%     \def\And{%
-%       \end{tabular}\hfil\linebreak[0]\hfil%
-%       \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
-%     }
-%     \def\AND{%
-%       \end{tabular}\hfil\linebreak[4]\hfil%
-%       \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
-%     }
-%     \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\@author\end{tabular}%
-%   \vskip 0.4in \@minus 0.1in \center{\today}   \vskip 0.2in
-%   }
-% }
-%
-% \providecommand{\maketitle}{}
-% \renewcommand{\maketitle}{%
-%   \par
-%   \begingroup
-%     \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-%     % for perfect author name centering
-%     \renewcommand{\@makefnmark}{\hbox to \z@{$^{\@thefnmark}$\hss}}
-%     % The footnote-mark was overlapping the footnote-text,
-%     % added the following to fix this problem               (MK)
-%     \long\def\@makefntext##1{%
-%       \parindent 1em\noindent
-%       \hbox to 1.8em{\hss $\m@th ^{\@thefnmark}$}##1
-%     }
-%     \thispagestyle{empty}
-%     \@maketitle
-%     \@thanks
-%     %\@notice
-%   \endgroup
-%   \let\maketitle\relax
-%   \let\thanks\relax
-% }
 
-\setstretch{2.0}
-Word count: 4682
+
+Word count: 4722
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -317,7 +268,7 @@ characterisation (including pathogens) through the analysis of DNA and proteins
 microbotanical remains (Hardy et al., 2009; Henry \& Piperno, 2008; Mickleburgh \& Pagán-Jiménez, 2012),
 other organic residues and proteins from dietary compounds
 (Buckley et al., 2014; Hendy et al., 2018),
-and nicotine-use (Eerkens et al., 2018). Especially the extraction
+and nicotine use (Eerkens et al., 2018). Especially the extraction
 of starch granules has become a rich source of dietary
 information, as starch granules have proven to preserve well within dental calculus
 over a variety of geographical and temporal ranges
@@ -344,7 +295,8 @@ These studies are justifiably limited,
 despite meticulous documentation and observation, due to unknown variables and
 uncertainty involved when studying living organisms. Dental calculus is a complex
 oral biofilm with a multifactorial aetiology and variable formation rates both
-within and between individuals (Haffajee et al., 2009; Jepsen et al., 2011), contributing to
+within and between individuals (Haffajee et al., 2009; Jepsen et al., 2011),
+contributing to
 the stochasticity of starch representation being observed in numerous studies.
 Additionally, the concentration of oral \(\alpha\)-amylase differs both between and
 within individuals (Froehlich et al., 1987; Nater et al., 2005),
@@ -399,9 +351,12 @@ adjusted to pH 7 with NaOH pellets and stirring, autoclaved (15 min, 120°C,
 and 1 mmol/l arginine (Sissons et al., 1991).
 
 \begin{figure}
-\centering
-\includegraphics{/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/protocol_overview.png}
-\caption{\label{fig:protocol-fig}Overview of experiment protocol including the plate setup.}
+
+{\centering \includegraphics{/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/protocol_overview} 
+
+}
+
+\caption{Overview of experiment protocol including the plate setup.}\label{fig:protocol-fig}
 \end{figure}
 
 Fresh whole saliva (WS) for inoculation was provided by a 31-year-old male donor
@@ -516,15 +471,16 @@ This was applied to total biofilm weight and starch count per mg
 calculus (also z-score standardised) to account for differences in starch
 concentration in the calculus (as per Wesolowski et al., 2010).
 
-All scripts and data used in the analysis are available on OSF
-(\url{https://osf.io/uc5qy/}) and Github (\url{https://github.com/bbartholdy/byoc-starch}).
-More detailed protocols are available on protocols.io.
-
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar} \caption{Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m.}\label{fig:microscope-fig}
+
+{\centering \includegraphics[width=0.5\linewidth]{/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar} 
+
+}
+
+\caption{Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m.}\label{fig:microscope-fig}
 \end{figure}
 
 All samples yielded sufficient biofilm growth and starch incorporation to be
@@ -688,9 +644,12 @@ in the separated wheat treatment.
 \subsubsection{Size ratios differ between solutions and samples}\label{size-ratios-differ-between-solutions-and-samples}}
 
 \begin{figure}
-\centering
-\includegraphics{../figures/ratio-plots-1.pdf}
-\caption{\label{fig:ratio-plots}Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments.}
+
+{\centering \includegraphics[width=0.8\linewidth]{../figures/ratio-plots-1} 
+
+}
+
+\caption{Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments.}\label{fig:ratio-plots}
 \end{figure}
 
 Overall, medium starch granules had a higher mean rate of incorporation
@@ -717,9 +676,12 @@ increased in potato treatments
 \subsubsection{Biofilm weight correlated positively with extracted starch counts}\label{biofilm-weight-correlated-positively-with-extracted-starch-counts}}
 
 \begin{figure}
-\centering
-\includegraphics{../figures/cor-plot-1.pdf}
-\caption{\label{fig:cor-plot}Scatter plot of sample weight and standardised starch count by Z-score for separated treatments.}
+
+{\centering \includegraphics[width=0.8\linewidth]{../figures/cor-plot-1} 
+
+}
+
+\caption{Scatter plot of sample weight and standardised starch count by Z-score for separated treatments.}\label{fig:cor-plot}
 \end{figure}
 
 Pearson's \emph{r} suggests a
@@ -728,21 +690,24 @@ correlation between the total weight of the biofilms and the total starch count
 (standardised by z-score) extracted from the samples across treatments,
 \emph{r} = 0.659,
 90\%CI{[}0.463, 0.794{]},
-p = \textless{} 0.001
+p \textless{} 0.001
 (Figure \ref{fig:cor-plot}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{../figures/cor-plot2-1} 
+
+}
+
+\caption{Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.}\label{fig:cor-plot2}
+\end{figure}
 
 The same test was applied to total biofilm weight and starch count per mg
 calculus (also standardised by z-score), resulting in a weak positive correlation,
 \emph{r} = 0.3,
 90\%CI{[}0.0618, 0.506{]},
-p 0.0403
+p = 0.0403
 (Figure \ref{fig:cor-plot2}).
-
-\begin{figure}
-\centering
-\includegraphics{../figures/cor-plot2-1.pdf}
-\caption{\label{fig:cor-plot2}Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.}
-\end{figure}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
@@ -783,10 +748,11 @@ while medium granules (10--20 \(\mu\)m) were often over-represented
 (Table \ref{tab:sample-prop-tbl},
 and
 Figure \ref{fig:ratio-plots}).
-Large potato granules were most affected, and can reach up to 100 \(\mu\)m
-in diameter, whereas wheat generally only reach up to 35 \(\mu\)m
+Large potato granules were most affected, potentially because of the greater
+size-range. They can reach up to 100 \(\mu\)m in maximum length, whereas wheat
+granules generally only reach up to 35 \(\mu\)m
 (Gismondi et al., 2019; Haslam, 2004; Seidemann, 1966, pp. 174--176).
-This may also suggest that granule morphology plays a role. Large wheat granules
+Granule morphology may also play a role. Large wheat granules
 are lenticular and have a larger surface area compared
 to volume, whereas large potato granules are ovoid and have a larger volume
 compared to surface area
@@ -799,8 +765,8 @@ a result that contradicts findings from archaeological contexts
 (Dudgeon \& Tromp, 2014; Wesolowski et al., 2010).
 When the concentration of starch granules
 per mg calculus is considered, the correlation is weaker, but still present
-(Figure \ref{fig:cor-plot2});
-while the larger deposits contain a higher absolute count, our findings also suggest
+(Figure \ref{fig:cor-plot2}).
+While the larger deposits contain a higher absolute count, our findings also suggest
 that they contain a slightly higher concentration of starches.
 Further research is needed to determine why this differs from previous archaeological
 findings.
@@ -820,8 +786,8 @@ representative of individual diets than starch granules.
 The size bias is also consistent with the findings by Power and colleagues
 (2015),
 who found that plants producing starches 10--20 \(\mu\)m in
-size were over-represented; although, the representation of granules larger than
-20 \(\mu\)m is unclear.
+size were over-represented; however, the representation of granules larger than
+20 \(\mu\)m in their study is unclear.
 
 The mechanism by which starch granules are incorporated into plaque and calculus
 remains largely unknown, and few studies have directly investigated potential
@@ -850,11 +816,11 @@ susceptible to mechanical removal by the tongue, salivary clearance, and hydroly
 by \(\alpha\)-amylase (S. Kashket et al., 1996).
 The susceptibility of granules to hydrolysis depends on the crystallinity and size
 of the starch granule, as well as the mode of processing. Smaller and pre-processed
-(e.g.~cooking) starch granules are more susceptible to enzymatic degradation,
+(e.g., cooked) starch granules are more susceptible to enzymatic degradation,
 while dehydrated starches will have a reduced susceptibility
 (Björck et al., 1984; Franco et al., 1992; Haslam, 2004; Henry et al., 2009; Lingstrom et al., 1994).
-Cracks on the surface, as well as unmineralised islands and channels exist within
-dental calculus and may also be able to contain starch granules
+Cracks on the surface of the dental calculus, as well as unmineralised islands
+and channels may also be able to contain starch granules
 (Charlier et al., 2010; Power et al., 2014; Tan, Gillam, et al., 2004).
 Starch granules that are trapped in these pockets are (at least to some extent)
 protected from aforementioned clearance mechanisms, especially once
@@ -862,10 +828,10 @@ a new layer of plaque has covered the surface of the plaque/calculus.
 The size bias against large granules (\textgreater20 \(\mu\)m) from both wheat and potato
 (Table \ref{tab:sample-prop-tbl}) may give further credence to
 this incorporation pathway, as the smaller starch granules have an advantage over
-larger granules, and can be stored in larger quantities.\\
+larger granules, and can be stored in larger quantities.
 This was also suggested by Power and colleagues (2014), who
 observed clusters of starches within dental calculus, rather than an even
-distribution across the surface of the dental calculus.\\
+distribution across the surface of the dental calculus.
 Granules trapped
 in plaque/calculus may still be susceptible to hydrolysis, as \(\alpha\)-amylase has
 the ability to bind to both tooth enamel and bacteria within a biofilm and retain
@@ -873,20 +839,23 @@ a portion of its hydrolytic activity
 (Nikitkova et al., 2013; Scannapieco et al., 1993; Tan, Mordan, et al., 2004; Tan, Gillam, et al., 2004).
 After the death of an individual, starches within dental calculus are susceptible
 to further degradation by post-depositional processes, depending on burial environment
-(pH, temperature, moisture content, microorganisms)\\
+(pH, temperature, moisture content, microorganisms)
 (Franco et al., 1992; García-Granero, 2020; Haslam, 2004; Henry et al., 2009).
+Future study should explore how burial affects the recovery of starch from the
+biofilm model.
 
 A limitation of this study
-is the absence of \(\alpha\)-amylase in the model. The presence of \(\alpha\)-amylase will likely affect
-the total granule counts as well as the size ratios, as smaller starches may be more
+The absence of \(\alpha\)-amylase in the model is a limitation of this study, as
+the total granule counts were not subject to hydrolysis. This would likely have
+reduced and affected the size ratios, as smaller starches may be more
 susceptible to hydrolysis
 (Franco et al., 1992; Haslam, 2004); however,
-the absense can also allow us to directly explore
+the absence can also allow us to directly explore
 the effect of \(\alpha\)-amylase on starch counts in future experiments,
 where \(\alpha\)-amylase can be added to the model
 in concentrations similar to those found in the oral cavity (Scannapieco et al., 1993).
 We are able to show how absolute counts in the treatments cause a difference in
-incorporation; however, this
+incorporation. However, this
 was merely a side-effect of the difference in the number of granules in potato and
 wheat solutions of the same concentration (w/v). Further research should test
 multiple differing concentrations of the same starch type.
@@ -901,20 +870,19 @@ was feasible to count in a reasonable time period, so we calculated the total
 counts by extrapolating from three slide transects.
 Thus, we reasonably assume that the three transects are a good representation
 of the entire slide, and that the distribution of all granules on the slide is
-relatively homogenous.\\
+relatively homogeneous.\\
 Finally, we only used native starches in the experimental procedure and the results
 will likely differ for processed starches (García-Granero, 2020).
 Based on the comparatively low counts obtained by Leonard
 and colleagues (2015, Supplement 2), processing and amylase
 may have a substantial effect on starch granule retention in the oral cavity.
 
-The data from this study are not sufficient to confirm or deny any proposed
-methods of starch incorporation; however, while we are unable to address the
+While we are unable to sufficiently address the
 mechanism(s) of starch incorporation with the data obtained in this study,
-the dental calculus model presented in this study is uniquely suited to explore
-these questions and may improve interpretations of dietary practices in past populations.
-It can address the call for more baseline testing of biases associated with
-dietary research conducted on dental calculus
+the dental calculus model presented here is uniquely suited to explore
+these questions and may improve interpretations of dietary practices in past
+populations. Further analyses using this model can address the call for more
+baseline testing of biases associated with dietary research conducted on dental calculus
 (Le Moyne \& Crowther, 2021).
 Our high-throughput experimental setup allows us a
 higher degree of control over the factors that influence starch incorporation and
@@ -939,7 +907,7 @@ an effect that is compounded by diagenetic effects in archaeological remains,
 resulting in low overall counts of extracted granules.
 The proportion of starches consumed will in many cases be reflected
 in the quantity
-of starches extracted from the dental calculus---i.e.~the more starch granules
+of starches extracted from the dental calculus---i.e., the more starch granules
 entering the oral cavity, the more will be recovered from extraction---at
 least in modern calculus samples unaffected by diagenesis and hydrolysis.
 Whether or not this also applies to archaeological samples remains to be tested.
@@ -960,16 +928,28 @@ to explore the incorporation and extraction of dietary compounds from dental cal
 in a controlled laboratory setting, and unearth the potential biases associated
 with dietary research conducted on archaeological dental calculus.
 
+\hypertarget{data-availability-statement}{%
+\section*{Data Availability Statement}\label{data-availability-statement}}
+\addcontentsline{toc}{section}{Data Availability Statement}
+
+All scripts and data used in the analysis are available on OSF
+(\url{https://osf.io/uc5qy/}) and Github (\url{https://github.com/bbartholdy/byoc-starch}),
+following the format provided by the rrtools package (Marwick, 2019).
+More detailed protocols are available on OSF and protocols.io.
+
 \hypertarget{acknowledgements}{%
 \section*{Acknowledgements}\label{acknowledgements}}
 \addcontentsline{toc}{section}{Acknowledgements}
 
+We would like to thank Dr.~Stephanie Schnorr for help with the amylase activity protocol.
+We also thank everyone in the general vicinity
+of the lab for enduring the smell of bacterial accumulation.
+Since we did NOT make use of Sci-Hub to access articles stuck behind a paywall,
+we will NOT acknowledge the use of Sci-Hub in this study.
+
 This research has received funding from the European Research Council under the
 European Union's Horizon 2020 research and innovation program, grant agreement
-number STG--677576 (``HARVEST''). We also thank everyone in the general vicinity
-of the lab for enduring the smell of bacterial accumulation.
-We did NOT make use of Sci-Hub to access articles stuck behind a paywall,
-and will, therefore, NOT acknowledge the use of Sci-Hub in this study.
+number STG--677576 (``HARVEST'').
 
 \hypertarget{references-cited}{%
 \section*{References cited}\label{references-cited}}
@@ -1002,16 +982,16 @@ Cummings, L. S., \& Magennis, A. (1997). A phytolith and starch record of food a
 Dodds, M. W. J., \& Edgar, W. M. (1988). The {Relationship Between Plaque pH}, {Plaque Acid Anion Profiles}, and {Oral Carbohydrate Retention After Ingestion} of {Several} '{Reference Foods}' by {Human Subjects}. \emph{Journal of Dental Research}, \emph{67}(5), 861--865. \url{https://doi.org/10.1177/00220345880670051301}
 
 \leavevmode\hypertarget{ref-dudgeonDietGeographyDrinking2014}{}%
-Dudgeon, J. V., \& Tromp, M. (2014). Diet, {Geography} and {Drinking Water} in {Polynesia}: {Microfossil Research} from {Archaeological Human Dental Calculus}, {Rapa Nui} ({Easter Island}). \emph{International Journal of Osteoarchaeology}, \emph{24}(5), 634--648. \url{https://doi.org/10.1002/oa.2249}
+Dudgeon, J. V., \& Tromp, M. (2014). Diet, {Geography} and {Drinking Water} in {Polynesia}: Microfossil {Research} from {Archaeological Human Dental Calculus}, {Rapa Nui} ({Easter Island}). \emph{International Journal of Osteoarchaeology}, \emph{24}(5), 634--648. \url{https://doi.org/10.1002/oa.2249}
 
 \leavevmode\hypertarget{ref-eerkensDentalCalculusSource2018}{}%
-Eerkens, J. W., Tushingham, S., Brownstein, K. J., Garibay, R., Perez, K., Murga, E., Kaijankoski, P., Rosenthal, J. S., \& Gang, D. R. (2018). Dental calculus as a source of ancient alkaloids: {Detection} of nicotine by {LC}-{MS} in calculus samples from the {Americas}. \emph{Journal of Archaeological Science: Reports}, \emph{18}, 509--515. \url{https://doi.org/10.1016/j.jasrep.2018.02.004}
+Eerkens, J. W., Tushingham, S., Brownstein, K. J., Garibay, R., Perez, K., Murga, E., Kaijankoski, P., Rosenthal, J. S., \& Gang, D. R. (2018). Dental calculus as a source of ancient alkaloids: Detection of nicotine by {LC}-{MS} in calculus samples from the {Americas}. \emph{Journal of Archaeological Science: Reports}, \emph{18}, 509--515. \url{https://doi.org/10.1016/j.jasrep.2018.02.004}
 
 \leavevmode\hypertarget{ref-fagernasMicrobialBiogeography2021}{}%
 Fagernäs, Z., Salazar-García, D. C., Avilés, A., Haber, M., Henry, A., Maurandi, J. L., Ozga, A., Velsko, I. M., \& Warinner, C. (2021). Understanding the microbial biogeography of ancient human dentitions to guide study design and interpretation. \emph{bioRxiv}, 2021.08.16.456492. \url{https://doi.org/10.1101/2021.08.16.456492}
 
 \leavevmode\hypertarget{ref-foxPhytolithCalculus1996}{}%
-Fox, C. L., Juan, J., \& Albert, R. M. (1996). Phytolith analysis on dental calculus, enamel surface, and burial soil: {Information} about diet and paleoenvironment. \emph{American Journal of Physical Anthropology}, \emph{101}(1), 101--113. \url{https://doi.org/10.1002/(SICI)1096-8644(199609)101:1\%3C101::AID-AJPA7\%3E3.0.CO;2-Y}
+Fox, C. L., Juan, J., \& Albert, R. M. (1996). Phytolith analysis on dental calculus, enamel surface, and burial soil: Information about diet and paleoenvironment. \emph{American Journal of Physical Anthropology}, \emph{101}(1), 101--113. \url{https://doi.org/10.1002/(SICI)1096-8644(199609)101:1\%3C101::AID-AJPA7\%3E3.0.CO;2-Y}
 
 \leavevmode\hypertarget{ref-francoStarchDegradation1992}{}%
 Franco, C. M. L., Preto, S. J. do R., \& Ciacco, C. F. (1992). Factors that {Affect} the {Enzymatic Degradation} of {Natural Starch Granules} -{Effect} of the {Size} of the {Granules}. \emph{Starch - Stärke}, \emph{44}(11), 422--426. \url{https://doi.org/10.1002/star.19920441106}
@@ -1020,7 +1000,7 @@ Franco, C. M. L., Preto, S. J. do R., \& Ciacco, C. F. (1992). Factors that {Aff
 Froehlich, D. A., Pangborn, R. M., \& Whitaker, J. R. (1987). The effect of oral stimulation on human parotid salivary flow rate and alpha-amylase secretion. \emph{Physiology \& Behavior}, \emph{41}(3), 209--217. \url{https://doi.org/10.1016/0031-9384(87)90355-6}
 
 \leavevmode\hypertarget{ref-graneroStarchTaphonomy2020}{}%
-García-Granero, J. J. (2020). Starch taphonomy, equifinality and the importance of context: {Some} notes on the identification of food processing through starch grain analysis. \emph{Journal of Archaeological Science}, \emph{124}, 105267. \url{https://doi.org/10.1016/j.jas.2020.105267}
+García-Granero, J. J. (2020). Starch taphonomy, equifinality and the importance of context: Some notes on the identification of food processing through starch grain analysis. \emph{Journal of Archaeological Science}, \emph{124}, 105267. \url{https://doi.org/10.1016/j.jas.2020.105267}
 
 \leavevmode\hypertarget{ref-gismondiStarchGranulesData2019}{}%
 Gismondi, A., D'Agostino, A., Canuti, L., Di Marco, G., Basoli, F., \& Canini, A. (2019). Starch granules: A data collection of 40 food species. \emph{Plant Biosystems - An International Journal Dealing with All Aspects of Plant Biology}, \emph{153}(2), 273--279. \url{https://doi.org/10.1080/11263504.2018.1473523}
@@ -1032,7 +1012,7 @@ Haffajee, A. D., Teles, R. P., Patel, M. R., Song, X., Yaskell, T., \& Socransky
 Hardy, K., Blakeney, T., Copeland, L., Kirkham, J., Wrangham, R., \& Collins, M. (2009). Starch granules, dental calculus and new perspectives on ancient diet. \emph{Journal of Archaeological Science}, \emph{36}(2), 248--255. \url{https://doi.org/10.1016/j.jas.2008.09.015}
 
 \leavevmode\hypertarget{ref-hardyNeanderthalMedics2012}{}%
-Hardy, K., Buckley, S., Collins, M. J., Estalrrich, A., Brothwell, D., Copeland, L., García-Tabernero, A., García-Vargas, S., de la Rasilla, M., Lalueza-Fox, C., Huguet, R., Bastir, M., Santamaría, D., Madella, M., Wilson, J., Cortés, Á. F., \& Rosas, A. (2012). Neanderthal medics? {Evidence} for food, cooking, and medicinal plants entrapped in dental calculus. \emph{Naturwissenschaften}, \emph{99}(8), 617--626. \url{https://doi.org/10.1007/s00114-012-0942-0}
+Hardy, K., Buckley, S., Collins, M. J., Estalrrich, A., Brothwell, D., Copeland, L., García-Tabernero, A., García-Vargas, S., de la Rasilla, M., Lalueza-Fox, C., Huguet, R., Bastir, M., Santamaría, D., Madella, M., Wilson, J., Cortés, Á. F., \& Rosas, A. (2012). Neanderthal medics? Evidence for food, cooking, and medicinal plants entrapped in dental calculus. \emph{Naturwissenschaften}, \emph{99}(8), 617--626. \url{https://doi.org/10.1007/s00114-012-0942-0}
 
 \leavevmode\hypertarget{ref-haslamDecompositionStarch2004}{}%
 Haslam, M. (2004). The decomposition of starch grains in soils: Implications for archaeological residue analyses. \emph{Journal of Archaeological Science}, \emph{31}(12), 1715--1734. \url{https://doi.org/10.1016/j.jas.2004.05.006}
@@ -1056,7 +1036,7 @@ Jane, J.-L., Kasemsuwan, T., Leas, S., Zobel, H., \& Robyt, J. F. (1994). Anthol
 Jepsen, S., Deschner, J., Braun, A., Schwarz, F., \& Eberhard, J. (2011). Calculus removal and the prevention of its formation. \emph{Periodontology 2000}, \emph{55}(1), 167--188. \url{https://doi.org/10.1111/j.1600-0757.2010.00382.x}
 
 \leavevmode\hypertarget{ref-jovanovicNeolithicCalculus2021}{}%
-Jovanović, J., Power, R. C., de Becdelièvre, C., Goude, G., \& Stefanović, S. (2021). Microbotanical evidence for the spread of cereal use during the {Mesolithic}-{Neolithic} transition in the {Southeastern Europe} ({Danube Gorges}): {Data} from dental calculus analysis. \emph{Journal of Archaeological Science}, \emph{125}, 105288. \url{https://doi.org/10.1016/j.jas.2020.105288}
+Jovanović, J., Power, R. C., de Becdelièvre, C., Goude, G., \& Stefanović, S. (2021). Microbotanical evidence for the spread of cereal use during the {Mesolithic}-{Neolithic} transition in the {Southeastern Europe} ({Danube Gorges}): Data from dental calculus analysis. \emph{Journal of Archaeological Science}, \emph{125}, 105288. \url{https://doi.org/10.1016/j.jas.2020.105288}
 
 \leavevmode\hypertarget{ref-kashketFoodRetention1991}{}%
 Kashket, S., Van Houte, J., Lopez, L. R., \& Stocks, S. (1991). Lack of {Correlation Between Food Retention} on the {Human Dentition} and {Consumer Perception} of {Food Stickiness}. \emph{Journal of Dental Research}, \emph{70}(10), 1314--1319. \url{https://doi.org/10.1177/00220345910700100101}
@@ -1065,13 +1045,16 @@ Kashket, S., Van Houte, J., Lopez, L. R., \& Stocks, S. (1991). Lack of {Correla
 Kashket, S., Zhang, J., \& Houte, J. V. (1996). Accumulation of {Fermentable Sugars} and {Metabolic Acids} in {Food Particles} that {Become Entrapped} on the {Dentition}. \emph{Journal of Dental Research}, 8.
 
 \leavevmode\hypertarget{ref-lemoyneCalculusPretreatments2021}{}%
-Le Moyne, C., \& Crowther, A. (2021). Effects of chemical pre-treatments on modified starch granules: {Recommendations} for dental calculus decalcification for ancient starch research. \emph{Journal of Archaeological Science: Reports}, \emph{35}, 102762. \url{https://doi.org/10.1016/j.jasrep.2020.102762}
+Le Moyne, C., \& Crowther, A. (2021). Effects of chemical pre-treatments on modified starch granules: Recommendations for dental calculus decalcification for ancient starch research. \emph{Journal of Archaeological Science: Reports}, \emph{35}, 102762. \url{https://doi.org/10.1016/j.jasrep.2020.102762}
 
 \leavevmode\hypertarget{ref-leonardDentalCalculus2015}{}%
-Leonard, C., Vashro, L., O'Connell, J. F., \& Henry, A. G. (2015). Plant microremains in dental calculus as a record of plant consumption: {A} test with {Twe} forager-horticulturalists. \emph{Journal of Archaeological Science: Reports}, \emph{2}, 449--457. \url{https://doi.org/10.1016/j.jasrep.2015.03.009}
+Leonard, C., Vashro, L., O'Connell, J. F., \& Henry, A. G. (2015). Plant microremains in dental calculus as a record of plant consumption: A test with {Twe} forager-horticulturalists. \emph{Journal of Archaeological Science: Reports}, \emph{2}, 449--457. \url{https://doi.org/10.1016/j.jasrep.2015.03.009}
 
 \leavevmode\hypertarget{ref-lingstromStarchyFood1994}{}%
 Lingstrom, P., Birkhed, D., Ruben, J., \& Arends, J. (1994). Effect of {Frequent Consumption} of {Starchy Food Items} on {Enamel} and {Dentin Demineralization} and on {Plaque pH} in situ. \emph{Journal of Dental Research}, \emph{73}(3), 652--660. \url{https://doi.org/10.1177/00220345940730031101}
+
+\leavevmode\hypertarget{ref-R-rrtools}{}%
+Marwick, B. (2019). \emph{Rrtools: Creates a reproducible research compendium} {[}Manual{]}. \url{https://github.com/benmarwick/rrtools}
 
 \leavevmode\hypertarget{ref-mickleburghNewInsightsConsumption2012}{}%
 Mickleburgh, H. L., \& Pagán-Jiménez, J. R. (2012). New insights into the consumption of maize and other food plants in the pre-{Columbian Caribbean} from starch grains trapped in human dental calculus. \emph{Journal of Archaeological Science}, \emph{39}(7), 2468--2478. \url{https://doi.org/10.1016/j.jas.2012.02.020}
@@ -1083,19 +1066,19 @@ Middleton, W. D., \& Rovner, I. (1994). Extraction of {Opal Phytoliths} from {He
 Modi, A., Pisaneschi, L., Zaro, V., Vai, S., Vergata, C., Casalone, E., Caramelli, D., Moggi-Cecchi, J., Mariotti Lippi, M., \& Lari, M. (2020). Combined methodologies for gaining much information from ancient dental calculus: Testing experimental strategies for simultaneously analysing {DNA} and food residues. \emph{Archaeological and Anthropological Sciences}, \emph{12}(1), 10. \url{https://doi.org/10.1007/s12520-019-00983-5}
 
 \leavevmode\hypertarget{ref-R-here}{}%
-Müller, K. (2020). \emph{Here: {A} simpler way to find your files} {[}Manual{]}. \url{https://CRAN.R-project.org/package=here}
+Müller, K. (2020). \emph{Here: A simpler way to find your files} {[}Manual{]}. \url{https://CRAN.R-project.org/package=here}
 
 \leavevmode\hypertarget{ref-naterHumanAmylase2005}{}%
 Nater, U. M., Rohleder, N., Gaab, J., Berger, S., Jud, A., Kirschbaum, C., \& Ehlert, U. (2005). Human salivary alpha-amylase reactivity in a psychosocial stress paradigm. \emph{International Journal of Psychophysiology}, \emph{55}(3), 333--342. \url{https://doi.org/10.1016/j.ijpsycho.2004.09.009}
 
 \leavevmode\hypertarget{ref-nikitkovaStarchBiofilms2013}{}%
-Nikitkova, A. E., Haase, E. M., \& Scannapieco, F. A. (2013). Taking the {Starch} out of {Oral Biofilm Formation}: {Molecular Basis} and {Functional Significance} of {Salivary} α-{Amylase Binding} to {Oral Streptococci}. \emph{Applied and Environmental Microbiology}, \emph{79}(2), 416--423. \url{https://doi.org/10.1128/AEM.02581-12}
+Nikitkova, A. E., Haase, E. M., \& Scannapieco, F. A. (2013). Taking the {Starch} out of {Oral Biofilm Formation}: Molecular {Basis} and {Functional Significance} of {Salivary} α-{Amylase Binding} to {Oral Streptococci}. \emph{Applied and Environmental Microbiology}, \emph{79}(2), 416--423. \url{https://doi.org/10.1128/AEM.02581-12}
 
 \leavevmode\hypertarget{ref-pearceConcomitantDepositionStrontium1987}{}%
 Pearce, E. I. F., \& Sissons, C. H. (1987). The {Concomitant Deposition} of {Strontium} and {Fluoride} in {Dental Plaque}. \emph{Journal of Dental Research}, \emph{66}(10), 1518--1522. \url{https://doi.org/10.1177/00220345870660100101}
 
 \leavevmode\hypertarget{ref-R-patchwork}{}%
-Pedersen, T. L. (2020). \emph{Patchwork: {The} composer of plots} {[}Manual{]}. \url{https://CRAN.R-project.org/package=patchwork}
+Pedersen, T. L. (2020). \emph{Patchwork: The composer of plots} {[}Manual{]}. \url{https://CRAN.R-project.org/package=patchwork}
 
 \leavevmode\hypertarget{ref-pipernoStarchGrains2008}{}%
 Piperno, D. R., \& Dillehay, T. D. (2008). Starch grains on human teeth reveal early broad crop diet in northern {Peru}. \emph{Proceedings of the National Academy of Sciences}, \emph{105}(50), 19622--19627. \url{https://doi.org/10.1073/pnas.0808752105}
@@ -1110,10 +1093,10 @@ Power, R. C., Salazar-García, D. C., Wittig, R. M., \& Henry, A. G. (2014). Ass
 Proctor, D. M., Fukuyama, J. A., Loomer, P. M., Armitage, G. C., Lee, S. A., Davis, N. M., Ryder, M. I., Holmes, S. P., \& Relman, D. A. (2018). A spatial gradient of bacterial diversity in the human oral cavity shaped by salivary flow. \emph{Nature Communications}, \emph{9}(1), 681. \url{https://doi.org/10.1038/s41467-018-02900-1}
 
 \leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. (2020). \emph{R: {A} language and environment for statistical computing} {[}Manual{]}. {R Foundation for Statistical Computing}; {R Foundation for Statistical Computing}. \url{https://www.R-project.org/}
+R Core Team. (2020). \emph{R: A language and environment for statistical computing} {[}Manual{]}. {R Foundation for Statistical Computing}; {R Foundation for Statistical Computing}. \url{https://www.R-project.org/}
 
 \leavevmode\hypertarget{ref-radiniFoodMultiplePathways2017}{}%
-Radini, A., Nikita, E., Buckley, S., Copeland, L., \& Hardy, K. (2017). Beyond food: {The} multiple pathways for inclusion of materials into ancient dental calculus. \emph{American Journal of Physical Anthropology}, \emph{162}, 71--83. \url{https://doi.org/10.1002/ajpa.23147}
+Radini, A., Nikita, E., Buckley, S., Copeland, L., \& Hardy, K. (2017). Beyond food: The multiple pathways for inclusion of materials into ancient dental calculus. \emph{American Journal of Physical Anthropology}, \emph{162}, 71--83. \url{https://doi.org/10.1002/ajpa.23147}
 
 \leavevmode\hypertarget{ref-radiniMedievalWomenEarly2019}{}%
 Radini, A., Tromp, M., Beach, A., Tong, E., Speller, C., McCormick, M., Dudgeon, J. V., Collins, M. J., Rühli, F., Kröger, R., \& Warinner, C. (2019). Medieval women's early involvement in manuscript production suggested by lapis lazuli identification in dental calculus. \emph{Science Advances}, \emph{5}(1), eaau7126. \url{https://doi.org/10.1126/sciadv.aau7126}
@@ -1122,13 +1105,13 @@ Radini, A., Tromp, M., Beach, A., Tong, E., Speller, C., McCormick, M., Dudgeon,
 Reichert, E. T. (1913). \emph{The differentiation and specificity of starches in relation to genera, species, etc: Stereochemistry applied to protoplasmic processes and products, and as a strictly scientific basis for the classification of plants and animals} (Vol. 2). {Carnegie institution of Washington}.
 
 \leavevmode\hypertarget{ref-R-broom}{}%
-Robinson, D., Hayes, A., \& Couch, S. (2021). \emph{Broom: {Convert} statistical objects into tidy tibbles} {[}Manual{]}. \url{https://CRAN.R-project.org/package=broom}
+Robinson, D., Hayes, A., \& Couch, S. (2021). \emph{Broom: Convert statistical objects into tidy tibbles} {[}Manual{]}. \url{https://CRAN.R-project.org/package=broom}
 
 \leavevmode\hypertarget{ref-scannapiecoSalivaryAmylase1993}{}%
 Scannapieco, F. A., Torres, G., \& Levine, M. J. (1993). Salivary α-amylase: Role in dental plaque and caries formation. \emph{Critical Reviews in Oral Biology \& Medicine}, \emph{4}(3), 301--307.
 
 \leavevmode\hypertarget{ref-seidemannStarchAtlas1966}{}%
-Seidemann, J. (1966). \emph{St\{\textbackslash"a\}rke-{Atlas}: {Grundlagen} der {St}\{\textbackslash"a\}rke-{Mikroskopie} und {Beschreibung} der wichtigsten {St}\{\textbackslash"a\}rkearten}. {Parey}.
+Seidemann, J. (1966). \emph{St\{\textbackslash"a\}rke-{Atlas}: Grundlagen der {St}\{\textbackslash"a\}rke-{Mikroskopie} und {Beschreibung} der wichtigsten {St}\{\textbackslash"a\}rkearten}. {Parey}.
 
 \leavevmode\hypertarget{ref-shellisSyntheticSalivaCultural1978}{}%
 Shellis, R. P. (1978). A synthetic saliva for cultural studies of dental plaque. \emph{Archives of Oral Biology}, \emph{23}(6), 485--489. \url{https://doi.org/10.1016/0003-9969(78)90081-X}
@@ -1146,7 +1129,7 @@ Tan, B. T. K., Gillam, D. G., Mordan, N. J., \& Galgut, P. N. (2004). A prelimin
 Tan, B. T. K., Mordan, N. J., Embleton, J., Pratten, J., \& Galgut, P. N. (2004). Study of {Bacterial Viability} within {Human Supragingival Dental Calculus}. \emph{Journal of Periodontology}, \emph{75}(1), 23--29. \url{https://doi.org/10.1902/jop.2004.75.1.23}
 
 \leavevmode\hypertarget{ref-taoWheatCalculus2020}{}%
-Tao, D., Zhang, G., Zhou, Y., \& Zhao, H. (2020). Investigating wheat consumption based on multiple evidences: {Stable} isotope analysis on human bone and starch grain analysis on dental calculus of humans from the {Laodaojing} cemetery, {Central Plains}, {China}. \emph{International Journal of Osteoarchaeology}, \emph{30}(5), 594--606. \url{https://doi.org/10.1002/oa.2884}
+Tao, D., Zhang, G., Zhou, Y., \& Zhao, H. (2020). Investigating wheat consumption based on multiple evidences: Stable isotope analysis on human bone and starch grain analysis on dental calculus of humans from the {Laodaojing} cemetery, {Central Plains}, {China}. \emph{International Journal of Osteoarchaeology}, \emph{30}(5), 594--606. \url{https://doi.org/10.1002/oa.2884}
 
 \leavevmode\hypertarget{ref-toppingResistantStarch2003}{}%
 Topping, D. L., Fukushima, M., \& Bird, A. R. (2003). Resistant starch as a prebiotic and synbiotic: State of the art. \emph{Proceedings of the Nutrition Society}, \emph{62}(1), 171--176. \url{https://doi.org/10.1079/PNS2002224}

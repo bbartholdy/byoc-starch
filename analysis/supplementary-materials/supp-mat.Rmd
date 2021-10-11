@@ -11,7 +11,8 @@ output:
 ```{r setup, include=FALSE}
 library(here)
 library(tidyverse)
-raw_data <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
+raw_data_samples <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
+raw_data_solutions <- read_csv(here("analysis/data/raw_data/solution_counts.csv"))
 ```
 
 ## R Session info
@@ -67,6 +68,44 @@ Counts represent the absolute number of starches counted on a slide
 | l | Large starch count. |
 | total | Sum of s, m, and l. |
 
+## Raw data
+
+Raw counts from the treatment solutions before extrapolation.
+
+```{r raw-data-sol, echo=FALSE}
+raw_data_solutions
+```
+
+Raw counts from the calculus samples before extrapolation:
+
+```{r raw-data-samp, echo=FALSE}
+raw_data_samples
+```
+
+The raw data can be downloaded from GitHub:
+
+```sh
+# solution counts
+wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/solution_counts.csv
+
+# sample counts
+wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/starch_counts.csv
+```
+
+## Microscope images
+
+```{r img-1, echo=FALSE, fig.cap="Image of starch granules extracted from a potato treatment sample"}
+knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
+```
+
+```{r img-2}
+knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
+```
+
+```{r img-3, fig.cap="Microscope image of wheat starch from a wheat treatment sample."}
+knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
+```
+
 ## Amylase activity
 
 Amylase activity in U/mL enzyme, where a U is mg maltose released from starch in six minutes at 36 &deg;C.
@@ -100,7 +139,7 @@ plt2_ph2_result
 ## Control samples
 
 ```{r}
-raw_data %>%
+raw_data_samples %>%
   filter(treatment == "control") %>%
   select(!c(vol, portion_slide, s, m, l))
 ```
@@ -124,17 +163,3 @@ $$ \text{corrected count} = \text{raw count} \times \frac{\text{total} \space \t
 Sample counts were extrapolated using the following formula:
 
 $$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-1} \times \frac{V_{sample}}{V_{slide}} $$
-
-## Microscope images
-
-```{r img-1, echo=FALSE, fig.cap="Image of starch granules extracted from a potato treatment sample"}
-knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
-```
-
-```{r img-2}
-knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
-```
-
-```{r img-3, fig.cap="Microscope image of wheat starch from a wheat treatment sample."}
-knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
-```

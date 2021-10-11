@@ -52,9 +52,6 @@ ratio_samp_sep <- ratio_samp_sep %>%
 
 ratio_sep <- rbind(ratio_sol_sep, ratio_samp_sep)
 ratio_sep$type <- c(rep("solution", 3), rep("sample", 3))
-#ratio_sep$ymax_wheat <- cumsum(ratio_sep$wheat)
-#ratio_sep$ymin <- c(0, head(ratio_sep$ymax_wheat, n = -1))
-
 
 # Pie charts --------------------------------------------------------------
 
@@ -63,22 +60,18 @@ ratio_sep$type <- c(rep("solution", 3), rep("sample", 3))
 pl_wheat1 <- ratio_sep %>%
   select(!contains("potato")) %>%
   ggplot(aes(x = type, y = wheat, fill = size)) +
-  #geom_rect(xmin = 2, xmax = 3, ymin = ratio_sep$ymin, ymax = ratio_sep$ymax_wheat) +
   geom_bar(stat = "identity", width = 1, colour = "white") +
   coord_polar(theta = "y") +
   theme_void() +
-  #geom_text(aes(x = 2, label = label_wheat)) +
-  scale_fill_viridis_d(name = "Size", labels = c("Large", "Medium", "Small"))
+  scale_fill_viridis_d(name = "Size", labels = c("large", "medium", "small"))
 
 pl_potato1 <- ratio_sep %>%
   select(!contains("wheat")) %>%
   ggplot(aes(x = type, y = potato, fill = size)) +
-  #geom_rect(xmin = 2, xmax = 3, ymin = ratio_sep$ymin, ymax = ratio_sep$ymax_wheat) +
   geom_bar(stat = "identity", width = 1, colour = "white") +
   coord_polar(theta = "y") +
   theme_void() +
-  #geom_text(aes(x = 2, label = label_wheat)) +
-  scale_fill_viridis_d(name = "Size", labels = c("Large", "Medium", "Small"))
+  scale_fill_viridis_d(name = "Size", labels = c("large", "medium", "small"))
 
 # transpose solution data frame
 ratio_sol_mix <- sol_sep %>%
@@ -133,31 +126,23 @@ diff_mix <- ratio_diff_mix %>%
 pl_wheat2 <- ratio_mix %>%
   select(!contains("potato")) %>%
   ggplot(aes(x = type, y = wheat, fill = size)) +
-  #geom_rect(xmin = 2, xmax = 3, ymin = ratio_sep$ymin, ymax = ratio_sep$ymax_wheat) +
   geom_bar(stat = "identity", width = 1, colour = "white") +
   coord_polar(theta = "y") +
   theme_void() +
-  #geom_text(aes(x = 2, label = label_wheat)) +
   scale_fill_viridis_d(begin = 0.7,
                        name = "",
-                       labels = c("Large", "Medium", "Small"))
-  #scale_fill_manual(values = viridisLite::viridis(3, begin = 0.7),
-  #                  name = "Size", labels = c("Large", "Medium", "Small"))
+                       labels = c("large", "medium", "small"))
 
 pl_potato2 <- ratio_mix %>%
   mutate(potato = if_else(is.na(potato), 0, potato)) %>% # fix colour issue
   select(!contains("wheat")) %>%
-  #filter(size != "s") %>% # this caused m to have a different colour that pl_wheat2
   ggplot(aes(x = type, y = potato, fill = size)) +
   geom_bar(stat = "identity", width = 1, colour = "white") +
   coord_polar(theta = "y") +
   theme_void() +
-  #geom_text(aes(x = 2, label = label_wheat)) +
   scale_fill_viridis_d(begin = 0.7,
                        name = "",
-                       labels = c("Large", "Medium", "Small"))
-  #scale_fill_manual(values = viridisLite::viridis(3, begin = 0.7)[c(1,2)],
-  #                  name = "Size", labels = c("Large", "Medium", "Small"))
+                       labels = c("large", "medium", "small"))
 
 # Scatter plot ------------------------------------------------------------
 
@@ -191,18 +176,44 @@ strength_cor <- if(cor_r >= 0.8){
 pl_cor <- ggplot(z_count,
        aes(weight, std_total, col = treatment, shape = treatment)) +
   geom_point(size = 2) +
-  labs(x = "Weight (mg)",
-       y = "Total Starch Count (z-score)") +
   theme_bw() +
+  labs(x = "Weight (mg)",
+       y = "Total starch count (z-score)",
+       colour = "Treatment",
+       shape = "Treatment") +
   scale_colour_viridis_d()
-
+# ## Multi-plot figure test ##
+# pl_cor <- ggplot(z_count,
+#         aes(y = weight, x = std_total, col = treatment, shape = treatment)) +
+#   geom_point(size = 2) +
+#   theme_bw() +
+#   labs(y = "Weight (mg)",
+#        x = "Total starch count (z-score)") +
+#   scale_colour_viridis_d() +
+#   theme(axis.title.x = element_text(size = 10))
+# ## End: Multi-plot figure test ##
 
 # plot of correlation between weight and starches per mg calculus
 pl_cor2 <- starch_per_mg %>%
   filter(treatment != "control") %>%
   ggplot(aes(weight, std_starch_per, col = treatment, shape = treatment)) +
     geom_point(size = 2) +
-    labs(x = "Weight (mg)",
-       y = "Starch count per mg of calculus (Z-score)") +
     theme_bw() +
+    labs(x = "Weight (mg)",
+       y = "Starch count per mg of calculus (Z-score)",
+       colour = "Treatment",
+       shape = "Treatment") +
     scale_colour_viridis_d()
+
+# ## Multi-plot figure test ##
+# pl_cor2 <- starch_per_mg %>%
+#   filter(treatment != "control") %>%
+#   ggplot(aes(y = weight, x = std_starch_per, col = treatment, shape = treatment)) +
+#   geom_point(size = 2) +
+#   theme_bw() +
+#   labs(y = "Weight (mg)",
+#        x = "Starch count per mg of calculus (Z-score)") +
+#   scale_colour_viridis_d() +
+#   theme(axis.title.y = element_blank(),
+#         axis.text.y = element_blank(),
+#         axis.title.x = element_text(size = 10))
