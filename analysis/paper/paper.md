@@ -443,7 +443,7 @@ in the separated wheat treatment.
 <!-- pie charts -->
 
 <div class="figure" style="text-align: center">
-<img src="../figures/ratio-plots-1.png" alt="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments." width="80%" />
+<img src="../figures/ratio-plots-1.png" alt="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."  />
 <p class="caption">(\#fig:ratio-plots)Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments.</p>
 </div>
 
@@ -477,7 +477,7 @@ increased in potato treatments
 
 
 <div class="figure" style="text-align: center">
-<img src="../figures/cor-plot-1.png" alt="Scatter plot of sample weight and standardised starch count by Z-score for separated treatments." width="80%" />
+<img src="../figures/cor-plot-1.png" alt="Scatter plot of sample weight and standardised starch count by Z-score for separated treatments."  />
 <p class="caption">(\#fig:cor-plot)Scatter plot of sample weight and standardised starch count by Z-score for separated treatments.</p>
 </div>
 
@@ -493,7 +493,7 @@ p < 0.001
 (Figure \@ref(fig:cor-plot)). 
 
 <div class="figure" style="text-align: center">
-<img src="../figures/cor-plot2-1.png" alt="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus." width="80%" />
+<img src="../figures/cor-plot2-1.png" alt="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."  />
 <p class="caption">(\#fig:cor-plot2)Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.</p>
 </div>
 

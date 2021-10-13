@@ -3,10 +3,13 @@ title: "Tables and Figures"
 output:
   bookdown::pdf_document2:
     toc: no
+  bookdown::html_document2:
+    toc: no
 ---
 
 ```{r setup-figs-and-tbls, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE)
 library(tidyverse)
 library(broom)
 library(here)
@@ -15,7 +18,6 @@ library(patchwork)
 source(here("analysis/scripts/analysis.R"))
 source(here("analysis/scripts/tables.R"))
 source(here("analysis/scripts/figures.R"))
-#code to include R scripts in .Rmd: r knitr::spin_child("tables.R")
 ```
 
 \listoftables
@@ -23,6 +25,68 @@ source(here("analysis/scripts/figures.R"))
 
 ## Tables
 <!-- ### Tables ### -->
+
+```{r anova-tbl}
+knitr::kable(anova_tbl, 
+             col.names = c("Treatment", "Mean", "SD", "Min", "Max"),
+             caption = "Summary statistics for biofilm dry-weights (in mg) by treatment.")
+```
+
+```{r sample-count}
+count_sample <- count_sample %>%
+  ungroup() %>%
+  add_row(count_sample_comb, .after = 2)
+
+# convert columns to contain mean count and percentage of total count
+count_samp_per <- count_sample %>%
+  mutate(across(c(s, m, l, total), 
+                function(x) 
+                  paste0(round(x), " (", scales::percent(signif(x / total, 3)), ")")))
+
+count_samp_out <- tibble(count_samp_per, count_sample_sd, .name_repair = "unique") %>%
+  select(1,2,3,7,4,8,5,9,6,10) #%>%
+
+count_samp_out[1,3] <- NA # replace with NA
+  #add_row(tibble_row(count_sample_comb_out), .before = 3)
+```
+
+```{r solution-count-out}
+count_sol_out <- count_sol %>%
+  mutate(across(c(s, m, l, total), 
+                function(x) 
+                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
+
+### adding the 'both' row to the data frame ###
+count_sol_comb_out <- count_sol_comb %>%
+  mutate(across(c(s, m, l, total), 
+                function(x) 
+                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
+
+count_sol_out <- count_sol %>%
+  mutate(across(c(s, m, l, total), 
+                function(x) 
+                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")"))) %>%
+  ungroup() %>%
+  add_row(tibble_row(count_sol_comb_out), .before = 3)
+
+count_sol_out[1,3] <- NA
+```
+
+```{r solution-count-tbl}
+cnames <- c("Solution", "Starch", "Small (%)", "Medium (%)", "Large (%)", "Total (%)")
+options(knitr.kable.NA = "")
+knitr::kable(count_sol_out, col.names = cnames, 
+             caption = "Mean starch counts from solutions, including the
+             proportional makeup of the different sizes of granules.")
+```
+
+```{r sample-count-tbl}
+cnames <- c("Treatment", "Starch", "Small (%)", "SD", "Medium (%)", "SD", 
+            "Large (%)", "SD", "Total (%)", "SD")
+knitr::kable(count_samp_out, col.names = cnames, 
+             caption = "Mean starch counts extracted from samples with standard 
+             deviation (SD), including the proportion of granule sizes of the total count.")
+```
 
 ```{r sample-perc}
 # convert proportions to percent labels
@@ -34,24 +98,32 @@ perc <- prop %>%
   add_row(tibble_row(perc_comb), .before = 3)
 ```
 
-
 ```{r sample-prop-tbl}
 cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
 knitr::kable(perc, col.names = cnames, 
              caption = "The mean percentage of starches from the solutions that 
-              were incorported into the samples.")
+              were incorporated into the samples.")
 ```
 
 ## Figures
 <!-- ### Figures ### -->
+
+```{r protocol-fig, fig.cap="Overview of experiment protocol including the plate setup."}
+knitr::include_graphics(here("analysis/figures/protocol_overview.png"))
+```
+
+```{r microscope-fig, fig.cap="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\\mu$m.", out.width="50%"}
+knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
+```
 
 ```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}
 #plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
 (pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
 
-```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for seprated treatments."}
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for separated treatments."}
 pl_cor
+#pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
 
 ```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}

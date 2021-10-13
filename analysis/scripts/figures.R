@@ -182,16 +182,16 @@ pl_cor <- ggplot(z_count,
        colour = "Treatment",
        shape = "Treatment") +
   scale_colour_viridis_d()
-# ## Multi-plot figure test ##
-# pl_cor <- ggplot(z_count,
-#         aes(y = weight, x = std_total, col = treatment, shape = treatment)) +
-#   geom_point(size = 2) +
-#   theme_bw() +
-#   labs(y = "Weight (mg)",
-#        x = "Total starch count (z-score)") +
-#   scale_colour_viridis_d() +
-#   theme(axis.title.x = element_text(size = 10))
-# ## End: Multi-plot figure test ##
+## Multi-plot figure test ##
+pl_cor <- ggplot(z_count,
+        aes(y = weight, x = std_total, col = treatment, shape = treatment)) +
+  geom_point(size = 2) +
+  theme_bw() +
+  labs(y = "Weight (mg)",
+       x = "Total starch count (z-score)") +
+  scale_colour_viridis_d() +
+  theme(axis.title.x = element_text(size = 10))
+## End: Multi-plot figure test ##
 
 # plot of correlation between weight and starches per mg calculus
 pl_cor2 <- starch_per_mg %>%
@@ -205,15 +205,15 @@ pl_cor2 <- starch_per_mg %>%
        shape = "Treatment") +
     scale_colour_viridis_d()
 
-# ## Multi-plot figure test ##
-# pl_cor2 <- starch_per_mg %>%
-#   filter(treatment != "control") %>%
-#   ggplot(aes(y = weight, x = std_starch_per, col = treatment, shape = treatment)) +
-#   geom_point(size = 2) +
-#   theme_bw() +
-#   labs(y = "Weight (mg)",
-#        x = "Starch count per mg of calculus (Z-score)") +
-#   scale_colour_viridis_d() +
-#   theme(axis.title.y = element_blank(),
-#         axis.text.y = element_blank(),
-#         axis.title.x = element_text(size = 10))
+## Multi-plot figure test ##
+pl_cor2 <- starch_per_mg %>%
+  filter(treatment != "control") %>%
+  ggplot(aes(y = weight, x = std_starch_per, col = treatment, shape = treatment)) +
+  geom_point(size = 2) +
+  theme_bw() +
+  labs(y = "Weight (mg)",
+       x = "Starch count per mg of calculus (Z-score)") +
+  scale_colour_viridis_d() +
+  theme(axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.x = element_text(size = 10))

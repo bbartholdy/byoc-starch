@@ -75,16 +75,6 @@ count_sample_sd <- corr_counts %>% # create a data frame with treatment count SD
   select(s, m, l, total) %>%
   signif(digits = 3)
 
-# count_sample_comb <- corr_counts %>% # create a data frame with treatment count means
-#   filter(treatment == "mix") %>%
-#   group_by(starch) %>%
-#   summarise(across(c(s, m, l, total), mean, na.rm = T)) %>%
-#   ungroup() %>%
-#   summarise(across(c(s, m, l, total), sum, na.rm = T)) %>%
-#   mutate(starch = "both",
-#          treatment = "mix") %>%
-#   select(treatment, starch, s, m, l, total)
-
 # Proportional counts -----------------------------------------------------
 
 ### for combined mix counts ###
