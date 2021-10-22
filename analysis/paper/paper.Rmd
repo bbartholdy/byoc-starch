@@ -603,12 +603,10 @@ strength_cor <- if(cor_r >= 0.8){
 }
 ```
 
-```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by z-score for separated treatments."}
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus."}
 #pl_cor
 pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
-
-<!-- with Z-score standardisation -->
 
 Pearson's *r* suggests a 
 `r strength_cor` `r direct_cor` 
@@ -617,18 +615,20 @@ correlation between the total weight of the biofilms and the total starch count
 *r* = `r cor_r`, 
 90%CI[`r paste(cor_ci[1], cor_ci[2], sep = ", ")`],
 p `r cor_p`
-(Figure \@ref(fig:cor-plot)). 
+(Figure \@ref(fig:cor-plot)A). 
 
+<!--
 ```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
 pl_cor2
 ```
+-->
 
 The same test was applied to total biofilm weight and starch count per mg 
 calculus (also standardised by z-score), resulting in a weak positive correlation, 
 *r* = `r cor2_r`, 
 90%CI[`r paste(cor2_ci[1], cor2_ci[2], sep = ", ")`],
 p `r cor2_p`
-(Figure \@ref(fig:cor-plot2)).
+(Figure \@ref(fig:cor-plot)B).
 
 # Discussion
 
@@ -681,12 +681,12 @@ compared to surface area
 Another potentially important factor 
 from our results is the size of the calculus deposit. We found a 
 `r strength_cor` `r direct_cor` correlation between biofilm size and retained 
-starch granules (Figure \@ref(fig:cor-plot));
+starch granules (Figure \@ref(fig:cor-plot)A);
 a result that contradicts findings from archaeological contexts
 [@wesolowskiEvaluatingMicrofossilContent2010; @dudgeonDietGeographyDrinking2014].
 When the concentration of starch granules
 per mg calculus is considered, the correlation is weaker, but still present
-(Figure \@ref(fig:cor-plot2)).
+(Figure \@ref(fig:cor-plot)B).
 While the larger deposits contain a higher absolute count, our findings also suggest
 that they contain a slightly higher concentration of starches. 
 Further research is needed to determine why this differs from previous archaeological

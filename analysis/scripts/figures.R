@@ -5,6 +5,8 @@ source(here("analysis/scripts/analysis.R"))
 #sol_corr <- readr::read_csv(here("analysis/data/derived_data/", "sol_corr.csv"))
 
 
+# Pie charts --------------------------------------------------------------
+
 sol_comb_long_pie <- sol_comb_long %>%
   group_by(treatment, starch) %>%
   mutate(percent = count / sum(count, na.rm = T) * 100,
@@ -65,33 +67,7 @@ pl_potato2 <- pie_datf %>%
 (pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 
 
-# Scatter plot ------------------------------------------------------------
-
-# Standardise counts using Z-score
-z_count <- corr_comb %>%
-  filter(treatment != "control") %>%
-  group_by(treatment) %>%
-  mutate(std_total = (total - mean(total, na.rm = T)) / sd(total, na.rm = T))
-
-# Pearson correlation
-count_cor <- cor.test(z_count$weight, z_count$std_total,
-                      use = "pairwise.complete", conf.level = 0.9)
-cor_r <- signif(count_cor$estimate, 3)
-cor_ci <- signif(count_cor$conf.int, 3)
-
-# Convert r correlation result to text (MAY NEED TO GO BACK TO results.Rmd FILE)
-direct_cor <- ifelse(cor_r < 0, "negative", "positive")
-strength_cor <- if(cor_r >= 0.8){
-  "very strong"
-} else if(cor_r < 0.8 & cor_r >= 0.6){
-  "strong"
-} else if(cor_r < 0.6 & cor_r >= 0.4){
-  "moderate"
-} else if(cor_r < 0.4 & cor_r >= 0.2){
-  "weak"
-} else{
-  "very weak"
-}
+# Scatter plots -----------------------------------------------------------
 
 # Plot of correlation between weight and count
 pl_cor <- ggplot(z_count,

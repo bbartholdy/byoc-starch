@@ -20,7 +20,7 @@ print(sessionInfo(), locale = FALSE)
 ```
 ## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Pop!_OS 21.04
+## Running under: Ubuntu 20.04.3 LTS
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
@@ -31,25 +31,25 @@ print(sessionInfo(), locale = FALSE)
 ## 
 ## other attached packages:
 ##  [1] broom_0.7.9     patchwork_1.1.1 forcats_0.5.1   stringr_1.4.0  
-##  [5] dplyr_1.0.7     purrr_0.3.4     readr_2.0.2     tidyr_1.1.4    
+##  [5] dplyr_1.0.7     purrr_0.3.4     readr_2.0.0     tidyr_1.1.3    
 ##  [9] tibble_3.1.5    ggplot2_3.3.5   tidyverse_1.3.1 here_1.0.1     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.1.1 xfun_0.26        haven_2.4.3      colorspace_2.0-2
-##  [5] vctrs_0.3.8      generics_0.1.0   htmltools_0.5.2  yaml_2.2.1      
-##  [9] utf8_1.2.2       rlang_0.4.11     jquerylib_0.1.4  pillar_1.6.3    
-## [13] withr_2.4.2      glue_1.4.2       DBI_1.1.1        bit64_4.0.5     
-## [17] dbplyr_2.1.1     modelr_0.1.8     readxl_1.3.1     lifecycle_1.0.1 
-## [21] munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0 rvest_1.0.1     
-## [25] evaluate_0.14    knitr_1.36       tzdb_0.1.2       fastmap_1.1.0   
-## [29] parallel_4.1.1   fansi_0.5.0      Rcpp_1.0.7       backports_1.2.1 
-## [33] scales_1.1.1     vroom_1.5.5      jsonlite_1.7.2   bit_4.0.4       
-## [37] fs_1.5.0         hms_1.1.1        digest_0.6.28    stringi_1.7.5   
-## [41] rprojroot_2.0.2  grid_4.1.1       cli_3.0.1        tools_4.1.1     
-## [45] magrittr_2.0.1   crayon_1.4.1     pkgconfig_2.0.3  ellipsis_0.3.2  
-## [49] xml2_1.3.2       reprex_2.0.1     lubridate_1.8.0  rstudioapi_0.13 
-## [53] assertthat_0.2.1 rmarkdown_2.11   httr_1.4.2       R6_2.5.1        
-## [57] compiler_4.1.1
+##  [1] Rcpp_1.0.7       lubridate_1.7.10 assertthat_0.2.1 rprojroot_2.0.2 
+##  [5] digest_0.6.28    utf8_1.2.2       R6_2.5.1         cellranger_1.1.0
+##  [9] backports_1.2.1  reprex_2.0.1     evaluate_0.14    httr_1.4.2      
+## [13] pillar_1.6.3     rlang_0.4.11     readxl_1.3.1     rstudioapi_0.13 
+## [17] jquerylib_0.1.4  rmarkdown_2.10   bit_4.0.4        munsell_0.5.0   
+## [21] compiler_4.1.1   modelr_0.1.8     xfun_0.26        pkgconfig_2.0.3 
+## [25] htmltools_0.5.2  tidyselect_1.1.1 fansi_0.5.0      crayon_1.4.1    
+## [29] tzdb_0.1.2       dbplyr_2.1.1     withr_2.4.2      grid_4.1.1      
+## [33] jsonlite_1.7.2   gtable_0.3.0     lifecycle_1.0.1  DBI_1.1.1       
+## [37] magrittr_2.0.1   scales_1.1.1     cli_3.0.1        stringi_1.7.4   
+## [41] vroom_1.5.3      fs_1.5.0         xml2_1.3.2       bslib_0.3.0     
+## [45] ellipsis_0.3.2   generics_0.1.0   vctrs_0.3.8      tools_4.1.1     
+## [49] bit64_4.0.5      glue_1.4.2       hms_1.1.0        parallel_4.1.1  
+## [53] fastmap_1.1.0    yaml_2.2.1       colorspace_2.0-2 rvest_1.0.1     
+## [57] knitr_1.35       haven_2.4.1      sass_0.4.0
 ```
 
 ## Experimental setup
@@ -59,14 +59,14 @@ print(sessionInfo(), locale = FALSE)
 knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
 ```
 
-![The 24 deepwell plate and the lid with pegs (substrata)](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
+![The 24 deepwell plate and the lid with pegs (substrata)](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
 ```
 
-![The 24 deepwell plate with the lid on (sort of...)](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
+![The 24 deepwell plate with the lid (almost) on.](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
 
 ## Metadata for raw data files
 
@@ -135,21 +135,21 @@ wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/
 
 ## Microscope images
 
-![Image of starch granules extracted from a potato treatment sample](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
+![Image of starch granules extracted from a potato treatment sample](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
 ```
 
-![](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
+![](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
 ```
 
-![Microscope image of wheat starch from a wheat treatment sample.](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)
+![Microscope image of wheat starch from a wheat treatment sample.](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)
 
 ## Amylase activity
 
@@ -300,6 +300,35 @@ corr_comb %>%
 
 ![](supp-mat_files/figure-html/sample-box-plot-1.png)<!-- -->
 
+Extracted-granule counts separated by size:
+
+
+```r
+corr_counts_long %>%
+  filter(size != "total",
+         treatment != "control") %>%
+  group_by(treatment, starch, size) %>%
+  summarise(sd = sd(count, na.rm = T),
+            count = mean(count, na.rm = T)) %>%
+  #mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = count, fill = size)) +
+    geom_col(position = "dodge") +
+    geom_errorbar(aes(ymin = count, ymax = count + sd), width = 0.2, position = position_dodge(0.9)) +
+    facet_wrap(~ treatment, scales = "free") +
+    scale_fill_viridis_d() +
+    theme_bw()
+```
+
+```
+## `summarise()` has grouped output by 'treatment', 'starch'. You can override using the `.groups` argument.
+```
+
+```
+## Warning: Removed 1 rows containing missing values (geom_col).
+```
+
+![](supp-mat_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+
 Size distribution within the solutions (top) and samples (bottom):
 
 
@@ -333,7 +362,7 @@ samp_size_pl <- corr_counts_long %>%
 sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
 ```
 
-![](supp-mat_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](supp-mat_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 Size distribution within the samples:
 
@@ -351,3 +380,19 @@ samp_size_pl <- corr_counts_long %>%
     scale_fill_viridis_d() +
     theme_bw()
 ```
+
+Separated correlation plots:
+
+
+```r
+pl_cor
+```
+
+![Scatter plot of sample weight and standardised starch count by z-score for separated treatments.](supp-mat_files/figure-html/cor-plot-1.png)
+
+
+```r
+pl_cor2
+```
+
+![Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.](supp-mat_files/figure-html/cor-plot2-1.png)

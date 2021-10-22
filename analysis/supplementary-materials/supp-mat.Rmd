@@ -13,6 +13,7 @@ library(here)
 library(tidyverse)
 library(patchwork)
 source(here("analysis/scripts/analysis.R"))
+source(here("analysis/scripts/figures.R"))
 #raw_data_samples <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
 #raw_data_solutions <- read_csv(here("analysis/data/raw_data/solution_counts.csv"))
 ```
@@ -110,7 +111,7 @@ knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
 
 ## Amylase activity
 
-Amylase activity in U/mL enzyme, where a U is mg maltose released from starch in six minutes at 36 &deg;C.
+Amylase activity in U/mL enzyme, where U is mg maltose released from starch in six minutes at 36 &deg;C.
 
 Tables containing the amylase activity results for both plates and both photometric
 readings conducted on each plate. Samples (rows) were analysed in triplicates (columns).
@@ -132,10 +133,10 @@ rownames(plt2_ph2_result) <- rows
 ```
 
 ```{r amylase-activity-tables}
-plt1_ph1_result
-plt1_ph2_result
-plt2_ph1_result
-plt2_ph2_result
+plt1_ph1_result # plate 1, photometric reading 1
+plt1_ph2_result # plate 1, photometric reading 2
+plt2_ph1_result # plate 2, photometric reading 1
+plt2_ph2_result # plate 2, photometric reading 2
 ```
 
 ## Control samples
@@ -178,7 +179,7 @@ Bar plot for the total count of granules exposed to the samples over the
 duration of the experiment,
 
 ```{r solution-bar-pl}
-sol_comb_long %>%
+sol_long %>%
   filter(size == "total") %>%
   group_by(treatment, starch) %>%
   ggplot(aes(x = treatment, y = count, fill = treatment, col = starch)) +
@@ -259,19 +260,12 @@ samp_size_pl <- corr_counts_long %>%
 sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
 ```
 
-Size distribution within the samples:
+Separated correlation plots:
 
-```{r message=FALSE, warning=FALSE}
-samp_size_pl <- corr_counts_long %>%
-  filter(size != "total",
-         treatment != "control") %>%
-  group_by(treatment, starch, size) %>%
-  summarise(count = mean(count, na.rm = T)) %>%
-  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
-  ggplot(aes(x = starch, y = percent, fill = size)) +
-    geom_col(position = "dodge") +
-    facet_wrap(~ treatment, scales = "free_x") +
-    scale_fill_viridis_d() +
-    theme_bw()
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by z-score for separated treatments."}
+pl_cor
 ```
 
+```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
+pl_cor2
+```

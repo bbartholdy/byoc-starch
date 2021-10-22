@@ -40,20 +40,21 @@ samp_comb_row <- corr_comb_long %>%
   pivot_wider(names_from = size, values_from = count) %>%
   group_by(treatment) %>%
   filter(treatment == "mix") %>%
-  summarise(starch = "both",
-            across(where(is.numeric), sum, na.rm = T)) %>%
-  mutate(sample = "sample")
+  summarise(across(where(is.numeric), sum, na.rm = T)) %>%
+  mutate(sample = "sample",
+         starch = "both") %>%
+  select(treatment, starch, s, m, l, total, sample)
 
 samp_sd_row <- corr_counts_long %>%
+  ungroup() %>%
   filter(treatment == "mix") %>%
+  group_by(sample, size) %>%
+  summarise(count = sum(count, na.rm = T)) %>%
   group_by(size) %>%
-  summarise(treatment = "mix",
-            starch = "both",
-            sd = sd(count, na.rm = T),
-            count = mean(count, na.rm = T)) %>%
-  select(!count) %>%
+  summarise(sd = sd(count, na.rm = T)) %>%
+  mutate(treatment = "mix",
+         starch = "both") %>%
   pivot_wider(names_from = size, values_from = sd) # discrepancy from table
-
 
 
 corr_sd_long <- corr_counts_long %>%

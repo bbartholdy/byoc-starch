@@ -51,6 +51,12 @@ readr::write_csv(sol_corr, here("analysis/data/derived_data", "sol_corr.csv"))
 
 # combining potato and wheat counts from mixed treatment solution
 
+sol_long <- sol_corr %>%
+  group_by(solution, starch) %>%
+  summarise(across(c(s,m,l, total), mean, na.rm = T)) %>%
+  pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size") %>%
+  rename(treatment = solution) # rename to be consistent with sample counts
+
 sol_comb <- sol_corr %>%
   filter(solution != "mix") %>%
   group_by(solution, starch) %>%
@@ -134,3 +140,14 @@ starch_per_mg <- corr_comb %>%
 
 starch_cor <- cor.test(starch_per_mg$weight, starch_per_mg$std_starch_per,
                        use = "pairwise.complete", conf.level = 0.9)
+
+# Standardise counts using Z-score
+z_count <- corr_comb %>%
+  filter(treatment != "control") %>%
+  group_by(treatment) %>%
+  mutate(std_total = (total - mean(total, na.rm = T)) / sd(total, na.rm = T))
+
+# Pearson correlation
+count_cor <- cor.test(z_count$weight, z_count$std_total,
+                      use = "pairwise.complete", conf.level = 0.9)
+
