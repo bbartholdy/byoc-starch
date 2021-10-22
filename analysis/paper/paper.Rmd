@@ -41,7 +41,7 @@ abstract: |
  dietary starches (wheat and potato) during the 25-day growth period. After this,
  the starch granules were extracted from the mature biofilm (by dissolution in EDTA),
  and counted. We show that the granule counts extracted from the model dental calculus 
- represented a low proportion (ranging from 0.064% to 0.161%) of the total number 
+ represented a low proportion (ranging from 0.06% to 0.16%) of the total number 
  of granules exposed to the biofilms throughout the experiment.
  Additionally, we found that the ratios of granule sizes from the extracted 
  starch granules differed from the original treatment solutions, with large 

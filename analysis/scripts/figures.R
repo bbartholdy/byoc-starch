@@ -1,5 +1,5 @@
 library(tidyverse)
-source(here("analysis/scripts/analysis.R"))
+#source(here("analysis/scripts/analysis.R"))
 #corr_counts <- readr::read_csv(here("analysis/data/derived_data/", "corr_counts.csv"))
 #corr_comb <- readr::read_csv(here("analysis/data/derived_data/", "corr_comb.csv"))
 #sol_corr <- readr::read_csv(here("analysis/data/derived_data/", "sol_corr.csv"))
@@ -61,7 +61,7 @@ pl_potato2 <- pie_datf %>%
   theme_void() +
   scale_fill_viridis_d(name = "",
                        labels = c("large", "medium", "small"),
-                       begin = 0.6) +
+                       begin = 0.6, end = 0.8) +
   theme(legend.position = "none")
 
 (pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
