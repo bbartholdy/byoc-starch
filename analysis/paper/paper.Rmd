@@ -5,9 +5,6 @@ author: |
 date: |
  $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
 output:
-  bookdown::html_document2:
-    df_print: kable
-    keep_md: true
   bookdown::pdf_document2:
     includes:
       in_header: "../templates/latex/pre-print/preamble.tex"
@@ -19,6 +16,9 @@ output:
     number_sections: yes
     keep_tex: true
     #extra_dependencies: "subfig"
+  bookdown::html_document2:
+    df_print: kable
+    keep_md: true
   bookdown::word_document2:
     reference_docx: "../templates/template.docx"
 #linestretch: 2.0 # double-spacing for review purposes
@@ -287,7 +287,8 @@ A 1 ml aliquot of each starch solution was taken, from which 10 $\mu$l was mount
 on a microscope slide with an 18 x 18 mm coverslip, and counted under a light microscope
 (Zeiss Axioscope A1). For wheat and mixed treatment samples, we counted three 
 slide transects (at ca. 1/4, 1/2, and 3/4 of the slide), and the sample counts 
-were extrapolated (see Supplementary material for more details). For potato
+were extrapolated to the total number of granules exposed to the samples over 16
+days of treatments (see Supplementary Material for more details). For potato
 treatment samples, the whole slide was counted.
 
 ## Extraction method
@@ -299,7 +300,9 @@ and vortexing for 3 days until the sample was completely dissolved.
 Twenty $\mu$l of sample was mounted onto a slide with an 18x18 mm coverslip.
 When transferring the sample to the slide, the sample was homogenised using 
 the pipette to ensure that the counted transects were representative of the 
-whole slide. Wheat and mix counts were extrapolated as described above.
+whole slide. The count from the slide was extrapolated to the whole sample
+(see Supplementary Material).
+
 Both wheat and potato granules were divided into three size categories: 
 small (<10 $\mu$m), medium (10 -- 20 $\mu$m), and large (>20 $\mu$m). 
 
@@ -317,7 +320,7 @@ To calculate size proportions, mean counts for each treatment were taken across
 both experimental plates for each treatment, resulting in a mean count for each
 granule size category within each treatment.
 
-Pearson's r was conducted on sample weight and total starch count, as well as sample
+Pearson's *r* was conducted on sample weight and total starch count, as well as sample
 weight and starch count per mg calculus. The total count for each sample within a
 treatment was standardised by z-score to account for the differences in magnitude
 between the potato and wheat counts.
@@ -383,44 +386,87 @@ A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 <!-- starch counts in the solutions -->
 
 ```{r solution-count-out}
-count_sol_out <- count_sol %>%
+# sol_comb_row <- sol_comb_out %>%
+#   group_by(treatment) %>%
+#   filter(treatment == "mix") %>%
+#   summarise(starch = "both",
+#             across(where(is.numeric), sum, na.rm = T))
+
+sol_tbl <- sol_comb_out %>%
+  #ungroup() %>%
+  #add_row(sol_comb_row, .after = 2) %>%
   mutate(across(c(s, m, l, total), 
                 function(x) 
-                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
+                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")"))) 
 
-### adding the 'both' row to the data frame ###
-count_sol_comb_out <- count_sol_comb %>%
-  mutate(across(c(s, m, l, total), 
-                function(x) 
-                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
 
-count_sol_out <- count_sol %>%
-  mutate(across(c(s, m, l, total), 
-                function(x) 
-                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")"))) %>%
-  ungroup() %>%
-  add_row(tibble_row(count_sol_comb_out), .before = 3)
+# count_sol_out <- count_sol %>%
+#   mutate(across(c(s, m, l, total), 
+#                 function(x) 
+#                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
+# 
+# ### adding the 'both' row to the data frame ###
+# count_sol_comb_out <- count_sol_comb %>%
+#   mutate(across(c(s, m, l, total), 
+#                 function(x) 
+#                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
+# 
+# count_sol_out <- count_sol %>%
+#   mutate(across(c(s, m, l, total), 
+#                 function(x) 
+#                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")"))) %>%
+#   ungroup() %>%
+#   add_row(tibble_row(count_sol_comb_out), .before = 3)
 
-count_sol_out[1,3] <- NA
+#count_sol_out[1,3] <- NA
+sol_tbl[1,3] <- NA
 ```
 
 <!-- starch counts in the samples -->
 
 ```{r sample-count}
-count_sample <- count_sample %>%
+samp_counts <- corr_comb_long %>%
+  pivot_wider(names_from = size, values_from = count) %>%
   ungroup() %>%
-  add_row(count_sample_comb, .after = 2)
+  add_row(select(samp_comb_row, !sample), .after = 2)
 
-# convert columns to contain mean count and percentage of total count
-count_samp_per <- count_sample %>%
+samp_sd_wide <- corr_sd_long %>%
+  select(!count) %>%
+  pivot_wider(names_from = size, values_from = sd) %>%
+  ungroup() %>%
+  add_row(samp_sd_row, .after = 2) %>%
+  mutate(across(where(is.numeric), round)) %>%
+  rename(s_sd = s,
+         m_sd = m,
+         l_sd = l,
+         total_sd = total)
+
+samp_counts_per <- samp_counts %>%
   mutate(across(c(s, m, l, total), 
                 function(x) 
-                  paste0(round(x), " (", scales::percent(signif(x / total, 3)), ")")))
+                  paste0(round(x), " (", scales::percent(signif(x / total, 3)), 
+                         ")")))
 
-count_samp_out <- tibble(count_samp_per, count_sample_sd, .name_repair = "unique") %>%
-  select(1,2,3,7,4,8,5,9,6,10) #%>%
+# combine samp_counts_per with samp_sd_wide
+samp_counts_tbl <- samp_counts_per %>%
+  bind_cols(select(samp_sd_wide, c(s_sd, m_sd, l_sd, total_sd)), .name_repair = "unique") %>%
+  select(treatment, starch, s, s_sd, m, m_sd, l, l_sd, total, total_sd)
 
-count_samp_out[1,3] <- NA # replace with NA
+# count_sample <- count_sample %>%
+#   ungroup() %>%
+#   add_row(samp_sd_row, .after = 2)
+
+# convert columns to contain mean count and percentage of total count
+# count_samp_per <- count_sample %>%
+#   mutate(across(c(s, m, l, total), 
+#                 function(x) 
+#                   paste0(round(x), " (", scales::percent(signif(x / total, 3)), ")")))
+
+# count_samp_out <- tibble(count_samp_per, count_sample_sd, .name_repair = "unique") %>%
+#   select(1,2,3,7,4,8,5,9,6,10) #%>%
+
+samp_counts_tbl[1,3] <- NA
+#count_samp_out[1,3] <- NA # replace with NA
   #add_row(tibble_row(count_sample_comb_out), .before = 3)
 ```
 
@@ -429,7 +475,7 @@ wheat starches smaller than ca. 10 $\mu$m. These were counted as wheat,
 as we assumed that the majority of the small granules were wheat. We make this 
 assumption based on the counts of small starches in the wheat-only and potato-only
 solutions. Of the total amount of small starches in these two solutions, 
-`r paste0(signif((count_sol$s[4] / sum(c(count_sol$s[3], count_sol$s[4]))) * 100, 3), "%")`
+`r paste0(signif((sol_comb_out$s[4] / sum(sol_comb_out$s[3], sol_comb_out$s[4])) * 100, 3), "%")`
 are from wheat.
 <!-- count of small granules from wheat solution divided by the sum of small granules 
 from the potato and wheat solutions -->
@@ -437,7 +483,7 @@ from the potato and wheat solutions -->
 ```{r solution-count-tbl}
 cnames <- c("Solution", "Starch", "Small (%)", "Medium (%)", "Large (%)", "Total (%)")
 options(knitr.kable.NA = "")
-knitr::kable(count_sol_out, col.names = cnames, 
+knitr::kable(sol_tbl, col.names = cnames, 
              caption = "Mean starch counts from solutions, including the
              proportional makeup of the different sizes of granules.")
 ```
@@ -445,7 +491,7 @@ knitr::kable(count_sol_out, col.names = cnames,
 ```{r sample-count-tbl}
 cnames <- c("Treatment", "Starch", "Small (%)", "SD", "Medium (%)", "SD", 
             "Large (%)", "SD", "Total (%)", "SD")
-knitr::kable(count_samp_out, col.names = cnames, 
+knitr::kable(samp_counts_tbl, col.names = cnames, 
              caption = "Mean starch counts extracted from samples with standard 
              deviation (SD), including the proportion of granule sizes of the total count.")
 ```
@@ -455,38 +501,67 @@ to higher quantities of starches mean more incorporated starches? -->
 The separate wheat and potato solutions were made with a 0.25% (w/v) starch
 concentration, while the mixed-starch solution was made with 0.25% (w/v) of each
 starch, with a total concentration of 0.50% (w/v).
-The mixed treatment had the highest absolute count of starch granules in solution (mean = `r signif(subset(count_sol, solution == "mix")$total, 3)`),
+The mixed treatment had the highest absolute count of starch granules in solution (mean = `r signif(sol_comb_row$total, 3)`),
 while the biofilms exposed to the wheat solution preserved the greatest number of
 granules 
-(mean = `r signif(subset(count_sample, treatment == "wheat")$total, 3)`). 
+(mean = `r signif(subset(samp_counts, treatment == "wheat")$total, 3)`). 
 The potato treatment had the lowest absolute counts in both the solution 
-(`r signif(subset(count_sol, solution == "potato")$total, 3)`)
+(`r signif(subset(sol_comb_out, treatment == "potato")$total, 3)`)
 and in the biofilm samples 
-(`r signif(subset(count_sample, treatment == "potato")$total, 3)`) 
+(`r signif(subset(samp_counts, treatment == "potato")$total, 3)`) 
 (Tables \@ref(tab:solution-count-tbl) and \@ref(tab:sample-count-tbl)).
 
 ### Proportion of available starches incorporated in samples
 
 ```{r sample-perc}
 # convert proportions to percent labels
-perc_comb <- prop_comb %>% 
-  mutate(across(c(s, m, l, total), scales::percent, 0.001)) 
+# perc_comb <- prop_comb %>% 
+#   mutate(across(c(s, m, l, total), scales::percent, 0.001)) 
 
-perc <- prop %>%
-  mutate(across(c(s, m, l, total), scales::percent, 0.001)) %>% 
-  add_row(tibble_row(perc_comb), .before = 3)
+# perc <- prop %>%
+#   mutate(across(c(s, m, l, total), scales::percent, 0.001)) %>% 
+#   add_row(tibble_row(perc_comb), .before = 3)
+
+prop_wide <- prop %>%
+  ungroup() %>%
+  pivot_wider(id_cols = c(treatment, starch), 
+              names_from = size, 
+              values_from = prop) %>%
+  add_row(prop_comb_row, .after = 2)
+  
+perc_tbl <- prop %>%
+  ungroup() %>%
+  select(!c(sample, solution, prop)) %>%
+  pivot_wider(names_from = size, values_from = perc) %>%
+  add_row(perc_comb_row, .after = 2)
+# samp_comb_row <- corr_comb_long %>%
+#   pivot_wider(names_from = size, values_from = count) %>%
+#   group_by(treatment) %>%
+#   filter(treatment == "mix") %>%
+#   summarise(starch = "both",
+#             across(where(is.numeric), sum, na.rm = T)) %>%
+#   mutate(sample = "sample")
+
+# perc_comb_row <- sol_comb_row %>%
+#   mutate(sample = "solution") %>%
+#   add_row(samp_comb_row) %>%
+#   pivot_longer(cols = c(s, m, l, total), names_to = "size")
+#   mutate()
+
+#perc <- prop %>%
+#  pivot_wider(id_cols = c(treatment, starch), names_from = size, values_from = perc)
 ```
 
 ```{r sample-prop-tbl}
 cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
-knitr::kable(perc, col.names = cnames, 
+knitr::kable(perc_tbl, col.names = cnames, 
              caption = "The mean percentage of starches from the solutions that 
               were incorporated into the samples.")
 ```
 
 The proportion of total starches from the solutions that were incorporated 
 into the samples ranged from 
-`r paste(min(perc$total), max(perc$total), sep = " to ")`,
+`r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`,
 with potato granules being more readily incorporated than wheat in both the
 separated- and mixed-treatment samples
 (Table \@ref(tab:sample-prop-tbl)). 
@@ -497,9 +572,9 @@ incorporation, and vice versa for the mixed treatment.
 
 <!-- mixed treatments -->
 Wheat incorporation was most affected in the mixed-treatment samples, with only
-`r paste0(perc$total[2])` of the total available starches being incorporated into
+`r paste0(perc_tbl$total[2])` of the total available starches being incorporated into
 the sample, compared to
-`r paste0(perc$total[4])`
+`r paste0(perc_tbl$total[4])`
 in the separated wheat treatment.
 
 ### Size ratios differ between solutions and samples
@@ -514,12 +589,36 @@ in the separated wheat treatment.
 
 <!-- overall size trends -->
 
+```{r}
+sol_size_prop <- sol_comb_out %>%
+  group_by(treatment, starch) %>%
+  #select(!total) %>%
+  mutate(across(where(is.numeric), function(x) x / total)) %>%
+  mutate(type = "solution")
+
+samp_size_prop <- samp_counts %>%
+  group_by(treatment, starch) %>%
+  #select(!total) %>%
+  mutate(across(where(is.numeric), function(x) x / total)) %>%
+  mutate(type = "sample")
+
+size_diff <- sol_size_prop %>%
+  full_join(samp_size_prop) %>%
+  pivot_longer(cols = c(s,m,l,total), names_to = "size", values_to = "count") %>%
+  pivot_wider(names_from = type, values_from = count) %>%
+  mutate(diff = (sample - solution) * 100) %>%
+  select(!c(solution, sample)) %>%
+  pivot_wider(names_from = size, values_from = diff) %>%
+  select(!total)
+```
+
+
 Overall, medium starch granules had a higher mean rate of incorporation 
-(`r scales::percent(mean(prop$m, na.rm = T), 0.001)`) 
+(`r scales::percent(mean(prop_wide$m, na.rm = T), 0.001)`) 
 than small 
-(`r scales::percent(mean(prop$s, na.rm = T), 0.001)`) 
+(`r scales::percent(mean(prop_wide$s, na.rm = T), 0.001)`) 
 and large 
-(`r scales::percent(mean(prop$l, na.rm = T), 0.001)`) 
+(`r scales::percent(mean(prop_wide$l, na.rm = T), 0.001)`) 
 starch granules across all treatments, while large potato starches had the lowest 
 rate of incorporation across all treatments.
 
@@ -527,9 +626,9 @@ rate of incorporation across all treatments.
 The difference in incorporation between the size categories resulted in a change
 in size ratios between the original starch solutions and the extracted samples.
 Large potato granules (> 20 $\mu$m) were most affected, with a 
-`r paste0(abs(diff_sep$potato[3]), "%")` 
+`r paste0(abs(signif(size_diff$l[4]), 3), "%")` 
 decrease in relative abundance in the potato-only treatment, and a
-`r paste0(abs(diff_mix$potato[3]), "%")` 
+`r paste0(abs(signif(size_diff$l[1]), 3), "%")` 
 decrease in mixed treatments. Medium granules increased in relative abundance 
 across all samples, while small granules decreased in wheat treatments and 
 increased in potato treatments 
@@ -571,7 +670,7 @@ strength_cor <- if(cor_r >= 0.8){
 }
 ```
 
-```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by Z-score for separated treatments."}
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by z-score for separated treatments."}
 #pl_cor
 pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
 ```
@@ -607,11 +706,11 @@ that a very low proportion of the starches exposed to the biofilm during growth 
 retained in the mineral matrix, and that the size of the starch granules
 may affect the likelihood of incorporation. The proportions of starch granules 
 (of all sizes) present in the extracted samples were similar across all treatments
-(`r paste(min(perc$total), max(perc$total), sep = " to ")`), 
+(`r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`), 
 despite large differences in absolute granule counts between wheat 
-(mean = `r format(count_sol$total[4], big.mark = ",")`) 
+(mean = `r format(sol_comb_out$total[5], big.mark = ",")`) 
 and potato
-(mean = `r format(count_sol$total[3], big.mark = ",")`)
+(mean = `r format(sol_comb_out$total[4], big.mark = ",")`)
 solutions.  
 The absolute counts, however, differed more visibly between treatments and was
 proportional with the total count of granules in the treatment solutions. Wheat 
@@ -623,7 +722,7 @@ This suggests that the starches that are more frequently consumed will be presen
 in higher quantities in the dental calculus, at least prior to inhumation and 
 degradation in the burial environment. 
 Despite the low proportion of granules recovered from the model calculus 
-(`r paste(min(perc$total), max(perc$total), sep = " to ")`),
+(`r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`),
 the absolute counts were still substantially greater than counts recovered from 
 archaeological remains 
 [@trompDietaryNondietary2015; @trompEDTACalculus2017; @wesolowskiEvaluatingMicrofossilContent2010], <!-- although this study extrapolated counts to full sample content, which is
@@ -836,7 +935,7 @@ We would like to thank Dr. Stephanie Schnorr for help with the amylase activity 
 We also thank everyone in the general vicinity
 of the lab for enduring the smell of bacterial accumulation.
 Since we did NOT make use of Sci-Hub to access articles stuck behind a paywall, 
-we will NOT acknowledge the use of Sci-Hub in this study.
+we will NOT acknowledge the use of Sci-Hub in this study. <!-- Oops, did I just acknowledge it twice..? -->
 
 This research has received funding from the European Research Council under the 
 European Union’s Horizon 2020 research and innovation program, grant agreement 
