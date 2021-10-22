@@ -83,6 +83,22 @@ count_sample_comb_sd <- corr_comb %>%
   #select(s, m, l, total) %>%
   #signif(digits = 3)
 
+samp_counts <- corr_comb_long %>%
+  pivot_wider(names_from = size, values_from = count) %>%
+  ungroup() %>%
+  add_row(select(samp_comb_row, !sample), .after = 2)
+
+samp_sd_wide <- corr_sd_long %>%
+  select(!count) %>%
+  pivot_wider(names_from = size, values_from = sd) %>%
+  ungroup() %>%
+  add_row(samp_sd_row, .after = 2) %>%
+  mutate(across(where(is.numeric), round)) %>%
+  rename(s_sd = s,
+         m_sd = m,
+         l_sd = l,
+         total_sd = total)
+
 
 # Proportional counts -----------------------------------------------------
 
@@ -127,3 +143,27 @@ perc_comb_row <- prop %>%
          perc = scales::percent(prop, accuracy = 0.01)) %>%
   select(!c(prop, solution, sample)) %>%
   pivot_wider(names_from = size, values_from = perc)
+
+
+# Size ratios -------------------------------------------------------------
+
+sol_size_prop <- sol_comb_out %>%
+  group_by(treatment, starch) %>%
+  #select(!total) %>%
+  mutate(across(where(is.numeric), function(x) x / total)) %>%
+  mutate(type = "solution")
+
+samp_size_prop <- samp_counts %>%
+  group_by(treatment, starch) %>%
+  #select(!total) %>%
+  mutate(across(where(is.numeric), function(x) x / total)) %>%
+  mutate(type = "sample")
+
+size_diff <- sol_size_prop %>%
+  full_join(samp_size_prop) %>%
+  pivot_longer(cols = c(s,m,l,total), names_to = "size", values_to = "count") %>%
+  pivot_wider(names_from = type, values_from = count) %>%
+  mutate(diff = (sample - solution) * 100) %>%
+  select(!c(solution, sample)) %>%
+  pivot_wider(names_from = size, values_from = diff) %>%
+  select(!total)

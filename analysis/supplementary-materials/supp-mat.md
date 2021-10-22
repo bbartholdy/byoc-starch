@@ -30,26 +30,32 @@ print(sessionInfo(), locale = FALSE)
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] broom_0.7.9     patchwork_1.1.1 forcats_0.5.1   stringr_1.4.0  
-##  [5] dplyr_1.0.7     purrr_0.3.4     readr_2.0.0     tidyr_1.1.3    
-##  [9] tibble_3.1.5    ggplot2_3.3.5   tidyverse_1.3.1 here_1.0.1     
+##  [1] byocstarch_0.0.0.9000 broom_0.7.9           patchwork_1.1.1      
+##  [4] forcats_0.5.1         stringr_1.4.0         dplyr_1.0.7          
+##  [7] purrr_0.3.4           readr_2.0.0           tidyr_1.1.3          
+## [10] tibble_3.1.5          ggplot2_3.3.5         tidyverse_1.3.1      
+## [13] here_1.0.1           
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.7       lubridate_1.7.10 assertthat_0.2.1 rprojroot_2.0.2 
-##  [5] digest_0.6.28    utf8_1.2.2       R6_2.5.1         cellranger_1.1.0
-##  [9] backports_1.2.1  reprex_2.0.1     evaluate_0.14    httr_1.4.2      
-## [13] pillar_1.6.3     rlang_0.4.11     readxl_1.3.1     rstudioapi_0.13 
-## [17] jquerylib_0.1.4  rmarkdown_2.10   bit_4.0.4        munsell_0.5.0   
-## [21] compiler_4.1.1   modelr_0.1.8     xfun_0.26        pkgconfig_2.0.3 
-## [25] htmltools_0.5.2  tidyselect_1.1.1 fansi_0.5.0      crayon_1.4.1    
-## [29] tzdb_0.1.2       dbplyr_2.1.1     withr_2.4.2      grid_4.1.1      
-## [33] jsonlite_1.7.2   gtable_0.3.0     lifecycle_1.0.1  DBI_1.1.1       
-## [37] magrittr_2.0.1   scales_1.1.1     cli_3.0.1        stringi_1.7.4   
-## [41] vroom_1.5.3      fs_1.5.0         xml2_1.3.2       bslib_0.3.0     
-## [45] ellipsis_0.3.2   generics_0.1.0   vctrs_0.3.8      tools_4.1.1     
-## [49] bit64_4.0.5      glue_1.4.2       hms_1.1.0        parallel_4.1.1  
-## [53] fastmap_1.1.0    yaml_2.2.1       colorspace_2.0-2 rvest_1.0.1     
-## [57] knitr_1.35       haven_2.4.1      sass_0.4.0
+##  [1] httr_1.4.2        sass_0.4.0        pkgload_1.2.2     bit64_4.0.5      
+##  [5] vroom_1.5.3       jsonlite_1.7.2    modelr_0.1.8      bslib_0.3.0      
+##  [9] assertthat_0.2.1  cellranger_1.1.0  yaml_2.2.1        remotes_2.4.0    
+## [13] sessioninfo_1.1.1 pillar_1.6.3      backports_1.2.1   glue_1.4.2       
+## [17] digest_0.6.28     rvest_1.0.1       colorspace_2.0-2  htmltools_0.5.2  
+## [21] pkgconfig_2.0.3   devtools_2.4.2    haven_2.4.1       bookdown_0.23    
+## [25] scales_1.1.1      processx_3.5.2    tzdb_0.1.2        generics_0.1.0   
+## [29] usethis_2.0.1     ellipsis_0.3.2    cachem_1.0.6      withr_2.4.2      
+## [33] cli_3.0.1         magrittr_2.0.1    crayon_1.4.1      readxl_1.3.1     
+## [37] memoise_2.0.0     evaluate_0.14     ps_1.6.0          fs_1.5.0         
+## [41] fansi_0.5.0       xml2_1.3.2        pkgbuild_1.2.0    tools_4.1.1      
+## [45] prettyunits_1.1.1 hms_1.1.0         lifecycle_1.0.1   munsell_0.5.0    
+## [49] reprex_2.0.1      callr_3.7.0       compiler_4.1.1    jquerylib_0.1.4  
+## [53] rlang_0.4.11      grid_4.1.1        rstudioapi_0.13   rmarkdown_2.10   
+## [57] testthat_3.0.4    gtable_0.3.0      DBI_1.1.1         R6_2.5.1         
+## [61] lubridate_1.7.10  knitr_1.35        fastmap_1.1.0     bit_4.0.4        
+## [65] utf8_1.2.2        rprojroot_2.0.2   desc_1.4.0        stringi_1.7.4    
+## [69] parallel_4.1.1    Rcpp_1.0.7        vctrs_0.3.8       dbplyr_2.1.1     
+## [73] tidyselect_1.1.1  xfun_0.26
 ```
 
 ## Experimental setup
@@ -153,7 +159,7 @@ knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
 
 ## Amylase activity
 
-Amylase activity in U/mL enzyme, where a U is mg maltose released from starch in six minutes at 36 &deg;C.
+Amylase activity in U/mL enzyme, where U is mg maltose released from starch in six minutes at 36 &deg;C.
 
 Tables containing the amylase activity results for both plates and both photometric
 readings conducted on each plate. Samples (rows) were analysed in triplicates (columns).
@@ -162,7 +168,6 @@ readings conducted on each plate. Samples (rows) were analysed in triplicates (c
 ```r
 # table of results reported in units amylase per mL enzyme (but let's be honest,
   # ...it doesn't really matter what the unit is. No activity is no activity)
-source(here("analysis/scripts/amylase-assay.R"))
 cols <- c("1", "2", "3")  # sample triplicates
 rows <- c("S1", "S2", "S3", "B1", "B2", "B3", "B4", "B5", "BT1", "BT2", "BT3")
 plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1)
@@ -177,7 +182,7 @@ rownames(plt2_ph2_result) <- rows
 
 
 ```r
-plt1_ph1_result
+plt1_ph1_result # plate 1, photometric reading 1
 ```
 
 <div data-pagedtable="false">
@@ -187,7 +192,7 @@ plt1_ph1_result
 </div>
 
 ```r
-plt1_ph2_result
+plt1_ph2_result # plate 1, photometric reading 2
 ```
 
 <div data-pagedtable="false">
@@ -197,7 +202,7 @@ plt1_ph2_result
 </div>
 
 ```r
-plt2_ph1_result
+plt2_ph1_result # plate 2, photometric reading 1
 ```
 
 <div data-pagedtable="false">
@@ -207,7 +212,7 @@ plt2_ph1_result
 </div>
 
 ```r
-plt2_ph2_result
+plt2_ph2_result # plate 2, photometric reading 2
 ```
 
 <div data-pagedtable="false">
@@ -264,7 +269,7 @@ duration of the experiment,
 
 
 ```r
-sol_comb_long %>%
+sol_long %>%
   filter(size == "total") %>%
   group_by(treatment, starch) %>%
   ggplot(aes(x = treatment, y = count, fill = treatment, col = starch)) +
@@ -364,23 +369,6 @@ sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
 
 ![](supp-mat_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
-Size distribution within the samples:
-
-
-```r
-samp_size_pl <- corr_counts_long %>%
-  filter(size != "total",
-         treatment != "control") %>%
-  group_by(treatment, starch, size) %>%
-  summarise(count = mean(count, na.rm = T)) %>%
-  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
-  ggplot(aes(x = starch, y = percent, fill = size)) +
-    geom_col(position = "dodge") +
-    facet_wrap(~ treatment, scales = "free_x") +
-    scale_fill_viridis_d() +
-    theme_bw()
-```
-
 Separated correlation plots:
 
 
@@ -396,3 +384,21 @@ pl_cor2
 ```
 
 ![Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.](supp-mat_files/figure-html/cor-plot2-1.png)
+
+### ...and a table
+
+Differences in size ratios (%) of granules between the solutions and the samples. 
+Negative values indicate a loss of granules from solution to sample.
+
+
+```r
+size_diff %>%
+  mutate(across(where(is.numeric), signif, 3))
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["treatment"],"name":[1],"type":["chr"],"align":["left"]},{"label":["starch"],"name":[2],"type":["chr"],"align":["left"]},{"label":["s"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["m"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["l"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"mix","2":"potato","3":"NaN","4":"26.5","5":"-26.5000"},{"1":"mix","2":"wheat","3":"-15.00","4":"13.8","5":"1.2900"},{"1":"mix","2":"both","3":"-17.10","4":"17.0","5":"0.0863"},{"1":"potato","2":"potato","3":"3.14","4":"29.2","5":"-32.3000"},{"1":"wheat","2":"wheat","3":"-8.49","4":"18.6","5":"-4.0900"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+

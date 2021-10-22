@@ -14,6 +14,8 @@ library(tidyverse)
 library(patchwork)
 source(here("analysis/scripts/analysis.R"))
 source(here("analysis/scripts/figures.R"))
+source(here("analysis/scripts/tables.R"))
+source(here("analysis/scripts/amylase-assay.R"))
 #raw_data_samples <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
 #raw_data_solutions <- read_csv(here("analysis/data/raw_data/solution_counts.csv"))
 ```
@@ -73,6 +75,16 @@ Counts represent the absolute number of starches counted on a slide
 
 ## Raw data
 
+The raw data can be downloaded from GitHub:
+
+```sh
+# solution counts
+wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/solution_counts.csv
+
+# sample counts
+wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/starch_counts.csv
+```
+
 Raw counts from the treatment solutions before extrapolation.
 
 ```{r raw-data-sol, echo=FALSE}
@@ -83,16 +95,6 @@ Raw counts from the calculus samples before extrapolation:
 
 ```{r raw-data-samp, echo=FALSE}
 raw_counts
-```
-
-The raw data can be downloaded from GitHub:
-
-```sh
-# solution counts
-wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/solution_counts.csv
-
-# sample counts
-wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/starch_counts.csv
 ```
 
 ## Microscope images
@@ -119,7 +121,6 @@ readings conducted on each plate. Samples (rows) were analysed in triplicates (c
 ```{r amylase-activity-results, message=FALSE}
 # table of results reported in units amylase per mL enzyme (but let's be honest,
   # ...it doesn't really matter what the unit is. No activity is no activity)
-source(here("analysis/scripts/amylase-assay.R"))
 cols <- c("1", "2", "3")  # sample triplicates
 rows <- c("S1", "S2", "S3", "B1", "B2", "B3", "B4", "B5", "BT1", "BT2", "BT3")
 plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1)
@@ -269,3 +270,14 @@ pl_cor
 ```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
 pl_cor2
 ```
+
+### ...and a table
+
+Differences in size ratios (%) of granules between the solutions and the samples. 
+Negative values indicate a loss of granules from solution to sample.
+
+```{r diff-tbl}
+size_diff %>%
+  mutate(across(where(is.numeric), signif, 3))
+```
+

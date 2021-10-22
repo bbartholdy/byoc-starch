@@ -397,22 +397,6 @@ sol_tbl[1,3] <- NA
 <!-- starch counts in the samples -->
 
 ```{r sample-count}
-samp_counts <- corr_comb_long %>%
-  pivot_wider(names_from = size, values_from = count) %>%
-  ungroup() %>%
-  add_row(select(samp_comb_row, !sample), .after = 2)
-
-samp_sd_wide <- corr_sd_long %>%
-  select(!count) %>%
-  pivot_wider(names_from = size, values_from = sd) %>%
-  ungroup() %>%
-  add_row(samp_sd_row, .after = 2) %>%
-  mutate(across(where(is.numeric), round)) %>%
-  rename(s_sd = s,
-         m_sd = m,
-         l_sd = l,
-         total_sd = total)
-
 samp_counts_per <- samp_counts %>%
   mutate(across(c(s, m, l, total), 
                 function(x) 
