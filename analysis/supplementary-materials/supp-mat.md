@@ -1,5 +1,5 @@
 ---
-title: Supplementary Materials
+title: Supplementary Material
 output: 
   html_document:
     keep_md: true
@@ -20,7 +20,7 @@ print(sessionInfo(), locale = FALSE)
 ```
 ## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.3 LTS
+## Running under: Pop!_OS 21.04
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
@@ -30,26 +30,26 @@ print(sessionInfo(), locale = FALSE)
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
-##  [5] readr_2.0.0     tidyr_1.1.3     tibble_3.1.4    ggplot2_3.3.5  
-##  [9] tidyverse_1.3.1 here_1.0.1     
+##  [1] broom_0.7.9     patchwork_1.1.1 forcats_0.5.1   stringr_1.4.0  
+##  [5] dplyr_1.0.7     purrr_0.3.4     readr_2.0.2     tidyr_1.1.4    
+##  [9] tibble_3.1.5    ggplot2_3.3.5   tidyverse_1.3.1 here_1.0.1     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.1.1 xfun_0.26        bslib_0.3.0      haven_2.4.1     
-##  [5] colorspace_2.0-2 vctrs_0.3.8      generics_0.1.0   htmltools_0.5.2 
-##  [9] yaml_2.2.1       utf8_1.2.2       rlang_0.4.11     jquerylib_0.1.4 
-## [13] pillar_1.6.3     withr_2.4.2      glue_1.4.2       DBI_1.1.1       
-## [17] bit64_4.0.5      dbplyr_2.1.1     modelr_0.1.8     readxl_1.3.1    
-## [21] lifecycle_1.0.1  munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0
-## [25] rvest_1.0.1      evaluate_0.14    knitr_1.35       tzdb_0.1.2      
-## [29] fastmap_1.1.0    parallel_4.1.1   fansi_0.5.0      broom_0.7.9     
-## [33] Rcpp_1.0.7       backports_1.2.1  scales_1.1.1     vroom_1.5.3     
-## [37] jsonlite_1.7.2   bit_4.0.4        fs_1.5.0         hms_1.1.0       
-## [41] digest_0.6.28    stringi_1.7.4    rprojroot_2.0.2  grid_4.1.1      
-## [45] cli_3.0.1        tools_4.1.1      magrittr_2.0.1   sass_0.4.0      
-## [49] crayon_1.4.1     pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.2      
-## [53] reprex_2.0.1     lubridate_1.7.10 rstudioapi_0.13  assertthat_0.2.1
-## [57] rmarkdown_2.10   httr_1.4.2       R6_2.5.1         compiler_4.1.1
+##  [1] tidyselect_1.1.1 xfun_0.26        haven_2.4.3      colorspace_2.0-2
+##  [5] vctrs_0.3.8      generics_0.1.0   htmltools_0.5.2  yaml_2.2.1      
+##  [9] utf8_1.2.2       rlang_0.4.11     jquerylib_0.1.4  pillar_1.6.3    
+## [13] withr_2.4.2      glue_1.4.2       DBI_1.1.1        bit64_4.0.5     
+## [17] dbplyr_2.1.1     modelr_0.1.8     readxl_1.3.1     lifecycle_1.0.1 
+## [21] munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0 rvest_1.0.1     
+## [25] evaluate_0.14    knitr_1.36       tzdb_0.1.2       fastmap_1.1.0   
+## [29] parallel_4.1.1   fansi_0.5.0      Rcpp_1.0.7       backports_1.2.1 
+## [33] scales_1.1.1     vroom_1.5.5      jsonlite_1.7.2   bit_4.0.4       
+## [37] fs_1.5.0         hms_1.1.1        digest_0.6.28    stringi_1.7.5   
+## [41] rprojroot_2.0.2  grid_4.1.1       cli_3.0.1        tools_4.1.1     
+## [45] magrittr_2.0.1   crayon_1.4.1     pkgconfig_2.0.3  ellipsis_0.3.2  
+## [49] xml2_1.3.2       reprex_2.0.1     lubridate_1.8.0  rstudioapi_0.13 
+## [53] assertthat_0.2.1 rmarkdown_2.11   httr_1.4.2       R6_2.5.1        
+## [57] compiler_4.1.1
 ```
 
 ## Experimental setup
@@ -59,14 +59,14 @@ print(sessionInfo(), locale = FALSE)
 knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
 ```
 
-![The 24 deepwell plate and the lid with pegs (substrata)](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
+![The 24 deepwell plate and the lid with pegs (substrata)](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
 ```
 
-![The 24 deepwell plate with the lid on (sort of...)](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
+![The 24 deepwell plate with the lid on (sort of...)](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
 
 ## Metadata for raw data files
 
@@ -89,7 +89,7 @@ Counts represent the absolute number of starches counted on a slide
 | vol | Total volume of EDTA in which the sample was dissolved. |
 | portion_slide | Proportion of the microscope slide that was counted. Total transects on slide divided by counted transects. |
 
-**solution_counts**
+**solution_counts.csv**
 
 | variable | description |
 |----|----|
@@ -109,11 +109,6 @@ Counts represent the absolute number of starches counted on a slide
 
 Raw counts from the treatment solutions before extrapolation.
 
-
-```r
-raw_data_solutions
-```
-
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["solution"],"name":[1],"type":["chr"],"align":["left"]},{"label":["concentration"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["vol_slide"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["vol_total"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["portion_slide"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["slide"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["starch"],"name":[7],"type":["chr"],"align":["left"]},{"label":["s"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["m"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["l"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["total"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"wheat","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"wheat","8":"969","9":"387","10":"167","11":"1523"},{"1":"wheat","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"2","7":"wheat","8":"1118","9":"445","10":"199","11":"1762"},{"1":"potato","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"potato","8":"9","9":"95","10":"86","11":"190"},{"1":"potato","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"2","7":"potato","8":"7","9":"78","10":"115","11":"200"},{"1":"mix","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"wheat","8":"1218","9":"414","10":"116","11":"1748"},{"1":"mix","2":"0.25","3":"10","4":"1000","5":"0.1034483","6":"1","7":"potato","8":"NA","9":"68","10":"60","11":"128"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -121,11 +116,6 @@ raw_data_solutions
 </div>
 
 Raw counts from the calculus samples before extrapolation:
-
-
-```r
-raw_data_samples
-```
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
@@ -143,20 +133,37 @@ wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/
 wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/starch_counts.csv
 ```
 
+## Microscope images
+
+![Image of starch granules extracted from a potato treatment sample](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
+
+
+```r
+knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
+```
+
+![](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
+
+
+```r
+knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
+```
+
+![Microscope image of wheat starch from a wheat treatment sample.](/mnt/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)
 
 ## Amylase activity
 
 Amylase activity in U/mL enzyme, where a U is mg maltose released from starch in six minutes at 36 &deg;C.
 
-Tables containing the amylase activity results for both plates and photometric
-readings.
+Tables containing the amylase activity results for both plates and both photometric
+readings conducted on each plate. Samples (rows) were analysed in triplicates (columns).
 
 
 ```r
 # table of results reported in units amylase per mL enzyme (but let's be honest,
   # ...it doesn't really matter what the unit is. No activity is no activity)
 source(here("analysis/scripts/amylase-assay.R"))
-cols <- c("1", "2", "3")  
+cols <- c("1", "2", "3")  # sample triplicates
 rows <- c("S1", "S2", "S3", "B1", "B2", "B3", "B4", "B5", "BT1", "BT2", "BT3")
 plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1)
 rownames(plt1_ph1_result) <- rows
@@ -213,7 +220,7 @@ plt2_ph2_result
 
 
 ```r
-raw_data_samples %>%
+raw_counts %>%
   filter(treatment == "control") %>%
   select(!c(vol, portion_slide, s, m, l))
 ```
@@ -235,29 +242,112 @@ corner, and counting the total number of full fields-of-view across the cover
 slip to the bottom-right corner. The total number of transects was 29 (verified
 multiple times).
 
-Solution counts were extrapolated to the quantity in a 1 ml solution with
-the following formula:
+A 1 mL aliquot of each of the original treatment solutions was taken, from which
+10 $\mu$L was taken and mounted on a microscope slide and mixed with 10 $\mu$L 
+20% (v/v) glycerol. Solution counts were extrapolated from a slide (10 $\mu$L) 
+to the quantity in a 1 ml solution,
+and then multipled by 16 days to achieve the total number of granules that were
+exposed to the samples:
 
-$$ \text{corrected count} = \text{raw count} \times \frac{\text{total} \space \text{transects}}{\text{counted} \space \text{transects}} \times 100 \mu l $$
+$$ \text{corrected count} = \text{raw count} \times \frac{\text{total slides}}{\text{counted slides}} \times 100 \mu L \times 16 \text{ days} $$
 
-Sample counts were extrapolated using the following formula:
+Samples were submerged in 50--100 $\mu$L EDTA, from which 20 $\mu$L was mounted 
+on a microscope slide ($V_{slide}$) and counted. Sample counts were extrapolated to the full
+volume of EDTA ($V_{sample}$) in which the sample was submerged (i.e. 50--100 $\mu$L).
 
 $$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-1} \times \frac{V_{sample}}{V_{slide}} $$
 
-## Microscope images
+## Some additional plots
 
-![Image of starch granules extracted from a potato treatment sample](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
-
-
-```r
-knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
-```
-
-![](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
+Bar plot for the total count of granules exposed to the samples over the
+duration of the experiment,
 
 
 ```r
-knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
+sol_comb_long %>%
+  filter(size == "total") %>%
+  group_by(treatment, starch) %>%
+  ggplot(aes(x = treatment, y = count, fill = treatment, col = starch)) +
+  geom_col(size = 1.5) +
+  theme(panel.background = element_rect(fill = "white"),
+        panel.grid = element_line(colour = "grey"),
+        panel.grid.major.x = element_blank(),
+        axis.title.x = element_blank()) +
+  scale_fill_viridis_d() +
+  scale_color_viridis_d(begin = 0.5)
 ```
 
-![Microscope image of wheat starch from a wheat treatment sample.](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)
+![](supp-mat_files/figure-html/solution-bar-pl-1.png)<!-- -->
+
+and box plot with superimposed points (with added jitter) for the extrapolated
+mean counts of granules extracted from the samples.
+
+
+```r
+corr_comb %>%
+  filter(treatment != "control") %>%
+  ggplot(aes(x = treatment, y = total, 
+             shape = treatment)) +
+    geom_boxplot(aes(fill = treatment), alpha = 0.5) +
+    geom_jitter(aes(col = treatment), width = 0.3, size = 2) +
+    scale_color_viridis_d() +
+    theme(panel.background = element_rect(fill = "white"),
+        panel.grid = element_line(colour = "grey"),
+        panel.grid.major.x = element_blank(),
+        axis.title.x = element_blank()) + # remove y-axis title
+    scale_fill_viridis_d()
+```
+
+![](supp-mat_files/figure-html/sample-box-plot-1.png)<!-- -->
+
+Size distribution within the solutions (top) and samples (bottom):
+
+
+```r
+sol_size_pl <- sol_corr %>%
+  group_by(solution, starch) %>%
+  summarise(across(c(s, m, l, total), mean, na.rm = T)) %>%
+  pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size") %>%
+  filter(size != "total") %>%
+  group_by(solution, starch) %>%
+  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = percent, fill = size)) +
+    geom_col(position = "dodge") +
+    facet_wrap(~ solution, scales = "free_x") +
+    scale_fill_viridis_d() +
+    theme_bw() +
+    labs(x = "")
+
+samp_size_pl <- corr_counts_long %>%
+  filter(size != "total",
+         treatment != "control") %>%
+  group_by(treatment, starch, size) %>%
+  summarise(count = mean(count, na.rm = T)) %>%
+  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = percent, fill = size)) +
+    geom_col(position = "dodge") +
+    facet_wrap(~ treatment, scales = "free_x") +
+    scale_fill_viridis_d() +
+    theme_bw()
+
+sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
+```
+
+![](supp-mat_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+
+Size distribution within the samples:
+
+
+```r
+samp_size_pl <- corr_counts_long %>%
+  filter(size != "total",
+         treatment != "control") %>%
+  group_by(treatment, starch, size) %>%
+  summarise(count = mean(count, na.rm = T)) %>%
+  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = percent, fill = size)) +
+    geom_col(position = "dodge") +
+    facet_wrap(~ treatment, scales = "free_x") +
+    scale_fill_viridis_d() +
+    theme_bw()
+```

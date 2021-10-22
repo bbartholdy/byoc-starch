@@ -386,39 +386,11 @@ A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 <!-- starch counts in the solutions -->
 
 ```{r solution-count-out}
-# sol_comb_row <- sol_comb_out %>%
-#   group_by(treatment) %>%
-#   filter(treatment == "mix") %>%
-#   summarise(starch = "both",
-#             across(where(is.numeric), sum, na.rm = T))
-
 sol_tbl <- sol_comb_out %>%
-  #ungroup() %>%
-  #add_row(sol_comb_row, .after = 2) %>%
   mutate(across(c(s, m, l, total), 
                 function(x) 
                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")"))) 
 
-
-# count_sol_out <- count_sol %>%
-#   mutate(across(c(s, m, l, total), 
-#                 function(x) 
-#                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
-# 
-# ### adding the 'both' row to the data frame ###
-# count_sol_comb_out <- count_sol_comb %>%
-#   mutate(across(c(s, m, l, total), 
-#                 function(x) 
-#                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")")))
-# 
-# count_sol_out <- count_sol %>%
-#   mutate(across(c(s, m, l, total), 
-#                 function(x) 
-#                   paste0(round(x), " (", scales::percent(x / total, 0.1), ")"))) %>%
-#   ungroup() %>%
-#   add_row(tibble_row(count_sol_comb_out), .before = 3)
-
-#count_sol_out[1,3] <- NA
 sol_tbl[1,3] <- NA
 ```
 
@@ -452,22 +424,7 @@ samp_counts_tbl <- samp_counts_per %>%
   bind_cols(select(samp_sd_wide, c(s_sd, m_sd, l_sd, total_sd)), .name_repair = "unique") %>%
   select(treatment, starch, s, s_sd, m, m_sd, l, l_sd, total, total_sd)
 
-# count_sample <- count_sample %>%
-#   ungroup() %>%
-#   add_row(samp_sd_row, .after = 2)
-
-# convert columns to contain mean count and percentage of total count
-# count_samp_per <- count_sample %>%
-#   mutate(across(c(s, m, l, total), 
-#                 function(x) 
-#                   paste0(round(x), " (", scales::percent(signif(x / total, 3)), ")")))
-
-# count_samp_out <- tibble(count_samp_per, count_sample_sd, .name_repair = "unique") %>%
-#   select(1,2,3,7,4,8,5,9,6,10) #%>%
-
 samp_counts_tbl[1,3] <- NA
-#count_samp_out[1,3] <- NA # replace with NA
-  #add_row(tibble_row(count_sample_comb_out), .before = 3)
 ```
 
 It was not possible to differentiate between potato and 
@@ -475,7 +432,7 @@ wheat starches smaller than ca. 10 $\mu$m. These were counted as wheat,
 as we assumed that the majority of the small granules were wheat. We make this 
 assumption based on the counts of small starches in the wheat-only and potato-only
 solutions. Of the total amount of small starches in these two solutions, 
-`r paste0(signif((sol_comb_out$s[4] / sum(sol_comb_out$s[3], sol_comb_out$s[4])) * 100, 3), "%")`
+`r paste0(signif((sol_comb_out$s[5] / sum(sol_comb_out$s[4], sol_comb_out$s[5])) * 100, 3), "%")`
 are from wheat.
 <!-- count of small granules from wheat solution divided by the sum of small granules 
 from the potato and wheat solutions -->
@@ -514,14 +471,6 @@ and in the biofilm samples
 ### Proportion of available starches incorporated in samples
 
 ```{r sample-perc}
-# convert proportions to percent labels
-# perc_comb <- prop_comb %>% 
-#   mutate(across(c(s, m, l, total), scales::percent, 0.001)) 
-
-# perc <- prop %>%
-#   mutate(across(c(s, m, l, total), scales::percent, 0.001)) %>% 
-#   add_row(tibble_row(perc_comb), .before = 3)
-
 prop_wide <- prop %>%
   ungroup() %>%
   pivot_wider(id_cols = c(treatment, starch), 
@@ -534,22 +483,6 @@ perc_tbl <- prop %>%
   select(!c(sample, solution, prop)) %>%
   pivot_wider(names_from = size, values_from = perc) %>%
   add_row(perc_comb_row, .after = 2)
-# samp_comb_row <- corr_comb_long %>%
-#   pivot_wider(names_from = size, values_from = count) %>%
-#   group_by(treatment) %>%
-#   filter(treatment == "mix") %>%
-#   summarise(starch = "both",
-#             across(where(is.numeric), sum, na.rm = T)) %>%
-#   mutate(sample = "sample")
-
-# perc_comb_row <- sol_comb_row %>%
-#   mutate(sample = "solution") %>%
-#   add_row(samp_comb_row) %>%
-#   pivot_longer(cols = c(s, m, l, total), names_to = "size")
-#   mutate()
-
-#perc <- prop %>%
-#  pivot_wider(id_cols = c(treatment, starch), names_from = size, values_from = perc)
 ```
 
 ```{r sample-prop-tbl}

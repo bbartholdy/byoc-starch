@@ -1,5 +1,5 @@
 ---
-title: Supplementary Materials
+title: Supplementary Material
 output: 
   html_document:
     keep_md: true
@@ -11,8 +11,10 @@ output:
 ```{r setup, include=FALSE}
 library(here)
 library(tidyverse)
-raw_data_samples <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
-raw_data_solutions <- read_csv(here("analysis/data/raw_data/solution_counts.csv"))
+library(patchwork)
+source(here("analysis/scripts/analysis.R"))
+#raw_data_samples <- read_csv(here("analysis/data/raw_data/starch_counts.csv"))
+#raw_data_solutions <- read_csv(here("analysis/data/raw_data/solution_counts.csv"))
 ```
 
 ## R Session info
@@ -27,7 +29,7 @@ print(sessionInfo(), locale = FALSE)
 knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
 ```
 
-```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid on (sort of...)"}
+```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid (almost) on."}
 knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
 ```
 
@@ -52,7 +54,7 @@ Counts represent the absolute number of starches counted on a slide
 | vol | Total volume of EDTA in which the sample was dissolved. |
 | portion_slide | Proportion of the microscope slide that was counted. Total transects on slide divided by counted transects. |
 
-**solution_counts**
+**solution_counts.csv**
 
 | variable | description |
 |----|----|
@@ -73,13 +75,13 @@ Counts represent the absolute number of starches counted on a slide
 Raw counts from the treatment solutions before extrapolation.
 
 ```{r raw-data-sol, echo=FALSE}
-raw_data_solutions
+sol_counts
 ```
 
 Raw counts from the calculus samples before extrapolation:
 
 ```{r raw-data-samp, echo=FALSE}
-raw_data_samples
+raw_counts
 ```
 
 The raw data can be downloaded from GitHub:
@@ -110,14 +112,14 @@ knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
 
 Amylase activity in U/mL enzyme, where a U is mg maltose released from starch in six minutes at 36 &deg;C.
 
-Tables containing the amylase activity results for both plates and photometric
-readings.
+Tables containing the amylase activity results for both plates and both photometric
+readings conducted on each plate. Samples (rows) were analysed in triplicates (columns).
 
 ```{r amylase-activity-results, message=FALSE}
 # table of results reported in units amylase per mL enzyme (but let's be honest,
   # ...it doesn't really matter what the unit is. No activity is no activity)
 source(here("analysis/scripts/amylase-assay.R"))
-cols <- c("1", "2", "3")  
+cols <- c("1", "2", "3")  # sample triplicates
 rows <- c("S1", "S2", "S3", "B1", "B2", "B3", "B4", "B5", "BT1", "BT2", "BT3")
 plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1)
 rownames(plt1_ph1_result) <- rows
@@ -139,7 +141,7 @@ plt2_ph2_result
 ## Control samples
 
 ```{r}
-raw_data_samples %>%
+raw_counts %>%
   filter(treatment == "control") %>%
   select(!c(vol, portion_slide, s, m, l))
 ```
@@ -155,11 +157,121 @@ corner, and counting the total number of full fields-of-view across the cover
 slip to the bottom-right corner. The total number of transects was 29 (verified
 multiple times).
 
-Solution counts were extrapolated to the quantity in a 1 ml solution with
-the following formula:
+A 1 mL aliquot of each of the original treatment solutions was taken, from which
+10 $\mu$L was taken and mounted on a microscope slide and mixed with 10 $\mu$L 
+20% (v/v) glycerol. Solution counts were extrapolated from a slide (10 $\mu$L) 
+to the quantity in a 1 ml solution,
+and then multipled by 16 days to achieve the total number of granules that were
+exposed to the samples:
 
-$$ \text{corrected count} = \text{raw count} \times \frac{\text{total} \space \text{transects}}{\text{counted} \space \text{transects}} \times 100 \mu l $$
+$$ \text{corrected count} = \text{raw count} \times \frac{\text{total slides}}{\text{counted slides}} \times 100 \mu L \times 16 \text{ days} $$
 
-Sample counts were extrapolated using the following formula:
+Samples were submerged in 50--100 $\mu$L EDTA, from which 20 $\mu$L was mounted 
+on a microscope slide ($V_{slide}$) and counted. Sample counts were extrapolated to the full
+volume of EDTA ($V_{sample}$) in which the sample was submerged (i.e. 50--100 $\mu$L).
 
 $$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-1} \times \frac{V_{sample}}{V_{slide}} $$
+
+## Some additional plots
+
+Bar plot for the total count of granules exposed to the samples over the
+duration of the experiment,
+
+```{r solution-bar-pl}
+sol_comb_long %>%
+  filter(size == "total") %>%
+  group_by(treatment, starch) %>%
+  ggplot(aes(x = treatment, y = count, fill = treatment, col = starch)) +
+  geom_col(size = 1.5) +
+  theme(panel.background = element_rect(fill = "white"),
+        panel.grid = element_line(colour = "grey"),
+        panel.grid.major.x = element_blank(),
+        axis.title.x = element_blank()) +
+  scale_fill_viridis_d() +
+  scale_color_viridis_d(begin = 0.5)
+```
+
+and box plot with superimposed points (with added jitter) for the extrapolated
+mean counts of granules extracted from the samples.
+
+```{r sample-box-plot}
+corr_comb %>%
+  filter(treatment != "control") %>%
+  ggplot(aes(x = treatment, y = total, 
+             shape = treatment)) +
+    geom_boxplot(aes(fill = treatment), alpha = 0.5) +
+    geom_jitter(aes(col = treatment), width = 0.3, size = 2) +
+    scale_color_viridis_d() +
+    theme(panel.background = element_rect(fill = "white"),
+        panel.grid = element_line(colour = "grey"),
+        panel.grid.major.x = element_blank(),
+        axis.title.x = element_blank()) + # remove y-axis title
+    scale_fill_viridis_d()
+```
+
+Extracted-granule counts separated by size:
+
+```{r}
+corr_counts_long %>%
+  filter(size != "total",
+         treatment != "control") %>%
+  group_by(treatment, starch, size) %>%
+  summarise(sd = sd(count, na.rm = T),
+            count = mean(count, na.rm = T)) %>%
+  #mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = count, fill = size)) +
+    geom_col(position = "dodge") +
+    geom_errorbar(aes(ymin = count, ymax = count + sd), width = 0.2, position = position_dodge(0.9)) +
+    facet_wrap(~ treatment, scales = "free") +
+    scale_fill_viridis_d() +
+    theme_bw()
+```
+
+Size distribution within the solutions (top) and samples (bottom):
+
+```{r message=FALSE, warning=FALSE}
+sol_size_pl <- sol_corr %>%
+  group_by(solution, starch) %>%
+  summarise(across(c(s, m, l, total), mean, na.rm = T)) %>%
+  pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size") %>%
+  filter(size != "total") %>%
+  group_by(solution, starch) %>%
+  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = percent, fill = size)) +
+    geom_col(position = "dodge") +
+    facet_wrap(~ solution, scales = "free_x") +
+    scale_fill_viridis_d() +
+    theme_bw() +
+    labs(x = "")
+
+samp_size_pl <- corr_counts_long %>%
+  filter(size != "total",
+         treatment != "control") %>%
+  group_by(treatment, starch, size) %>%
+  summarise(count = mean(count, na.rm = T)) %>%
+  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = percent, fill = size)) +
+    geom_col(position = "dodge") +
+    facet_wrap(~ treatment, scales = "free_x") +
+    scale_fill_viridis_d() +
+    theme_bw()
+
+sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
+```
+
+Size distribution within the samples:
+
+```{r message=FALSE, warning=FALSE}
+samp_size_pl <- corr_counts_long %>%
+  filter(size != "total",
+         treatment != "control") %>%
+  group_by(treatment, starch, size) %>%
+  summarise(count = mean(count, na.rm = T)) %>%
+  mutate(percent = count / sum(count, na.rm = T) * 100) %>% 
+  ggplot(aes(x = starch, y = percent, fill = size)) +
+    geom_col(position = "dodge") +
+    facet_wrap(~ treatment, scales = "free_x") +
+    scale_fill_viridis_d() +
+    theme_bw()
+```
+

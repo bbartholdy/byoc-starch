@@ -23,8 +23,8 @@ correct_count <- function(raw, prop, vol){
   corrected
 }
 
-# function to extrapolate solution counts to 1 ml exposure per day
-
+# function to extrapolate solution counts to total exposure during the experiment
+  # i.e., 1 ml per day for 16 days
 extrap_count <- function(raw, prop, vol, days){
   extrap <- raw * (1 / prop) * 100 * days
   extrap
@@ -49,6 +49,27 @@ sol_corr <- sol_counts %>%
   mutate(across(c(s, m, l, total), extrap_count, portion_slide, vol_slide, days = 16))
 readr::write_csv(sol_corr, here("analysis/data/derived_data", "sol_corr.csv"))
 
+# combining potato and wheat counts from mixed treatment solution
+
+sol_comb <- sol_corr %>%
+  filter(solution != "mix") %>%
+  group_by(solution, starch) %>%
+  summarise(across(c("s","m","l","total"), mean)) %>%
+  ungroup() %>%
+  add_row(sol_corr[5:6,c("solution", "starch", "s","m","l","total")], ) %>%
+  rename(treatment = solution) %>% # I should have done better naming the raw data...
+  mutate(sample = "solution")
+
+sol_comb_long <- sol_corr %>%
+  group_by(solution, starch) %>%
+  summarise(across(c(s,m,l, total), mean, na.rm = T)) %>%
+  pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size") %>%
+  filter(size != "total") %>%
+  group_by(solution, starch) %>%
+  mutate(percent = count / sum(count, na.rm = T) * 100) %>%
+  rename(treatment = solution) # rename to be consistent with sample counts
+
+
 # Apply correction --------------------------------------------------------
 
 corr_counts <- raw_counts %>%
@@ -58,7 +79,9 @@ corr_counts <- raw_counts %>%
   filter(sample != "st2C6")
 readr::write_csv(corr_counts, here("analysis/data/derived_data", "corr_counts.csv"))
 
-# Combining mixed treatment counts ----------------------------------------
+corr_counts_long <- corr_counts %>%
+  #filter(treatment != "control") %>%
+  pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size")
 
 # combining potato and wheat counts from mixed treatment samples
 
@@ -71,6 +94,10 @@ corr_comb <- corr_counts %>%
               values_fn = function(x) sum(x, na.rm = T))
 readr::write_csv(corr_comb, here("analysis/data/derived_data", "corr_comb.csv"))
 
+corr_comb_long <- corr_counts_long %>%
+  filter(treatment != "control") %>%
+  group_by(treatment, starch, size) %>%
+  summarise(count = mean(count, na.rm = T))
 
 #corr_counts <- readr::read_csv(here("analysis/data/derived_data/corr_counts.csv"))
 #corr_comb <- readr::read_csv(here("analysis/data/derived_data/corr_comb.csv"))
@@ -78,9 +105,8 @@ readr::write_csv(corr_comb, here("analysis/data/derived_data", "corr_comb.csv"))
 
 # ANOVA -------------------------------------------------------------------
 
-anova_treat <- corr_comb %>%
-  group_by(treatment) %>%
-  do(tidy(aov(weight ~ treatment, data = corr_comb)))
+anova_treat <- aov(weight ~ treatment, data = corr_comb) %>%
+  tidy
 treat_df <- c(anova_treat$df[1], anova_treat$df[2])
 treat_f.stat <- signif(anova_treat$statistic[1], 3)
 treat_p <- signif(anova_treat$p.value[1], 3)
