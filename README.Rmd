@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 # Please put your title here to include it in the file below.
-Title <- "Title of your paper goes here"
+Title <- "Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model"
 ```
 
 # byocstarch
@@ -54,10 +54,9 @@ The **analysis** directory contains:
 
 ## How to run in your browser or download and run locally
 
-This compendium can be accessed in a web browser using binder...
+This compendium can be accessed in a web browser using [binder](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio).
 
-This research compendium has been developed using the statistical programming
-language R. To work with the compendium locally, you will need
+To work with the compendium locally, you will need
 installed on your computer the [R software](https://cloud.r-project.org/)
 itself and optionally [RStudio Desktop](https://rstudio.com/products/rstudio/download/).
 
@@ -66,7 +65,7 @@ You can download the compendium as a zip from from this URL:
 - open the `.Rproj` file in RStudio
 - run `devtools::install()` to ensure you have the packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file).
-- finally, open `analysis/paper/paper.Rmd` and knit to produce the `paper.docx`, or run `rmarkdown::render("analysis/paper/paper.Rmd")` in the R console
+- finally, open `analysis/paper/paper.Rmd` and knit to produce the `paper.pdf`, or run `rmarkdown::render("analysis/paper/paper.Rmd")` in the R console
 
 ### Licenses
 

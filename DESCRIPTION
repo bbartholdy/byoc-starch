@@ -1,5 +1,5 @@
 Package: byocstarch
-Title: TITLE OF PAPER
+Title: Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model
 Version: 0.0.0.9000
 Authors@R:
     c(person(given = "Bjorn Peare",
@@ -10,7 +10,7 @@ Authors@R:
            family = "Henry",
            role = c("aut"),
            email = "a.g.henry@arch.leidenuniv.nl"))
-Description: Compendium for TITLE.
+Description: Compendium for Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model.
 License: MIT + file LICENSE
 ByteCompile: true
 Encoding: UTF-8
@@ -22,6 +22,9 @@ Imports:
     dplyr,
     ggplot2,
     here,
-    magrittr
+    magrittr,
+    patchwork
 Suggests: devtools,
     git2r
+Depends: 
+    tidyverse
