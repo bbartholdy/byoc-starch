@@ -764,7 +764,7 @@ number STG–677576 (“HARVEST”).
 All scripts and data used in the analysis are available on OSF 
 (https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
 following the format provided by the rrtools package [@R-rrtools].
-More detailed protocols are available on OSF (https://osf.io/akevs/) and protocols.io (https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn).
+More detailed protocols are available on OSF (https://osf.io/akevs/) and protocols.io (https://www.protocols.io/workspaces/byoc).
 Additional tables and figures are available in the Supplementary Material.
 
 # References cited
