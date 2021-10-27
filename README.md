@@ -4,8 +4,9 @@
 # byocstarch
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio)
-<!-- DOI badge: [![DOI](.svg)](repo link) -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5604670.svg)](https://doi.org/10.5281/zenodo.5604670)
 
+<!-- DOI badge: [![DOI](.svg)](repo link) -->
 <!-- Document structure provided by rrtools package
 
 This repository contains the data and code for our paper:
