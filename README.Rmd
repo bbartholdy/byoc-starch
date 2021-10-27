@@ -18,11 +18,11 @@ Title <- "Investigating Biases Associated with Dietary Starch Incorporation and 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio) <!-- DOI badge: [![DOI](.svg)](repo link) -->
 
-<!-- Document structure provided by rrtools package -->
+<!-- Document structure provided by rrtools package
 
 This repository contains the data and code for our paper:
 
-> Authors, (YYYY). _`r Title`_. Name of journal/book <https://doi.org/xxx/xxx>
+> Bartholdy, B. P. & Henry, A. G. (2021). _`r Title`_. bioRxiv <https://doi.org/xxx/xxx>
 
 Our pre-print is online here:
 
@@ -34,7 +34,7 @@ Our pre-print is online here:
 Please cite this compendium as:
 
 > Authors, (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for `r Title`_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
-
+-->
 ## Contents
 
 The **analysis** directory contains:

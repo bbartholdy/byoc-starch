@@ -3,26 +3,26 @@
 
 # byocstarch
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio)
+<!-- DOI badge: [![DOI](.svg)](repo link) -->
+
+<!-- Document structure provided by rrtools package
 
 This repository contains the data and code for our paper:
 
-> Authors, (YYYY). *Title of your paper goes here*. Name of journal/book
-> <https://doi.org/xxx/xxx>
+> Bartholdy, B. P. & Henry, A. G. (2021). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. bioRxiv <https://doi.org/xxx/xxx>
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of your paper goes here*. Name of
-> journal/book, Accessed 19 aug 2021. Online at
-> <https://doi.org/xxx/xxx>
+> Authors, (YYYY). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Name of journal/book, Accessed 27 Oct 2021. Online at <https://doi.org/xxx/xxx>
+
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2021). *Compendium of R code and data for Title of your
-> paper goes here*. Accessed 19 aug 2021. Online at
-> <https://doi.org/xxx/xxx>
+> Authors, (2021). _Compendium of R code and data for Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Accessed 27 Oct 2021. Online at <https://doi.org/xxx/xxx>
+-->
 
 ## Contents
 
@@ -43,10 +43,12 @@ The **analysis** directory contains:
 
 ## How to run in your browser or download and run locally
 
-This research compendium has been developed using the statistical
-programming language R. To work with the compendium, you will need
-installed on your computer the [R
-software](https://cloud.r-project.org/) itself and optionally [RStudio
+This compendium can be accessed in a web browser using
+[binder](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio).
+
+To work with the compendium locally, you will need installed on your
+computer the [R software](https://cloud.r-project.org/) itself and
+optionally [RStudio
 Desktop](https://rstudio.com/products/rstudio/download/).
 
 You can download the compendium as a zip from from this URL:
@@ -54,7 +56,7 @@ You can download the compendium as a zip from from this URL:
 file in RStudio - run `devtools::install()` to ensure you have the
 packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file). - finally, open
-`analysis/paper/paper.Rmd` and knit to produce the `paper.docx`, or run
+`analysis/paper/paper.Rmd` and knit to produce the `paper.pdf`, or run
 `rmarkdown::render("analysis/paper/paper.Rmd")` in the R console
 
 ### Licenses
