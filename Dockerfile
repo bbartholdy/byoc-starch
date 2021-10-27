@@ -2,7 +2,7 @@
 FROM rocker/verse:4.1.1
 
 # required
-MAINTAINER Your Name <your_email@somewhere.com>
+MAINTAINER Bjorn <bpbartholdy@duck.com>
 
 COPY . /byocstarch
 
@@ -16,4 +16,4 @@ RUN . /etc/environment \
   && R -e "devtools::install('/byocstarch', dep=TRUE)" \
   # render the manuscript into a docx, you'll need to edit this if you've
   # customised the location and name of your main Rmd file
-  && R -e "rmarkdown::render('/byocstarch/analysis/index.Rmd')"
+  && R -e "rmarkdown::render('/byocstarch/analysis/paper/paper.Rmd')"
