@@ -1,11 +1,14 @@
 ---
-title: Supplementary Material
-output: 
+title: "Supplementary Material"
+output:
   html_document:
-    keep_md: true
+    keep_md: yes
     df_print: paged
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    df_print: kable
 ---
 
 
@@ -20,7 +23,7 @@ print(sessionInfo(), locale = FALSE)
 ```
 ## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.3 LTS
+## Running under: Pop!_OS 21.04
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
@@ -30,49 +33,32 @@ print(sessionInfo(), locale = FALSE)
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] byocstarch_0.0.0.9000 broom_0.7.9           patchwork_1.1.1      
-##  [4] forcats_0.5.1         stringr_1.4.0         dplyr_1.0.7          
-##  [7] purrr_0.3.4           readr_2.0.0           tidyr_1.1.3          
-## [10] tibble_3.1.5          ggplot2_3.3.5         tidyverse_1.3.1      
+##  [1] byocstarch_0.0.0.9000 broom_0.7.7           patchwork_1.1.1      
+##  [4] forcats_0.5.1         stringr_1.4.0         dplyr_1.0.6          
+##  [7] purrr_0.3.4           readr_1.4.0           tidyr_1.1.3          
+## [10] tibble_3.1.4          ggplot2_3.3.4         tidyverse_1.3.1      
 ## [13] here_1.0.1           
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] httr_1.4.2        sass_0.4.0        pkgload_1.2.2     bit64_4.0.5      
-##  [5] vroom_1.5.3       jsonlite_1.7.2    modelr_0.1.8      bslib_0.3.0      
-##  [9] assertthat_0.2.1  cellranger_1.1.0  yaml_2.2.1        remotes_2.4.0    
-## [13] sessioninfo_1.1.1 pillar_1.6.3      backports_1.2.1   glue_1.4.2       
-## [17] digest_0.6.28     rvest_1.0.1       colorspace_2.0-2  htmltools_0.5.2  
-## [21] pkgconfig_2.0.3   devtools_2.4.2    haven_2.4.1       bookdown_0.23    
-## [25] scales_1.1.1      processx_3.5.2    tzdb_0.1.2        generics_0.1.0   
-## [29] usethis_2.0.1     ellipsis_0.3.2    cachem_1.0.6      withr_2.4.2      
-## [33] cli_3.0.1         magrittr_2.0.1    crayon_1.4.1      readxl_1.3.1     
-## [37] memoise_2.0.0     evaluate_0.14     ps_1.6.0          fs_1.5.0         
-## [41] fansi_0.5.0       xml2_1.3.2        pkgbuild_1.2.0    tools_4.1.1      
-## [45] prettyunits_1.1.1 hms_1.1.0         lifecycle_1.0.1   munsell_0.5.0    
-## [49] reprex_2.0.1      callr_3.7.0       compiler_4.1.1    jquerylib_0.1.4  
-## [53] rlang_0.4.11      grid_4.1.1        rstudioapi_0.13   rmarkdown_2.10   
-## [57] testthat_3.0.4    gtable_0.3.0      DBI_1.1.1         R6_2.5.1         
-## [61] lubridate_1.7.10  knitr_1.35        fastmap_1.1.0     bit_4.0.4        
-## [65] utf8_1.2.2        rprojroot_2.0.2   desc_1.4.0        stringi_1.7.4    
-## [69] parallel_4.1.1    Rcpp_1.0.7        vctrs_0.3.8       dbplyr_2.1.1     
-## [73] tidyselect_1.1.1  xfun_0.26
+##  [1] httr_1.4.2        sass_0.4.0        pkgload_1.2.2     jsonlite_1.7.2   
+##  [5] modelr_0.1.8      bslib_0.3.0       assertthat_0.2.1  cellranger_1.1.0 
+##  [9] yaml_2.2.1        remotes_2.4.0     sessioninfo_1.1.1 pillar_1.6.3     
+## [13] backports_1.2.1   glue_1.4.2        digest_0.6.28     rvest_1.0.0      
+## [17] colorspace_2.0-1  htmltools_0.5.2   pkgconfig_2.0.3   devtools_2.4.2   
+## [21] haven_2.4.1       bookdown_0.23     scales_1.1.1      processx_3.5.2   
+## [25] generics_0.1.0    usethis_2.0.1     ellipsis_0.3.2    cachem_1.0.6     
+## [29] withr_2.4.2       cli_3.0.1         magrittr_2.0.1    crayon_1.4.1     
+## [33] readxl_1.3.1      memoise_2.0.0     evaluate_0.14     ps_1.6.0         
+## [37] fs_1.5.0          fansi_0.5.0       xml2_1.3.2        pkgbuild_1.2.0   
+## [41] tools_4.1.1       prettyunits_1.1.1 hms_1.1.0         lifecycle_1.0.1  
+## [45] munsell_0.5.0     reprex_2.0.0      callr_3.7.0       compiler_4.1.1   
+## [49] jquerylib_0.1.4   rlang_0.4.11      grid_4.1.1        rstudioapi_0.13  
+## [53] rmarkdown_2.9     testthat_3.0.4    gtable_0.3.0      DBI_1.1.1        
+## [57] R6_2.5.1          lubridate_1.7.10  knitr_1.36        fastmap_1.1.0    
+## [61] utf8_1.2.2        rprojroot_2.0.2   desc_1.4.0        stringi_1.7.4    
+## [65] Rcpp_1.0.7        vctrs_0.3.8       dbplyr_2.1.1      tidyselect_1.1.1 
+## [69] xfun_0.26
 ```
-
-## Experimental setup
-
-
-```r
-knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
-```
-
-![The 24 deepwell plate and the lid with pegs (substrata)](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
-
-
-```r
-knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
-```
-
-![The 24 deepwell plate with the lid (almost) on.](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
 
 ## Metadata for raw data files
 
@@ -139,23 +125,51 @@ Raw counts from the calculus samples before extrapolation:
   </script>
 </div>
 
+## Experimental setup
+
+
+```r
+knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
+```
+
+![The 24 deepwell plate and the lid with pegs (substrata)](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_side.jpg)
+
+
+```r
+knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
+```
+
+![The 24 deepwell plate with the lid (almost) on.](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/plate_lid_on.jpg)
+
+## Protocols
+
+All protocols are available on [protocols.io](https://www.protocols.io).
+
+Creating the artificial saliva: <https://www.protocols.io/view/artificial-saliva-bva9n2h6>
+
+Creating the CPMU solution: <https://www.protocols.io/view/cpmu-bv8pn9vn>
+
+Biofilm growth protocol: <https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn>
+
+Amylase activity assay: <https://www.protocols.io/view/amylase-activity-bw8jphun>
+
 ## Microscope images
 
-![Image of starch granules extracted from a potato treatment sample](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
+![Image of starch granules extracted from a potato treatment sample](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg)
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
 ```
 
-![](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
+![](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-103412-0006.jpg)<!-- -->
 
 
 ```r
 knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
 ```
 
-![Microscope image of wheat starch from a wheat treatment sample.](/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)
+![Microscope image of wheat starch from a wheat treatment sample.](/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/SNAP-164650-0012.jpg)
 
 ## Amylase activity
 
@@ -305,7 +319,7 @@ corr_comb %>%
 
 ![](supp-mat_files/figure-html/sample-box-plot-1.png)<!-- -->
 
-Extracted-granule counts separated by size:
+Extracted-granule counts separated by treatment and size, including error bars:
 
 
 ```r
@@ -332,9 +346,9 @@ corr_counts_long %>%
 ## Warning: Removed 1 rows containing missing values (geom_col).
 ```
 
-![](supp-mat_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![l = large, m = medium, s = small.](supp-mat_files/figure-html/counts-bar-1.png)
 
-Size distribution within the solutions (top) and samples (bottom):
+Size distribution (in %) within the solutions (top) and samples (bottom):
 
 
 ```r
@@ -367,9 +381,9 @@ samp_size_pl <- corr_counts_long %>%
 sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
 ```
 
-![](supp-mat_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![l = large, m = medium, s = small.](supp-mat_files/figure-html/size-ratios-bar-1.png)
 
-Separated correlation plots:
+Separated correlation plots. These are the same plots as in the main paper, just larger.
 
 
 ```r

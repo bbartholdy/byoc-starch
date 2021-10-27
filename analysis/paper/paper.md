@@ -11,14 +11,12 @@ output:
   bookdown::pdf_document2:
     includes:
       in_header: "../templates/latex/pre-print/preamble.tex"
-      #before_body: "../templates/latex/pre-print/before_body.tex"
     df_print: kable
     toc: no
     latex_engine: xelatex
     fig_caption: yes
     number_sections: yes
     keep_tex: true
-    #extra_dependencies: "subfig"
   bookdown::word_document2:
     reference_docx: "../templates/template.docx"
 #linestretch: 2.0 # double-spacing for review purposes
@@ -41,7 +39,7 @@ abstract: |
  dietary starches (wheat and potato) during the 25-day growth period. After this,
  the starch granules were extracted from the mature biofilm (by dissolution in EDTA),
  and counted. We show that the granule counts extracted from the model dental calculus 
- represented a low proportion (ranging from 0.064% to 0.161%) of the total number 
+ represented a low proportion (ranging from 0.06% to 0.16%) of the total number 
  of granules exposed to the biofilms throughout the experiment.
  Additionally, we found that the ratios of granule sizes from the extracted 
  starch granules differed from the original treatment solutions, with large 
@@ -123,7 +121,7 @@ involving archaeological calculus are problematic due to variability between and
 within individuals. 
 Studies conducted on modern humans [@leonardDentalCalculus2015] 
 and non-human primates [@powerChimpCalculus2015], 
-have explored the how well microremains (phytoliths and starches)
+have explored how well microremains (phytoliths and starches)
 extracted from dental calculus represent the actual dietary intake.
 These studies are justifiably limited, 
 despite meticulous documentation and observation, due to unknown variables and 
@@ -170,8 +168,12 @@ fed with sugar (sucrose). After several days of growth, the biofilm was exposed
 to starch solutions. Mineralisation of the biofilm was aided by exposure to a
 calcium phosphate solution. After 25 days of growth, the mineralised biofilm was
 collected for further analysis. The setup comprises a polypropylene 
-24 deepwell PCR plate (KingFisher 97003510) with a lid containing 24 pegs (substrata), which 
-is autoclaved at 120&deg;C, 1 bar overpressure, for 20 mins.
+24 deepwell PCR plate (KingFisher 97003510) with a lid containing 24 pegs, which 
+is autoclaved at 120&deg;C, 1 bar overpressure, for 20 mins. The individual pegs 
+were the substrata on which the calculus grew. Using this system allowed for easy
+transfer of the growing biofilm between saliva, feeding solutions, 
+and mineral solutions.
+
  
 The artificial saliva (AS) is a modified version of the basal medium mucin (BMM)
 described by Sissons and colleagues [-@sissonsMultistationDentalPlaque1991]. 
@@ -185,14 +187,14 @@ adjusted to pH 7 with NaOH pellets and stirring, autoclaved (15 min, 120&deg;C,
 and 1 mmol/l arginine [@sissonsMultistationDentalPlaque1991].
 
 <div class="figure" style="text-align: center">
-<img src="/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/protocol_overview.png" alt="Overview of experiment protocol including the plate setup."  />
+<img src="/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/protocol_overview.png" alt="Overview of experiment protocol including the plate setup."  />
 <p class="caption">(\#fig:protocol-fig)Overview of experiment protocol including the plate setup.</p>
 </div>
 
 Fresh whole saliva (WS) for inoculation was provided by a 31-year-old<!--needless to say I am much older now...--> male donor 
-with no history of caries, who abstained from oral hygiene for 24 hours, and no 
-food was consumed two hours prior to donation. No antibiotics were taken up to six 
-months prior to donation. 
+with no history of caries, who abstained from oral hygiene for 24 hours. No 
+food was consumed two hours prior to donation and no antibiotics were taken up 
+to six months prior to donation. 
 The saliva was filtered through a sterilised (with sodium hypochlorite, 10--15% active chlorine) 
 nylon cloth to remove particulates.
 Substrata were inoculated with 1 ml/well of a two-fold dilution of WS in sterilised 
@@ -223,19 +225,19 @@ between starch granules and biofilms.
 
 After 15 days, mineralisation was encouraged with a 
 calcium phosphate monofluorophosphate urea (CPMU) solution containing 
-20 mmol/l CaCl~2~, 12 mmol/l NaH~2~PO~4~, 5 mmol/l Na~2~PO~3~F, 500 mmol/l Urea, 
+20 mmol/l CaCl~2~, 12 mmol/l NaH~2~PO~4~, 5 mmol/l Na~2~PO~3~F, 500 mmol/l urea, 
 and (0.04 g/l MgCl)
 [@pearceConcomitantDepositionStrontium1987; @sissonsMultistationDentalPlaque1991].
 The substrata were submerged in 1 ml/well CPMU for six minutes, five times 
 daily, in a two-hour cycle. During the mineralisation period, starch treatments
 were reduced to once per day after the five CPMU treatments. This process was repeated 
 for 10 days until the end of the experiment on day 24 
-(see \@ref(fig:protocol-fig) for an overview of the protocol).
+(see Figure \@ref(fig:protocol-fig) for an overview of the protocol).
 
 All laboratory work was conducted in sterile conditions under a laminar flow hood 
 to prevent starch and bacterial contamination. Control samples that only received
-sucrose as a treatment, were included to detect starch contamination from the
-environment, or cross-contamination from other wells in the same plate.
+sucrose as a treatment were included to detect starch contamination from the
+environment or cross-contamination from other wells in the same plate.
 
 ## Amylase activity detection
 
@@ -252,7 +254,7 @@ Multiskan FC Microplate Photometer (Thermo Scientific 51119000).
 The protocol is a slightly modified version of an Enzymatic Assay of $\alpha$-Amylase
 (https://www.sigmaaldrich.com/NL/en/technical-documents/protocol/protein-biology/enzyme-activity-assays/enzymatic-assay-of-a-amylase) [@bernfeldAmylase1955], which measures the amount of 
 maltose released from starch by $\alpha$-amylase activity. Results are reported
-in units (U) per mL enzyme, where 1 U releases 1 mg of maltose.
+in units (U) per mL enzyme, where 1 U releases 1 mg of maltose in 6 minutes.
 
 ## Treatment solutions
 
@@ -260,7 +262,8 @@ A 1 ml aliquot of each starch solution was taken, from which 10 $\mu$l was mount
 on a microscope slide with an 18 x 18 mm coverslip, and counted under a light microscope
 (Zeiss Axioscope A1). For wheat and mixed treatment samples, we counted three 
 slide transects (at ca. 1/4, 1/2, and 3/4 of the slide), and the sample counts 
-were extrapolated (see Supplementary material for more details). For potato
+were extrapolated to the total number of granules exposed to the samples over 16
+days of treatments (see Supplementary Material for more details). For potato
 treatment samples, the whole slide was counted.
 
 ## Extraction method
@@ -272,7 +275,9 @@ and vortexing for 3 days until the sample was completely dissolved.
 Twenty $\mu$l of sample was mounted onto a slide with an 18x18 mm coverslip.
 When transferring the sample to the slide, the sample was homogenised using 
 the pipette to ensure that the counted transects were representative of the 
-whole slide. Wheat and mix counts were extrapolated as described above.
+whole slide. The count from the slide was extrapolated to the whole sample
+(see Supplementary Material for more detail).
+
 Both wheat and potato granules were divided into three size categories: 
 small (<10 $\mu$m), medium (10 -- 20 $\mu$m), and large (>20 $\mu$m). 
 
@@ -282,15 +287,16 @@ Statistical analysis was conducted in R version 4.1.1 (2021-08-10)  [@R-base] an
 the following packages: tidyverse [@tidyverse2019], broom [@R-broom], 
 here [@R-here], and patchwork [@R-patchwork].
 <!-- R packages used -->
-A one-way ANOVA with sample weight as the dependent variable (DV) and treatment 
-as the grouping variable (GV) was conducted to explore the effect of the different 
-starch treatments on biofilm growth.
 
-To calculate size proportions, mean counts for each treatment were taken across 
-both experimental plates for each treatment, resulting in a mean count for each
+To see if biofilm growth was differently affected by starch treatments, a 
+one-way ANOVA with sample weight as the dependent variable (DV) and treatment 
+as the grouping variable (GV) was conducted.
+To analyse granule counts and calculate size proportions, mean counts for each 
+treatment were taken across
+both experimental plates, resulting in a mean count for each
 granule size category within each treatment.
 
-Pearson's r was conducted on sample weight and total starch count, as well as sample
+Pearson's *r* was conducted on sample weight and total starch count, as well as sample
 weight and starch count per mg calculus. The total count for each sample within a
 treatment was standardised by z-score to account for the differences in magnitude
 between the potato and wheat counts.
@@ -302,7 +308,7 @@ concentration in the calculus [as per
 # Results
 
 <div class="figure" style="text-align: center">
-<img src="/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg" alt="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m." width="50%" />
+<img src="/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar.jpg" alt="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m." width="50%" />
 <p class="caption">(\#fig:microscope-fig)Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m.</p>
 </div>
 
@@ -321,12 +327,12 @@ No $\alpha$-amylase activity was detected in any of the artificial
 saliva samples from any of the days that were sampled. Only positive controls
 contained amylase activity that could be detected in the assay, ranging from
 3.4 to 10.3 U/mL enzyme 
-(Supplementary Material).
+(full results can be found in the Supplementary Material).
 The results are not comparable to other studies presenting $\alpha$-amylase activity
 levels in humans, as the unit definition may differ; 
 however, they are sufficient to show that there is no activity in the system.
 
-## Treatment type had no effect on biofilm growth
+## Treatment type had minimal effect on biofilm growth
 
 
 Table: (\#tab:anova-tbl)Summary statistics for biofilm dry-weights (in mg) by treatment.
@@ -341,7 +347,7 @@ Table: (\#tab:anova-tbl)Summary statistics for biofilm dry-weights (in mg) by tr
 A one-way ANOVA suggests that the type of starch used during the biofilm 
 growth period had a minimal effect on the growth of the biofilm 
 (expressed as total dry weight of the sample), F(3, 43)
-= 1.16, p = 0.335. 
+= 1.16, p = 0.335.
 A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 
 ## Starch counts
@@ -356,11 +362,11 @@ A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 
 It was not possible to differentiate between potato and 
 wheat starches smaller than ca. 10 $\mu$m. These were counted as wheat,
-as we assumed that the majority of the small granules were wheat. This is a
-reasonable assumption to make based on the small granule counts from the separate
-treatment solutions, where the wheat granules made up 
+as we assumed that the majority of the small granules were wheat. We make this 
+assumption based on the counts of small starches in the wheat-only and potato-only
+solutions. Of the total amount of small starches in these two solutions, 
 99.2%
-of all small granule counts in the separated solutions.
+are from wheat.
 <!-- count of small granules from wheat solution divided by the sum of small granules 
 from the potato and wheat solutions -->
 
@@ -382,18 +388,18 @@ Table: (\#tab:sample-count-tbl)Mean starch counts extracted from samples with st
 
 |Treatment |Starch |Small (%)      |    SD|Medium (%)    |    SD|Large (%)    |   SD|Total (%)    |    SD|
 |:---------|:------|:--------------|-----:|:-------------|-----:|:------------|----:|:------------|-----:|
-|mix       |potato |               |      |1959 (79.6%)  |  1800|501 (20.40%) |  446|2460 (100%)  |  2190|
-|mix       |wheat  |9515 (54.60%)  |  8860|6522 (37.4%)  |  6030|1381 (7.93%) | 1200|17417 (100%) | 15900|
-|mix       |both   |9515 (47.90%)  |  8860|8480 (42.7%)  |  7650|1882 (9.47%) | 1600|19877 (100%) | 17800|
-|potato    |potato |351 (7.24%)    |   297|3565 (73.6%)  |  2400|930 (19.20%) |  929|4846 (100%)  |  3320|
-|wheat     |wheat  |15235 (55.00%) | 11900|12148 (43.9%) | 11100|1953 (7.06%) | 2020|27680 (100%) | 23600|
+|mix       |potato |               |      |1959 (79.6%)  |  1801|501 (20.40%) |  446|2460 (100%)  |  2189|
+|mix       |wheat  |9515 (54.60%)  |  8860|6522 (37.4%)  |  6026|1381 (7.93%) | 1196|17417 (100%) | 15878|
+|mix       |both   |9515 (47.90%)  |  8860|8480 (42.7%)  |  7653|1882 (9.47%) | 1596|19877 (100%) | 17768|
+|potato    |potato |351 (7.24%)    |   297|3565 (73.6%)  |  2402|930 (19.20%) |  929|4846 (100%)  |  3316|
+|wheat     |wheat  |15235 (55.00%) | 11944|12148 (43.9%) | 11052|1953 (7.06%) | 2016|27680 (100%) | 23554|
 
 <!-- absolute solution counts compared to absolute sample counts. does exposure
 to higher quantities of starches mean more incorporated starches? -->
 The separate wheat and potato solutions were made with a 0.25% (w/v) starch
 concentration, while the mixed-starch solution was made with 0.25% (w/v) of each
 starch, with a total concentration of 0.50% (w/v).
-The mixed treatment had the highest absolute count of starch granules in solution (mean = 1.98\times 10^{6}, 2.7\times 10^{7}),
+The mixed treatment had the highest absolute count of starch granules in solution (mean = 2.9\times 10^{7}),
 while the biofilms exposed to the wheat solution preserved the greatest number of
 granules 
 (mean = 2.77\times 10^{4}). 
@@ -411,17 +417,17 @@ and in the biofilm samples
 Table: (\#tab:sample-prop-tbl)The mean percentage of starches from the solutions that 
               were incorporated into the samples.
 
-|Treatment |Starch |Small  |Medium |Large  |Total  |
-|:---------|:------|:------|:------|:------|:------|
-|mix       |potato |       |0.186% |0.054% |0.124% |
-|mix       |wheat  |0.051% |0.102% |0.077% |0.064% |
-|mix       |both   |0.051% |0.114% |0.069% |0.069% |
-|potato    |potato |0.284% |0.266% |0.060% |0.161% |
-|wheat     |wheat  |0.094% |0.189% |0.069% |0.109% |
+|Treatment |Starch |Small |Medium |Large |Total |
+|:---------|:------|:-----|:------|:-----|:-----|
+|mix       |potato |      |0.19%  |0.05% |0.12% |
+|mix       |wheat  |0.05% |0.10%  |0.08% |0.06% |
+|mix       |both   |0.05% |0.11%  |0.07% |0.07% |
+|potato    |potato |0.28% |0.27%  |0.06% |0.16% |
+|wheat     |wheat  |0.09% |0.19%  |0.07% |0.12% |
 
 The proportion of total starches from the solutions that were incorporated 
 into the samples ranged from 
-0.064% to 0.161%,
+0.06% to 0.16%,
 with potato granules being more readily incorporated than wheat in both the
 separated- and mixed-treatment samples
 (Table \@ref(tab:sample-prop-tbl)). 
@@ -432,9 +438,9 @@ incorporation, and vice versa for the mixed treatment.
 
 <!-- mixed treatments -->
 Wheat incorporation was most affected in the mixed-treatment samples, with only
-0.064% of the total available starches being incorporated into
+0.06% of the total available starches being incorporated into
 the sample, compared to
-0.161%
+0.16%
 in the separated wheat treatment.
 
 ### Size ratios differ between solutions and samples
@@ -449,12 +455,15 @@ in the separated wheat treatment.
 
 <!-- overall size trends -->
 
+
+
+
 Overall, medium starch granules had a higher mean rate of incorporation 
-(0.186%) 
+(0.171%) 
 than small 
-(0.143%) 
+(0.120%) 
 and large 
-(0.065%) 
+(0.066%) 
 starch granules across all treatments, while large potato starches had the lowest 
 rate of incorporation across all treatments.
 
@@ -477,11 +486,9 @@ increased in potato treatments
 
 
 <div class="figure" style="text-align: center">
-<img src="../figures/cor-plot-1.png" alt="Scatter plot of sample weight and standardised starch count by Z-score for separated treatments."  />
-<p class="caption">(\#fig:cor-plot)Scatter plot of sample weight and standardised starch count by Z-score for separated treatments.</p>
+<img src="../figures/cor-plot-1.png" alt="Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus."  />
+<p class="caption">(\#fig:cor-plot)Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus.</p>
 </div>
-
-<!-- with Z-score standardisation -->
 
 Pearson's *r* suggests a 
 strong positive 
@@ -490,19 +497,21 @@ correlation between the total weight of the biofilms and the total starch count
 *r* = 0.659, 
 90%CI[0.463, 0.794],
 p < 0.001
-(Figure \@ref(fig:cor-plot)). 
+(Figure \@ref(fig:cor-plot)A). 
 
+<!--
 <div class="figure" style="text-align: center">
 <img src="../figures/cor-plot2-1.png" alt="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."  />
 <p class="caption">(\#fig:cor-plot2)Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.</p>
 </div>
+-->
 
 The same test was applied to total biofilm weight and starch count per mg 
 calculus (also standardised by z-score), resulting in a weak positive correlation, 
 *r* = 0.3, 
 90%CI[0.0618, 0.506],
 p = 0.0403
-(Figure \@ref(fig:cor-plot2)).
+(Figure \@ref(fig:cor-plot)B).
 
 # Discussion
 
@@ -513,7 +522,7 @@ that a very low proportion of the starches exposed to the biofilm during growth 
 retained in the mineral matrix, and that the size of the starch granules
 may affect the likelihood of incorporation. The proportions of starch granules 
 (of all sizes) present in the extracted samples were similar across all treatments
-(0.064% to 0.161%), 
+(0.06% to 0.16%), 
 despite large differences in absolute granule counts between wheat 
 (mean = 25,404,000) 
 and potato
@@ -529,16 +538,15 @@ This suggests that the starches that are more frequently consumed will be presen
 in higher quantities in the dental calculus, at least prior to inhumation and 
 degradation in the burial environment. 
 Despite the low proportion of granules recovered from the model calculus 
-(0.064% to 0.161%),
+(0.06% to 0.16%),
 the absolute counts were still substantially greater than counts recovered from 
 archaeological remains 
-[@trompDietaryNondietary2015; @trompEDTACalculus2017; @wesolowskiEvaluatingMicrofossilContent2010], <!-- although this study extrapolated counts to full sample content, which is
-rarely done in archaeological studies -->which could in part be due to the 
+[@trompDietaryNondietary2015; @trompEDTACalculus2017; @wesolowskiEvaluatingMicrofossilContent2010], which could in part be due to the 
 lack of oral amylase activity in our model.
 
 We have also shown that the size of the starch granules influences the likelihood
-of incorporation into the calculus. Starch granules larger than 20 $\mu$m in 
-diameter were underrepresented in the calculus samples compared to the original 
+of incorporation into the calculus. Starch granules larger than 20 $\mu$m in
+maximum length were underrepresented in the calculus samples compared to the original 
 starch solutions, an effect that was consistent across all three treatments, 
 while medium granules (10--20 $\mu$m) were often over-represented
 (Table \@ref(tab:sample-prop-tbl), 
@@ -556,14 +564,17 @@ compared to surface area
 Another potentially important factor 
 from our results is the size of the calculus deposit. We found a 
 strong positive correlation between biofilm size and retained 
-starch granules (Figure \@ref(fig:cor-plot));
+starch granules (Figure \@ref(fig:cor-plot)A);
 a result that contradicts findings from archaeological contexts
 [@wesolowskiEvaluatingMicrofossilContent2010; @dudgeonDietGeographyDrinking2014].
 When the concentration of starch granules
 per mg calculus is considered, the correlation is weaker, but still present
-(Figure \@ref(fig:cor-plot2)).
+(Figure \@ref(fig:cor-plot)B).
 While the larger deposits contain a higher absolute count, our findings also suggest
-that they contain a slightly higher concentration of starches. 
+that they contain a slightly higher concentration of starches. This may also explain
+the lower mean retention of starch granules in mixed treatments compared to
+wheat treatments. Wheat treatment samples (mean = 5.53 mg) were on average larger than mixed treatment samples (mean = 4.28 mg) (Table \@ref(tab:anova-tbl)); and while mixed treatment solutions contained the highest mean overall
+granule counts, wheat treatment samples had the highest mean starch retention.
 Further research is needed to determine why this differs from previous archaeological
 findings.
 
@@ -605,7 +616,7 @@ intake, they immediately encounter multiple obstacles. It is likely
 that the bulk of starch granules are swallowed along with the food, and are 
 only briefly present in the oral cavity. Other granules that are broken off
 during mastication may be retained in the dentition through attachment to 
-tooth surfaces (including plaque and dental calulus) and mucous membranes 
+tooth surfaces (including plaque and dental calculus) and mucous membranes 
 [@kashketFoodRetention1991; @doddsCarbohydrateRetention1988].
 Bacteria also have the ability to adhere to starch granules 
 [@toppingResistantStarch2003],
@@ -648,7 +659,6 @@ biofilm model. <!-- I may get to it eventually, but it would be great if someone
 become trapped in dental calculus, but it would be nice to find out more. -->
 
 <!-- limitations of the platform show which questions would be unanswered -->
-A limitation of this study 
 The absence of $\alpha$-amylase in the model is a limitation of this study, as 
 the total granule counts were not subject to hydrolysis. This would likely have 
 reduced and affected the size ratios, as smaller starches may be more 
@@ -743,7 +753,7 @@ We would like to thank Dr. Stephanie Schnorr for help with the amylase activity 
 We also thank everyone in the general vicinity
 of the lab for enduring the smell of bacterial accumulation.
 Since we did NOT make use of Sci-Hub to access articles stuck behind a paywall, 
-we will NOT acknowledge the use of Sci-Hub in this study.
+we will NOT acknowledge the use of Sci-Hub in this study. <!-- Oops, did I just acknowledge it twice..? -->
 
 This research has received funding from the European Research Council under the 
 European Union’s Horizon 2020 research and innovation program, grant agreement 
@@ -754,6 +764,7 @@ number STG–677576 (“HARVEST”).
 All scripts and data used in the analysis are available on OSF 
 (https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
 following the format provided by the rrtools package [@R-rrtools].
-More detailed protocols are available on OSF and protocols.io.
+More detailed protocols are available on OSF (https://osf.io/akevs/) and protocols.io (https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn).
+Additional tables and figures are available in the Supplementary Material.
 
 # References cited

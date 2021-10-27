@@ -351,7 +351,7 @@ and 1 mmol/l arginine (Sissons et al., 1991).
 
 \begin{figure}
 
-{\centering \includegraphics{/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/protocol_overview} 
+{\centering \includegraphics{/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/protocol_overview} 
 
 }
 
@@ -399,7 +399,7 @@ The substrata were submerged in 1 ml/well CPMU for six minutes, five times
 daily, in a two-hour cycle. During the mineralisation period, starch treatments
 were reduced to once per day after the five CPMU treatments. This process was repeated
 for 10 days until the end of the experiment on day 24
-(see \ref{fig:protocol-fig} for an overview of the protocol).
+(see Figure \ref{fig:protocol-fig} for an overview of the protocol).
 
 All laboratory work was conducted in sterile conditions under a laminar flow hood
 to prevent starch and bacterial contamination. Control samples that only received
@@ -422,7 +422,7 @@ Multiskan FC Microplate Photometer (Thermo Scientific 51119000).
 The protocol is a slightly modified version of an Enzymatic Assay of \(\alpha\)-Amylase
 (\url{https://www.sigmaaldrich.com/NL/en/technical-documents/protocol/protein-biology/enzyme-activity-assays/enzymatic-assay-of-a-amylase}) (Bernfeld, 1955), which measures the amount of
 maltose released from starch by \(\alpha\)-amylase activity. Results are reported
-in units (U) per mL enzyme, where 1 U releases 1 mg of maltose.
+in units (U) per mL enzyme, where 1 U releases 1 mg of maltose in 6 minutes.
 
 \hypertarget{treatment-solutions}{%
 \subsection{Treatment solutions}\label{treatment-solutions}}
@@ -446,7 +446,7 @@ Twenty \(\mu\)l of sample was mounted onto a slide with an 18x18 mm coverslip.
 When transferring the sample to the slide, the sample was homogenised using
 the pipette to ensure that the counted transects were representative of the
 whole slide. The count from the slide was extrapolated to the whole sample
-(see Supplementary Material).
+(see Supplementary Material for more detail).
 
 Both wheat and potato granules were divided into three size categories:
 small (\textless10 \(\mu\)m), medium (10 -- 20 \(\mu\)m), and large (\textgreater20 \(\mu\)m).
@@ -457,12 +457,13 @@ small (\textless10 \(\mu\)m), medium (10 -- 20 \(\mu\)m), and large (\textgreate
 Statistical analysis was conducted in R version 4.1.1 (2021-08-10) (R Core Team, 2020) and
 the following packages: tidyverse (Wickham et al., 2019), broom (Robinson et al., 2021),
 here (Müller, 2020), and patchwork (Pedersen, 2020).
-A one-way ANOVA with sample weight as the dependent variable (DV) and treatment
-as the grouping variable (GV) was conducted to explore the effect of the different
-starch treatments on biofilm growth.
 
-To calculate size proportions, mean counts for each treatment were taken across
-both experimental plates for each treatment, resulting in a mean count for each
+To see if biofilm growth was differently affected by starch treatments, a
+one-way ANOVA with sample weight as the dependent variable (DV) and treatment
+as the grouping variable (GV) was conducted.
+To analyse granule counts and calculate size proportions, mean counts for each
+treatment were taken across
+both experimental plates, resulting in a mean count for each
 granule size category within each treatment.
 
 Pearson's \emph{r} was conducted on sample weight and total starch count, as well as sample
@@ -478,7 +479,7 @@ concentration in the calculus (as per Wesolowski et al., 2010).
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{/media/bjorn/hogwarts/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar} 
+{\centering \includegraphics[width=0.5\linewidth]{/home/bjorn/Documents/Uni/publications/PhD/byocstarch/analysis/figures/starches_w_bar} 
 
 }
 
@@ -499,13 +500,13 @@ No \(\alpha\)-amylase activity was detected in any of the artificial
 saliva samples from any of the days that were sampled. Only positive controls
 contained amylase activity that could be detected in the assay, ranging from
 3.4 to 10.3 U/mL enzyme
-(Supplementary Material).
+(full results can be found in the Supplementary Material).
 The results are not comparable to other studies presenting \(\alpha\)-amylase activity
 levels in humans, as the unit definition may differ;
 however, they are sufficient to show that there is no activity in the system.
 
-\hypertarget{treatment-type-had-no-effect-on-biofilm-growth}{%
-\subsection{Treatment type had no effect on biofilm growth}\label{treatment-type-had-no-effect-on-biofilm-growth}}
+\hypertarget{treatment-type-had-minimal-effect-on-biofilm-growth}{%
+\subsection{Treatment type had minimal effect on biofilm growth}\label{treatment-type-had-minimal-effect-on-biofilm-growth}}
 
 \begin{table}
 
@@ -760,7 +761,10 @@ When the concentration of starch granules
 per mg calculus is considered, the correlation is weaker, but still present
 (Figure \ref{fig:cor-plot}B).
 While the larger deposits contain a higher absolute count, our findings also suggest
-that they contain a slightly higher concentration of starches.
+that they contain a slightly higher concentration of starches. This may also explain
+the lower mean retention of starch granules in mixed treatments compared to
+wheat treatments. Wheat treatment samples (mean = 5.53 mg) were on average larger than mixed treatment samples (mean = 4.28 mg) (Table \ref{tab:anova-tbl}); and while mixed treatment solutions contained the highest mean overall
+granule counts, wheat treatment samples had the highest mean starch retention.
 Further research is needed to determine why this differs from previous archaeological
 findings.
 
@@ -793,7 +797,7 @@ Other pathways include cross-contamination from plant interactions in soil, such
 as palm phytoliths adhering to the skin of sweet potatoes
 (Tromp \& Dudgeon, 2015),
 or accidental ingestion not related to food consumption
-(Radini et al., 2019; Radini et al., 2017).\\
+(Radini et al., 2017; Radini et al., 2019).\\
 When starch granules enter the mouth, whether through ingestion of food or accidental
 intake, they immediately encounter multiple obstacles. It is likely
 that the bulk of starch granules are swallowed along with the food, and are
@@ -941,7 +945,8 @@ number STG--677576 (``HARVEST'').
 All scripts and data used in the analysis are available on OSF
 (\url{https://osf.io/uc5qy/}) and Github (\url{https://github.com/bbartholdy/byoc-starch}),
 following the format provided by the rrtools package (Marwick, 2019).
-More detailed protocols are available on OSF and protocols.io.
+More detailed protocols are available on OSF (\url{https://osf.io/akevs/}) and protocols.io (\url{https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn}).
+Additional tables and figures are available in the Supplementary Material.
 
 \hypertarget{references-cited}{%
 \section*{References cited}\label{references-cited}}
@@ -956,7 +961,7 @@ Adler, C. J., Dobney, K., Weyrich, L. S., Kaidonis, J., Walker, A. W., Haak, W.,
 Armitage, P. L. (1975). The {Extraction} and {Identification} of {Opal Phytoliths} from the {Teeth} of {Ungulates}. \emph{Journal of Archaeological Science}, \emph{2}, 187--197.
 
 \leavevmode\hypertarget{ref-bernfeldAmylase1955}{}%
-Bernfeld, P. (1955). Amylases, α and β. In \emph{Methods in {Enzymology}} (Vol. 1, pp. 149--158). {Academic Press}. \url{https://doi.org/10.1016/0076-6879(55)01021-5}
+Bernfeld, P. (1955). Amylases, {\(\alpha\)} and {\(\beta\)}. In \emph{Methods in {Enzymology}} (Vol. 1, pp. 149--158). {Academic Press}. \url{https://doi.org/10.1016/0076-6879(55)01021-5}
 
 \leavevmode\hypertarget{ref-bjorckStarchProcessing1984}{}%
 Björck, I., Asp, N.-G., Birkhed, D., Eliasson, A.-C., Sjöberg, L.-B., \& Lundquist, I. (1984). Effects of processing on starch availability {In} vitro and {In} vivo. {II}. {Drum}-drying of wheat flour. \emph{Journal of Cereal Science}, \emph{2}(3), 165--178. \url{https://doi.org/10.1016/S0733-5210(84)80030-2}
@@ -968,7 +973,7 @@ Buckley, S., Usai, D., Jakob, T., Radini, A., \& Hardy, K. (2014). Dental {Calcu
 Charlier, P., Huynh-Charlier, I., Munoz, O., Billard, M., Brun, L., \& Grandmaison, G. L. de la. (2010). The microscopic (optical and {SEM}) examination of dental calculus deposits ({DCD}). {Potential} interest in forensic anthropology of a bio-archaeological method. \emph{Legal Medicine}, \emph{12}(4), 163--171. \url{https://doi.org/10.1016/j.legalmed.2010.03.003}
 
 \leavevmode\hypertarget{ref-cummingsMayanCalculus1997}{}%
-Cummings, L. S., \& Magennis, A. (1997). A phytolith and starch record of food and grit in {Mayan} human tooth tartar. In A. Pinilla, J. Juan-Tresserras, \& M. J. Machado (Eds.), \emph{The {State}-of-the-{Art} of {Phytoliths} in {Soils} and {Plants}}. {CSIC Press}. \url{http://books.google.com?id=j66CDVfVhwEC}
+Cummings, L. S., \& Magennis, A. (1997). A phytolith and starch record of food and grit in {Mayan} human tooth tartar. In A. Pinilla, J. Juan-Tresserras, \& M. J. Machado (Eds.), \emph{The {State}-of-the-{Art} of {Phytoliths} in {Soils} and {Plants}}. {CSIC Press}.
 
 \leavevmode\hypertarget{ref-doddsCarbohydrateRetention1988}{}%
 Dodds, M. W. J., \& Edgar, W. M. (1988). The {Relationship Between Plaque pH}, {Plaque Acid Anion Profiles}, and {Oral Carbohydrate Retention After Ingestion} of {Several} '{Reference Foods}' by {Human Subjects}. \emph{Journal of Dental Research}, \emph{67}(5), 861--865. \url{https://doi.org/10.1177/00220345880670051301}
@@ -1046,7 +1051,7 @@ Leonard, C., Vashro, L., O'Connell, J. F., \& Henry, A. G. (2015). Plant microre
 Lingstrom, P., Birkhed, D., Ruben, J., \& Arends, J. (1994). Effect of {Frequent Consumption} of {Starchy Food Items} on {Enamel} and {Dentin Demineralization} and on {Plaque pH} in situ. \emph{Journal of Dental Research}, \emph{73}(3), 652--660. \url{https://doi.org/10.1177/00220345940730031101}
 
 \leavevmode\hypertarget{ref-R-rrtools}{}%
-Marwick, B. (2019). \emph{Rrtools: Creates a reproducible research compendium} {[}Manual{]}. \url{https://github.com/benmarwick/rrtools}
+Marwick, B. (2019). \emph{Rrtools: Creates a reproducible research compendium} {[}Manual{]}.
 
 \leavevmode\hypertarget{ref-mickleburghNewInsightsConsumption2012}{}%
 Mickleburgh, H. L., \& Pagán-Jiménez, J. R. (2012). New insights into the consumption of maize and other food plants in the pre-{Columbian Caribbean} from starch grains trapped in human dental calculus. \emph{Journal of Archaeological Science}, \emph{39}(7), 2468--2478. \url{https://doi.org/10.1016/j.jas.2012.02.020}
@@ -1058,19 +1063,19 @@ Middleton, W. D., \& Rovner, I. (1994). Extraction of {Opal Phytoliths} from {He
 Modi, A., Pisaneschi, L., Zaro, V., Vai, S., Vergata, C., Casalone, E., Caramelli, D., Moggi-Cecchi, J., Mariotti Lippi, M., \& Lari, M. (2020). Combined methodologies for gaining much information from ancient dental calculus: Testing experimental strategies for simultaneously analysing {DNA} and food residues. \emph{Archaeological and Anthropological Sciences}, \emph{12}(1), 10. \url{https://doi.org/10.1007/s12520-019-00983-5}
 
 \leavevmode\hypertarget{ref-R-here}{}%
-Müller, K. (2020). \emph{Here: A simpler way to find your files} {[}Manual{]}. \url{https://CRAN.R-project.org/package=here}
+Müller, K. (2020). \emph{Here: A simpler way to find your files} {[}Manual{]}.
 
 \leavevmode\hypertarget{ref-naterHumanAmylase2005}{}%
 Nater, U. M., Rohleder, N., Gaab, J., Berger, S., Jud, A., Kirschbaum, C., \& Ehlert, U. (2005). Human salivary alpha-amylase reactivity in a psychosocial stress paradigm. \emph{International Journal of Psychophysiology}, \emph{55}(3), 333--342. \url{https://doi.org/10.1016/j.ijpsycho.2004.09.009}
 
 \leavevmode\hypertarget{ref-nikitkovaStarchBiofilms2013}{}%
-Nikitkova, A. E., Haase, E. M., \& Scannapieco, F. A. (2013). Taking the {Starch} out of {Oral Biofilm Formation}: Molecular {Basis} and {Functional Significance} of {Salivary} α-{Amylase Binding} to {Oral Streptococci}. \emph{Applied and Environmental Microbiology}, \emph{79}(2), 416--423. \url{https://doi.org/10.1128/AEM.02581-12}
+Nikitkova, A. E., Haase, E. M., \& Scannapieco, F. A. (2013). Taking the {Starch} out of {Oral Biofilm Formation}: Molecular {Basis} and {Functional Significance} of {Salivary} {\(\alpha\)}-{Amylase Binding} to {Oral Streptococci}. \emph{Applied and Environmental Microbiology}, \emph{79}(2), 416--423. \url{https://doi.org/10.1128/AEM.02581-12}
 
 \leavevmode\hypertarget{ref-pearceConcomitantDepositionStrontium1987}{}%
 Pearce, E. I. F., \& Sissons, C. H. (1987). The {Concomitant Deposition} of {Strontium} and {Fluoride} in {Dental Plaque}. \emph{Journal of Dental Research}, \emph{66}(10), 1518--1522. \url{https://doi.org/10.1177/00220345870660100101}
 
 \leavevmode\hypertarget{ref-R-patchwork}{}%
-Pedersen, T. L. (2020). \emph{Patchwork: The composer of plots} {[}Manual{]}. \url{https://CRAN.R-project.org/package=patchwork}
+Pedersen, T. L. (2020). \emph{Patchwork: The composer of plots} {[}Manual{]}.
 
 \leavevmode\hypertarget{ref-pipernoStarchGrains2008}{}%
 Piperno, D. R., \& Dillehay, T. D. (2008). Starch grains on human teeth reveal early broad crop diet in northern {Peru}. \emph{Proceedings of the National Academy of Sciences}, \emph{105}(50), 19622--19627. \url{https://doi.org/10.1073/pnas.0808752105}
@@ -1085,7 +1090,7 @@ Power, R. C., Salazar-García, D. C., Wittig, R. M., \& Henry, A. G. (2014). Ass
 Proctor, D. M., Fukuyama, J. A., Loomer, P. M., Armitage, G. C., Lee, S. A., Davis, N. M., Ryder, M. I., Holmes, S. P., \& Relman, D. A. (2018). A spatial gradient of bacterial diversity in the human oral cavity shaped by salivary flow. \emph{Nature Communications}, \emph{9}(1), 681. \url{https://doi.org/10.1038/s41467-018-02900-1}
 
 \leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. (2020). \emph{R: A language and environment for statistical computing} {[}Manual{]}. {R Foundation for Statistical Computing}; {R Foundation for Statistical Computing}. \url{https://www.R-project.org/}
+R Core Team. (2020). \emph{R: A language and environment for statistical computing} {[}Manual{]}. {R Foundation for Statistical Computing}; {R Foundation for Statistical Computing}.
 
 \leavevmode\hypertarget{ref-radiniFoodMultiplePathways2017}{}%
 Radini, A., Nikita, E., Buckley, S., Copeland, L., \& Hardy, K. (2017). Beyond food: The multiple pathways for inclusion of materials into ancient dental calculus. \emph{American Journal of Physical Anthropology}, \emph{162}, 71--83. \url{https://doi.org/10.1002/ajpa.23147}
@@ -1097,10 +1102,10 @@ Radini, A., Tromp, M., Beach, A., Tong, E., Speller, C., McCormick, M., Dudgeon,
 Reichert, E. T. (1913). \emph{The differentiation and specificity of starches in relation to genera, species, etc: Stereochemistry applied to protoplasmic processes and products, and as a strictly scientific basis for the classification of plants and animals} (Vol. 2). {Carnegie institution of Washington}.
 
 \leavevmode\hypertarget{ref-R-broom}{}%
-Robinson, D., Hayes, A., \& Couch, S. (2021). \emph{Broom: Convert statistical objects into tidy tibbles} {[}Manual{]}. \url{https://CRAN.R-project.org/package=broom}
+Robinson, D., Hayes, A., \& Couch, S. (2021). \emph{Broom: Convert statistical objects into tidy tibbles} {[}Manual{]}.
 
 \leavevmode\hypertarget{ref-scannapiecoSalivaryAmylase1993}{}%
-Scannapieco, F. A., Torres, G., \& Levine, M. J. (1993). Salivary α-amylase: Role in dental plaque and caries formation. \emph{Critical Reviews in Oral Biology \& Medicine}, \emph{4}(3), 301--307.
+Scannapieco, F. A., Torres, G., \& Levine, M. J. (1993). Salivary {\(\alpha\)}-amylase: Role in dental plaque and caries formation. \emph{Critical Reviews in Oral Biology \& Medicine}, \emph{4}(3), 301--307.
 
 \leavevmode\hypertarget{ref-seidemannStarchAtlas1966}{}%
 Seidemann, J. (1966). \emph{St\{\textbackslash"a\}rke-{Atlas}: Grundlagen der {St}\{\textbackslash"a\}rke-{Mikroskopie} und {Beschreibung} der wichtigsten {St}\{\textbackslash"a\}rkearten}. {Parey}.

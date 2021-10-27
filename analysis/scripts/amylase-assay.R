@@ -1,5 +1,9 @@
-#library(byocstarch)
-devtools::load_all()
+if(require(byocstarch, quietly = T)) {
+  library(byocstarch)
+} else {
+  devtools::load_all()
+}
+
 library(tidyverse)
 
 # Upload data -------------------------------------------------------------
@@ -26,12 +30,10 @@ plt2_ph2 <- readr::read_tsv(
 # Standard curve ----------------------------------------------------------
 
 # convert mL 0.2% Maltose to mg maltose
-#mg_malt <- c(3.75, 15, 30, 45, 60, 75, 150) * 0.002
+
 # two standard curves prepared: one in h2o and one in artificial saliva (BMM)
 stdH2O1.ph1 <- stdcurve(plt1_ph1, cols = 7:9)
-#stdH2O1.ph1 <- stdcurve(plt1_ph1, cols = 7:9, mg_maltose = mg_malt)
 stdBMM1.ph1 <- stdcurve(plt1_ph1, cols = 10:12)
-#stdBMM1.ph1 <- stdcurve(plt1_ph1, cols = 10:12, mg_maltose = mg_malt)
 
 stdH2O1.ph2 <- stdcurve(plt1_ph2, cols = 7:9)
 stdBMM1.ph2 <- stdcurve(plt1_ph2, cols = 10:12)

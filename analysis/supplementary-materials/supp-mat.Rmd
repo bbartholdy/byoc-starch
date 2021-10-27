@@ -1,11 +1,14 @@
 ---
-title: Supplementary Material
-output: 
+title: "Supplementary Material"
+output:
   html_document:
-    keep_md: true
+    keep_md: yes
     df_print: paged
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    df_print: kable
 ---
 
 ```{r setup, include=FALSE}
@@ -24,16 +27,6 @@ source(here("analysis/scripts/amylase-assay.R"))
 
 ```{r}
 print(sessionInfo(), locale = FALSE)
-```
-
-## Experimental setup
-
-```{r plate-lid-1, fig.cap="The 24 deepwell plate and the lid with pegs (substrata)"}
-knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
-```
-
-```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid (almost) on."}
-knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
 ```
 
 ## Metadata for raw data files
@@ -96,6 +89,28 @@ Raw counts from the calculus samples before extrapolation:
 ```{r raw-data-samp, echo=FALSE}
 raw_counts
 ```
+
+## Experimental setup
+
+```{r plate-lid-1, fig.cap="The 24 deepwell plate and the lid with pegs (substrata)"}
+knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
+```
+
+```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid (almost) on."}
+knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
+```
+
+## Protocols
+
+All protocols are available on [protocols.io](https://www.protocols.io).
+
+Creating the artificial saliva: <https://www.protocols.io/view/artificial-saliva-bva9n2h6>
+
+Creating the CPMU solution: <https://www.protocols.io/view/cpmu-bv8pn9vn>
+
+Biofilm growth protocol: <https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn>
+
+Amylase activity assay: <https://www.protocols.io/view/amylase-activity-bw8jphun>
 
 ## Microscope images
 
@@ -211,9 +226,9 @@ corr_comb %>%
     scale_fill_viridis_d()
 ```
 
-Extracted-granule counts separated by size:
+Extracted-granule counts separated by treatment and size, including error bars:
 
-```{r}
+```{r counts-bar, fig.cap="l = large, m = medium, s = small."}
 corr_counts_long %>%
   filter(size != "total",
          treatment != "control") %>%
@@ -229,9 +244,9 @@ corr_counts_long %>%
     theme_bw()
 ```
 
-Size distribution within the solutions (top) and samples (bottom):
+Size distribution (in %) within the solutions (top) and samples (bottom):
 
-```{r message=FALSE, warning=FALSE}
+```{r size-ratios-bar, fig.cap="l = large, m = medium, s = small.", message=FALSE, warning=FALSE}
 sol_size_pl <- sol_corr %>%
   group_by(solution, starch) %>%
   summarise(across(c(s, m, l, total), mean, na.rm = T)) %>%
@@ -261,7 +276,7 @@ samp_size_pl <- corr_counts_long %>%
 sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
 ```
 
-Separated correlation plots:
+Separated correlation plots. These are the same plots as in the main paper, just larger.
 
 ```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by z-score for separated treatments."}
 pl_cor

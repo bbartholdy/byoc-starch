@@ -5,20 +5,18 @@ author: |
 date: |
  $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
 output:
+  bookdown::html_document2:
+    df_print: kable
+    keep_md: true
   bookdown::pdf_document2:
     includes:
       in_header: "../templates/latex/pre-print/preamble.tex"
-      #before_body: "../templates/latex/pre-print/before_body.tex"
     df_print: kable
     toc: no
     latex_engine: xelatex
     fig_caption: yes
     number_sections: yes
     keep_tex: true
-    #extra_dependencies: "subfig"
-  bookdown::html_document2:
-    df_print: kable
-    keep_md: true
   bookdown::word_document2:
     reference_docx: "../templates/template.docx"
 #linestretch: 2.0 # double-spacing for review purposes
@@ -81,9 +79,9 @@ source(here("analysis/scripts/tables.R"))
 source(here("analysis/scripts/figures.R"))
 source(here("analysis/scripts/amylase-assay.R"))
 ## Compile refs.bib using rbbt package ##
-#cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
-#cite_keys <- unlist(cite_keys, use.names = FALSE)
-#rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T)
+cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
+cite_keys <- unlist(cite_keys, use.names = FALSE)
+rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
 ## end refs.bib ##
 
 ## Word count ##
@@ -257,7 +255,7 @@ The substrata were submerged in 1 ml/well CPMU for six minutes, five times
 daily, in a two-hour cycle. During the mineralisation period, starch treatments
 were reduced to once per day after the five CPMU treatments. This process was repeated 
 for 10 days until the end of the experiment on day 24 
-(see \@ref(fig:protocol-fig) for an overview of the protocol).
+(see Figure \@ref(fig:protocol-fig) for an overview of the protocol).
 
 All laboratory work was conducted in sterile conditions under a laminar flow hood 
 to prevent starch and bacterial contamination. Control samples that only received
@@ -279,7 +277,7 @@ Multiskan FC Microplate Photometer (Thermo Scientific 51119000).
 The protocol is a slightly modified version of an Enzymatic Assay of $\alpha$-Amylase
 (https://www.sigmaaldrich.com/NL/en/technical-documents/protocol/protein-biology/enzyme-activity-assays/enzymatic-assay-of-a-amylase) [@bernfeldAmylase1955], which measures the amount of 
 maltose released from starch by $\alpha$-amylase activity. Results are reported
-in units (U) per mL enzyme, where 1 U releases 1 mg of maltose.
+in units (U) per mL enzyme, where 1 U releases 1 mg of maltose in 6 minutes.
 
 ## Treatment solutions
 
@@ -301,7 +299,7 @@ Twenty $\mu$l of sample was mounted onto a slide with an 18x18 mm coverslip.
 When transferring the sample to the slide, the sample was homogenised using 
 the pipette to ensure that the counted transects were representative of the 
 whole slide. The count from the slide was extrapolated to the whole sample
-(see Supplementary Material).
+(see Supplementary Material for more detail).
 
 Both wheat and potato granules were divided into three size categories: 
 small (<10 $\mu$m), medium (10 -- 20 $\mu$m), and large (>20 $\mu$m). 
@@ -312,12 +310,13 @@ Statistical analysis was conducted in `r version$version.string`  [@R-base] and
 the following packages: tidyverse [@tidyverse2019], broom [@R-broom], 
 here [@R-here], and patchwork [@R-patchwork].
 <!-- R packages used -->
-A one-way ANOVA with sample weight as the dependent variable (DV) and treatment 
-as the grouping variable (GV) was conducted to explore the effect of the different 
-starch treatments on biofilm growth.
 
-To calculate size proportions, mean counts for each treatment were taken across 
-both experimental plates for each treatment, resulting in a mean count for each
+To see if biofilm growth was differently affected by starch treatments, a 
+one-way ANOVA with sample weight as the dependent variable (DV) and treatment 
+as the grouping variable (GV) was conducted.
+To analyse granule counts and calculate size proportions, mean counts for each 
+treatment were taken across
+both experimental plates, resulting in a mean count for each
 granule size category within each treatment.
 
 Pearson's *r* was conducted on sample weight and total starch count, as well as sample
@@ -362,12 +361,12 @@ No $\alpha$-amylase activity was detected in any of the artificial
 saliva samples from any of the days that were sampled. Only positive controls
 contained amylase activity that could be detected in the assay, ranging from
 `r paste(signif(range(positive_amylase),3), collapse = " to ")` U/mL enzyme 
-(Supplementary Material).
+(full results can be found in the Supplementary Material).
 The results are not comparable to other studies presenting $\alpha$-amylase activity
 levels in humans, as the unit definition may differ; 
 however, they are sufficient to show that there is no activity in the system.
 
-## Treatment type had no effect on biofilm growth
+## Treatment type had minimal effect on biofilm growth
 
 ```{r anova-tbl}
 knitr::kable(anova_tbl, 
@@ -378,7 +377,7 @@ knitr::kable(anova_tbl,
 A one-way ANOVA suggests that the type of starch used during the biofilm 
 growth period had a minimal effect on the growth of the biofilm 
 (expressed as total dry weight of the sample), F(`r paste(treat_df[1], treat_df[2], sep = ", ")`)
-= `r treat_f.stat`, p = `r treat_p`. 
+= `r treat_f.stat`, p = `r treat_p`.
 A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 
 ## Starch counts
@@ -672,7 +671,10 @@ When the concentration of starch granules
 per mg calculus is considered, the correlation is weaker, but still present
 (Figure \@ref(fig:cor-plot)B).
 While the larger deposits contain a higher absolute count, our findings also suggest
-that they contain a slightly higher concentration of starches. 
+that they contain a slightly higher concentration of starches. This may also explain
+the lower mean retention of starch granules in mixed treatments compared to
+wheat treatments. Wheat treatment samples (mean = `r subset(anova_tbl, treatment == "wheat")$mean` mg) were on average larger than mixed treatment samples (mean = `r subset(anova_tbl, treatment == "mix")$mean` mg) (Table \@ref(tab:anova-tbl)); and while mixed treatment solutions contained the highest mean overall
+granule counts, wheat treatment samples had the highest mean starch retention.
 Further research is needed to determine why this differs from previous archaeological
 findings.
 
@@ -862,6 +864,7 @@ number STG–677576 (“HARVEST”).
 All scripts and data used in the analysis are available on OSF 
 (https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
 following the format provided by the rrtools package [@R-rrtools].
-More detailed protocols are available on OSF and protocols.io.
+More detailed protocols are available on OSF (https://osf.io/akevs/) and protocols.io (https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn).
+Additional tables and figures are available in the Supplementary Material.
 
 # References cited
