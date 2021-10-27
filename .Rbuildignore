@@ -6,4 +6,6 @@
 ^README-.*\.png$
 ^CONDUCT\.md$
 ^CONTRIBUTING\.md$
-analysis
+^analysis/Amylase$
+^analysis/paper/_archive$
+^analysis/paper/frontiers$
