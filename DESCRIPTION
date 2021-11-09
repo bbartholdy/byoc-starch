@@ -19,11 +19,14 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     bookdown,
+    broom,
     dplyr,
     ggplot2,
     here,
+    knitr,
     magrittr,
-    patchwork
+    patchwork,
+    readr
 Suggests: devtools,
     git2r
 Depends: 
