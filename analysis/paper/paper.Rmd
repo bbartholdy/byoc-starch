@@ -5,6 +5,9 @@ author: |
 date: |
  $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
 output:
+  bookdown::html_document2:
+    df_print: kable
+    keep_md: true
   bookdown::pdf_document2:
     includes:
       in_header: "../templates/latex/pre-print/preamble.tex"
@@ -14,9 +17,6 @@ output:
     fig_caption: yes
     number_sections: yes
     keep_tex: true
-  bookdown::html_document2:
-    df_print: kable
-    keep_md: true
   bookdown::word_document2:
     reference_docx: "../templates/template.docx"
 #linestretch: 2.0 # double-spacing for review purposes
