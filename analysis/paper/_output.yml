@@ -1,0 +1,18 @@
+bookdown::pdf_book:
+  base_format: rticles::frontiers_article
+  latex_engine: xelatex
+  extra_dependencies: ["float"]
+# bookdown::pdf_document2:
+#   includes:
+#     in_header: "../templates/latex/pre-print/preamble.tex"
+#   df_print: kable
+#   toc: no
+#   latex_engine: xelatex
+#   fig_caption: yes
+#   number_sections: yes
+#   keep_tex: true
+# bookdown::html_document2:
+#   df_print: kable
+#   keep_md: true
+# bookdown::word_document2:
+#   reference_docx: "../templates/template.docx"
