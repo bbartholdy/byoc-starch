@@ -1,65 +1,41 @@
 ---
 title: "Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model"
-author: |
- Bjørn Peare Bartholdy$^1$, Amanda G. Henry$^1$
-date: |
- $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
-output:
-  bookdown::html_document2:
-    df_print: kable
-    keep_md: true
-  bookdown::pdf_document2:
-    includes:
-      in_header: "../templates/latex/pre-print/preamble.tex"
-    df_print: kable
-    toc: no
-    latex_engine: xelatex
-    fig_caption: yes
-    number_sections: yes
-    keep_tex: true
-  bookdown::word_document2:
-    reference_docx: "../templates/template.docx"
+#author: |
+# Bjørn Peare Bartholdy$^1$, Amanda G. Henry$^1$
+# date: |
+#  $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
+#### Frontiers submission ####
+runtitle: "Biases Associated with Starch Incorporation"
+documentclass: frontiers/frontiersSCNS  # or frontiersHLTH, or frontiersFPHY
+author:
+  - name: Bjørn Peare Bartholdy
+    affiliation: '1'
+    etal: BARTHOLDY # First author's last name.
+    email: b.p.bartholdy@arch.leidenuniv.nl # Indicates corresponding Author
+    institution: Leiden University
+    street: Einsteinweg 2
+    city: Leiden
+    zip: 2333 CC
+    country: Netherlands
+  - name: Amanda G. Henry
+    affiliation: '1'
+affiliation:
+  - id: '1'
+    department: Archaeological Sciences
+    institution: Leiden University
+    city: Leiden
+    country: Netherlands
+#### End: Frontiers submission ####
 #linestretch: 2.0 # double-spacing for review purposes
 bibliography: refs.bib
-csl: apa.csl
-abstract: |
- Dental calculus has proven to contain a wealth of information 
- on the dietary habits of past populations. These insights have, to a large extent,
- been obtained by the extraction and identification of
- starch granules contained within the mineralised dental plaque from a wide range 
- of regions and time periods. The scope of previous studies have been limited to 
- microfossil extraction and identification to reconstruct dietary preferences from
- the archaeological record, and few studies have attempted to address the biases 
- of starch retention in dental calculus. Those that have considered this problem 
- have been limited to *in vivo* studies on modern humans and non-human primates.
- Here, we present a multispecies oral biofilm model, which allows experimental 
- research on  starch incorporation and retention to be conducted on *in vitro* 
- dental calculus in a controlled laboratory setting. The biofilms were exposed 
- to treatment solutions with known quantities of
- dietary starches (wheat and potato) during the 25-day growth period. After this,
- the starch granules were extracted from the mature biofilm (by dissolution in EDTA),
- and counted. We show that the granule counts extracted from the model dental calculus 
- represented a low proportion (ranging from 0.06% to 0.16%) of the total number 
- of granules exposed to the biofilms throughout the experiment.
- Additionally, we found that the ratios of granule sizes from the extracted 
- starch granules differed from the original treatment solutions, with large 
- granules (>20 $\mu$m) consistently being under-represented.
- We also found a correlation
- between the absolute granule counts and dry-weight of the biofilm 
- (*r* = 0.66, 90%CI[0.46,0.79]), as well
- as between the concentration (count per mg) of granules and dry-weight 
- (*r* = 0.30, 90%CI[0.06,0.51]).  
- Our results reinforce previous *in vivo* studies suggesting that dental calculus 
- presents a very small, and partly biased picture of the original dietary intake 
- of starches, with an over-representation of plants producing granules smaller than
- 20 $\mu$m in size. The experimental model presented here is well-suited to address
- the need for further validation of methods and biases associated with dietary
- research on dental calculus.
-keywords: 
-  - oral biofilm
-  - starch
-  - alpha-amylase
-  - dental calculus
+csl: frontiers/frontiers.csl
+params:
+  keywords: 
+    - oral biofilm model
+    - starch
+    - alpha-amylase
+    - dental calculus
+    - paleodiet reconstruction
 ---
 
 ```{r setup, include=FALSE}
@@ -67,8 +43,12 @@ knitr::opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
   message = FALSE,
+  #fig.path = "frontiers/figures/",
   fig.path = "../figures/",
-  fig.align = "center")
+  fig.align = "center",
+  #fig.ext = "jpg",
+  fig.pos = "H",
+  dpi = 300) 
 library(tidyverse)
 library(broom)
 library(here)
@@ -79,14 +59,60 @@ source(here("analysis/scripts/tables.R"))
 source(here("analysis/scripts/figures.R"))
 source(here("analysis/scripts/amylase-assay.R"))
 ## Compile refs.bib using rbbt package ##
-# cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
-# cite_keys <- unlist(cite_keys, use.names = FALSE)
-# rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
+#cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
+#cite_keys <- unlist(cite_keys, use.names = FALSE)
+#rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
 # ## end refs.bib ##
 # 
 # ## Word count ##
 # wd_count <- wordcountaddin::word_count()
+cor_r <- signif(count_cor$estimate, 3)
+cor_ci <- signif(count_cor$conf.int, 3)
+cor2_r <- signif(count_cor$estimate, 3)
+cor2_ci <- signif(count_cor$conf.int, 3)
 ```
+
+\begin{abstract}
+
+Dental calculus has proven to contain a wealth of information on the
+dietary habits of past populations. These insights have, to a large
+extent, been obtained by the extraction and identification of starch
+granules contained within the mineralised dental plaque from a wide
+range of regions and time periods. The scope of previous studies have
+been limited to microfossil extraction and identification to reconstruct
+dietary preferences from the archaeological record, and few studies have
+attempted to address the biases of starch retention in dental calculus.
+Those that have considered this problem have been limited to \emph{in
+vivo} studies on modern humans and non-human primates. Here, we present
+a multispecies oral biofilm model, which allows experimental research on
+starch incorporation and retention to be conducted on \emph{in vitro}
+dental calculus in a controlled laboratory setting. The biofilms were
+exposed to treatment solutions with known quantities of dietary starches
+(wheat and potato) during the 25-day growth period. After this, the
+starch granules were extracted from the mature biofilm (by dissolution
+in EDTA), and counted. We show that the granule counts extracted from
+the model dental calculus represented a low proportion (ranging from
+0.06\% to 0.16\%) of the total number of granules exposed to the
+biofilms throughout the experiment. Additionally, we found that the
+ratios of granule sizes from the extracted starch granules differed from
+the original treatment solutions, with large granules (\textgreater20
+\(\mu\)m) consistently being under-represented. We also found a
+correlation between the absolute granule counts and dry-weight of the
+biofilm (\emph{r} = 0.659, 90\%CI{[}0.463, 0.794{]}), as well as between
+the concentration (count per mg) of granules and dry-weight (\emph{r} =
+0.3, 90\%CI{[}0.0618, 0.506{]}).\\
+Our results reinforce previous \emph{in vivo} studies suggesting that
+dental calculus presents a very small, and partly biased picture of the
+original dietary intake of starches, with an over-representation of
+plants producing granules smaller than 20 \(\mu\)m in size. The
+experimental model presented here is well-suited to address the need for
+further validation of methods and biases associated with dietary
+research on dental calculus.
+
+\tiny
+ \keyFont{ \section{Keywords:} `r params$keywords`}
+ 
+\end{abstract}
 
 # Introduction
 
@@ -182,8 +208,6 @@ increases.
 
 ## Biofilm formation
 
-<!-- insert figure of the setup -->
-
 In this study we employ a multispecies oral biofilm model following a modified
 protocol from Sissons and colleagues [-@sissonsMultistationDentalPlaque1991] and
 Shellis [-@shellisSyntheticSalivaCultural1978]. In brief, a biofilm inoculated
@@ -198,7 +222,6 @@ were the substrata on which the calculus grew. Using this system allowed for eas
 transfer of the growing biofilm between saliva, feeding solutions, 
 and mineral solutions.
 
- 
 The artificial saliva (AS) is a modified version of the basal medium mucin (BMM)
 described by Sissons and colleagues [-@sissonsMultistationDentalPlaque1991]. 
 It contains 2.5 g/l partially purified mucin from porcine stomach (Type III, Sigma M1778), 
@@ -209,10 +232,6 @@ It contains 2.5 g/l partially purified mucin from porcine stomach (Type III, Sig
 adjusted to pH 7 with NaOH pellets and stirring, autoclaved (15 min, 120&deg;C, 
 1 bar overpressure), and supplemented with 5.8 $\mu$mol/l menadione, 5 mmol/l urea, 
 and 1 mmol/l arginine [@sissonsMultistationDentalPlaque1991].
-
-```{r protocol-fig, fig.cap="Overview of experiment protocol including the plate setup."}
-knitr::include_graphics(here("analysis/figures/protocol_overview.png"))
-```
 
 Fresh whole saliva (WS) for inoculation was provided by a 31-year-old<!--needless to say I am much older now...--> male donor 
 with no history of caries, who abstained from oral hygiene for 24 hours. No 
@@ -274,10 +293,11 @@ H~2~O, while artificial saliva samples were compared against a standard curve
 containing sterile artificial saliva (due to the colour of artificial saliva).
 Two photometric readings were conducted for each plate with a 540 nm filter on a 
 Multiskan FC Microplate Photometer (Thermo Scientific 51119000). 
-The protocol is a slightly modified version of an Enzymatic Assay of $\alpha$-Amylase
-(https://www.sigmaaldrich.com/NL/en/technical-documents/protocol/protein-biology/enzyme-activity-assays/enzymatic-assay-of-a-amylase) [@bernfeldAmylase1955], which measures the amount of 
+The protocol is a modified version of an Enzymatic Assay of $\alpha$-Amylase
+(<https://www.sigmaaldrich.com/NL/en/technical-documents/protocol/protein-biology/enzyme-activity-assays/enzymatic-assay-of-a-amylase>) [@bernfeldAmylase1955], which measures the amount of
 maltose released from starch by $\alpha$-amylase activity. Results are reported
-in units (U) per mL enzyme, where 1 U releases 1 mg of maltose in 6 minutes.
+in units (U) per mL enzyme, where 1 U releases 1 $\mu$mole of maltose in 6 minutes.
+The detailed protocol can be found here: <https://www.protocols.io/view/amylase-activity-bw8jphun>.
 
 ## Treatment solutions
 
@@ -330,10 +350,6 @@ concentration in the calculus [as per
 
 # Results
 
-```{r microscope-fig, fig.cap="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\\mu$m.", out.width="50%"}
-knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
-```
-
 All samples yielded sufficient biofilm growth and starch incorporation to be 
 included in the analysis (Figure \@ref(fig:microscope-fig)), resulting in a total of 48 biofilm samples (two plates of 24),
 45 of which were used for analysis (three samples were set aside for later
@@ -359,20 +375,15 @@ positive_amylase <- na.omit(amylase_results)
 
 No $\alpha$-amylase activity was detected in any of the artificial
 saliva samples from any of the days that were sampled. Only positive controls
+(saliva)
 contained amylase activity that could be detected in the assay, ranging from
 `r paste(signif(range(positive_amylase),3), collapse = " to ")` U/mL enzyme 
 (full results can be found in the Supplementary Material).
 The results are not comparable to other studies presenting $\alpha$-amylase activity
 levels in humans, as the unit definition may differ; 
-however, they are sufficient to show that there is no activity in the system.
+however, they are sufficient to show that there is no activity in the model.
 
 ## Treatment type had minimal effect on biofilm growth
-
-```{r anova-tbl}
-knitr::kable(anova_tbl, 
-             col.names = c("Treatment", "Mean", "SD", "Min", "Max"),
-             caption = "Summary statistics for biofilm dry-weights (in mg) by treatment.")
-```
 
 A one-way ANOVA suggests that the type of starch used during the biofilm 
 growth period had a minimal effect on the growth of the biofilm 
@@ -420,22 +431,6 @@ are from wheat.
 <!-- count of small granules from wheat solution divided by the sum of small granules 
 from the potato and wheat solutions -->
 
-```{r solution-count-tbl}
-cnames <- c("Solution", "Starch", "Small (%)", "Medium (%)", "Large (%)", "Total (%)")
-options(knitr.kable.NA = "")
-knitr::kable(sol_tbl, col.names = cnames, 
-             caption = "Mean starch counts from solutions, including the
-             proportional makeup of the different sizes of granules.")
-```
-
-```{r sample-count-tbl}
-cnames <- c("Treatment", "Starch", "Small (%)", "SD", "Medium (%)", "SD", 
-            "Large (%)", "SD", "Total (%)", "SD")
-knitr::kable(samp_counts_tbl, col.names = cnames, 
-             caption = "Mean starch counts extracted from samples with standard 
-             deviation (SD), including the proportion of granule sizes of the total count.")
-```
-
 <!-- absolute solution counts compared to absolute sample counts. does exposure
 to higher quantities of starches mean more incorporated starches? -->
 The separate wheat and potato solutions were made with a 0.25% (w/v) starch
@@ -460,19 +455,6 @@ prop_wide <- prop %>%
               names_from = size, 
               values_from = prop) %>%
   add_row(prop_comb_row, .after = 2)
-  
-perc_tbl <- prop %>%
-  ungroup() %>%
-  select(!c(sample, solution, prop)) %>%
-  pivot_wider(names_from = size, values_from = perc) %>%
-  add_row(perc_comb_row, .after = 2)
-```
-
-```{r sample-prop-tbl}
-cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
-knitr::kable(perc_tbl, col.names = cnames, 
-             caption = "The mean percentage of starches from the solutions that 
-              were incorporated into the samples.")
 ```
 
 The proportion of total starches from the solutions that were incorporated 
@@ -498,14 +480,9 @@ in the separated wheat treatment.
 <!-- size proportions -->
 <!-- pie charts -->
 
-```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}
-#plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
-(pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
-```
-
 <!-- overall size trends -->
 
-```{r}
+```{r size-trends}
 sol_size_prop <- sol_comb_out %>%
   group_by(treatment, starch) %>%
   #select(!total) %>%
@@ -586,11 +563,6 @@ strength_cor <- if(cor_r >= 0.8){
 }
 ```
 
-```{r cor-plot, warning=FALSE, fig.cap="Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus."}
-#pl_cor
-pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
-```
-
 Pearson's *r* suggests a 
 `r strength_cor` `r direct_cor` 
 correlation between the total weight of the biofilms and the total starch count 
@@ -599,12 +571,6 @@ correlation between the total weight of the biofilms and the total starch count
 90%CI[`r paste(cor_ci[1], cor_ci[2], sep = ", ")`],
 p `r cor_p`
 (Figure \@ref(fig:cor-plot)A). 
-
-<!--
-```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
-pl_cor2
-```
--->
 
 The same test was applied to total biofilm weight and starch count per mg 
 calculus (also standardised by z-score), resulting in a weak positive correlation, 
@@ -763,11 +729,13 @@ The absence of $\alpha$-amylase in the model is a limitation of this study, as
 the total granule counts were not subject to hydrolysis. This would likely have 
 reduced and affected the size ratios, as smaller starches may be more 
 susceptible to hydrolysis 
-[@francoStarchDegradation1992; @haslamDecompositionStarch2004]; however, 
-the absence can also allow us to directly explore
-the effect of $\alpha$-amylase on starch counts in future experiments,
-where $\alpha$-amylase can be added to the model
-in concentrations similar to those found in the oral cavity [@scannapiecoSalivaryAmylase1993]. 
+[@francoStarchDegradation1992; @haslamDecompositionStarch2004]. The absence may
+also affect biofilm growth due to the lack of amylase-bacterium interactions
+[@nikitkovaStarchBiofilms2013]. Conversely, the model may benefit from the
+absence of $\alpha$-amylase, because it can allow us to directly explore
+its effect on starch counts in future experiments, where $\alpha$-amylase can be 
+added to the model in concentrations similar to those found in the oral cavity
+[@scannapiecoSalivaryAmylase1993]. 
 We are able to show how absolute counts in the treatments cause a difference in
 incorporation. However, this
 was merely a side-effect of the difference in the number of granules in potato and 
@@ -845,6 +813,34 @@ to explore the incorporation and extraction of dietary compounds from dental cal
 in a controlled laboratory setting, and unearth the potential biases associated 
 with dietary research conducted on archaeological dental calculus. 
 
+# Open Science Statement {-}
+
+All scripts and data used in the analysis are available on OSF 
+(https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
+following the format provided by the rrtools package [@R-rrtools].
+More detailed protocols are available on OSF (https://osf.io/akevs/)
+and protocols.io (https://www.protocols.io/workspaces/byoc).
+Additional tables and figures are available in the Supplementary Material
+(https://osf.io/ucxsv/).
+
+# Author Contributions {-}
+
+AGH acquired the funding for the analysis. BPB and AGH conceptualised and designed
+the study. BPB conducted the experiments and analysed the data.
+BPB wrote the manuscript. AGH reviewed and edited the manuscript.
+
+# Funding {-}
+
+This research has received funding from the European Research Council under the 
+European Union’s Horizon 2020 research and innovation program, grant agreement 
+number STG–677576 (“HARVEST”).
+
+# Conflict of Interest {-}
+
+The authors declare that the research was conducted in the absence of any
+commercial or financial relationships that could be construed as a potential
+conflict of interest.
+
 # Acknowledgements {-}
 
 <!-- If you're reading this, thank you for taking the time to read the source 
@@ -855,16 +851,71 @@ of the lab for enduring the smell of bacterial accumulation.
 Since we did NOT make use of Sci-Hub to access articles stuck behind a paywall, 
 we will NOT acknowledge the use of Sci-Hub in this study. <!-- Oops, did I just acknowledge it twice..? -->
 
-This research has received funding from the European Research Council under the 
-European Union’s Horizon 2020 research and innovation program, grant agreement 
-number STG–677576 (“HARVEST”). 
+# References {-}
 
-# Data Availability Statement {-}
+::: {#refs}
+:::
 
-All scripts and data used in the analysis are available on OSF 
-(https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
-following the format provided by the rrtools package [@R-rrtools].
-More detailed protocols are available on OSF (https://osf.io/akevs/) and protocols.io (https://www.protocols.io/workspaces/byoc).
-Additional tables and figures are available in the Supplementary Material.
+\clearpage
 
-# References cited
+# Tables
+
+```{r anova-tbl}
+knitr::kable(anova_tbl, 
+             col.names = c("Treatment", "Mean", "SD", "Min", "Max"),
+             caption = "Summary statistics for biofilm dry-weights (in mg) by treatment.")
+```
+
+```{r solution-count-tbl}
+cnames <- c("Solution", "Starch", "Small (%)", "Medium (%)", "Large (%)", "Total (%)")
+options(knitr.kable.NA = "")
+knitr::kable(sol_tbl, col.names = cnames, 
+             caption = "Mean starch counts from solutions, including the
+             proportional makeup of the different sizes of granules.")
+```
+
+```{r sample-count-tbl}
+cnames <- c("Treatment", "Starch", "Small (%)", "SD", "Medium (%)", "SD", 
+            "Large (%)", "SD", "Total (%)", "SD")
+knitr::kable(samp_counts_tbl, col.names = cnames, 
+             caption = "Mean starch counts extracted from samples with standard 
+             deviation (SD), including the proportion of granule sizes of the total count.")
+```
+
+```{r sample-prop-tbl}
+cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
+knitr::kable(perc_tbl, col.names = cnames, 
+             caption = "The mean percentage of starches from the solutions that 
+              were incorporated into the samples.")
+```
+
+# Figure Captions
+
+```{r protocol-fig, fig.cap="Overview of experiment protocol including the plate setup.", out.width="70%"}
+knitr::include_graphics(here("analysis/figures/protocol_overview.png"))
+```
+
+```{r microscope-fig, fig.cap="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\\mu$m.", out.width="50%"}
+knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
+```
+
+```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}
+#plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
+(pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+```
+
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus."}
+#pl_cor
+pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+#ggsave("frontiers/figures/cor-plot.png", dpi = 300)
+```
+
+<!--
+Figure 1: Overview of experiment protocol including the plate setup.
+
+Figure 2: Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m.
+
+Figure 3: Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments.
+
+Figure 4: Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus.
+-->
