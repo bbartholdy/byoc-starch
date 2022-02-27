@@ -27,7 +27,7 @@ Imports:
     magrittr,
     patchwork,
     readr
-Suggests: devtools,
-    git2r
+Suggests: 
+    devtools
 Depends: 
     tidyverse

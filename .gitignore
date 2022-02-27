@@ -3,3 +3,7 @@
 analysis/Amylase/
 analysis/paper/pre-print
 analysis/paper/_archive
+analysis/paper/frontiers
+paper.*
+!paper.pdf
+!paper.Rmd
