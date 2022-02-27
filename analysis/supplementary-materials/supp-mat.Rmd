@@ -1,12 +1,11 @@
 ---
 title: "Supplementary Material"
 output:
-  html_document:
-    keep_md: yes
+  bookdown::html_document2:
     df_print: paged
     toc: yes
     toc_float: yes
-  pdf_document:
+  bookdown::pdf_document2:
     toc: yes
     df_print: kable
 ---
@@ -23,10 +22,47 @@ source(here("analysis/scripts/amylase-assay.R"))
 #raw_data_solutions <- read_csv(here("analysis/data/raw_data/solution_counts.csv"))
 ```
 
-## R Session info
+# R Session info
 
 ```{r}
 print(sessionInfo(), locale = FALSE)
+```
+
+# Experimental setup
+
+```{r plate-lid-1, fig.cap="The 24 deepwell plate and the lid with pegs (substrata)"}
+knitr::include_graphics(here("analysis/supplementary-materials/figures/plate_lid_side.jpg"))
+```
+
+```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid (almost) on."}
+knitr::include_graphics(here("analysis/supplementary-materials/figures/plate_lid_on.jpg"))
+```
+
+# Protocols
+
+All protocols are available on [protocols.io](https://www.protocols.io).
+
+Creating the artificial saliva: <https://www.protocols.io/view/artificial-saliva-bva9n2h6>
+
+Creating the CPMU solution: <https://www.protocols.io/view/cpmu-bv8pn9vn>
+
+Biofilm growth protocol: <https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn>
+
+Amylase activity assay: <https://www.protocols.io/view/amylase-activity-bw8jphun>
+
+# Raw data
+
+The raw data can be downloaded from OSF:
+
+Solution counts: <https://osf.io/kz3b2/>  
+Sample counts: <https://osf.io/kz3b2/>
+
+```sh
+# solution counts
+wget https://osf.io/kz3b2/download -O solution_counts.csv
+
+# sample counts
+wget https://osf.io/kz3b2/download -O starch_counts.csv
 ```
 
 ## Metadata for raw data files
@@ -66,72 +102,29 @@ Counts represent the absolute number of starches counted on a slide
 | l | Large starch count. |
 | total | Sum of s, m, and l. |
 
-## Raw data
 
-The raw data can be downloaded from GitHub:
-
-```sh
-# solution counts
-wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/solution_counts.csv
-
-# sample counts
-wget https://github.com/bbartholdy/byoc-starch/blob/main/analysis/data/raw_data/starch_counts.csv
-```
-
-Raw counts from the treatment solutions before extrapolation.
-
-```{r raw-data-sol, echo=FALSE}
-sol_counts
-```
-
-Raw counts from the calculus samples before extrapolation:
-
-```{r raw-data-samp, echo=FALSE}
-raw_counts
-```
-
-## Experimental setup
-
-```{r plate-lid-1, fig.cap="The 24 deepwell plate and the lid with pegs (substrata)"}
-knitr::include_graphics(here("analysis/figures/plate_lid_side.jpg"))
-```
-
-```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid (almost) on."}
-knitr::include_graphics(here("analysis/figures/plate_lid_on.jpg"))
-```
-
-## Protocols
-
-All protocols are available on [protocols.io](https://www.protocols.io).
-
-Creating the artificial saliva: <https://www.protocols.io/view/artificial-saliva-bva9n2h6>
-
-Creating the CPMU solution: <https://www.protocols.io/view/cpmu-bv8pn9vn>
-
-Biofilm growth protocol: <https://www.protocols.io/view/biofilm-growth-with-starch-treatment-bu7jnzkn>
-
-Amylase activity assay: <https://www.protocols.io/view/amylase-activity-bw8jphun>
-
-## Microscope images
+# Microscope images
 
 ```{r img-1, echo=FALSE, fig.cap="Image of starch granules extracted from a potato treatment sample"}
-knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
+knitr::include_graphics(here("analysis/supplementary-materials/figures/starches_w_bar.jpg"))
 ```
 
 ```{r img-2}
-knitr::include_graphics(here("analysis/figures/SNAP-103412-0006.jpg"))
+knitr::include_graphics(here("analysis/supplementary-materials/figures/SNAP-103412-0006.jpg"))
 ```
 
 ```{r img-3, fig.cap="Microscope image of wheat starch from a wheat treatment sample."}
-knitr::include_graphics(here("analysis/figures/SNAP-164650-0012.jpg"))
+knitr::include_graphics(here("analysis/supplementary-materials/figures/SNAP-164650-0012.jpg"))
 ```
 
-## Amylase activity
+# Amylase activity
 
-Amylase activity in U/mL enzyme, where U is mg maltose released from starch in six minutes at 36 &deg;C.
+Amylase activity in U/mL enzyme, where U is the amount of enzyme needed to
+release 1 $\mu$mole maltose from starch in six minutes at 36 &deg;C.
 
-Tables containing the amylase activity results for both plates and both photometric
-readings conducted on each plate. Samples (rows) were analysed in triplicates (columns).
+Tables containing the amylase activity results for both plates and both
+photometric readings conducted on each plate. Samples (rows) were analysed in
+triplicates (columns).
 
 ```{r amylase-activity-results, message=FALSE}
 # table of results reported in units amylase per mL enzyme (but let's be honest,
@@ -148,14 +141,28 @@ plt2_ph2_result <- rbind(sal2_ph2, bmm2_ph2)
 rownames(plt2_ph2_result) <- rows
 ```
 
-```{r amylase-activity-tables}
-plt1_ph1_result # plate 1, photometric reading 1
-plt1_ph2_result # plate 1, photometric reading 2
-plt2_ph1_result # plate 2, photometric reading 1
-plt2_ph2_result # plate 2, photometric reading 2
+```{r amylase-plt1-read1}
+plt1_ph1_result %>%
+  knitr::kable("Amylase activity in U/mL for plate 1, photometric read 1.")
 ```
 
-## Control samples
+```{r amylase-plt1-read2}
+plt1_ph2_result %>%
+  knitr::kable("Amylase activity in U/mL for plate 1, photometric read 2.")
+```
+
+```{r amylase-plt2-read1}
+plt2_ph1_result %>%
+  knitr::kable("Amylase activity in U/mL for plate 2, photometric read 1.")
+```
+
+```{r amylase-plt2-read2}
+plt2_ph2_result %>%
+  knitr::kable("Amylase activity in U/mL for plate 2, photometric read 2.")
+```
+
+
+# Control samples
 
 ```{r}
 raw_counts %>%
@@ -166,7 +173,7 @@ raw_counts %>%
 Only the total starch count was considered for control samples, as size was
 deemed irrelevant.
 
-## Count corrections
+# Count corrections
 
 Slide transects were calculated by counting the number of transects on the 
 cover slip under the microscope. This was done by starting in the bottom-left
@@ -189,7 +196,7 @@ volume of EDTA ($V_{sample}$) in which the sample was submerged (i.e. 50--100 $\
 
 $$ \text{Corrected count} = \text{raw count} \times (\text{portion of slide})^{-1} \times \frac{V_{sample}}{V_{slide}} $$
 
-## Some additional plots
+# Some additional plots
 
 Bar plot for the total count of granules exposed to the samples over the
 duration of the experiment,
@@ -286,7 +293,7 @@ pl_cor
 pl_cor2
 ```
 
-### ...and a table
+## ...and a table
 
 Differences in size ratios (%) of granules between the solutions and the samples. 
 Negative values indicate a loss of granules from solution to sample.
