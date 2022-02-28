@@ -1,0 +1,4 @@
+language:
+  label:
+    fig: !expr function(x) sprintf("Figure S%s ", x)
+    tab: !expr function(x) sprintf("Table S%s ", x)

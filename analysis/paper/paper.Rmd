@@ -858,7 +858,7 @@ we will NOT acknowledge the use of Sci-Hub in this study. <!-- Oops, did I just 
 
 \clearpage
 
-# Tables
+# Tables {-}
 
 ```{r anova-tbl}
 knitr::kable(anova_tbl, 
@@ -889,7 +889,7 @@ knitr::kable(perc_tbl, col.names = cnames,
               were incorporated into the samples.")
 ```
 
-# Figure Captions
+# Figures {-}
 
 ```{r protocol-fig, fig.cap="Overview of experiment protocol including the plate setup.", out.width="70%"}
 knitr::include_graphics(here("analysis/figures/protocol_overview.png"))
