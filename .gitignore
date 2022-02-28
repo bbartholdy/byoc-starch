@@ -7,3 +7,5 @@ analysis/paper/frontiers
 paper.*
 !paper.pdf
 !paper.Rmd
+analysis/paper/abstract.*
+analysis/paper/fig_tab.*

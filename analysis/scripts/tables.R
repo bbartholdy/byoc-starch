@@ -145,6 +145,13 @@ perc_comb_row <- prop %>%
   pivot_wider(names_from = size, values_from = perc)
 
 
+perc_tbl <- prop %>%
+  ungroup() %>%
+  select(!c(sample, solution, prop)) %>%
+  pivot_wider(names_from = size, values_from = perc) %>%
+  add_row(perc_comb_row, .after = 2)
+
+
 # Size ratios -------------------------------------------------------------
 
 sol_size_prop <- sol_comb_out %>%

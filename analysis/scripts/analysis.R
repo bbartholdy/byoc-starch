@@ -91,13 +91,16 @@ corr_counts_long <- corr_counts %>%
 
 # combining potato and wheat counts from mixed treatment samples
 
-# merge two adjacent rows and add variables s, m , l, total
-
+# merge Row C rows with the sum of counts
 corr_comb <- corr_counts %>%
-  select(!starch) %>%
-  pivot_wider(names_sep = "", values_from = c(s, m, l, total),
-              values_fill = NA,
-              values_fn = function(x) sum(x, na.rm = T))
+  group_by(sample, plate, row, treatment, weight) %>%
+  summarise(across(c(s,m,l,total), sum, na.rm = T))
+
+# corr_comb <- corr_counts %>%
+#   select(!starch) %>%
+#   pivot_wider(names_sep = "", values_from = c(s, m, l, total),
+#               values_fill = NA,
+#               values_fn = function(x) sum(x, na.rm = T))
 readr::write_csv(corr_comb, here("analysis/data/derived_data", "corr_comb.csv"))
 
 corr_comb_long <- corr_counts_long %>%
