@@ -1,9 +1,3 @@
-# if(require(byocstarch, quietly = T)) {
-#   library(byocstarch)
-# } else {
-#   devtools::load_all()
-# }
-
 library(tidyverse)
 
 # Functions ---------------------------------------------------------------
@@ -14,12 +8,13 @@ library(tidyverse)
 #' @param ml_maltose vector of length 7 containing the volume (ml) of 0.2% maltose solution added to the assay.
 #' @importFrom magrittr %>%
 #' @importFrom dplyr slice n
-stdcurve <- function(std_data, cols = NULL, ml_maltose = c(3.75, 15, 30, 45, 60, 75, 150)){
+stdcurve <- function(std_data, cols = NULL, ml_maltose = c(0.00375, 0.015, 0.030, 0.045, 0.060, 0.075, 0.150)){
   if(!is.null(cols)){
     std_data <- std_data[,cols]
   }
   # delta 540 calculation
-  mg_maltose <- 0.002 * ml_maltose
+  mg_maltose <- 2 * ml_maltose # DOUBLE CHECK THIS
+  umol_maltose <- (mg_maltose * 1000) / 342.3 # calculate maltose in umoles
   replicates <- dim(std_data)[2]
   pht_blank <- std_data[8,] %>%
     slice(rep(1:n(), each = 7))
@@ -28,14 +23,15 @@ stdcurve <- function(std_data, cols = NULL, ml_maltose = c(3.75, 15, 30, 45, 60,
   pht_meas <- c(pht_meas[, seq(1:replicates)]) %>%
     unlist()
   # Linear regression
-  stdCurve_data <- data.frame("d540" = pht_meas, "mgMaltose" = rep(mg_maltose, replicates))
-  std_curve <- lm(d540 ~ mgMaltose, stdCurve_data)
+  stdCurve_data <- data.frame("d540" = pht_meas, "umol_maltose" = rep(umol_maltose, replicates))
+  std_curve <- lm(d540 ~ umol_maltose, stdCurve_data)
   # Plot of standard curve
   p_stdcurve <- stdCurve_data %>%
-    ggplot(aes(x = mgMaltose, y = d540)) +
+    ggplot(aes(x = umol_maltose, y = d540)) +
     geom_point() +
     geom_smooth(formula = "y ~ x", method = "lm", se = F) +
-    theme_bw()
+    theme_bw() +
+    labs(x = "umoles Maltose", y = "Absorbance (d540)")
   out <- list("std_curve" = std_curve, "plot" = p_stdcurve, "blank" = pht_blank[1,], "replicates" = replicates, "model" = stdCurve_data)
   return(out)
 }
@@ -72,8 +68,8 @@ sample_calc <- function(samp_data, cols = NULL, std_curve, dilf, ml_enz){
   out <- as.data.frame(matrix(nrow = n_rows, ncol = n_cols))
   for(i in 1:dim(samp_data)[2]){
     unk <- samp_data_corr[,i]
-    malt_mg <- (unk - b0) / b1
-    units <- malt_mg * dilf / ml_enz
+    malt_rel <- (unk - b0) / b1 # umoles maltose released
+    units <- (malt_rel * dilf) / ml_enz
     out[,i] <- units
   }
   return(out)
