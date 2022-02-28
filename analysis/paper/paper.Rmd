@@ -175,7 +175,7 @@ have explored how well microremains (phytoliths and starches)
 extracted from dental calculus represent the actual dietary intake.
 These studies are justifiably limited, 
 despite meticulous documentation and observation, due to unknown variables and 
-uncertainty involved when studying living organisms. Dental calculus is a complex 
+uncertainty involved in this kind of *in vivo* research. Dental calculus is a complex 
 oral biofilm with a multifactorial aetiology and variable formation rates both 
 within and between individuals [@jepsenCalculusRemoval2011; @haffajeeBiofilmPosition2009], 
 contributing to
@@ -255,7 +255,7 @@ inoculation.
 Starch treatments were initiated on day 9 to avoid starch granule counts being 
 affected by $\alpha$-amylase hydrolysis from saliva inoculation days. 
 An $\alpha$-amylase (EC 3.2.1.1) activity
-assay was conducted to confirm that no amylase was present in the system before
+assay was conducted to confirm that no amylase was present in the model before
 starch treatments started. Starch treatments replaced sucrose treatments, occurring twice per day
 for six minutes. The starch treatments involved transferring the substrata to a 
 new plate containing a 0.25% (w/v) starch from potato (Roth 9441.1) solution, a 0.25% (w/v) starch from wheat (Sigma S5127) solution, and a 0.5% (w/v) mixture of equal
@@ -290,7 +290,7 @@ Collected samples were stored at 4&deg;C until the assay was conducted on day 18
 All samples and standard curves were run in triplicates on two separate plates.
 Positive control saliva samples were compared against a standard curve containing 
 H~2~O, while artificial saliva samples were compared against a standard curve
-containing sterile artificial saliva (due to the colour of artificial saliva).
+containing stock AS (due to the colour of artificial saliva).
 Two photometric readings were conducted for each plate with a 540 nm filter on a 
 Multiskan FC Microplate Photometer (Thermo Scientific 51119000). 
 The protocol is a modified version of an Enzymatic Assay of $\alpha$-Amylase
@@ -425,7 +425,7 @@ It was not possible to differentiate between potato and
 wheat starches smaller than ca. 10 $\mu$m. These were counted as wheat,
 as we assumed that the majority of the small granules were wheat. We make this 
 assumption based on the counts of small starches in the wheat-only and potato-only
-solutions. Of the total amount of small starches in these two solutions, 
+solutions. Of the combined amount of small starches in these two solutions, 
 `r paste0(signif((sol_comb_out$s[5] / sum(sol_comb_out$s[4], sol_comb_out$s[5])) * 100, 3), "%")`
 are from wheat.
 <!-- count of small granules from wheat solution divided by the sum of small granules 
@@ -608,13 +608,31 @@ Despite the low proportion of granules recovered from the model calculus
 the absolute counts were still substantially greater than counts recovered from 
 archaeological remains 
 [@trompDietaryNondietary2015; @trompEDTACalculus2017; @wesolowskiEvaluatingMicrofossilContent2010], which could in part be due to the 
-lack of oral amylase activity in our model.
+lack of oral amylase activity in our model. 
+<!-- Scientific findings as extension of previous work -->
+Previous research conducted on dental calculus from contemporary humans and non-human
+primates suggest a high level of stochasticity involved in the retention of 
+starch granules in dental calculus, and that starch granules extracted from dental 
+calculus are underrepresented with regard
+to actual starch intake, which is consistent with our findings (illustrated by high
+standard deviations and low proportional incorporation).
+Leonard and colleagues [-@leonardDentalCalculus2015] found individual
+calculus samples to be a poor predictor of diet in a population, as many of the 
+consumed plants were missing from some individual samples, but were present in others.   
+Power and colleagues [-@powerChimpCalculus2015] 
+presented similar findings in non-human primates, where phytoliths were more
+representative of individual diets than starch granules.
+The size bias is also consistent with the findings by Power and colleagues
+[-@powerChimpCalculus2015],
+who found that plants producing starches 10--20 $\mu$m in
+size were over-represented; however, the representation of granules larger than
+20 $\mu$m in their study is unclear.
 
 We have also shown that the size of the starch granules influences the likelihood
 of incorporation into the calculus. Starch granules larger than 20 $\mu$m in
 maximum length were underrepresented in the calculus samples compared to the original 
-starch solutions, an effect that was consistent across all three treatments, 
-while medium granules (10--20 $\mu$m) were often over-represented
+starch solutions, an effect that was consistent across all three treatments. Medium
+granules (10--20 $\mu$m) were often over-represented
 (Table \@ref(tab:sample-prop-tbl), 
 and 
 Figure \@ref(fig:ratio-plots)).
@@ -643,25 +661,6 @@ wheat treatments. Wheat treatment samples (mean = `r subset(anova_tbl, treatment
 granule counts, wheat treatment samples had the highest mean starch retention.
 Further research is needed to determine why this differs from previous archaeological
 findings.
-
-<!-- Scientific findings as extension of previous work -->
-Previous research conducted on dental calculus from contemporary humans and non-human
-primates suggest a high level of stochasticity involved in the retention of 
-starch granules in dental calculus, and that starch granules extracted from dental 
-calculus are underrepresented with regard
-to actual starch intake, which is consistent with our findings (illustrated by high
-standard deviations and low proportional incorporation).
-Leonard and colleagues [-@leonardDentalCalculus2015] found individual
-calculus samples to be a poor predictor of diet in a population, as many of the 
-consumed plants were missing from some individual samples, but were present in others.   
-Power and colleagues [-@powerChimpCalculus2015] 
-presented similar findings in non-human primates, where phytoliths were more
-representative of individual diets than starch granules.
-The size bias is also consistent with the findings by Power and colleagues
-[-@powerChimpCalculus2015],
-who found that plants producing starches 10--20 $\mu$m in
-size were over-represented; however, the representation of granules larger than
-20 $\mu$m in their study is unclear.
 
 <!-- How are starch granules trapped in dental calculus? Does anyone actually know? 
 -->
