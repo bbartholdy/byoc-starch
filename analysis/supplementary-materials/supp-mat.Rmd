@@ -1,16 +1,21 @@
 ---
 title: "Supplementary Material"
 output:
+  bookdown::pdf_document2:
+    toc: yes
+    df_print: kable
+    extra_dependencies: ["float"]
   bookdown::html_document2:
     df_print: paged
     toc: yes
     toc_float: yes
-  bookdown::pdf_document2:
-    toc: yes
-    df_print: kable
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE,
+                      fig.pos = "H",
+                      dpi = 300)
 library(here)
 library(tidyverse)
 library(patchwork)
@@ -30,11 +35,11 @@ print(sessionInfo(), locale = FALSE)
 
 # Experimental setup
 
-```{r plate-lid-1, fig.cap="The 24 deepwell plate and the lid with pegs (substrata)"}
+```{r plate-lid-1, fig.cap="The 24 deepwell plate and the lid with pegs (substrata)", echo=FALSE}
 knitr::include_graphics(here("analysis/supplementary-materials/figures/plate_lid_side.jpg"))
 ```
 
-```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid (almost) on."}
+```{r plate-lid-2, fig.cap="The 24 deepwell plate with the lid (almost) on.", echo=FALSE}
 knitr::include_graphics(here("analysis/supplementary-materials/figures/plate_lid_on.jpg"))
 ```
 
@@ -105,15 +110,11 @@ Counts represent the absolute number of starches counted on a slide
 
 # Microscope images
 
-```{r img-1, echo=FALSE, fig.cap="Image of starch granules extracted from a potato treatment sample"}
-knitr::include_graphics(here("analysis/supplementary-materials/figures/starches_w_bar.jpg"))
-```
-
-```{r img-2}
+```{r img-2, fig.cap="Microscope image of wheat starch from a Potato treatment sample.", echo=FALSE, out.width="80%"}
 knitr::include_graphics(here("analysis/supplementary-materials/figures/SNAP-103412-0006.jpg"))
 ```
 
-```{r img-3, fig.cap="Microscope image of wheat starch from a wheat treatment sample."}
+```{r img-3, fig.cap="Microscope image of wheat starch from a wheat treatment sample.", echo=FALSE, out.width="80%"}
 knitr::include_graphics(here("analysis/supplementary-materials/figures/SNAP-164650-0012.jpg"))
 ```
 
@@ -141,24 +142,24 @@ plt2_ph2_result <- rbind(sal2_ph2, bmm2_ph2)
 rownames(plt2_ph2_result) <- rows
 ```
 
-```{r amylase-plt1-read1}
+```{r amylase-plt1-read1, echo=FALSE}
 plt1_ph1_result %>%
-  knitr::kable("Amylase activity in U/mL for plate 1, photometric read 1.")
+  knitr::kable(caption = "Amylase activity in U/mL for plate 1, photometric read 1.")
 ```
 
-```{r amylase-plt1-read2}
+```{r amylase-plt1-read2, echo=FALSE}
 plt1_ph2_result %>%
-  knitr::kable("Amylase activity in U/mL for plate 1, photometric read 2.")
+  knitr::kable(caption = "Amylase activity in U/mL for plate 1, photometric read 2.")
 ```
 
-```{r amylase-plt2-read1}
+```{r amylase-plt2-read1, echo=FALSE}
 plt2_ph1_result %>%
-  knitr::kable("Amylase activity in U/mL for plate 2, photometric read 1.")
+  knitr::kable(caption = "Amylase activity in U/mL for plate 2, photometric read 1.")
 ```
 
-```{r amylase-plt2-read2}
+```{r amylase-plt2-read2, echo=FALSE}
 plt2_ph2_result %>%
-  knitr::kable("Amylase activity in U/mL for plate 2, photometric read 2.")
+  knitr::kable(caption = "Amylase activity in U/mL for plate 2, photometric read 2.")
 ```
 
 
@@ -285,11 +286,11 @@ sol_size_pl / samp_size_pl + plot_layout(guides = "collect")
 
 Separated correlation plots. These are the same plots as in the main paper, just larger.
 
-```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by z-score for separated treatments."}
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plot of sample weight and standardised starch count by z-score for separated treatments.", echo=FALSE}
 pl_cor
 ```
 
-```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus."}
+```{r cor-plot2, warning=FALSE, fig.cap="Scatter plot of sample weight in mg and standardised count of starch grains per mg calculus.", echo=FALSE}
 pl_cor2
 ```
 

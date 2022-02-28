@@ -59,9 +59,9 @@ source(here("analysis/scripts/tables.R"))
 source(here("analysis/scripts/figures.R"))
 source(here("analysis/scripts/amylase-assay.R"))
 ## Compile refs.bib using rbbt package ##
-#cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
-#cite_keys <- unlist(cite_keys, use.names = FALSE)
-#rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
+cite_keys <- rbbt::bbt_detect_citations(here("analysis/paper/paper.Rmd")) 
+cite_keys <- unlist(cite_keys, use.names = FALSE)
+rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
 # ## end refs.bib ##
 # 
 # ## Word count ##
