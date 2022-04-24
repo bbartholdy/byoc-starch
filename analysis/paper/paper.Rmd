@@ -121,8 +121,8 @@ research on dental calculus.
 Dental calculus has proven to contain a wealth of 
 dietary information in the form of plant microfossils 
 [@henryCalculusSyria2008; @hardyStarchGranulesDental2009], 
-proteins [@hendyProteomicCalculus2018; @warinnerDirectEvidenceMilk2014],
-and other organic residues [@buckleyDentalCalculusCooking2014]. 
+proteins [@hendyProteomicCalculus2018; @warinnerEvidenceMilk2014],
+and other organic residues [@buckleyDentalCalculus2014]. 
 This dietary information can be preserved within the mineralised dental plaque 
 over many millennia, providing a unique window into the food-related behaviours of 
 past populations 
@@ -134,8 +134,8 @@ Until recently, only a few studies directly investigated the presence of plant
 microremains
 in the dental calculus of archaeological remains. The ability to extract phytoliths
 from the dental calculus of archaeological fauna to investigate diet was first 
-noted by Armitage [-@armitageExtractionIdentificationOpal1975], 
-and later by Middleton and Rovner [-@middletonExtractionOpalPhytoliths1994],
+noted by Armitage [-@armitageExtractionIdentification1975], 
+and later by Middleton and Rovner [-@middletonOpalPhytoliths1994],
 and Fox and colleagues [-@foxPhytolithCalculus1996]. Starches and phytoliths were
 extracted from human dental calculus by Cummings and Magennis [-@cummingsMayanCalculus1997].  
 In more recent years, the study of dental calculus has increased exponentially, 
@@ -143,12 +143,12 @@ and the wealth of information contained within the mineralised matrix has largel
 been acknowledged. The use of dental calculus spans a wide
 variety of archaeological research areas, such as oral microbiome 
 characterisation (including pathogens) through the analysis of DNA and proteins 
-[@adlerSequencingAncientCalcified2013; @warinnerPathogensHost2014],
+[@adlerSequencingAncient2013; @warinnerPathogensHost2014],
 microbotanical remains [@henryCalculusSyria2008; @hardyStarchGranulesDental2009;
-@mickleburghNewInsightsConsumption2012], 
+@mickleburghNewInsights2012], 
 other organic residues and proteins from dietary compounds 
-[@buckleyDentalCalculusCooking2014; @hendyProteomicCalculus2018], 
-and nicotine use [@eerkensDentalCalculusSource2018]. Especially the extraction 
+[@buckleyDentalCalculus2014; @hendyProteomicCalculus2018], 
+and nicotine use [@eerkensDentalCalculus2018]. Especially the extraction 
 of starch granules has become a rich source of dietary
 information, as starch granules have proven to preserve well within dental calculus
 over a variety of geographical and temporal ranges 
@@ -157,7 +157,7 @@ over a variety of geographical and temporal ranges
 
 <!-- clearly stating the general problem being addressed by this particular study -->
 Despite this, our knowledge of dental calculus and the incorporation pathways of 
-the various markers is limited [@radiniFoodMultiplePathways2017], as is our 
+the various markers is limited [@radiniFoodPathways2017], as is our 
 knowledge of information-loss caused by these pathways. Additionally, the methods
 we use to extract and analyse dental calculus, and make inferences on past diets
 represent another potential source of bias. Studies on both archaeological and
@@ -326,7 +326,7 @@ small (<10 $\mu$m), medium (10 -- 20 $\mu$m), and large (>20 $\mu$m).
 
 ## Statistical analysis
 
-Statistical analysis was conducted in `r version$version.string`  [@R-base] and
+Statistical analysis was conducted in `r version$version.string`  [@Rbase] and
 the following packages: tidyverse [@tidyverse2019], broom [@R-broom], 
 here [@R-here], and patchwork [@R-patchwork].
 <!-- R packages used -->
@@ -650,7 +650,7 @@ from our results is the size of the calculus deposit. We found a
 `r strength_cor` `r direct_cor` correlation between biofilm size and retained 
 starch granules (Figure \@ref(fig:cor-plot)A);
 a result that contradicts findings from archaeological contexts
-[@wesolowskiEvaluatingMicrofossilContent2010; @dudgeonDietGeographyDrinking2014].
+[@wesolowskiEvaluatingMicrofossilContent2010; @dudgeonDietGeography2014].
 When the concentration of starch granules
 per mg calculus is considered, the correlation is weaker, but still present
 (Figure \@ref(fig:cor-plot)B).
@@ -669,13 +669,13 @@ remains largely unknown, and few studies have directly investigated potential
 mechanisms. We know that a proportion of the starch granules entering 
 the mouth can become trapped in the plaque/calculus, and can be recovered from
 archaeological samples of considerable age 
-[@henryNeanderthalCalculus2014; @buckleyDentalCalculusCooking2014; @wuDietEarliest2021]. 
+[@henryNeanderthalCalculus2014; @buckleyDentalCalculus2014; @wuDietEarliest2021]. 
 Studies have also shown that not all starch granules come from a dietary source. 
 Other pathways include cross-contamination from plant interactions in soil, such 
 as palm phytoliths adhering to the skin of sweet potatoes 
 [@trompDietaryNondietary2015], 
 or accidental ingestion not related to food consumption 
-[@radiniFoodMultiplePathways2017; @radiniMedievalWomenEarly2019].  
+[@radiniFoodPathways2017; @radiniMedievalWomenEarly2019].  
 When starch granules enter the mouth, whether through ingestion of food or accidental
 intake, they immediately encounter multiple obstacles. It is likely
 that the bulk of starch granules are swallowed along with the food, and are 
