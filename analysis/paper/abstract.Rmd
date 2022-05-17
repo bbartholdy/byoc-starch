@@ -1,74 +1,35 @@
----
-output:
-  bookdown::pdf_document2:
-    keep_tex: true
----
 
-# Abstract
-
-```{r include=FALSE}
-library(here)
-library(patchwork)
-source(here("analysis/scripts/analysis.R"))
-source(here("analysis/scripts/tables.R"))
-perc_tbl <- prop %>%
-  ungroup() %>%
-  select(!c(sample, solution, prop)) %>%
-  pivot_wider(names_from = size, values_from = perc) %>%
-  add_row(perc_comb_row, .after = 2)
-# prepare cor output for reporting
-cor_r <- signif(count_cor$estimate, 3)
-cor_ci <- signif(count_cor$conf.int, 3)
-cor2_r <- signif(starch_cor$estimate, 3)
-cor2_ci <- signif(starch_cor$conf.int, 3)
-
-#w_count <- wordcountaddin::word_count()
-```
-
-<!-- One or two sentences providing a basic introduction to the field, comprehensible to a scientist in any discipline -->
-
-<!-- Two to three sentences of more detailed background, comprehensible to scientists in related disciplines -->
-
-<!-- One sentence clearly stating the general problem being addressed by this particular study -->
-
-
-<!-- One sentence summarising the main result (with the words "here we show" or their equivalent) -->
-
-<!-- Two or three sentences explaining what the main result reveals in direct comparison to what was thought to be the case previously, or how the main result adds to previous knowledge -->
-
-<!-- One or two sentences to put the results into a more general context -->
-
-<!-- Two or three sentences to provide a broader perspective, readily comprehensible to a scientist in any discipline, may be included in the first paragraph if the editor considers that the accessibility of the paper is significantly enhanced by their inclusion. -->
-
-Dental calculus has proven to contain a wealth of information 
-on the dietary habits of past populations. These insights have, to a large extent,
-been obtained by the extraction and identification of
-starch granules contained within the mineralised dental plaque from a wide range 
-of regions and time periods. The scope of previous studies have been limited to 
-microfossil extraction and identification to reconstruct dietary preferences from
-the archaeological record, and few studies have attempted to address the biases 
-of starch retention in dental calculus. Those that have considered this problem 
-have been limited to *in vivo* studies on modern humans and non-human primates.
-Here, we present a multispecies oral biofilm model, which allows experimental 
-research on  starch incorporation and retention to be conducted on *in vitro* 
-dental calculus in a controlled laboratory setting. The biofilms were exposed 
-to treatment solutions with known quantities of
-dietary starches (wheat and potato) during the 25-day growth period. After this,
-the starch granules were extracted from the mature biofilm (by dissolution in EDTA),
-and counted. We show that the granule counts extracted from the model dental calculus 
-represented a low proportion (ranging from `r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`) of the total number 
-of granules exposed to the biofilms throughout the experiment.
-Additionally, we found that the ratios of granule sizes from the extracted 
-starch granules differed from the original treatment solutions, with large 
-granules (>20 $\mu$m) consistently being under-represented.
-We also found a correlation
-between the absolute granule counts and dry-weight of the biofilm 
-(*r* = `r cor_r`, 90%CI[`r paste(cor_ci[1], cor_ci[2], sep = ", ")`]), as well
-as between the concentration (count per mg) of granules and dry-weight 
-(*r* = `r cor2_r`, 90%CI[`r paste(cor2_ci[1], cor2_ci[2], sep = ", ")`]).  
-Our results reinforce previous *in vivo* studies suggesting that dental calculus 
-presents a very small, and partly biased picture of the original dietary intake 
-of starches, with an over-representation of plants producing granules smaller than
-20 $\mu$m in size. The experimental model presented here is well-suited to address
-the need for further validation of methods and biases associated with dietary
+Dental calculus has proven to contain a wealth of information on the
+dietary habits of past populations. These insights have, to a large
+extent, been obtained by the extraction and identification of starch
+granules contained within the mineralised dental plaque from a wide
+range of regions and time periods. The scope of previous studies have
+been limited to microfossil extraction and identification to reconstruct
+dietary preferences from the archaeological record, and few studies have
+attempted to address the biases of starch retention in dental calculus.
+Those that have considered this problem have been limited to \emph{in
+vivo} studies on modern humans and non-human primates. Here, we present
+a multispecies oral biofilm model, which allows experimental research on
+starch incorporation and retention to be conducted on \emph{in vitro}
+dental calculus in a controlled laboratory setting. The biofilms were
+exposed to treatment solutions with known quantities of dietary starches
+(wheat and potato) during the 25-day growth period. After this, the
+starch granules were extracted from the mature biofilm (by dissolution
+in EDTA), and counted. We show that the granule counts extracted from
+the model dental calculus represented a low proportion (ranging from
+0.06\% to 0.16\%) of the total number of granules exposed to the
+biofilms throughout the experiment. Additionally, we found that the
+ratios of granule sizes from the extracted starch granules differed from
+the original treatment solutions, with large granules (\textgreater20
+\(\mu\)m) consistently being under-represented. We also found a
+correlation between the absolute granule counts and dry-weight of the
+biofilm (\emph{r} = 0.659, 90\%CI{[}0.463, 0.794{]}), as well as between
+the concentration (count per mg) of granules and dry-weight (\emph{r} =
+0.3, 90\%CI{[}0.0618, 0.506{]}).\\
+Our results reinforce previous \emph{in vivo} studies suggesting that
+dental calculus presents a very small, and partly biased picture of the
+original dietary intake of starches, with an over-representation of
+plants producing granules smaller than 20 \(\mu\)m in size. The
+experimental model presented here is well-suited to address the need for
+further validation of methods and biases associated with dietary
 research on dental calculus.
