@@ -1,0 +1,228 @@
+All samples yielded sufficient biofilm growth and starch incorporation to be 
+included in the analysis (Figure \@ref(fig:microscope-fig)), resulting in a total of 48 biofilm samples (two plates of 24),
+45 of which were used for analysis (three samples were set aside for later
+ analysis).
+Most control samples contained no starch granules, while some contained negligible
+quantities (see Supplementary Material).
+
+## No amylase activity detected in the model
+
+```{r amylase-activity}
+# table of results reported in units amylase per mL enzyme (but let's be honest,
+  # ...it doesn't really matter what the unit is. No activity is no activity)
+cols <- c("1", "2", "3")  
+rows <- c("S1", "S2", "S3", "B1", "B2", "B3", "B4", "B5", "BT1", "BT2", "BT3")
+plt1_ph1_result <- rbind(sal1_ph1, bmm1_ph1)
+  plt1_ph1_result[plt1_ph1_result < 0] <- 0
+  
+amylase_results <- rbind(sal1_ph1, sal1_ph2, sal2_ph1, sal2_ph2, bmm1_ph1,
+                         bmm1_ph2, bmm2_ph1, bmm2_ph2)
+amylase_results[amylase_results < 0] <- NA
+positive_amylase <- na.omit(amylase_results)
+```
+
+No $\alpha$-amylase activity was detected in any of the artificial
+saliva samples from any of the days that were sampled. Only positive controls
+(saliva)
+contained amylase activity that could be detected in the assay, ranging from
+`r paste(signif(range(positive_amylase),3), collapse = " to ")` U/mL enzyme 
+(full results can be found in the Supplementary Material).
+The results are not comparable to other studies presenting $\alpha$-amylase activity
+levels in humans, as the unit definition may differ; 
+however, they are sufficient to show that there is no activity in the model.
+
+## Treatment type had minimal effect on biofilm growth
+
+A one-way ANOVA suggests that the type of starch used during the biofilm 
+growth period had a minimal effect on the growth of the biofilm 
+(expressed as total dry weight of the sample), F(`r paste(treat_df[1], treat_df[2], sep = ", ")`)
+= `r treat_f.stat`, p = `r treat_p`.
+A summary of sample weights is available in Table \@ref(tab:anova-tbl).
+
+## Starch counts
+
+<!-- starch counts in the solutions -->
+
+```{r solution-count-out}
+sol_tbl <- sol_comb_out %>%
+  mutate(across(c(s, m, l, total), 
+                function(x) 
+                  paste0(round(x), " (", scales::percent(x / total, 0.1), ")"))) 
+
+sol_tbl[1,3] <- NA
+```
+
+<!-- starch counts in the samples -->
+
+```{r sample-count}
+samp_counts_per <- samp_counts %>%
+  mutate(across(c(s, m, l, total), 
+                function(x) 
+                  paste0(round(x), " (", scales::percent(signif(x / total, 3)), 
+                         ")")))
+
+# combine samp_counts_per with samp_sd_wide
+samp_counts_tbl <- samp_counts_per %>%
+  bind_cols(select(samp_sd_wide, c(s_sd, m_sd, l_sd, total_sd)), .name_repair = "unique") %>%
+  select(treatment, starch, s, s_sd, m, m_sd, l, l_sd, total, total_sd)
+
+samp_counts_tbl[1,3] <- NA
+```
+
+It was not possible to differentiate between potato and 
+wheat starches smaller than ca. 10 $\mu$m. These were counted as wheat,
+as we assumed that the majority of the small granules were wheat. We make this 
+assumption based on the counts of small starches in the wheat-only and potato-only
+solutions. Of the combined amount of small starches in these two solutions, 
+`r paste0(signif((sol_comb_out$s[5] / sum(sol_comb_out$s[4], sol_comb_out$s[5])) * 100, 3), "%")`
+are from wheat.
+<!-- count of small granules from wheat solution divided by the sum of small granules 
+from the potato and wheat solutions -->
+
+<!-- absolute solution counts compared to absolute sample counts. does exposure
+to higher quantities of starches mean more incorporated starches? -->
+The separate wheat and potato solutions were made with a 0.25% (w/v) starch
+concentration, while the mixed-starch solution was made with 0.25% (w/v) of each
+starch, with a total concentration of 0.50% (w/v).
+The mixed treatment had the highest absolute count of starch granules in solution (mean = `r signif(sol_comb_row$total, 3)`),
+while the biofilms exposed to the wheat solution preserved the greatest number of
+granules 
+(mean = `r signif(subset(samp_counts, treatment == "wheat")$total, 3)`). 
+The potato treatment had the lowest absolute counts in both the solution 
+(`r signif(subset(sol_comb_out, treatment == "potato")$total, 3)`)
+and in the biofilm samples 
+(`r signif(subset(samp_counts, treatment == "potato")$total, 3)`) 
+(Tables \@ref(tab:solution-count-tbl) and \@ref(tab:sample-count-tbl)).
+
+### Proportion of available starches incorporated in samples
+
+```{r sample-perc}
+prop_wide <- prop %>%
+  ungroup() %>%
+  pivot_wider(id_cols = c(treatment, starch), 
+              names_from = size, 
+              values_from = prop) %>%
+  add_row(prop_comb_row, .after = 2)
+```
+
+The proportion of total starches from the solutions that were incorporated 
+into the samples ranged from 
+`r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`,
+with potato granules being more readily incorporated than wheat in both the
+separated- and mixed-treatment samples
+(Table \@ref(tab:sample-prop-tbl)). 
+There is an inverse relationship between the absolute starch count in the solutions 
+and the proportional incorporation of starches in the biofilm samples, i.e., potato 
+had the lowest absolute count in solutions, but the highest proportional 
+incorporation, and vice versa for the mixed treatment.
+
+<!-- mixed treatments -->
+Wheat incorporation was most affected in the mixed-treatment samples, with only
+`r paste0(perc_tbl$total[2])` of the total available starches being incorporated into
+the sample, compared to
+`r paste0(perc_tbl$total[4])`
+in the separated wheat treatment.
+
+### Size ratios differ between solutions and samples
+
+<!-- size proportions -->
+<!-- pie charts -->
+
+<!-- overall size trends -->
+
+```{r size-trends}
+sol_size_prop <- sol_comb_out %>%
+  group_by(treatment, starch) %>%
+  #select(!total) %>%
+  mutate(across(where(is.numeric), function(x) x / total)) %>%
+  mutate(type = "solution")
+
+samp_size_prop <- samp_counts %>%
+  group_by(treatment, starch) %>%
+  #select(!total) %>%
+  mutate(across(where(is.numeric), function(x) x / total)) %>%
+  mutate(type = "sample")
+
+size_diff <- sol_size_prop %>%
+  full_join(samp_size_prop) %>%
+  pivot_longer(cols = c(s,m,l,total), names_to = "size", values_to = "count") %>%
+  pivot_wider(names_from = type, values_from = count) %>%
+  mutate(diff = (sample - solution) * 100) %>%
+  select(!c(solution, sample)) %>%
+  pivot_wider(names_from = size, values_from = diff) %>%
+  select(!total)
+```
+
+
+Overall, medium starch granules had a higher mean rate of incorporation 
+(`r scales::percent(mean(prop_wide$m, na.rm = T), 0.001)`) 
+than small 
+(`r scales::percent(mean(prop_wide$s, na.rm = T), 0.001)`) 
+and large 
+(`r scales::percent(mean(prop_wide$l, na.rm = T), 0.001)`) 
+starch granules across all treatments, while large potato starches had the lowest 
+rate of incorporation across all treatments.
+
+<!-- separated and mixed treatments -->
+The difference in incorporation between the size categories resulted in a change
+in size ratios between the original starch solutions and the extracted samples.
+Large potato granules (> 20 $\mu$m) were most affected, with a 
+`r paste0(abs(signif(size_diff$l[4], 3)), "%")` 
+decrease in relative abundance in the potato-only treatment, and a
+`r paste0(abs(signif(size_diff$l[1], 3)), "%")` 
+decrease in mixed treatments. Medium granules increased in relative abundance 
+across all samples, while small granules decreased in wheat treatments and 
+increased in potato treatments 
+(Figure \@ref(fig:ratio-plots)). 
+
+<!-- Proportion and size ratios are the most important points to be made -->
+
+### Biofilm weight correlated positively with extracted starch counts
+
+```{r cor, echo=FALSE}
+# prepare cor output for reporting
+cor_r <- signif(count_cor$estimate, 3)
+cor_ci <- signif(count_cor$conf.int, 3)
+cor_p <- if(count_cor$p.value > 0.001){
+  paste("=", signif(count_cor$p.value, 3))
+} else {
+  paste("< 0.001")
+}
+
+cor2_r <- signif(starch_cor$estimate, 3)
+cor2_ci <- signif(starch_cor$conf.int, 3)
+cor2_p <- if(starch_cor$p.value > 0.001){
+  paste("=", signif(starch_cor$p.value, 3))
+} else {
+  paste("< 0.001")
+}
+# Convert r correlation result to text
+direct_cor <- ifelse(cor_r < 0, "negative", "positive")
+strength_cor <- if(cor_r >= 0.8){
+  "very strong"
+} else if(cor_r < 0.8 & cor_r >= 0.6){
+  "strong"
+} else if(cor_r < 0.6 & cor_r >= 0.4){
+  "moderate"
+} else if(cor_r < 0.4 & cor_r >= 0.2){
+  "weak"
+} else{
+  "very weak"
+}
+```
+
+Pearson's *r* suggests a 
+`r strength_cor` `r direct_cor` 
+correlation between the total weight of the biofilms and the total starch count 
+(standardised by z-score) extracted from the samples across treatments, 
+*r* = `r cor_r`, 
+90%CI[`r paste(cor_ci[1], cor_ci[2], sep = ", ")`],
+p `r cor_p`
+(Figure \@ref(fig:cor-plot)A). 
+
+The same test was applied to total biofilm weight and starch count per mg 
+calculus (also standardised by z-score), resulting in a weak positive correlation, 
+*r* = `r cor2_r`, 
+90%CI[`r paste(cor2_ci[1], cor2_ci[2], sep = ", ")`],
+p `r cor2_p`
+(Figure \@ref(fig:cor-plot)B).

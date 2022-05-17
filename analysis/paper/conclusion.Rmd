@@ -1,0 +1,27 @@
+This preliminary study shows that a very small proportion of the input starch
+granules are retained in a dental calculus model. This and previous studies 
+have shown that calculus has a low capacity for retention of starch granules, 
+an effect that is compounded by diagenetic effects in archaeological remains, 
+resulting in low overall counts of extracted granules. 
+The proportion of starches consumed will in many cases be reflected 
+in the quantity
+of starches extracted from the dental calculus---i.e., the more starch granules
+entering the oral cavity, the more will be recovered from extraction---at 
+least in modern calculus samples unaffected by diagenesis and hydrolysis.
+Whether or not this also applies to archaeological samples remains to be tested.
+Additionally, we have
+shown that the size of granules will influence the likelihood of incorporation, 
+as large (>20 $\mu$m) starches have a decreased incorporation rate, medium 
+(10--20 $\mu$m)
+starches an increased rate, and small (<10 $\mu$m) granules remained somewhat
+constant. The size of calculus deposit also seems to influence the capacity of 
+granule incorporation; as the size of the deposit increases, so does the
+absolute count of incorporated granules.  
+While we have shown multiple factors that influence the likelihood 
+of incorporation, the process still appears to be somewhat stochastic. Further
+research is needed to make sense of the contributing factors, and to explore the
+mechanisms of intra-oral starch incorporation and retention in dental calculus.
+The oral biofilm model described in this study provides a method
+to explore the incorporation and extraction of dietary compounds from dental calculus 
+in a controlled laboratory setting, and unearth the potential biases associated 
+with dietary research conducted on archaeological dental calculus. 

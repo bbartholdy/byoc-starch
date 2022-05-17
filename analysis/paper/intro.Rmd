@@ -1,0 +1,87 @@
+<!-- basic introduction to the field, comprehensible to a scientist in any discipline -->
+<!-- Dental calculus is mineralised plaque. And it is pretty cool. -->
+Dental calculus has proven to contain a wealth of 
+dietary information in the form of plant microfossils 
+[@henryCalculusSyria2008; @hardyStarchGranulesDental2009], 
+proteins [@hendyProteomicCalculus2018; @warinnerEvidenceMilk2014],
+and other organic residues [@buckleyDentalCalculus2014]. 
+This dietary information can be preserved within the mineralised dental plaque 
+over many millennia, providing a unique window into the food-related behaviours of 
+past populations 
+[@henryCalculusSyria2008; @jovanovicNeolithicCalculus2021; @taoWheatCalculus2020] 
+and extinct species [@henryNeanderthalCalculus2014; @hardyNeanderthalMedics2012]. 
+
+<!-- more detailed background, comprehensible to scientists in related disciplines -->
+Until recently, only a few studies directly investigated the presence of plant
+microremains
+in the dental calculus of archaeological remains. The ability to extract phytoliths
+from the dental calculus of archaeological fauna to investigate diet was first 
+noted by Armitage [-@armitageExtractionIdentification1975], 
+and later by Middleton and Rovner [-@middletonOpalPhytoliths1994],
+and Fox and colleagues [-@foxPhytolithCalculus1996]. Starches and phytoliths were
+extracted from human dental calculus by Cummings and Magennis [-@cummingsMayanCalculus1997].  
+In more recent years, the study of dental calculus has increased exponentially, 
+and the wealth of information contained within the mineralised matrix has largely
+been acknowledged. The use of dental calculus spans a wide
+variety of archaeological research areas, such as oral microbiome 
+characterisation (including pathogens) through the analysis of DNA and proteins 
+[@adlerSequencingAncient2013; @warinnerPathogensHost2014],
+microbotanical remains [@henryCalculusSyria2008; @hardyStarchGranulesDental2009;
+@mickleburghNewInsights2012], 
+other organic residues and proteins from dietary compounds 
+[@buckleyDentalCalculus2014; @hendyProteomicCalculus2018], 
+and nicotine use [@eerkensDentalCalculus2018]. Especially the extraction 
+of starch granules has become a rich source of dietary
+information, as starch granules have proven to preserve well within dental calculus
+over a variety of geographical and temporal ranges 
+[@pipernoStarchGrains2008; @henryNeanderthalCalculus2014; @taoWheatCalculus2020;
+@jovanovicNeolithicCalculus2021].
+
+<!-- clearly stating the general problem being addressed by this particular study -->
+Despite this, our knowledge of dental calculus and the incorporation pathways of 
+the various markers is limited [@radiniFoodPathways2017], as is our 
+knowledge of information-loss caused by these pathways. Additionally, the methods
+we use to extract and analyse dental calculus, and make inferences on past diets
+represent another potential source of bias. Studies on both archaeological and
+modern individuals have explored these biases in more detail.
+Extraction methods were tested 
+by Tromp and colleagues [-@trompEDTACalculus2017], specifically regarding
+decalcification using HCl or EDTA. 
+The authors found significantly more starches with the EDTA extraction method 
+than the HCl extraction method; however, as noted by the authors, comparisons 
+involving archaeological calculus are problematic due to variability between and 
+within individuals. 
+Studies conducted on modern humans [@leonardDentalCalculus2015] 
+and non-human primates [@powerChimpCalculus2015], 
+have explored how well microremains (phytoliths and starches)
+extracted from dental calculus represent the actual dietary intake.
+These studies are justifiably limited, 
+despite meticulous documentation and observation, due to unknown variables and 
+uncertainty involved in this kind of *in vivo* research. Dental calculus is a complex 
+oral biofilm with a multifactorial aetiology and variable formation rates both 
+within and between individuals [@jepsenCalculusRemoval2011; @haffajeeBiofilmPosition2009], 
+contributing to
+the stochasticity of starch representation being observed in numerous studies.
+Additionally, the concentration of oral $\alpha$-amylase differs both between and
+within individuals [@froehlichEffectOral1987; @naterHumanAmylase2005],
+causing different rates of hydrolysis of the starch granules present in the oral
+cavity. Add to this the effects of the many different methods
+of starch processing, as well as post-depositional processes that are still being 
+explored [@graneroStarchTaphonomy2020], and it becomes clear that using 
+dental calculus to reconstruct diet is a highly unpredictable process.
+
+In this exploratory study, we use an oral biofilm model to investigate the 
+retention of starch granules within dental calculus in a controlled laboratory 
+setting, allowing us full control over dietary input. Our main questions concern
+the representation of granules extracted
+from the calculus compared to the actual intake. How much of the original diet is 
+incorporated into the calculus, and how much is recovered? 
+Is there differential loss of information from specific dietary markers that affects 
+the obtained dietary information, and how does this affect the representation of 
+diet from extracted microremains?  
+We find that, despite the absence of $\alpha$-amylase in
+the model, a limited proportion of the starch input is actually 
+retained in the calculus. We also observed a shift in the size ratios of individual 
+starch granules that are incorporated into the calculus, and that the number of 
+incorporated starch granules increases as the size of the calculus deposit 
+increases.

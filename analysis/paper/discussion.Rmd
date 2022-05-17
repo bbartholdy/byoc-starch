@@ -1,0 +1,200 @@
+<!-- Big summary/important statement for the science -->
+Here, we have provided a method for exploring the incorporation of dietary 
+starches into the mineral matrix of a dental calculus biofilm model. Our results show
+that a very low proportion of the starches exposed to the biofilm during growth are
+retained in the mineral matrix, and that the size of the starch granules
+may affect the likelihood of incorporation. The proportions of starch granules 
+(of all sizes) present in the extracted samples were similar across all treatments
+(`r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`), 
+despite large differences in absolute granule counts between wheat 
+(mean = `r format(sol_comb_out$total[5], big.mark = ",")`) 
+and potato
+(mean = `r format(sol_comb_out$total[4], big.mark = ",")`)
+solutions.  
+The absolute counts, however, differed more visibly between treatments and was
+proportional with the total count of granules in the treatment solutions. Wheat 
+and mixed solutions had the highest absolute mean count of starch granules, and 
+also had the highest absolute mean count of starch granules extracted from the 
+dental calculus
+(Tables \@ref(tab:solution-count-tbl) and \@ref(tab:sample-count-tbl)).
+This suggests that the starches that are more frequently consumed will be present
+in higher quantities in the dental calculus, at least prior to inhumation and 
+degradation in the burial environment. 
+Despite the low proportion of granules recovered from the model calculus 
+(`r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`),
+the absolute counts were still substantially greater than counts recovered from 
+archaeological remains 
+[@trompDietaryNondietary2015; @trompEDTACalculus2017; @wesolowskiEvaluatingMicrofossilContent2010], which could in part be due to the 
+lack of oral amylase activity in our model. 
+<!-- Scientific findings as extension of previous work -->
+Previous research conducted on dental calculus from contemporary humans and non-human
+primates suggest a high level of stochasticity involved in the retention of 
+starch granules in dental calculus, and that starch granules extracted from dental 
+calculus are underrepresented with regard
+to actual starch intake, which is consistent with our findings (illustrated by high
+standard deviations and low proportional incorporation).
+Leonard and colleagues [-@leonardDentalCalculus2015] found individual
+calculus samples to be a poor predictor of diet in a population, as many of the 
+consumed plants were missing from some individual samples, but were present in others.   
+Power and colleagues [-@powerChimpCalculus2015] 
+presented similar findings in non-human primates, where phytoliths were more
+representative of individual diets than starch granules.
+The size bias is also consistent with the findings by Power and colleagues
+[-@powerChimpCalculus2015],
+who found that plants producing starches 10--20 $\mu$m in
+size were over-represented; however, the representation of granules larger than
+20 $\mu$m in their study is unclear.
+
+We have also shown that the size of the starch granules influences the likelihood
+of incorporation into the calculus. Starch granules larger than 20 $\mu$m in
+maximum length were underrepresented in the calculus samples compared to the original 
+starch solutions, an effect that was consistent across all three treatments. Medium
+granules (10--20 $\mu$m) were often over-represented
+(Table \@ref(tab:sample-prop-tbl), 
+and 
+Figure \@ref(fig:ratio-plots)).
+Large potato granules were most affected, potentially because of the greater
+size-range. They can reach up to 100 $\mu$m in maximum length, whereas wheat 
+granules generally only reach up to 35 $\mu$m 
+[@gismondiStarchGranulesData2019; @haslamDecompositionStarch2004; @seidemannStarchAtlas1966, 174-176].
+Granule morphology may also play a role. Large wheat granules 
+are lenticular and have a larger surface area compared 
+to volume, whereas large potato granules are ovoid and have a larger volume
+compared to surface area 
+[@vandeveldeStarchMorphology2002; @janeAnthologyStarch1994; @reichertStarchBible1913b, 364-365; @seidemannStarchAtlas1966, 174-176]. 
+Another potentially important factor 
+from our results is the size of the calculus deposit. We found a 
+`r strength_cor` `r direct_cor` correlation between biofilm size and retained 
+starch granules (Figure \@ref(fig:cor-plot)A);
+a result that contradicts findings from archaeological contexts
+[@wesolowskiEvaluatingMicrofossilContent2010; @dudgeonDietGeography2014].
+When the concentration of starch granules
+per mg calculus is considered, the correlation is weaker, but still present
+(Figure \@ref(fig:cor-plot)B).
+While the larger deposits contain a higher absolute count, our findings also suggest
+that they contain a slightly higher concentration of starches. This may also explain
+the lower mean retention of starch granules in mixed treatments compared to
+wheat treatments. Wheat treatment samples (mean = `r subset(anova_tbl, treatment == "wheat")$mean` mg) were on average larger than mixed treatment samples (mean = `r subset(anova_tbl, treatment == "mix")$mean` mg) (Table \@ref(tab:anova-tbl)); and while mixed treatment solutions contained the highest mean overall
+granule counts, wheat treatment samples had the highest mean starch retention.
+Further research is needed to determine why this differs from previous archaeological
+findings.
+
+<!-- How are starch granules trapped in dental calculus? Does anyone actually know? 
+-->
+The mechanism by which starch granules are incorporated into plaque and calculus 
+remains largely unknown, and few studies have directly investigated potential
+mechanisms. We know that a proportion of the starch granules entering 
+the mouth can become trapped in the plaque/calculus, and can be recovered from
+archaeological samples of considerable age 
+[@henryNeanderthalCalculus2014; @buckleyDentalCalculus2014; @wuDietEarliest2021]. 
+Studies have also shown that not all starch granules come from a dietary source. 
+Other pathways include cross-contamination from plant interactions in soil, such 
+as palm phytoliths adhering to the skin of sweet potatoes 
+[@trompDietaryNondietary2015], 
+or accidental ingestion not related to food consumption 
+[@radiniFoodPathways2017; @radiniMedievalWomenEarly2019].  
+When starch granules enter the mouth, whether through ingestion of food or accidental
+intake, they immediately encounter multiple obstacles. It is likely
+that the bulk of starch granules are swallowed along with the food, and are 
+only briefly present in the oral cavity. Other granules that are broken off
+during mastication may be retained in the dentition through attachment to 
+tooth surfaces (including plaque and dental calculus) and mucous membranes 
+[@kashketFoodRetention1991; @doddsCarbohydrateRetention1988].
+Bacteria also have the ability to adhere to starch granules 
+[@toppingResistantStarch2003],
+which would allow starches to attach to bacterial communities within the biofilm.
+These granules are then
+susceptible to mechanical removal by the tongue, salivary clearance, and hydrolysis
+by $\alpha$-amylase [@kashketFoodParticles1996].
+The susceptibility of granules to hydrolysis depends on the crystallinity and size
+of the starch granule, as well as the mode of processing. Smaller and pre-processed
+(e.g., cooked) starch granules are more susceptible to enzymatic degradation, 
+while dehydrated starches will have a reduced susceptibility
+[@lingstromStarchyFood1994; @francoStarchDegradation1992; @haslamDecompositionStarch2004; 
+@bjorckStarchProcessing1984; @henryCookingStarch2009].
+Cracks on the surface of the dental calculus, as well as unmineralised islands 
+and channels may also be able to contain starch granules 
+[@powerSEMCalculus2014; @tanCalculusUltrastructure2004; @charlierSEMCalculus2010].
+Starch granules that are trapped in these pockets are (at least to some extent) 
+protected from aforementioned clearance mechanisms, especially once
+a new layer of plaque has covered the surface of the plaque/calculus. 
+The size bias against large granules (>20 $\mu$m) from both wheat and potato 
+(Table \@ref(tab:sample-prop-tbl)) may give further credence to
+this incorporation pathway, as the smaller starch granules have an advantage over
+larger granules, and can be stored in larger quantities.
+This was also suggested by Power and colleagues [-@powerSEMCalculus2014], who
+observed clusters of starches within dental calculus, rather than an even 
+distribution across the surface of the dental calculus.
+Granules trapped 
+in plaque/calculus may still be susceptible to hydrolysis, as $\alpha$-amylase has
+the ability to bind to both tooth enamel and bacteria within a biofilm and retain
+a portion of its hydrolytic activity
+[@scannapiecoSalivaryAmylase1993; @nikitkovaStarchBiofilms2013; @tanBacterialViability2004; @tanCalculusUltrastructure2004].
+After the death of an individual, starches within dental calculus are susceptible 
+to further degradation by post-depositional processes, depending on burial environment 
+(pH, temperature, moisture content, microorganisms)
+[@henryCookingStarch2009; @graneroStarchTaphonomy2020; @haslamDecompositionStarch2004; @francoStarchDegradation1992].
+Future study should explore how burial affects the recovery of starch from the
+biofilm model. <!-- I may get to it eventually, but it would be great if someone else could look at this! -->
+
+<!-- in summary: we know very little about the mechanism behind how starches 
+become trapped in dental calculus, but it would be nice to find out more. -->
+
+<!-- limitations of the platform show which questions would be unanswered -->
+The absence of $\alpha$-amylase in the model is a limitation of this study, as 
+the total granule counts were not subject to hydrolysis. This would likely have 
+reduced and affected the size ratios, as smaller starches may be more 
+susceptible to hydrolysis 
+[@francoStarchDegradation1992; @haslamDecompositionStarch2004]. The absence may
+also affect biofilm growth due to the lack of amylase-bacterium interactions
+[@nikitkovaStarchBiofilms2013]. Conversely, the model may benefit from the
+absence of $\alpha$-amylase, because it can allow us to directly explore
+its effect on starch counts in future experiments, where $\alpha$-amylase can be 
+added to the model in concentrations similar to those found in the oral cavity
+[@scannapiecoSalivaryAmylase1993]. 
+We are able to show how absolute counts in the treatments cause a difference in
+incorporation. However, this
+was merely a side-effect of the difference in the number of granules in potato and 
+wheat solutions of the same concentration (w/v). Further research should test 
+multiple differing concentrations of the same starch type.
+The use of EDTA may also have affected counts. While previous studies have shown 
+negligible morphological changes caused by exposure to EDTA 
+[@trompEDTACalculus2017; @lemoyneCalculusPretreatments2021; @modiCalculusMethodologies2020], 
+these studies have not considered changes to separate size
+categories within starch types, and whether shifts in size ratios occur due to
+exposure to the pre-treatment chemicals.
+The total number of granules on a slide often exceeded a number that 
+was feasible to count in a reasonable time period, so we calculated the total 
+counts by extrapolating from three slide transects. 
+Thus, we reasonably assume that the three transects are a good representation 
+of the entire slide, and that the distribution of all granules on the slide is 
+relatively homogeneous.   
+Finally, we only used native starches in the experimental procedure and the results 
+will likely differ for processed starches [@graneroStarchTaphonomy2020]. 
+Based on the comparatively low counts obtained by Leonard
+and colleagues [-@leonardDentalCalculus2015, Supplement 2], processing and amylase
+may have a substantial effect on starch granule retention in the oral cavity.
+
+<!-- How this engineering will facilitate future research -->
+
+While we are unable to sufficiently address the 
+mechanism(s) of starch incorporation with the data obtained in this study, 
+the dental calculus model presented here is uniquely suited to explore 
+these questions and may improve interpretations of dietary practices in past 
+populations. Further analyses using this model can address the call for more 
+baseline testing of biases associated with dietary research conducted on dental calculus 
+[@lemoyneCalculusPretreatments2021].
+Our high-throughput experimental setup allows us a
+higher degree of control over the factors that influence starch incorporation and
+retention, such as dietary intake, differential survivability of starches, 
+and inter- and intra-individual variation in plaque accumulation and mineralisation.
+The latter is especially difficult to control *in vivo* as it is influenced by 
+numerous factors including genetics, diet, salivary flow, and tooth position and
+morphology 
+[@jepsenCalculusRemoval2011; @simon-soroOralGeography2013; @proctorSpatialGradient2018; @fagernasMicrobialBiogeography2021; @haffajeeBiofilmPosition2009], 
+as well as evolutionary differences [@yatesOralMicrobiome2021].
+It can also facilitate training of students and researchers on methods of 
+dental calculus analysis, such as starch and phytolith extraction and 
+identification, where it can replace the use of finite archaeological resources.  
+
+<!-- we still need to replicate results and do more science... but pretty cool, right? -->

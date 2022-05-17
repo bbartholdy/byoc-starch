@@ -1,0 +1,226 @@
+---
+title: "Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model"
+#author: |
+# Bjørn Peare Bartholdy$^1$, Amanda G. Henry$^1$
+# date: |
+#  $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
+#### Frontiers submission ####
+runtitle: "Biases Associated with Starch Incorporation"
+documentclass: frontiers/frontiersSCNS  # or frontiersHLTH, or frontiersFPHY
+author:
+  - name: Bjørn Peare Bartholdy
+    affiliation: '1'
+    etal: BARTHOLDY # First author's last name.
+    email: b.p.bartholdy@arch.leidenuniv.nl # Indicates corresponding Author
+    institution: Leiden University
+    street: Einsteinweg 2
+    city: Leiden
+    zip: 2333 CC
+    country: Netherlands
+  - name: Amanda G. Henry
+    affiliation: '1'
+affiliation:
+  - id: '1'
+    department: Archaeological Sciences
+    institution: Leiden University
+    city: Leiden
+    country: Netherlands
+#### End: Frontiers submission ####
+#linestretch: 2.0 # double-spacing for review purposes
+bibliography: refs.bib
+csl: frontiers/frontiers.csl
+params:
+  keywords: 
+    - oral biofilm model
+    - starch
+    - alpha-amylase
+    - dental calculus
+    - paleodiet reconstruction
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  #fig.path = "frontiers/figures/",
+  fig.path = "../figures/",
+  fig.align = "center",
+  #fig.ext = "jpg",
+  fig.pos = "H",
+  dpi = 300) 
+library(tidyverse)
+library(broom)
+library(here)
+library(patchwork)
+# load R scripts
+source(here("analysis/scripts/analysis.R"))
+source(here("analysis/scripts/tables.R"))
+source(here("analysis/scripts/figures.R"))
+source(here("analysis/scripts/amylase-assay.R"))
+## Compile refs.bib using rbbt package ##
+cite_keys <- rbbt::bbt_detect_citations(list.files(pattern = ".Rmd"))
+#cite_keys <- unlist(cite_keys, use.names = FALSE)
+rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
+# ## end refs.bib ##
+# 
+# ## Word count ##
+# wd_count <- wordcountaddin::word_count()
+cor_r <- signif(count_cor$estimate, 3)
+cor_ci <- signif(count_cor$conf.int, 3)
+cor2_r <- signif(count_cor$estimate, 3)
+cor2_ci <- signif(count_cor$conf.int, 3)
+```
+
+\begin{abstract}
+
+```{r child="abstract.Rmd"}
+
+```
+
+
+\tiny
+ \keyFont{ \section{Keywords:} `r params$keywords`}
+ 
+\end{abstract}
+
+# Introduction
+
+```{r child="intro.Rmd"}
+
+```
+
+
+# Materials and Methods
+
+```{r child="matmet.Rmd"}
+
+```
+
+# Results
+
+```{r child="results.Rmd"}
+
+```
+
+
+# Discussion
+
+```{r child="discussion.Rmd"}
+
+```
+
+
+# Conclusions
+
+```{r child="conclusion.Rmd"}
+
+```
+
+
+# Open Science Statement {-}
+
+All scripts and data used in the analysis are available on OSF 
+(https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
+following the format provided by the rrtools package [@R-rrtools].
+More detailed protocols are available on OSF (https://osf.io/akevs/)
+and protocols.io (https://www.protocols.io/workspaces/byoc).
+Additional tables and figures are available in the Supplementary Material
+(https://osf.io/ucxsv/).
+
+# Author Contributions {-}
+
+AGH acquired the funding for the analysis. BPB and AGH conceptualised and designed
+the study. BPB conducted the experiments and analysed the data.
+BPB wrote the manuscript. AGH reviewed and edited the manuscript.
+
+# Funding {-}
+
+This research has received funding from the European Research Council under the 
+European Union’s Horizon 2020 research and innovation program, grant agreement 
+number STG–677576 (“HARVEST”).
+
+# Conflict of Interest {-}
+
+The authors declare that the research was conducted in the absence of any
+commercial or financial relationships that could be construed as a potential
+conflict of interest.
+
+# Acknowledgements {-}
+
+<!-- If you're reading this, thank you for taking the time to read the source 
+documents. You're awesome! -->
+We would like to thank Dr. Stephanie Schnorr for help with the amylase activity protocol.
+We also thank everyone in the general vicinity
+of the lab for enduring the smell of bacterial accumulation.
+Since we did NOT make use of Sci-Hub to access articles stuck behind a paywall, 
+we will NOT acknowledge the use of Sci-Hub in this study. <!-- Oops, did I just acknowledge it twice..? -->
+
+# References {-}
+
+::: {#refs}
+:::
+
+\clearpage
+
+# Tables {-}
+
+```{r anova-tbl}
+knitr::kable(anova_tbl, 
+             col.names = c("Treatment", "Mean", "SD", "Min", "Max"),
+             caption = "Summary statistics for biofilm dry-weights (in mg) by treatment.")
+```
+
+```{r solution-count-tbl}
+cnames <- c("Solution", "Starch", "Small (%)", "Medium (%)", "Large (%)", "Total (%)")
+options(knitr.kable.NA = "")
+knitr::kable(sol_tbl, col.names = cnames, 
+             caption = "Mean starch counts from solutions, including the
+             proportional makeup of the different sizes of granules.")
+```
+
+```{r sample-count-tbl}
+cnames <- c("Treatment", "Starch", "Small (%)", "SD", "Medium (%)", "SD", 
+            "Large (%)", "SD", "Total (%)", "SD")
+knitr::kable(samp_counts_tbl, col.names = cnames, 
+             caption = "Mean starch counts extracted from samples with standard 
+             deviation (SD), including the proportion of granule sizes of the total count.")
+```
+
+```{r sample-prop-tbl}
+cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
+knitr::kable(perc_tbl, col.names = cnames, 
+             caption = "The mean percentage of starches from the solutions that 
+              were incorporated into the samples.")
+```
+
+# Figures {-}
+
+```{r protocol-fig, fig.cap="Overview of experiment protocol including the plate setup.", out.width="70%"}
+knitr::include_graphics(here("analysis/figures/protocol_overview.png"))
+```
+
+```{r microscope-fig, fig.cap="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\\mu$m.", out.width="50%"}
+knitr::include_graphics(here("analysis/figures/starches_w_bar.jpg"))
+```
+
+```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}
+#plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
+(pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+```
+
+```{r cor-plot, warning=FALSE, fig.cap="Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus."}
+#pl_cor
+pl_cor + pl_cor2 + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+#ggsave("frontiers/figures/cor-plot.png", dpi = 300)
+```
+
+<!--
+Figure 1: Overview of experiment protocol including the plate setup.
+
+Figure 2: Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\mu$m.
+
+Figure 3: Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments.
+
+Figure 4: Scatter plots of (A) sample weight in mg and standardised starch count by z-score for separated treatments, and (B) sample weight in mg and standardised count of starch grains per mg calculus.
+-->
