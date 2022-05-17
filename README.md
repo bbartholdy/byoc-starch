@@ -8,23 +8,30 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5604670.svg)](https://doi.org/10.5281/zenodo.5604670)
 
 <!-- DOI badge: [![DOI](.svg)](repo link) -->
-<!-- Document structure provided by rrtools package
+<!-- Document structure provided by rrtools package -->
 
 This repository contains the data and code for our paper:
 
-> Bartholdy, B. P. & Henry, A. G. (2021). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. bioRxiv <https://doi.org/xxx/xxx>
+> Investigating Biases Associated with Dietary Starch Incorporation and
+> Retention with an Oral Biofilm Model, Bjørn Peare Bartholdy, Amanda G.
+> Henry, bioRxiv 2021.10.27.466104; doi:
+> <https://doi.org/10.1101/2021.10.27.466104>
 
 Our pre-print is online here:
 
-> Authors, (YYYY). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Name of journal/book, Accessed 09 Nov 2021. Online at <https://doi.org/xxx/xxx>
-
+> Authors, (YYYY). *Investigating Biases Associated with Dietary Starch
+> Incorporation and Retention in an Oral Biofilm Model*. Name of
+> journal/book, Accessed 17 May 2022. Online at
+> <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2021). _Compendium of R code and data for Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Accessed 09 Nov 2021. Online at <https://doi.org/xxx/xxx>
--->
+> Authors, (2022). *Compendium of R code and data for Investigating
+> Biases Associated with Dietary Starch Incorporation and Retention in
+> an Oral Biofilm Model*. Accessed 17 May 2022. Online at
+> <https://doi.org/xxx/xxx>
 
 ## Contents
 
