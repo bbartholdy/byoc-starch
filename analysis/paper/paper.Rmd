@@ -209,7 +209,7 @@ increases.
 ## Biofilm formation
 
 In this study we employ a multispecies oral biofilm model following a modified
-protocol from Sissons and colleagues [-@sissonsMultistationDentalPlaque1991] and
+protocol from Sissons and colleagues [-@sissonsMultistationPlaque1991] and
 Shellis [-@shellisSyntheticSalivaCultural1978]. In brief, a biofilm inoculated
 with whole saliva was grown on a substrate suspended in artificial saliva, and
 fed with sugar (sucrose). After several days of growth, the biofilm was exposed
@@ -223,15 +223,15 @@ transfer of the growing biofilm between saliva, feeding solutions,
 and mineral solutions.
 
 The artificial saliva (AS) is a modified version of the basal medium mucin (BMM)
-described by Sissons and colleagues [-@sissonsMultistationDentalPlaque1991]. 
+described by Sissons and colleagues [-@sissonsMultistationPlaque1991]. 
 It contains 2.5 g/l partially purified mucin from porcine stomach (Type III, Sigma M1778), 
 5 g/l trypticase peptone (Roth 2363.1), 10 g/l proteose peptone (Oxoid LP0085),
 5 g/l yeast extract (BD 211921), 2.5 g/l KCl, 0.35 g/l NaCl, 1.8 mmol/l CaCl~2~, 
-5.2 mmol/l Na~2~HPO~4~ [@sissonsMultistationDentalPlaque1991], 6.4 mmol/l NaHCO~3~ 
+5.2 mmol/l Na~2~HPO~4~ [@sissonsMultistationPlaque1991], 6.4 mmol/l NaHCO~3~ 
 [@shellisSyntheticSalivaCultural1978], 2.5 mg/l haemin. This is subsequently 
 adjusted to pH 7 with NaOH pellets and stirring, autoclaved (15 min, 120&deg;C, 
 1 bar overpressure), and supplemented with 5.8 $\mu$mol/l menadione, 5 mmol/l urea, 
-and 1 mmol/l arginine [@sissonsMultistationDentalPlaque1991].
+and 1 mmol/l arginine [@sissonsMultistationPlaque1991].
 
 Fresh whole saliva (WS) for inoculation was provided by a 31-year-old<!--needless to say I am much older now...--> male donor 
 with no history of caries, who abstained from oral hygiene for 24 hours. No 
@@ -269,7 +269,7 @@ After 15 days, mineralisation was encouraged with a
 calcium phosphate monofluorophosphate urea (CPMU) solution containing 
 20 mmol/l CaCl~2~, 12 mmol/l NaH~2~PO~4~, 5 mmol/l Na~2~PO~3~F, 500 mmol/l urea, 
 and (0.04 g/l MgCl)
-[@pearceConcomitantDepositionStrontium1987; @sissonsMultistationDentalPlaque1991].
+[@pearceConcomitantDepositionStrontium1987; @sissonsMultistationPlaque1991].
 The substrata were submerged in 1 ml/well CPMU for six minutes, five times 
 daily, in a two-hour cycle. During the mineralisation period, starch treatments
 were reduced to once per day after the five CPMU treatments. This process was repeated 
