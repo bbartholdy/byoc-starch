@@ -1,11 +1,6 @@
 .Rproj.user
 .Rhistory
 analysis/Amylase/
-analysis/paper/pre-print
-analysis/paper/_archive
-analysis/paper/frontiers
-paper.*
-!paper.pdf
-!paper.Rmd
-analysis/paper/abstract.*
-analysis/paper/fig_tab.*
+analysis/paper/pre-print/
+analysis/paper/_archive/
+analysis/paper/frontiers/
