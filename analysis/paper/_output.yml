@@ -1,5 +1,6 @@
 bookdown::pdf_book:
   base_format: rticles::frontiers_article
+  keep_md: true
   latex_engine: xelatex
   extra_dependencies: ["float"]
 # bookdown::pdf_document2:

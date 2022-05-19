@@ -122,7 +122,7 @@ cor2_ci <- signif(count_cor$conf.int, 3)
 
 All scripts and data used in the analysis are available on OSF 
 (https://osf.io/uc5qy/) and Github (https://github.com/bbartholdy/byoc-starch),
-following the format provided by the rrtools package [@R-rrtools].
+following the format provided by the rrtools package [@Rrrtools].
 More detailed protocols are available on OSF (https://osf.io/akevs/)
 and protocols.io (https://www.protocols.io/workspaces/byoc).
 Additional tables and figures are available in the Supplementary Material

@@ -119,8 +119,8 @@ small (<10 $\mu$m), medium (10 -- 20 $\mu$m), and large (>20 $\mu$m).
 ## Statistical analysis
 
 Statistical analysis was conducted in `r version$version.string`  [@Rbase] and
-the following packages: tidyverse [@tidyverse2019], broom [@R-broom], 
-here [@R-here], and patchwork [@R-patchwork].
+the following packages: tidyverse [@tidyverse2019], broom [@Rbroom], 
+here [@Rhere], and patchwork [@Rpatchwork].
 <!-- R packages used -->
 
 To see if biofilm growth was differently affected by starch treatments, a 
