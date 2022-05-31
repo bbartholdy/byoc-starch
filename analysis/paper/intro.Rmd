@@ -52,7 +52,7 @@ than the HCl extraction method; however, as noted by the authors, comparisons
 involving archaeological calculus are problematic due to variability between and 
 within individuals. 
 Studies conducted on modern humans [@leonardDentalCalculus2015] 
-and non-human primates [@powerChimpCalculus2015], 
+and non-human primates [@powerChimpCalculus2015; @powerRepresentativenessDental2021] 
 have explored how well microremains (phytoliths and starches)
 extracted from dental calculus represent the actual dietary intake.
 These studies are justifiably limited, 
@@ -66,8 +66,10 @@ Additionally, the concentration of oral $\alpha$-amylase differs both between an
 within individuals [@froehlichEffectOral1987; @naterHumanAmylase2005],
 causing different rates of hydrolysis of the starch granules present in the oral
 cavity. Add to this the effects of the many different methods
-of starch processing, as well as post-depositional processes that are still being 
-explored [@graneroStarchTaphonomy2020], and it becomes clear that using 
+of starch processing [@hardyRecoveringInformation2018], as well as post-depositional
+processes that are still being explored
+[@graneroStarchTaphonomy2020; @mercaderExaggeratedExpectations2018],
+and it becomes clear that using 
 dental calculus to reconstruct diet is a highly unpredictable process.
 
 In this exploratory study, we use an oral biofilm model to investigate the 

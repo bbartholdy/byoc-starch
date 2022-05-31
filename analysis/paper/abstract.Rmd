@@ -22,8 +22,10 @@ biofilms throughout the experiment. Additionally, we found that the
 ratios of granule sizes from the extracted starch granules differed from
 the original treatment solutions, with large granules (\textgreater20
 \(\mu\)m) consistently being under-represented. We also found a
-correlation between the absolute granule counts and dry-weight of the
-biofilm (\emph{r} = 0.659, 90\%CI{[}0.463, 0.794{]}), as well as between
+positive correlation between the absolute granule counts and dry-weight of the
+biofilm (\emph{r} = 0.659, 90\%CI{[}0.463, 0.794{]}), meaning the absolute
+quantity of starch granules will increase as the size of the calculus deposit
+increases. A similar, but weaker correlation was found between
 the concentration (count per mg) of granules and dry-weight (\emph{r} =
 0.3, 90\%CI{[}0.0618, 0.506{]}).\\
 Our results reinforce previous \emph{in vivo} studies suggesting that

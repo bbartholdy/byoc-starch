@@ -64,8 +64,9 @@ compared to surface area
 [@vandeveldeStarchMorphology2002; @janeAnthologyStarch1994; @reichertStarchBible1913b, 364-365; @seidemannStarchAtlas1966, 174-176]. 
 Another potentially important factor 
 from our results is the size of the calculus deposit. We found a 
-`r strength_cor` `r direct_cor` correlation between biofilm size and retained 
-starch granules (Figure \@ref(fig:cor-plot)A);
+`r strength_cor` `r direct_cor` correlation between size of biofilm deposit and
+retained starch granules (Figure \@ref(fig:cor-plot)A), meaning larger calculus
+deposits contain a higher quantity of granules;
 a result that contradicts findings from archaeological contexts
 [@wesolowskiEvaluatingMicrofossilContent2010; @dudgeonDietGeography2014].
 When the concentration of starch granules
