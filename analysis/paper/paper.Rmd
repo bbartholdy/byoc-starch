@@ -61,7 +61,10 @@ source(here("analysis/scripts/amylase-assay.R"))
 ## Compile refs.bib using rbbt package ##
 cite_keys <- rbbt::bbt_detect_citations(list.files(pattern = ".Rmd"))
 #cite_keys <- unlist(cite_keys, use.names = FALSE)
-rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
+try(
+  rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
+  #rbbt::bbt_update_bib(here("analysis/paper/paper.Rmd"), here("analysis/paper/refs.bib"))
+)
 # ## end refs.bib ##
 # 
 # ## Word count ##
@@ -200,8 +203,8 @@ knitr::kable(perc_tbl, col.names = cnames,
 knitr::include_graphics(here("analysis/figures/protocol_overview.png"))
 ```
 
-```{r microscope-fig, fig.cap="Microscope image of a biofilm sample exposed to the potato starch solution. Potato granules can be seen within a bacterial community. Scale bar = 20 $\\mu$m.", fig.show='hold', out.width="40%"}
-knitr::include_graphics(c(here("analysis/figures/starches_w_bar.jpg"), here("analysis/supplementary-materials/figures/SNAP-103412-0006.jpg")), )
+```{r microscope-fig, fig.cap="Microscope images of biofilm samples that were exposed to the starch solutions. Starch granules can be seen within bacterial communities and isolated. Scale bar = 20 $\\mu$m.", fig.show='hold', out.width="40%"}
+knitr::include_graphics(c(here("analysis/figures/starches_w_bar.jpg"), here("analysis/figures/st2C3.2-mix.jpg"), here("analysis/figures/st1B4-wheat.jpg"), here("analysis/figures/2D2-potato.jpg")))
 ```
 
 ```{r ratio-plots, fig.cap="Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."}

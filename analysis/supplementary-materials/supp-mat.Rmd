@@ -110,7 +110,7 @@ Counts represent the absolute number of starches counted on a slide
 
 # Microscope images
 
-```{r img-2, fig.cap="Microscope image of wheat starch from a Potato treatment sample.", echo=FALSE, out.width="80%"}
+```{r img-2, fig.cap="Microscope image of potato starch from a potato treatment sample.", echo=FALSE, out.width="80%"}
 knitr::include_graphics(here("analysis/supplementary-materials/figures/SNAP-103412-0006.jpg"))
 ```
 

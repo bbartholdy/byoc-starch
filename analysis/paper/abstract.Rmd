@@ -28,8 +28,8 @@ quantity of starch granules will increase as the size of the calculus deposit
 increases. A similar, but weaker correlation was found between
 the concentration (count per mg) of granules and dry-weight (\emph{r} =
 0.3, 90\%CI{[}0.0618, 0.506{]}).\\
-Our results reinforce previous \emph{in vivo} studies suggesting that
-dental calculus presents a very small, and partly biased picture of the
+Our results complement and reinforce previous \emph{in vivo} studies suggesting
+that dental calculus presents a very small, and partly biased picture of the
 original dietary intake of starches, with an over-representation of
 plants producing granules smaller than 20 \(\mu\)m in size. The
 experimental model presented here is well-suited to address the need for

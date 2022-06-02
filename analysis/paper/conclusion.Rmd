@@ -23,5 +23,7 @@ research is needed to make sense of the contributing factors, and to explore the
 mechanisms of intra-oral starch incorporation and retention in dental calculus.
 The oral biofilm model described in this study provides a method
 to explore the incorporation and extraction of dietary compounds from dental calculus 
-in a controlled laboratory setting, and unearth the potential biases associated 
+in a controlled laboratory setting. We do not expect our model to replace *in vivo*
+methods; instead, it can provide a complementary means to address the limitations
+of *in vivo* studies, and unearth the potential biases associated 
 with dietary research conducted on archaeological dental calculus. 
