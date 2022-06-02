@@ -22,13 +22,13 @@ This repository contains the data and code for our paper:
 <!--
 Our pre-print is online here:
 
-> Authors, (YYYY). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Name of journal/book, Accessed 17 May 2022. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Name of journal/book, Accessed 02 Jun 2022. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2022). _Compendium of R code and data for Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Accessed 17 May 2022. Online at <https://doi.org/xxx/xxx> -->
+> Authors, (2022). _Compendium of R code and data for Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Accessed 02 Jun 2022. Online at <https://doi.org/xxx/xxx> -->
 
 ## Contents
 
