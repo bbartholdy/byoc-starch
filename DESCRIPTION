@@ -1,6 +1,6 @@
 Package: byocstarch
 Title: Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model
-Version: 0.1.0
+Version: 0.1.1
 Authors@R:
     c(person(given = "Bjorn Peare",
            family = "Bartholdy",
