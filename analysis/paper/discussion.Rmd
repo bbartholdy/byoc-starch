@@ -192,7 +192,7 @@ and inter- and intra-individual variation in plaque accumulation and mineralisat
 The latter is especially difficult to control *in vivo* as it is influenced by 
 numerous factors including genetics, diet, salivary flow, and tooth position and
 morphology 
-[@jepsenCalculusRemoval2011; @simon-soroOralGeography2013; @proctorSpatialGradient2018; @fagernasMicrobialBiogeography2021; @haffajeeBiofilmPosition2009], 
+[@jepsenCalculusRemoval2011; @simonsoroOralGeography2013; @proctorSpatialGradient2018; @fagernasMicrobialBiogeography2021; @haffajeeBiofilmPosition2009], 
 as well as evolutionary differences [@yatesOralMicrobiome2021]. The set of
 limitations for our model differ from *in vivo* methods and, as such, we expect
 our model to complement the results and interpretations of existing and new
