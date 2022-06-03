@@ -29,5 +29,3 @@ Imports:
     readr
 Suggests: 
     devtools
-Depends: 
-    tidyverse

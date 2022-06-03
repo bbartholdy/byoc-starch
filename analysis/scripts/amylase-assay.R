@@ -1,4 +1,22 @@
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
+
+# Upload data -------------------------------------------------------------
+
+plt1_ph1 <- readr::read_tsv(
+  "analysis/data/raw_data/ExpM_plate1_photometric1.csv",
+  col_names = F)
+plt1_ph2 <- readr::read_tsv(
+  "analysis/data/raw_data/ExpM_plate1_photometric2.csv",
+  col_names = F)
+
+plt2_ph1 <- readr::read_tsv(
+  "analysis/data/raw_data/ExpM_plate2_photometric1.csv",
+  col_names = F)
+plt2_ph2 <- readr::read_tsv(
+  "analysis/data/raw_data/ExpM_plate2_photometric2.csv",
+  col_names = F)
+
 
 # Functions ---------------------------------------------------------------
 
@@ -103,24 +121,6 @@ sep_samples <- function(data){
 #   out <- list("saliva" = saliva, "bmm" = bmm)
 #   return(out)
 # }
-
-
-# Upload data -------------------------------------------------------------
-
-plt1_ph1 <- readr::read_tsv(
-  here::here("analysis/data/raw_data/ExpM_plate1_photometric1.csv"),
-  col_names = F)
-plt1_ph2 <- readr::read_tsv(
-  here::here("analysis/data/raw_data/ExpM_plate1_photometric2.csv"),
-  col_names = F)
-
-plt2_ph1 <- readr::read_tsv(
-  here::here("analysis/data/raw_data/ExpM_plate2_photometric1.csv"),
-  col_names = F)
-plt2_ph2 <- readr::read_tsv(
-  here::here("analysis/data/raw_data/ExpM_plate2_photometric2.csv"),
-  col_names = F)
-
 
 # Data prep ---------------------------------------------------------------
 
