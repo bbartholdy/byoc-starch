@@ -5,14 +5,15 @@
 library(here)
 library(dplyr)
 library(broom)
+library(tidyr)
 
 # Upload data -------------------------------------------------------------
 
 # starch counts in samples
-raw_counts <- readr::read_csv("../data/raw_data/starch_counts.csv")
+#raw_counts <- readr::read_csv("../data/raw_data/starch_counts.csv")
 
 # starch counts in solutions
-sol_counts <- readr::read_csv("../data/raw_data/solution_counts.csv")
+#sol_counts <- readr::read_csv("../data/raw_data/solution_counts.csv")
 
 # Functions ---------------------------------------------------------------
 
@@ -47,7 +48,7 @@ raw_counts %>%
 
 sol_corr <- sol_counts %>%
   mutate(across(c(s, m, l, total), extrap_count, portion_slide, vol_slide, days = 16))
-readr::write_csv(sol_corr, "analysis/data/derived_data/sol_corr.csv")
+#readr::write_csv(sol_corr, "analysis/data/derived_data/sol_corr.csv")
 
 # combining potato and wheat counts from mixed treatment solution
 
@@ -83,7 +84,7 @@ corr_counts <- raw_counts %>%
   mutate(across(c(s, m, l, total), correct_count, portion_slide, vol)) %>%
   select(!c(vol, portion_slide)) %>%
   filter(sample != "st2C6")
-readr::write_csv(corr_counts, "analysis/data/derived_data/corr_counts.csv")
+#readr::write_csv(corr_counts, "analysis/data/derived_data/corr_counts.csv")
 
 corr_counts_long <- corr_counts %>%
   #filter(treatment != "control") %>%
@@ -101,7 +102,7 @@ corr_comb <- corr_counts %>%
 #   pivot_wider(names_sep = "", values_from = c(s, m, l, total),
 #               values_fill = NA,
 #               values_fn = function(x) sum(x, na.rm = T))
-readr::write_csv(corr_comb, "analysis/data/derived_data/corr_comb.csv")
+#readr::write_csv(corr_comb, "analysis/data/derived_data/corr_comb.csv")
 
 corr_comb_long <- corr_counts_long %>%
   filter(treatment != "control") %>%

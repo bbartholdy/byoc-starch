@@ -3,19 +3,19 @@ library(ggplot2)
 
 # Upload data -------------------------------------------------------------
 
-plt1_ph1 <- readr::read_tsv(
-  "analysis/data/raw_data/ExpM_plate1_photometric1.csv",
-  col_names = F)
-plt1_ph2 <- readr::read_tsv(
-  "analysis/data/raw_data/ExpM_plate1_photometric2.csv",
-  col_names = F)
-
-plt2_ph1 <- readr::read_tsv(
-  "analysis/data/raw_data/ExpM_plate2_photometric1.csv",
-  col_names = F)
-plt2_ph2 <- readr::read_tsv(
-  "analysis/data/raw_data/ExpM_plate2_photometric2.csv",
-  col_names = F)
+# plt1_ph1 <- readr::read_tsv(
+#   "analysis/data/raw_data/ExpM_plate1_photometric1.csv",
+#   col_names = F)
+# plt1_ph2 <- readr::read_tsv(
+#   "analysis/data/raw_data/ExpM_plate1_photometric2.csv",
+#   col_names = F)
+#
+# plt2_ph1 <- readr::read_tsv(
+#   "analysis/data/raw_data/ExpM_plate2_photometric1.csv",
+#   col_names = F)
+# plt2_ph2 <- readr::read_tsv(
+#   "analysis/data/raw_data/ExpM_plate2_photometric2.csv",
+#   col_names = F)
 
 
 # Functions ---------------------------------------------------------------
