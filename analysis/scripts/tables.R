@@ -1,7 +1,7 @@
 # Script for tables
 
 library(here)
-library(tidyverse)
+library(dplyr)
 
 #corr_counts <- readr::read_csv(here("analysis/data/derived_data/", "corr_counts.csv"))
 #corr_comb <- readr::read_csv(here("analysis/data/derived_data/", "corr_comb.csv"))
