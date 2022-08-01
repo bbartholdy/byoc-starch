@@ -5,7 +5,8 @@
 
 <!--[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio)-->
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5604670.svg)](https://doi.org/10.5281/zenodo.5604670)
+[![](https://zenodo.org/badge/DOI/10.5281/zenodo.5604670.svg)](https://doi.org/10.5281/zenodo.5604670)
+[![](https://img.shields.io/badge/DOI-10.3389/feart.2022.886512-blue)](https://img.shields.io/badge/Published-https%3A%2F%2Fdoi.org%2F10.3389%2Ffeart.2022.886512-blue)
 ![Current
 version](https://img.shields.io/github/v/release/bbartholdy/byoc-starch?label=version)
 <!-- DOI badge: [![DOI](.svg)](repo link) -->
