@@ -17,6 +17,13 @@ This repository contains the data and code for our paper:
 
 > *Investigating Biases Associated with Dietary Starch Incorporation and
 > Retention in an Oral Biofilm Model*. Bjørn Peare Bartholdy, Amanda G.
+> Henry, Frontiers in Earth Science, 2022.07.07; doi:
+> <https://doi.org/10.3389/feart.2022.886512>
+
+**Preprint**
+
+> *Investigating Biases Associated with Dietary Starch Incorporation and
+> Retention in an Oral Biofilm Model*. Bjørn Peare Bartholdy, Amanda G.
 > Henry, bioRxiv 2021.10.27.466104; doi:
 > <https://doi.org/10.1101/2021.10.27.466104>
 
