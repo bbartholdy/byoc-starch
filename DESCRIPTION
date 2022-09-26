@@ -5,7 +5,7 @@ Authors@R:
     c(person(given = "Bjorn Peare",
            family = "Bartholdy",
            role = c("aut", "cre"),
-           email = "bpbartholdy@gmail.com"),
+           email = "bpbartholdy@duck.com"),
            person(given = "Amanda G.",
            family = "Henry",
            role = c("aut"),
@@ -25,7 +25,6 @@ Imports:
     ggplot2,
     here,
     knitr,
-    magrittr,
     patchwork,
     readr
 Suggests: 

@@ -79,15 +79,18 @@ source(here("analysis/scripts/amylase-assay.R"))
 readr::write_csv(sol_corr, here("analysis/data/derived_data/sol_corr.csv"))
 readr::write_csv(corr_counts, here("analysis/data/derived_data/corr_counts.csv"))
 readr::write_csv(corr_comb, here("analysis/data/derived_data/corr_comb.csv"))
+
 ## Compile refs.bib using rbbt package ##
-cite_keys <- rbbt::bbt_detect_citations(list.files(pattern = ".Rmd"))
+#cite_keys <- rbbt::bbt_detect_citations(list.files(pattern = ".Rmd"))
 #cite_keys <- unlist(cite_keys, use.names = FALSE)
 try(
   #rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
-  rbbt::bbt_update_bib(here("analysis/paper/paper.Rmd"), here("analysis/paper/refs.bib"))
+  rbbt::bbt_update_bib(
+    here("analysis/paper/paper.Rmd"),
+    here("analysis/paper/refs.bib"))
 )
 # ## end refs.bib ##
-# 
+
 # ## Word count ##
 # wd_count <- wordcountaddin::word_count()
 cor_r <- signif(count_cor$estimate, 3)
