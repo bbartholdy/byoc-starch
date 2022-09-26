@@ -13,7 +13,7 @@ RUN . /etc/environment \
   && sudo apt-get update \
   && sudo apt-get install libudunits2-dev -y \
   # build this compendium package
-  && R -e "devtools::install('/byocstarch', dep=TRUE)" \
+  && R -e "devtools::install('/byocstarch', dep=TRUE)" #\
   # render the manuscript into a docx, you'll need to edit this if you've
   # customised the location and name of your main Rmd file
-  && R -e "rmarkdown::render('/byocstarch/analysis/paper/paper.Rmd')"
+  #&& R -e "rmarkdown::render('/byocstarch/analysis/paper/paper.Rmd')"
