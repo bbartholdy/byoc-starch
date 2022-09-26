@@ -6,7 +6,7 @@ title: "Investigating Biases Associated with Dietary Starch Incorporation and Re
 #  $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
 #### Frontiers submission ####
 runtitle: "Biases Associated with Starch Incorporation"
-documentclass: frontiers/frontiersSCNS  # or frontiersHLTH, or frontiersFPHY
+documentclass: ../templates/frontiersSCNS  # or frontiersHLTH, or frontiersFPHY
 author:
   - name: Bjørn Peare Bartholdy
     affiliation: '1'
@@ -28,7 +28,7 @@ affiliation:
 #### End: Frontiers submission ####
 #linestretch: 2.0 # double-spacing for review purposes
 bibliography: refs.bib
-csl: frontiers/frontiers.csl
+csl: frontiers.csl
 params:
   keywords: 
     - oral biofilm model
