@@ -16,7 +16,7 @@ Title <- "Investigating Biases Associated with Dietary Starch Incorporation and 
 
 # byocstarch
 
-<!--[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio)--> 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio) 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5604670.svg)](https://doi.org/10.5281/zenodo.5604670)
 ![Current version](https://img.shields.io/github/v/release/bbartholdy/byoc-starch?label=version)
 <!-- DOI badge: [![DOI](.svg)](repo link) -->
@@ -66,7 +66,7 @@ installed on your computer the [R software](https://cloud.r-project.org/)
 itself and optionally [RStudio Desktop](https://rstudio.com/products/rstudio/download/).
 
 You can download the compendium as a zip from from this URL:
-[master.zip](/archive/refs/heads/main.zip). After unzipping:
+[main.zip](/archive/refs/heads/main.zip). After unzipping:
 - open the `.Rproj` file in RStudio
 - run `devtools::install()` to ensure you have the packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file).

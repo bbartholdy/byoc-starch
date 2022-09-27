@@ -3,10 +3,8 @@
 
 # byocstarch
 
-<!--[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio)-->
-
-[![](https://zenodo.org/badge/DOI/10.5281/zenodo.5604670.svg)](https://doi.org/10.5281/zenodo.5604670)
-[![](https://img.shields.io/badge/DOI-10.3389/feart.2022.886512-blue)](https://img.shields.io/badge/Published-https%3A%2F%2Fdoi.org%2F10.3389%2Ffeart.2022.886512-blue)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/bbartholdy/byoc-starch/main?urlpath=rstudio)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5604670.svg)](https://doi.org/10.5281/zenodo.5604670)
 ![Current
 version](https://img.shields.io/github/v/release/bbartholdy/byoc-starch?label=version)
 <!-- DOI badge: [![DOI](.svg)](repo link) -->
@@ -17,26 +15,19 @@ This repository contains the data and code for our paper:
 
 > *Investigating Biases Associated with Dietary Starch Incorporation and
 > Retention in an Oral Biofilm Model*. Bjørn Peare Bartholdy, Amanda G.
-> Henry, Frontiers in Earth Science, 2022.07.07; doi:
-> <https://doi.org/10.3389/feart.2022.886512>
-
-**Preprint**
-
-> *Investigating Biases Associated with Dietary Starch Incorporation and
-> Retention in an Oral Biofilm Model*. Bjørn Peare Bartholdy, Amanda G.
 > Henry, bioRxiv 2021.10.27.466104; doi:
 > <https://doi.org/10.1101/2021.10.27.466104>
 
 <!--
 Our pre-print is online here:
 
-> Authors, (YYYY). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Name of journal/book, Accessed 02 Jun 2022. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). _Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Name of journal/book, Accessed 27 Sep 2022. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2022). _Compendium of R code and data for Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Accessed 02 Jun 2022. Online at <https://doi.org/xxx/xxx> -->
+> Authors, (2022). _Compendium of R code and data for Investigating Biases Associated with Dietary Starch Incorporation and Retention in an Oral Biofilm Model_. Accessed 27 Sep 2022. Online at <https://doi.org/xxx/xxx> -->
 
 ## Contents
 
@@ -67,9 +58,9 @@ optionally [RStudio
 Desktop](https://rstudio.com/products/rstudio/download/).
 
 You can download the compendium as a zip from from this URL:
-[master.zip](/archive/master.zip). After unzipping: - open the `.Rproj`
-file in RStudio - run `devtools::install()` to ensure you have the
-packages this analysis depends on (also listed in the
+[main.zip](/archive/refs/heads/main.zip). After unzipping: - open the
+`.Rproj` file in RStudio - run `devtools::install()` to ensure you have
+the packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file). - finally, open
 `analysis/paper/paper.Rmd` and knit to produce the `paper.pdf`, or run
 `rmarkdown::render("analysis/paper/paper.Rmd")` in the R console
