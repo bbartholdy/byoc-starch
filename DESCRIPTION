@@ -26,6 +26,7 @@ Imports:
     here,
     knitr,
     patchwork,
-    readr
+    readr,
+    rticles
 Suggests: 
     devtools
