@@ -54,6 +54,7 @@ library(ggplot2)
 library(broom)
 library(here)
 library(patchwork)
+devtools::load_all()
 plt1_ph1 <- readr::read_tsv(
   here("analysis/data/raw_data/ExpM_plate1_photometric1.csv"),
   col_names = F)
