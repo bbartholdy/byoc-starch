@@ -15,21 +15,6 @@ library(tidyr)
 # starch counts in solutions
 #sol_counts <- readr::read_csv("../data/raw_data/solution_counts.csv")
 
-# Functions ---------------------------------------------------------------
-
-# function to correct counts for volume and proportion of slide counted
-
-# correct_count <- function(raw, prop, vol){
-#   corrected <- raw * (1 / prop) * (vol / 20)
-#   corrected
-# }
-#
-# # function to extrapolate solution counts to total exposure during the experiment
-#   # i.e., 1 ml per day for 16 days
-# extrap_count <- function(raw, prop, vol, days){
-#   extrap <- raw * (1 / prop) * 100 * days
-#   extrap
-# }
 
 # Outlier detection and removal -------------------------------------------
 
