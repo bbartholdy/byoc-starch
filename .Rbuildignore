@@ -9,3 +9,4 @@
 ^analysis/Amylase$
 ^analysis/paper/_archive$
 ^analysis/paper/frontiers$
+^data-raw$
