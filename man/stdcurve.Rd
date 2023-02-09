@@ -4,7 +4,11 @@
 \alias{stdcurve}
 \title{Standard curve calculation}
 \usage{
-stdcurve(std_data, cols = NULL, ml_maltose = c(3.75, 15, 30, 45, 60, 75, 150))
+stdcurve(
+  std_data,
+  cols = NULL,
+  ml_maltose = c(0.00375, 0.015, 0.03, 0.045, 0.06, 0.075, 0.15)
+)
 }
 \arguments{
 \item{std_data}{Data frame with the photometric readings of the standard curve.}
