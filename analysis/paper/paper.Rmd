@@ -83,10 +83,12 @@ readr::write_csv(corr_comb, here("analysis/data/derived_data/corr_comb.csv"))
 ## Compile refs.bib using rbbt package ##
 #cite_keys <- rbbt::bbt_detect_citations(list.files(pattern = ".Rmd"))
 #cite_keys <- unlist(cite_keys, use.names = FALSE)
+rmd_files <- list.files(path = here("analysis/paper/"), pattern = "*.Rmd")
+
 try(
   #rbbt::bbt_write_bib(here("analysis/paper/refs.bib"), keys = cite_keys, overwrite = T, translator = "bibtex")
   rbbt::bbt_update_bib(
-    here("analysis/paper/paper.Rmd"),
+    rmd_files,
     here("analysis/paper/refs.bib"))
 )
 # ## end refs.bib ##
