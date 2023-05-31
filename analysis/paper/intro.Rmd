@@ -2,7 +2,7 @@
 <!-- Dental calculus is mineralised plaque. And it is pretty cool. -->
 Dental calculus has proven to contain a wealth of 
 dietary information in the form of plant microfossils 
-[@henryCalculusSyria2008; @hardyStarchGranulesDental2009], 
+[@henryCalculusSyria2008; @hardyStarchGranules2009], 
 proteins [@hendyProteomicCalculus2018; @warinnerEvidenceMilk2014],
 and other organic residues [@buckleyDentalCalculus2014]. 
 This dietary information can be preserved within the mineralised dental plaque 
@@ -51,7 +51,7 @@ The authors found significantly more starches with the EDTA extraction method
 than the HCl extraction method; however, as noted by the authors, comparisons 
 involving archaeological calculus are problematic due to variability between and 
 within individuals. 
-Studies conducted on modern humans [@leonardDentalCalculus2015] 
+Studies conducted on modern humans [@leonardPlantMicroremains2015] 
 and non-human primates [@powerChimpCalculus2015; @powerRepresentativenessDental2021] 
 have explored how well microremains (phytoliths and starches)
 extracted from dental calculus represent the actual dietary intake.

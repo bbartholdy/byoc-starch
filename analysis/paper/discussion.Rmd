@@ -68,7 +68,7 @@ from our results is the size of the calculus deposit. We found a
 retained starch granules (Figure \@ref(fig:cor-plot)A), meaning larger calculus
 deposits contain a higher quantity of granules;
 a result that contradicts findings from archaeological contexts
-[@wesolowskiEvaluatingMicrofossilContent2010; @dudgeonDietGeography2014].
+[@wesolowskiEvaluatingMicrofossil2010; @dudgeonDietGeography2014].
 When the concentration of starch granules
 per mg calculus is considered, the correlation is weaker, but still present
 (Figure \@ref(fig:cor-plot)B).
@@ -93,7 +93,7 @@ Other pathways include cross-contamination from plant interactions in soil, such
 as palm phytoliths adhering to the skin of sweet potatoes 
 [@trompDietaryNondietary2015], 
 or accidental ingestion not related to food consumption 
-[@radiniFoodPathways2017; @radiniMedievalWomenEarly2019].  
+[@radiniFoodPathways2017; @radiniMedievalWomen2019].  
 When starch granules enter the mouth, whether through ingestion of food or accidental
 intake, they immediately encounter multiple obstacles. It is likely
 that the bulk of starch granules are swallowed along with the food, and are 
