@@ -18,7 +18,6 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Imports: 
-    bookdown,
     broom,
     dplyr,
     tidyr,
@@ -27,8 +26,9 @@ Imports:
     knitr,
     patchwork,
     readr,
-    rticles
 Suggests: 
     devtools
+    rticles
+    bookdown
 Depends: 
     R (>= 2.10)
