@@ -2,11 +2,11 @@
 
 # Dependencies ------------------------------------------------------------
 
-library(here)
-library(dplyr)
-library(broom)
-library(tidyr)
-devtools::load_all()
+#library(here)
+#library(dplyr)
+#library(broom)
+#library(tidyr)
+#devtools::load_all()
 
 # combining potato and wheat counts from mixed treatment solution
 
