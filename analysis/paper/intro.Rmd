@@ -26,7 +26,7 @@ been acknowledged. The use of dental calculus spans a wide
 variety of archaeological research areas, such as oral microbiome 
 characterisation (including pathogens) through the analysis of DNA and proteins 
 [@adlerSequencingAncient2013; @warinnerPathogensHost2014],
-microbotanical remains [@henryCalculusSyria2008; @hardyStarchGranulesDental2009;
+microbotanical remains [@henryCalculusSyria2008; @hardyStarchGranules2009;
 @mickleburghNewInsights2012], 
 other organic residues and proteins from dietary compounds 
 [@buckleyDentalCalculus2014; @hendyProteomicCalculus2018], 

@@ -24,7 +24,7 @@ Despite the low proportion of granules recovered from the model calculus
 (`r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`),
 the absolute counts were still substantially greater than counts recovered from 
 archaeological remains 
-[@trompDietaryNondietary2015; @trompEDTACalculus2017; @wesolowskiEvaluatingMicrofossilContent2010], which could in part be due to the 
+[@trompDietaryNondietary2015; @trompEDTACalculus2017; @wesolowskiEvaluatingMicrofossil2010], which could in part be due to the 
 lack of oral amylase activity in our model. 
 <!-- Scientific findings as extension of previous work -->
 Previous research conducted on dental calculus from contemporary humans and non-human
@@ -33,7 +33,7 @@ starch granules in dental calculus, and that starch granules extracted from dent
 calculus are underrepresented with regard
 to actual starch intake, which is consistent with our findings (illustrated by high
 standard deviations and low proportional incorporation).
-Leonard and colleagues [-@leonardDentalCalculus2015] found individual
+Leonard and colleagues [-@leonardPlantMicroremains2015] found individual
 calculus samples to be a poor predictor of diet in a population, as many of the 
 consumed plants were missing from some individual samples, but were present in others.   
 Power and colleagues [-@powerChimpCalculus2015] 
@@ -56,7 +56,7 @@ Figure \@ref(fig:ratio-plots)).
 Large potato granules were most affected, potentially because of the greater
 size-range. They can reach up to 100 $\mu$m in maximum length, whereas wheat 
 granules generally only reach up to 35 $\mu$m 
-[@gismondiStarchGranulesData2019; @haslamDecompositionStarch2004; @seidemannStarchAtlas1966, 174-176].
+[@gismondiStarchGranules2019; @haslamDecompositionStarch2004; @seidemannStarchAtlas1966, 174-176].
 Granule morphology may also play a role. Large wheat granules 
 are lenticular and have a larger surface area compared 
 to volume, whereas large potato granules are ovoid and have a larger volume
@@ -173,7 +173,7 @@ relatively homogeneous.
 Finally, we only used native starches in the experimental procedure and the results 
 will likely differ for processed starches [@graneroStarchTaphonomy2020]. 
 Based on the comparatively low counts obtained by Leonard
-and colleagues [-@leonardDentalCalculus2015, Supplement 2], processing and amylase
+and colleagues [-@leonardPlantMicroremains2015, Supplement 2], processing and amylase
 may have a substantial effect on starch granule retention in the oral cavity.
 
 <!-- How this engineering will facilitate future research -->
