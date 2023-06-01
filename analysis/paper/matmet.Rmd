@@ -138,4 +138,4 @@ between the potato and wheat counts.
 This was applied to total biofilm weight and starch count per mg 
 calculus (also z-score standardised) to account for differences in starch 
 concentration in the calculus [as per 
-@wesolowskiEvaluatingMicrofossilContent2010].
+@wesolowskiEvaluatingMicrofossil2010].
