@@ -1,4 +1,4 @@
-## Biofilm formation
+### Biofilm formation
 
 In this study we employ a multispecies oral biofilm model following a modified
 protocol from Sissons and colleagues [-@sissonsMultistationPlaque1991] and
@@ -73,7 +73,7 @@ to prevent starch and bacterial contamination. Control samples that only receive
 sucrose as a treatment were included to detect starch contamination from the
 environment or cross-contamination from other wells in the same plate.
 
-## Amylase activity detection
+### Amylase activity detection
 
 An $\alpha$-amylase (EC 3.2.1.1) activity assay was conducted on artificial
 saliva samples collected from the plate wells on days 3, 6, 8, 9, 10, 12, and 14. 
@@ -91,7 +91,7 @@ maltose released from starch by $\alpha$-amylase activity. Results are reported
 in units (U) per mL enzyme, where 1 U releases 1 $\mu$mole of maltose in 6 minutes.
 The detailed protocol can be found here: <https://www.protocols.io/view/amylase-activity-bw8jphun>.
 
-## Treatment solutions
+### Treatment solutions
 
 A 1 ml aliquot of each starch solution was taken, from which 10 $\mu$l was mounted 
 on a microscope slide with an 18 x 18 mm coverslip, and counted under a light microscope
@@ -101,7 +101,7 @@ were extrapolated to the total number of granules exposed to the samples over 16
 days of treatments (see Supplementary Material for more details). For potato
 treatment samples, the whole slide was counted.
 
-## Extraction method
+### Extraction method
 
 Extraction of starches from the calculus samples was performed by dissolving the
 calculus in 0.5 $\tiny{M}$ ethylenediaminetetraacetic acid (EDTA) 
@@ -116,7 +116,7 @@ whole slide. The count from the slide was extrapolated to the whole sample
 Both wheat and potato granules were divided into three size categories: 
 small (<10 $\mu$m), medium (10 -- 20 $\mu$m), and large (>20 $\mu$m). 
 
-## Statistical analysis
+### Statistical analysis
 
 Statistical analysis was conducted in `r version$version.string`  [@Rbase] and
 the following packages: tidyverse [@tidyverse2019], broom [@Rbroom], 

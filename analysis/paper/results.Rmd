@@ -5,7 +5,7 @@ included in the analysis (Figure \@ref(fig:microscope-fig)), resulting in a tota
 Most control samples contained no starch granules, while some contained negligible
 quantities (see Supplementary Material).
 
-## No amylase activity detected in the model
+### No amylase activity detected in the model
 
 ```{r amylase-activity}
 # table of results reported in units amylase per mL enzyme (but let's be honest,
@@ -31,7 +31,7 @@ The results are not comparable to other studies presenting $\alpha$-amylase acti
 levels in humans, as the unit definition may differ; 
 however, they are sufficient to show that there is no activity in the model.
 
-## Treatment type had minimal effect on biofilm growth
+### Treatment type had minimal effect on biofilm growth
 
 A one-way ANOVA suggests that the type of starch used during the biofilm 
 growth period had a minimal effect on the growth of the biofilm 
@@ -39,7 +39,7 @@ growth period had a minimal effect on the growth of the biofilm
 = `r treat_f.stat`, p = `r treat_p`.
 A summary of sample weights is available in Table \@ref(tab:anova-tbl).
 
-## Starch counts
+### Starch counts
 
 <!-- starch counts in the solutions -->
 
@@ -94,7 +94,7 @@ and in the biofilm samples
 (`r signif(subset(samp_counts, treatment == "potato")$total, 3)`) 
 (Tables \@ref(tab:solution-count-tbl) and \@ref(tab:sample-count-tbl)).
 
-### Proportion of available starches incorporated in samples
+#### Proportion of available starches incorporated in samples
 
 ```{r sample-perc}
 prop_wide <- prop %>%
@@ -123,7 +123,7 @@ the sample, compared to
 `r paste0(perc_tbl$total[4])`
 in the separated wheat treatment.
 
-### Size ratios differ between solutions and samples
+#### Size ratios differ between solutions and samples
 
 <!-- size proportions -->
 <!-- pie charts -->
@@ -177,7 +177,7 @@ increased in potato treatments
 
 <!-- Proportion and size ratios are the most important points to be made -->
 
-### Biofilm weight correlated positively with extracted starch counts
+#### Biofilm weight correlated positively with extracted starch counts
 
 ```{r cor, echo=FALSE}
 # prepare cor output for reporting
