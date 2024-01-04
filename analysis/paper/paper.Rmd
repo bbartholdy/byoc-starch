@@ -1,9 +1,5 @@
 ---
 title: "Investigating Biases Associated with Dietary Starch Incorporation and Retention with an Oral Biofilm Model"
-#author: |
-# Bjørn Peare Bartholdy$^1$, Amanda G. Henry$^1$
-# date: |
-#  $^1$ Department of Archaeological Sciences, Faculty of Archaeology, Leiden University, the Netherlands.
 #### Frontiers submission ####
 runtitle: "Biases Associated with Starch Incorporation"
 documentclass: ../templates/frontiersSCNS  # or frontiersHLTH, or frontiersFPHY
@@ -50,11 +46,14 @@ knitr::opts_chunk$set(
   fig.pos = "H",
   dpi = 300) 
 library(dplyr)
-library(ggplot2)
+#library(ggplot2)
 library(broom)
 library(here)
 library(patchwork)
+library(tidyr)
+#library(byocstarch)
 devtools::load_all()
+
 plt1_ph1 <- readr::read_tsv(
   here("analysis/data/raw_data/ExpM_plate1_photometric1.csv"),
   col_names = F)
@@ -68,22 +67,12 @@ plt2_ph1 <- readr::read_tsv(
 plt2_ph2 <- readr::read_tsv(
   here("analysis/data/raw_data/ExpM_plate2_photometric2.csv"),
   col_names = F)
-# starch counts in samples
-raw_counts <- readr::read_csv(here("analysis/data/raw_data/starch_counts.csv"))
-# starch counts in solutions
-sol_counts <- readr::read_csv(here("analysis/data/raw_data/solution_counts.csv"))
-# load R scripts
+
 source(here("analysis/scripts/analysis.R"))
 source(here("analysis/scripts/tables.R"))
 source(here("analysis/scripts/figures.R"))
 source(here("analysis/scripts/amylase-assay.R"))
-readr::write_csv(sol_corr, here("analysis/data/derived_data/sol_corr.csv"))
-readr::write_csv(corr_counts, here("analysis/data/derived_data/corr_counts.csv"))
-readr::write_csv(corr_comb, here("analysis/data/derived_data/corr_comb.csv"))
 
-## Compile refs.bib using rbbt package ##
-#cite_keys <- rbbt::bbt_detect_citations(list.files(pattern = ".Rmd"))
-#cite_keys <- unlist(cite_keys, use.names = FALSE)
 rmd_files <- list.files(path = here("analysis/paper/"), pattern = "*.Rmd")
 
 try(
@@ -94,8 +83,6 @@ try(
 )
 # ## end refs.bib ##
 
-# ## Word count ##
-# wd_count <- wordcountaddin::word_count()
 cor_r <- signif(count_cor$estimate, 3)
 cor_ci <- signif(count_cor$conf.int, 3)
 cor2_r <- signif(count_cor$estimate, 3)

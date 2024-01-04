@@ -87,3 +87,16 @@ sep_samples <- function(data){
   #out <- list("saliva" = saliva, "bmm" = bmm)
   return(out)
 }
+
+# sep_samples <- function(data){
+#   saliva <- data[1:3, 1:3]
+#   bmm <- data[c(4:8),]
+#   bmm <- bmm[,1:3]
+#   colnames(bmm) <- c("1", "2", "3")
+#   bmm2 <- data[1:3, 4:6]
+#   colnames(bmm2) <- c("1", "2", "3")
+#   bmm <- rbind(bmm,bmm2)
+#   out <- list("saliva" = saliva, "bmm" = bmm)
+#   return(out)
+# }
+

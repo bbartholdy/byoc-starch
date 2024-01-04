@@ -34,20 +34,19 @@ raw_counts %>%
 
 sol_corr <- sol_counts %>%
   mutate(across(c(s, m, l, total), extrap_count, portion_slide, vol_slide, days = 16))
-#readr::write_csv(sol_corr, "analysis/data/derived_data/sol_corr.csv")
 
 # combining potato and wheat counts from mixed treatment solution
 
 sol_long <- sol_corr %>%
   group_by(solution, starch) %>%
-  summarise(across(c(s,m,l, total), mean, na.rm = T)) %>%
+  summarise(across(c(s,m,l, total), \(x) mean(x, na.rm = T))) %>%
   pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size") %>%
   rename(treatment = solution) # rename to be consistent with sample counts
 
 sol_comb <- sol_corr %>%
   filter(solution != "mix") %>%
   group_by(solution, starch) %>%
-  summarise(across(c("s","m","l","total"), mean)) %>%
+  summarise(across(c("s","m","l","total"), \(x) mean(x))) %>%
   ungroup() %>%
   add_row(sol_corr[5:6,c("solution", "starch", "s","m","l","total")], ) %>%
   rename(treatment = solution) %>% # I should have done better naming the raw data...
@@ -65,39 +64,16 @@ sol_comb_long <- sol_corr %>%
 
 # Apply correction --------------------------------------------------------
 
-corr_counts <- raw_counts %>%
-  #filter(treatment != "control") %>%
-  mutate(across(c(s, m, l, total), correct_count, portion_slide, vol)) %>%
-  select(!c(vol, portion_slide)) %>%
-  filter(sample != "st2C6")
-#readr::write_csv(corr_counts, "analysis/data/derived_data/corr_counts.csv")
-
 corr_counts_long <- corr_counts %>%
   #filter(treatment != "control") %>%
   pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size")
 
 # combining potato and wheat counts from mixed treatment samples
 
-# merge Row C rows with the sum of counts
-corr_comb <- corr_counts %>%
-  group_by(sample, plate, row, treatment, weight) %>%
-  summarise(across(c(s,m,l,total), sum, na.rm = T))
-
-# corr_comb <- corr_counts %>%
-#   select(!starch) %>%
-#   pivot_wider(names_sep = "", values_from = c(s, m, l, total),
-#               values_fill = NA,
-#               values_fn = function(x) sum(x, na.rm = T))
-#readr::write_csv(corr_comb, "analysis/data/derived_data/corr_comb.csv")
-
 corr_comb_long <- corr_counts_long %>%
   filter(treatment != "control") %>%
   group_by(treatment, starch, size) %>%
   summarise(count = mean(count, na.rm = T))
-
-#corr_counts <- readr::read_csv(here("analysis/data/derived_data/corr_counts.csv"))
-#corr_comb <- readr::read_csv(here("analysis/data/derived_data/corr_comb.csv"))
-#sol_corr <- readr::read_csv(here("analysis/data/derived_data/sol_corr.csv"))
 
 # ANOVA -------------------------------------------------------------------
 
