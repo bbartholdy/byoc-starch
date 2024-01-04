@@ -6,6 +6,7 @@ library(here)
 library(dplyr)
 library(broom)
 library(tidyr)
+library(ggplot2)
 
 # Upload data -------------------------------------------------------------
 

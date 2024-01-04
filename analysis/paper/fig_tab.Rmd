@@ -10,7 +10,6 @@ output:
 ```{r setup-figs-and-tbls, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE)
-library(tidyverse)
 library(broom)
 library(here)
 library(patchwork)
