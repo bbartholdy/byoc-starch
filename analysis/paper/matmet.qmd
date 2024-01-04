@@ -66,7 +66,13 @@ The substrata were submerged in 1 ml/well CPMU for six minutes, five times
 daily, in a two-hour cycle. During the mineralisation period, starch treatments
 were reduced to once per day after the five CPMU treatments. This process was repeated 
 for 10 days until the end of the experiment on day 24 
-(see Figure \@ref(fig:protocol-fig) for an overview of the protocol).
+(see @fig-protocol for an overview of the protocol).
+
+```{r}
+#| label: fig-protocol
+#| fig-cap: "Overview of experiment protocol including the plate setup."
+knitr::include_graphics(here("figures/protocol_overview.png"))
+```
 
 All laboratory work was conducted in sterile conditions under a laminar flow hood 
 to prevent starch and bacterial contamination. Control samples that only received

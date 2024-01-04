@@ -1,9 +1,34 @@
 All samples yielded sufficient biofilm growth and starch incorporation to be 
-included in the analysis (Figure \@ref(fig:microscope-fig)), resulting in a total of 48 biofilm samples (two plates of 24),
-45 of which were used for analysis (three samples were set aside for later
- analysis).
-Most control samples contained no starch granules, while some contained negligible
-quantities (see Supplementary Material).
+included in the analysis (@fig-microscope), resulting in a total of 48 biofilm
+samples (two plates of 24), 45 of which were used for analysis (three samples
+were set aside for later analysis). Most control samples contained no starch
+granules, while some contained negligible quantities (see Supplementary Material).
+
+::: {#fig-microscope layout-ncol=2}
+
+```{r}
+knitr::include_graphics(here("figures/starches_w_bar.jpg"))#,
+                          #here("figures/st2C3.2-mix.jpg"),
+                          #here("figures/st1B4-wheat.jpg"),
+                          #here("figures/2D2-potato.jpg")))
+```
+
+```{r}
+knitr::include_graphics(here("figures/st2C3.2-mix.jpg"))
+```
+
+```{r}
+knitr::include_graphics(here("figures/st1B4-wheat.jpg"))
+```
+
+```{r}
+knitr::include_graphics(here("figures/2D2-potato.jpg"))
+```
+
+Microscope images of biofilm samples that were exposed to the starch solutions.
+Starch granules can be seen within bacterial communities and isolated. Scale bar = 20 μm.
+
+:::
 
 ### No amylase activity detected in the model
 
@@ -37,7 +62,14 @@ A one-way ANOVA suggests that the type of starch used during the biofilm
 growth period had a minimal effect on the growth of the biofilm 
 (expressed as total dry weight of the sample), F(`r paste(treat_df[1], treat_df[2], sep = ", ")`)
 = `r treat_f.stat`, p = `r treat_p`.
-A summary of sample weights is available in Table \@ref(tab:anova-tbl).
+A summary of sample weights is available in @tbl-anova.
+
+```{r}
+#| label: tbl-anova
+#| tbl-cap: "Summary statistics for biofilm dry-weights (in mg) by treatment."
+knitr::kable(anova_tbl, 
+             col.names = c("Treatment", "Mean", "SD", "Min", "Max"))
+```
 
 ### Starch counts
 
@@ -92,7 +124,23 @@ The potato treatment had the lowest absolute counts in both the solution
 (`r signif(subset(sol_comb_out, treatment == "potato")$total, 3)`)
 and in the biofilm samples 
 (`r signif(subset(samp_counts, treatment == "potato")$total, 3)`) 
-(Tables \@ref(tab:solution-count-tbl) and \@ref(tab:sample-count-tbl)).
+(@tbl-solution-count and @tbl-sample-count).
+
+```{r}
+#| label: tbl-solution-count
+#| tbl-cap: "Mean starch counts from solutions, including the proportional makeup of the different sizes of granules."
+cnames <- c("Solution", "Starch", "Small (%)", "Medium (%)", "Large (%)", "Total (%)")
+options(knitr.kable.NA = "")
+knitr::kable(sol_tbl, col.names = cnames)
+```
+
+```{r sample-count-tbl}
+#| label: tbl-sample-count
+#| tbl-cap: "Mean starch counts extracted from samples with standard deviation (SD), including the proportion of granule sizes of the total count."
+cnames <- c("Treatment", "Starch", "Small (%)", "SD", "Medium (%)", "SD", 
+            "Large (%)", "SD", "Total (%)", "SD")
+knitr::kable(samp_counts_tbl, col.names = cnames)
+```
 
 #### Proportion of available starches incorporated in samples
 
@@ -109,12 +157,18 @@ The proportion of total starches from the solutions that were incorporated
 into the samples ranged from 
 `r paste(min(perc_tbl$total), max(perc_tbl$total), sep = " to ")`,
 with potato granules being more readily incorporated than wheat in both the
-separated- and mixed-treatment samples
-(Table \@ref(tab:sample-prop-tbl)). 
+separated- and mixed-treatment samples (@tbl-sample-prop). 
 There is an inverse relationship between the absolute starch count in the solutions 
 and the proportional incorporation of starches in the biofilm samples, i.e., potato 
 had the lowest absolute count in solutions, but the highest proportional 
 incorporation, and vice versa for the mixed treatment.
+
+```{r}
+#| label: tbl-sample-prop
+#| tbl-cap: "The mean percentage of starches from the solutions that were incorporated into the samples."
+cnames <- c("Treatment", "Starch", "Small", "Medium", "Large", "Total")
+knitr::kable(perc_tbl, col.names = cnames)
+```
 
 <!-- mixed treatments -->
 Wheat incorporation was most affected in the mixed-treatment samples, with only
@@ -173,9 +227,15 @@ decrease in relative abundance in the potato-only treatment, and a
 decrease in mixed treatments. Medium granules increased in relative abundance 
 across all samples, while small granules decreased in wheat treatments and 
 increased in potato treatments 
-(Figure \@ref(fig:ratio-plots)). 
+(@fig-ratio-plots).
 
 <!-- Proportion and size ratios are the most important points to be made -->
+```{r}
+#| label: fig-ratio-plots
+#| fig-cap: "Proportion of sizes of starch granules from solutions (outer ring) and treatment samples (inner ring) in separated wheat (A) and potato (B) treatments, and mixed wheat (C) and potato (D) treatments."
+#plot_grid(pl_wheat1, pl_potato1, labels = c("A", "B"), label_y = 0.1)
+(pl_wheat1 + pl_potato1) / (pl_wheat2 + pl_potato2) + plot_layout(guides = "collect") + plot_annotation(tag_levels = "A")
+```
 
 #### Biofilm weight correlated positively with extracted starch counts
 

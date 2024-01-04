@@ -15,8 +15,7 @@ The absolute counts, however, differed more visibly between treatments and was
 proportional with the total count of granules in the treatment solutions. Wheat 
 and mixed solutions had the highest absolute mean count of starch granules, and 
 also had the highest absolute mean count of starch granules extracted from the 
-dental calculus
-(Tables \@ref(tab:solution-count-tbl) and \@ref(tab:sample-count-tbl)).
+dental calculus (@tbl-solution-count and @tbl-sample-count).
 This suggests that the starches that are more frequently consumed will be present
 in higher quantities in the dental calculus, at least prior to inhumation and 
 degradation in the burial environment. 
@@ -50,9 +49,7 @@ of incorporation into the calculus. Starch granules larger than 20 $\mu$m in
 maximum length were underrepresented in the calculus samples compared to the original 
 starch solutions, an effect that was consistent across all three treatments. Medium
 granules (10--20 $\mu$m) were often over-represented
-(Table \@ref(tab:sample-prop-tbl), 
-and 
-Figure \@ref(fig:ratio-plots)).
+(@tbl-sample-prop, and @fig-ratio-plots).
 Large potato granules were most affected, potentially because of the greater
 size-range. They can reach up to 100 $\mu$m in maximum length, whereas wheat 
 granules generally only reach up to 35 $\mu$m 
@@ -65,13 +62,12 @@ compared to surface area
 Another potentially important factor 
 from our results is the size of the calculus deposit. We found a 
 `r strength_cor` `r direct_cor` correlation between size of biofilm deposit and
-retained starch granules (Figure \@ref(fig:cor-plot)A), meaning larger calculus
-deposits contain a higher quantity of granules;
-a result that contradicts findings from archaeological contexts
+retained starch granules ([@fig-cor-plot]A), meaning larger calculus deposits
+contain a higher quantity of granules; a result that contradicts findings from
+archaeological contexts
 [@wesolowskiEvaluatingMicrofossil2010; @dudgeonDietGeography2014].
-When the concentration of starch granules
-per mg calculus is considered, the correlation is weaker, but still present
-(Figure \@ref(fig:cor-plot)B).
+When the concentration of starch granules per mg calculus is considered, the
+correlation is weaker, but still present ([@fig-cor-plot]B).
 While the larger deposits contain a higher absolute count, our findings also suggest
 that they contain a slightly higher concentration of starches. This may also explain
 the lower mean retention of starch granules in mixed treatments compared to
@@ -120,7 +116,7 @@ Starch granules that are trapped in these pockets are (at least to some extent)
 protected from aforementioned clearance mechanisms, especially once
 a new layer of plaque has covered the surface of the plaque/calculus. 
 The size bias against large granules (>20 $\mu$m) from both wheat and potato 
-(Table \@ref(tab:sample-prop-tbl)) may give further credence to
+(@tbl-sample-prop) may give further credence to
 this incorporation pathway, as the smaller starch granules have an advantage over
 larger granules, and can be stored in larger quantities.
 This was also suggested by Power and colleagues [-@powerSEMCalculus2014], who
