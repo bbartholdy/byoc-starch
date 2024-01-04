@@ -54,7 +54,8 @@ corr_comb <- corr_counts %>%
 #               values_fn = function(x) sum(x, na.rm = T))
 #readr::write_csv(corr_comb, "analysis/data/derived_data/corr_comb.csv")
 
-
+usethis::use_data(raw_counts, overwrite = TRUE)
+usethis::use_data(sol_counts, overwrite = TRUE)
 usethis::use_data(corr_comb, overwrite = TRUE)
 usethis::use_data(corr_counts, overwrite = TRUE)
 usethis::use_data(sol_corr, overwrite = TRUE)
