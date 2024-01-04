@@ -12,14 +12,14 @@
 
 sol_long <- sol_corr %>%
   group_by(solution, starch) %>%
-  summarise(across(c(s,m,l, total), mean, na.rm = T)) %>%
+  summarise(across(c(s,m,l, total), \(x) mean(x, na.rm = T))) %>%
   pivot_longer(cols = c(s,m,l, total), values_to = "count", names_to = "size") %>%
   rename(treatment = solution) # rename to be consistent with sample counts
 
 sol_comb <- sol_corr %>%
   filter(solution != "mix") %>%
   group_by(solution, starch) %>%
-  summarise(across(c("s","m","l","total"), mean)) %>%
+  summarise(across(c("s","m","l","total"), \(x) mean(x))) %>%
   ungroup() %>%
   add_row(sol_corr[5:6,c("solution", "starch", "s","m","l","total")], ) %>%
   rename(treatment = solution) %>% # I should have done better naming the raw data...
